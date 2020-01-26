@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ui">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{bfb1e724-306d-436f-9c4b-61bcfde16fb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\projector">
+      <UniqueIdentifier>{0a72a89e-fc22-42c6-9293-1cf2d411e663}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\projector\LC4500API">
+      <UniqueIdentifier>{b0d62f9b-d43c-4971-9e7c-a0cc53e4140f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scene">
+      <UniqueIdentifier>{2ae873f3-9729-42ac-8918-28ee9ea3c253}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scene\loadingscene">
+      <UniqueIdentifier>{e5c40bd8-2c75-40f6-9342-5a38ff592e62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scene\common">
+      <UniqueIdentifier>{ec31a8d0-6bb1-459d-888c-11c9a40584c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scene\mainscene">
+      <UniqueIdentifier>{12d88fb5-ca78-4b18-aa67-4c5563694b37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scene\resultscene">
+      <UniqueIdentifier>{0cfee5ed-a22f-4592-a835-54d165998702}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\reconstruction">
+      <UniqueIdentifier>{0db4fc61-804a-4348-80a2-db76115e7bce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\result">
+      <UniqueIdentifier>{b1b26536-e795-4fa7-84a8-570fc6a5a100}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\image">
+      <UniqueIdentifier>{95ad8baf-7e92-4261-8f6b-6818aa441b8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\font">
+      <UniqueIdentifier>{ec183521-b5e0-408b-9e24-aa9910874ed3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="UI\Reconstruction.ui">
+      <Filter>ui</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Classes\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Reconstruction.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\projector\LC4500API\API.cpp">
+      <Filter>lib\projector\LC4500API</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\projector\LC4500API\hid.Win.c">
+      <Filter>lib\projector\LC4500API</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\projector\LC4500API\usb.cpp">
+      <Filter>lib\projector\LC4500API</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\projector\ProjectorLC4500.cpp">
+      <Filter>lib\projector</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Classes\Reconstruction.h">
+      <Filter>src</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="Resources\Reconstruction.qrc">
+      <Filter>resource</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Lib\projector\LC4500API\API.h">
+      <Filter>lib\projector\LC4500API</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\projector\LC4500API\Common.h">
+      <Filter>lib\projector\LC4500API</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\projector\LC4500API\hidapi.h">
+      <Filter>lib\projector\LC4500API</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\projector\LC4500API\usb.h">
+      <Filter>lib\projector\LC4500API</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\projector\Projector.h">
+      <Filter>lib\projector</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\projector\ProjectorLC4500.h">
+      <Filter>lib\projector</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

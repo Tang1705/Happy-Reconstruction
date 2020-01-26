@@ -1,0 +1,28 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+<Qt_DEFINES_>UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;NDEBUG</Qt_DEFINES_>
+<Qt_INCLUDEPATH_>D:\Qt\5.12.3\msvc2017_64\include;D:\Qt\5.12.3\msvc2017_64\include\QtWidgets;D:\Qt\5.12.3\msvc2017_64\include\QtGui;D:\Qt\5.12.3\msvc2017_64\include\QtANGLE;D:\Qt\5.12.3\msvc2017_64\include\QtCore;C:\VulkanSDK\1.0.51.0\include;D:\Qt\5.12.3\msvc2017_64\mkspecs\win32-msvc</Qt_INCLUDEPATH_>
+<Qt_LIBS_>D:\Qt\5.12.3\msvc2017_64\lib\Qt5Widgets.lib;D:\Qt\5.12.3\msvc2017_64\lib\Qt5Gui.lib;D:\Qt\5.12.3\msvc2017_64\lib\Qt5Core.lib;D:\Qt\5.12.3\msvc2017_64\lib\qtmain.lib;shell32.lib</Qt_LIBS_>
+<Qt_LIBPATH_>D:\Qt\5.12.3\msvc2017_64\lib;C:\openssl\lib;C:\Utils\my_sql\mysql-5.6.11-winx64\lib;C:\Utils\postgresql\pgsql\lib</Qt_LIBPATH_>
+<Qt_INCLUDEPATH_
+      >$(Qt_INCLUDEPATH_);x64\Release\moc\Classes;x64\Release\uic\UI</Qt_INCLUDEPATH_>
+    <QtBkup_QtInstall
+      >5.12.3</QtBkup_QtInstall>
+    <QtBkup_QtModules
+      >core;gui;widgets</QtBkup_QtModules>
+    <QtBkup_QtPathBinaries
+      >bin</QtBkup_QtPathBinaries>
+    <QtBkup_QtPathLibraryExecutables
+      >bin</QtBkup_QtPathLibraryExecutables>
+    <QtBkup_QtHeaderSearchPath
+      ></QtBkup_QtHeaderSearchPath>
+    <QtBkup_QtLibrarySearchPath
+      ></QtBkup_QtLibrarySearchPath>
+    <QtBkup_QtVars
+      >DEFINES=/-D(\w+)/$1/;INCLUDEPATH=INCPATH/-I(\x22[^\x22]+\x22|[^\s]+)/$1/;LIBS=/(?:\/LIBPATH:(?:\x22[^\x22]+\x22|[^\s]+))|(\x22[^\x22]+\x22|[^\s]+)/$1/;LIBPATH=LIBS/\/LIBPATH:(\x22[^\x22]+\x22|[^\s]+)/$1/</QtBkup_QtVars>
+    <QtBkup_QMakeCodeLines
+      ></QtBkup_QMakeCodeLines>
+    <QtBkup_QtBuildConfig
+      >release</QtBkup_QtBuildConfig>
+  </PropertyGroup>
+</Project>
