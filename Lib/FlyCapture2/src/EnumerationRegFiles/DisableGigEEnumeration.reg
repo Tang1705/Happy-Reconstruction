@@ -1,0 +1,4 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Point Grey Research, Inc.\FlyCapture2]
+"DisableGigEEnumeration"=dword:00000001

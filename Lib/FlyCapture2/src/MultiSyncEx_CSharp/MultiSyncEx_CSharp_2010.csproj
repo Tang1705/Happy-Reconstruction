@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <FC2Version>2.12.3.2</FC2Version>
+    <FC2InformationalVersion>2.12.3.201801090091</FC2InformationalVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D04F9B8C-1D1F-4F92-AF06-EC5599D8F9D7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MultiSyncEx_CSharp</RootNamespace>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyName>MultiSyncEx_CSharp</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <Choose>
+    <When Condition=" ('$(Configuration)|$(Platform)' == 'Release|AnyCPU' And Exists('..\..\bin') And !Exists('..\..\bin64')) Or ('$(Configuration)|$(Platform)' == 'Release|x86' And Exists('..\..\bin'))  ">
+      <ItemGroup>
+        <Reference Include="FlyCapture2Managed, Version=$(FC2Version), Culture=neutral, processorArchitecture=x86">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\..\bin\FlyCapture2Managed_v100.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="MultiSyncLibraryManaged, Version=$(FC2Version), Culture=neutral, processorArchitecture=x86">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\..\bin\MultiSyncLibraryManaged_v100.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition=" ('$(Configuration)|$(Platform)' == 'Debug|AnyCPU' And Exists('..\..\bin') And !Exists('..\..\bin64')) Or ('$(Configuration)|$(Platform)' == 'Debug|x86' And Exists('..\..\bin'))  ">
+      <ItemGroup>
+        <Reference Include="FlyCapture2Managed, Version=$(FC2Version), Culture=neutral, processorArchitecture=x86">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\..\bin\FlyCapture2Managedd_v100.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="MultiSyncLibraryManaged, Version=$(FC2Version), Culture=neutral, processorArchitecture=x86">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\..\bin\MultiSyncLibraryManagedd_v100.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition=" ('$(Configuration)|$(Platform)' == 'Release|AnyCPU' And Exists('..\..\bin64')) Or ('$(Configuration)|$(Platform)' == 'Release|x64' And Exists('..\..\bin64'))  ">
+      <ItemGroup>
+        <Reference Include="FlyCapture2Managed, Version=$(FC2Version), Culture=neutral, processorArchitecture=AMD64">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\..\bin64\FlyCapture2Managed_v100.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="MultiSyncLibraryManaged, Version=$(FC2Version), Culture=neutral, processorArchitecture=AMD64">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\..\bin64\MultiSyncLibraryManaged_v100.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition=" ('$(Configuration)|$(Platform)' == 'Debug|AnyCPU' And Exists('..\..\bin64')) Or ('$(Configuration)|$(Platform)' == 'Debug|x64' And Exists('..\..\bin64'))  ">
+      <ItemGroup>
+        <Reference Include="FlyCapture2Managed, Version=$(FC2Version), Culture=neutral, processorArchitecture=AMD64">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\..\bin64\FlyCapture2Managedd_v100.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="MultiSyncLibraryManaged, Version=$(FC2Version), Culture=neutral, processorArchitecture=AMD64">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\..\bin64\MultiSyncLibraryManagedd_v100.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+      IF $(Platform)==x86 (
+      copy "$(ProjectDir)..\..\bin\libiomp5md.dll" "$(TargetDir)"
+      IF $(ConfigurationName)==Debug (
+      copy "$(TargetDir)$(TargetFileName)" "$(ProjectDir)..\..\bin\$(TargetName)d$(TargetExt)"
+      copy "$(ProjectDir)..\..\bin\FlyCapture2d_v100.dll" "$(TargetDir)"
+      ) ELSE (
+      copy "$(TargetDir)$(TargetFileName)" "$(ProjectDir)..\..\bin\$(TargetFileName)"
+      copy "$(ProjectDir)..\..\bin\FlyCapture2_v100.dll" "$(TargetDir)"
+      )
+      ) ELSE IF $(Platform)==x64 (
+      copy "$(ProjectDir)..\..\bin64\libiomp5md.dll" "$(TargetDir)"
+      IF $(ConfigurationName)==Debug (
+      copy "$(TargetDir)$(TargetFileName)" "$(ProjectDir)..\..\bin64\$(TargetName)d$(TargetExt)"
+      copy "$(ProjectDir)..\..\bin64\FlyCapture2d_v100.dll" "$(TargetDir)"
+      ) ELSE (
+      copy "$(TargetDir)$(TargetFileName)" "$(ProjectDir)..\..\bin64\$(TargetFileName)"
+      copy "$(ProjectDir)..\..\bin64\FlyCapture2_v100.dll" "$(TargetDir)"
+      )
+      )
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

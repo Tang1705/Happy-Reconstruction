@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <FC2Version>2.12.3.2</FC2Version>
+    <FC2InformationalVersion>2.12.3.201801090091</FC2InformationalVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{07B8B18E-31A8-4B7F-8C26-D759616FA26F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FlyCapture2SimpleGUI_WPF</RootNamespace>
+    <AssemblyName>FlyCapture2SimpleGUI_WPF</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\FlyCapture2SimpleGUI_WPF.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\FlyCapture2SimpleGUI_WPF.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\FlyCap2MFC.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Choose>
+    <When Condition=" ('$(Configuration)|$(Platform)' == 'Release|AnyCPU' And Exists('..\..\bin') And !Exists('..\..\bin64')) Or ('$(Configuration)|$(Platform)' == 'Release|x86' And Exists('..\..\bin'))  ">
+      <ItemGroup>
+        <Reference Include="FlyCapture2Managed, Version=$(FC2Version), Culture=neutral, processorArchitecture=x86">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\..\bin\FlyCapture2Managed_v100.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="FlyCap2CameraControl, Version=$(FC2Version), Culture=neutral, processorArchitecture=x86">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\..\bin\FlyCap2CameraControl_v100.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition=" ('$(Configuration)|$(Platform)' == 'Debug|AnyCPU' And Exists('..\..\bin') And !Exists('..\..\bin64')) Or ('$(Configuration)|$(Platform)' == 'Debug|x86' And Exists('..\..\bin'))  ">
+      <ItemGroup>
+        <Reference Include="FlyCapture2Managed, Version=$(FC2Version), Culture=neutral, processorArchitecture=x86">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\..\bin\FlyCapture2Managedd_v100.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="FlyCap2CameraControl, Version=$(FC2Version), Culture=neutral, processorArchitecture=x86">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\..\bin\FlyCap2CameraControld_v100.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition=" ('$(Configuration)|$(Platform)' == 'Release|AnyCPU' And Exists('..\..\bin64')) Or ('$(Configuration)|$(Platform)' == 'Release|x64' And Exists('..\..\bin64'))  ">
+      <ItemGroup>
+        <Reference Include="FlyCapture2Managed, Version=$(FC2Version), Culture=neutral, processorArchitecture=AMD64">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\..\bin64\FlyCapture2Managed_v100.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="FlyCap2CameraControl, Version=$(FC2Version), Culture=neutral, processorArchitecture=AMD64">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\..\bin64\FlyCap2CameraControl_v100.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition=" ('$(Configuration)|$(Platform)' == 'Debug|AnyCPU' And Exists('..\..\bin64')) Or ('$(Configuration)|$(Platform)' == 'Debug|x64' And Exists('..\..\bin64'))  ">
+      <ItemGroup>
+        <Reference Include="FlyCapture2Managed, Version=$(FC2Version), Culture=neutral, processorArchitecture=AMD64">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\..\bin64\FlyCapture2Managedd_v100.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="FlyCap2CameraControl, Version=$(FC2Version), Culture=neutral, processorArchitecture=AMD64">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\..\bin64\FlyCap2CameraControld_v100.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="FullImageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FullImageWindow.xaml.cs">
+      <DependentUpon>FullImageWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FlyCap2MFC.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FlyCapture2Managed\FlyCapture2Managed_2010.vcxproj">
+      <Project>{D3A5142D-F6DA-416B-AEEB-0542862A5EB4}</Project>
+      <Name>FlyCapture2Managed</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+	  IF $(Platform)==x86 (
+      copy "$(ProjectDir)..\..\bin\libiomp5md.dll" "$(TargetDir)"
+      IF $(ConfigurationName)==Debug (
+      copy "$(TargetDir)$(TargetFileName)" "$(ProjectDir)..\..\bin\$(TargetName)d$(TargetExt)"
+      copy "$(ProjectDir)..\..\bin\FlyCapture2d_v100.dll" "$(TargetDir)"
+      ) ELSE (
+      copy "$(TargetDir)$(TargetFileName)" "$(ProjectDir)..\..\bin\$(TargetFileName)"
+      copy "$(ProjectDir)..\..\bin\FlyCapture2_v100.dll" "$(TargetDir)"
+      )
+      ) ELSE IF $(Platform)==x64 (
+      copy "$(ProjectDir)..\..\bin64\libiomp5md.dll" "$(TargetDir)"
+      IF $(ConfigurationName)==Debug (
+      copy "$(TargetDir)$(TargetFileName)" "$(ProjectDir)..\..\bin64\$(TargetName)d$(TargetExt)"
+      copy "$(ProjectDir)..\..\bin64\FlyCapture2d_v100.dll" "$(TargetDir)"
+      ) ELSE (
+      copy "$(TargetDir)$(TargetFileName)" "$(ProjectDir)..\..\bin64\$(TargetFileName)"
+      copy "$(ProjectDir)..\..\bin64\FlyCapture2_v100.dll" "$(TargetDir)"
+      )
+      )
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

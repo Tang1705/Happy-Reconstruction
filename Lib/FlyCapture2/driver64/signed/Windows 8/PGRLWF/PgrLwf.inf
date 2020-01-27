@@ -1,0 +1,108 @@
+;=============================================================================
+; Copyright © 2014 Point Grey Research, Inc. All Rights Reserved.
+;
+; This software is the confidential and proprietary information of Point
+; Grey Research, Inc. ("Confidential Information").  You shall not
+; disclose such Confidential Information and shall use it only in
+; accordance with the terms of the license agreement you entered into
+; with Point Grey Research Inc.
+; 
+; PGR MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF THE
+; SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+; IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+; PURPOSE, OR NON-INFRINGEMENT. PGR SHALL NOT BE LIABLE FOR ANY DAMAGES
+; SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING
+; THIS SOFTWARE OR ITS DERIVATIVES.
+;=============================================================================
+
+[version]
+Signature       = "$Windows NT$"
+Class           = NetService
+ClassGUID       = {4D36E974-E325-11CE-BFC1-08002BE10318}
+CatalogFile     = PgrLwf.cat
+Provider        = %PointGrey%
+DriverVer=12/29/2017,2.7.3.111
+;InformationalVer = 2.7.3.201712290002
+
+[Manufacturer]
+%PointGrey%=POINTGREY,NTx86,NTamd64
+
+[POINTGREY.NTx86]
+%PGR_LWF_Desc%=Install, pgr_lwf
+
+[POINTGREY.NTamd64]
+%PGR_LWF_Desc%=Install, pgr_lwf
+
+;-------------------------------------------------------------------------
+; Installation Section
+;-------------------------------------------------------------------------
+[Install]
+AddReg=Inst_Ndi
+Characteristics=0x40000
+
+NetCfgInstanceId="{67C06295-5DDD-4EA3-8D7A-9287D3746854}"
+
+Copyfiles = PgrLwf.copyfiles.sys
+
+[SourceDisksNames]
+1=%PGR_LWF_Desc%,"",,
+
+[SourceDisksFiles]
+PgrLwf.sys=1
+
+[DestinationDirs]
+DefaultDestDir=12
+PgrLwf.copyfiles.sys=12
+
+[PgrLwf.copyfiles.sys]
+PgrLwf.sys,,,2
+
+
+;-------------------------------------------------------------------------
+; Ndi installation support
+;-------------------------------------------------------------------------
+[Inst_Ndi]
+HKR, Ndi,Service,,"PgrLwf"
+HKR, Ndi,CoServices,0x00010000,"PgrLwf"
+HKR, Ndi,HelpText,,%PGR_LWF_HelpText%
+HKR, Ndi,FilterClass,, Custom
+HKR, Ndi,FilterType,0x00010001,2
+HKR, Ndi\Interfaces,UpperRange,,"noupper"
+HKR, Ndi\Interfaces,LowerRange,,"nolower"
+HKR, Ndi\Interfaces, FilterMediaTypes,,"ethernet"
+HKR, Ndi,FilterRunType,0x00010001, 2
+
+;-------------------------------------------------------------------------
+; Service installation support
+;-------------------------------------------------------------------------
+[Install.Services]
+AddService=PgrLwf,0x800,PGR_LWF_Service_Inst
+
+[PGR_LWF_Service_Inst]
+DisplayName     = %PGR_LWF_Desc%
+ServiceType     = 1 ;SERVICE_KERNEL_DRIVER
+StartType       = 1 ;SERVICE_SYSTEM_START
+ErrorControl    = 1 ;SERVICE_ERROR_NORMAL
+ServiceBinary   = %12%\PgrLwf.sys
+LoadOrderGroup  = NDIS
+Description     = %PGR_Lwf_Desc%
+AddReg          = Common.Params.reg, NdisImPlatformBindingOptions.reg
+
+[Install.Remove.Services]
+DelService=PgrLwf,0x200 ; SPSVCINST_STOPSERVICE
+
+[Common.Params.reg]
+;None
+
+[NdisImPlatformBindingOptions.reg]
+HKR, Parameters, NdisImPlatformBindingOptions,0x00010001,0 ; Subscribe to default behavior
+
+[Strings]
+PointGrey = "PointGrey"
+PGR_LWF_Desc = "Point Grey Lightweight Filter Driver 12/29/2017, 2.7.3.111"
+PGR_LWF_HelpText = "Point Grey LightWeight Filter Driver"
+
+
+
+
+

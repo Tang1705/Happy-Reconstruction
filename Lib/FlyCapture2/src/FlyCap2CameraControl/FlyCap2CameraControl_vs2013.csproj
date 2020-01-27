@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C0179BF5-ACA6-24BF-55C5-38BA41333565}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName Condition="'$(Configuration)' == 'Release'">FlyCap2CameraControl_v120</AssemblyName>
+    <AssemblyName Condition="'$(Configuration)' == 'Debug'">FlyCap2CameraControld_v120</AssemblyName>
+    <SignManifests>false</SignManifests>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>FlyCap2CameraControl.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\premake\bin\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>$(PlatformToolset)\x86\Debug\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\premake\bin64\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>$(PlatformToolset)\x64\Debug\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\premake\bin\Release\</OutputPath>
+    <BaseIntermediateOutputPath>$(PlatformToolset)\x86\Release\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\premake\bin64\Release\</OutputPath>
+    <BaseIntermediateOutputPath>$(PlatformToolset)\x64\Release\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\FlyCap2Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Choose>
+    <When Condition=" ('$(Configuration)|$(Platform)' == 'Release|AnyCPU' And Exists('..\..\bin') And !Exists('..\..\bin64')) Or ('$(Configuration)|$(Platform)' == 'Release|x86' And Exists('..\..\bin'))  ">
+      <ItemGroup>
+        <Reference Include="FlyCapture2Managed_v120">
+          <HintPath>..\..\bin\vs2013\FlyCapture2Managed_v120.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition=" ('$(Configuration)|$(Platform)' == 'Debug|AnyCPU' And Exists('..\..\bin') And !Exists('..\..\bin64')) Or ('$(Configuration)|$(Platform)' == 'Debug|x86' And Exists('..\..\bin'))  ">
+      <ItemGroup>
+        <Reference Include="FlyCapture2Managedd_v120">
+          <HintPath>..\..\bin\vs2013\FlyCapture2Managedd_v120.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition=" ('$(Configuration)|$(Platform)' == 'Release|AnyCPU' And Exists('..\..\bin64')) Or ('$(Configuration)|$(Platform)' == 'Release|x64' And Exists('..\..\bin64'))  ">
+      <ItemGroup>
+        <Reference Include="FlyCapture2Managed_v120">
+          <HintPath>..\..\bin64\vs2013\FlyCapture2Managed_v120.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition=" ('$(Configuration)|$(Platform)' == 'Debug|AnyCPU' And Exists('..\..\bin64')) Or ('$(Configuration)|$(Platform)' == 'Debug|x64' And Exists('..\..\bin64'))  ">
+      <ItemGroup>
+        <Reference Include="FlyCapture2Managedd_v120">
+          <HintPath>..\..\bin64\vs2013\FlyCapture2Managedd_v120.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdvCameraSettingsPage.Designer.cs">
+      <DependentUpon>AdvCameraSettingsPage.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="AdvCameraSettingsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="AdvCameraSettingsPage.resx">
+      <DependentUpon>AdvCameraSettingsPage.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="BasePage.Designer.cs">
+      <DependentUpon>BasePage.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="BasePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="BasePage.resx">
+      <DependentUpon>BasePage.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="BinaryBitsControl.Designer.cs">
+      <DependentUpon>BinaryBitsControl.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="BinaryBitsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="BinaryBitsControl.resx">
+      <DependentUpon>BinaryBitsControl.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="BusSpeedTranslator.cs" />
+    <Compile Include="BusTopologyGraphicComponents.cs" />
+    <Compile Include="BusTopologyPage.Designer.cs">
+      <DependentUpon>BusTopologyPage.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="BusTopologyPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="BusTopologyPage.resx">
+      <DependentUpon>BusTopologyPage.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="CameraControlDialog.cs" />
+    <Compile Include="CameraControlMainFrame.Designer.cs">
+      <DependentUpon>CameraControlMainFrame.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="CameraControlMainFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="CameraControlMainFrame.resx">
+      <DependentUpon>CameraControlMainFrame.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="CameraInformationDisplayPanel.Designer.cs">
+      <DependentUpon>CameraInformationDisplayPanel.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="CameraInformationDisplayPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="CameraInformationDisplayPanel.resx">
+      <DependentUpon>CameraInformationDisplayPanel.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="CameraInformationPage.Designer.cs">
+      <DependentUpon>CameraInformationPage.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="CameraInformationPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="CameraInformationPage.resx">
+      <DependentUpon>CameraInformationPage.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="CameraRegistersPage.Designer.cs">
+      <DependentUpon>CameraRegistersPage.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="CameraRegistersPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="CameraRegistersPage.resx">
+      <DependentUpon>CameraRegistersPage.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="CameraSelectionDialog.cs" />
+    <Compile Include="CameraSelectionWindow.Designer.cs">
+      <DependentUpon>CameraSelectionWindow.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="CameraSelectionWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="CameraSelectionWindow.resx">
+      <DependentUpon>CameraSelectionWindow.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="CameraSettingsPage.Designer.cs">
+      <DependentUpon>CameraSettingsPage.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="CameraSettingsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="CameraSettingsPage.resx">
+      <DependentUpon>CameraSettingsPage.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="DCAMFormatPage.Designer.cs">
+      <DependentUpon>DCAMFormatPage.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="DCAMFormatPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="DCAMFormatPage.resx">
+      <DependentUpon>DCAMFormatPage.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="DataFlashPage.Designer.cs">
+      <DependentUpon>DataFlashPage.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="DataFlashPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="DataFlashPage.resx">
+      <DependentUpon>DataFlashPage.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="EnumerationController.cs" />
+    <None Include="FlyCap2CameraControl.snk" />
+    <Compile Include="Format7Page.Designer.cs">
+      <DependentUpon>Format7Page.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="Format7Page.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="Format7Page.resx">
+      <DependentUpon>Format7Page.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="FrameBufferPage.Designer.cs">
+      <DependentUpon>FrameBufferPage.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="FrameBufferPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="FrameBufferPage.resx">
+      <DependentUpon>FrameBufferPage.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="GPIOPage.Designer.cs">
+      <DependentUpon>GPIOPage.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="GPIOPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="GPIOPage.resx">
+      <DependentUpon>GPIOPage.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="GigEInformationDisplayPanel.Designer.cs">
+      <DependentUpon>GigEInformationDisplayPanel.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="GigEInformationDisplayPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="GigEInformationDisplayPanel.resx">
+      <DependentUpon>GigEInformationDisplayPanel.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="HDRPage.Designer.cs">
+      <DependentUpon>HDRPage.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="HDRPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="HDRPage.resx">
+      <DependentUpon>HDRPage.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="HDRPropertyControl.Designer.cs">
+      <DependentUpon>HDRPropertyControl.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="HDRPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="HDRPropertyControl.resx">
+      <DependentUpon>HDRPropertyControl.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="HelpSupportPage.Designer.cs">
+      <DependentUpon>HelpSupportPage.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="HelpSupportPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="HelpSupportPage.resx">
+      <DependentUpon>HelpSupportPage.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="InterfaceTranslator.cs" />
+    <Compile Include="LUTPage.Designer.cs">
+      <DependentUpon>LUTPage.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="LUTPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="LUTPage.resx">
+      <DependentUpon>LUTPage.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="LadybugChecker.cs" />
+    <Compile Include="LadybugPropertyControl.Designer.cs">
+      <DependentUpon>LadybugPropertyControl.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="LadybugPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="LadybugPropertyControl.resx">
+      <DependentUpon>LadybugPropertyControl.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="LadybugSettingsPage.Designer.cs">
+      <DependentUpon>LadybugSettingsPage.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="LadybugSettingsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="LadybugSettingsPage.resx">
+      <DependentUpon>LadybugSettingsPage.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="LoadingWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingWindow.designer.cs" />
+    <EmbeddedResource Include="LoadingWindow.resx">
+      <DependentUpon>LoadingWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="MathUtilities.cs" />
+    <Compile Include="PhyRegisterDef.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Resource Include="Resources\FlyCap2Icon.ico" />
+    <Compile Include="SettingPropertyControl.Designer.cs">
+      <DependentUpon>SettingPropertyControl.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="SettingPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="SettingPropertyControl.resx">
+      <DependentUpon>SettingPropertyControl.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="StrobePropertyControl.Designer.cs">
+      <DependentUpon>StrobePropertyControl.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="StrobePropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="StrobePropertyControl.resx">
+      <DependentUpon>StrobePropertyControl.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+    <Compile Include="SystemInfoPage.Designer.cs">
+      <DependentUpon>SystemInfoPage.cs</DependentUpon>
+      <SubType>Dependency</SubType>
+    </Compile>
+    <Compile Include="SystemInfoPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="SystemInfoPage.resx">
+      <DependentUpon>SystemInfoPage.cs</DependentUpon>
+      <SubType>DesignerType</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>IF $(Platform)==x86 (copy "$(TargetDir)$(TargetFileName)" "$(ProjectDir)../../bin/vs2013/$(TargetName)$(TargetExt)") ELSE IF $(Platform)==x64 (copy "$(TargetDir)$(TargetFileName)" "$(ProjectDir)../../bin64/vs2013/$(TargetName)$(TargetExt)")</PostBuildEvent>
+  </PropertyGroup>
+</Project>

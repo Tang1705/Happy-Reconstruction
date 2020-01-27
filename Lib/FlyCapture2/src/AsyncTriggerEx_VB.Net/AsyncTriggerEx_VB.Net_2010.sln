@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AsyncTriggerEx_VB.Net_2010", "AsyncTriggerEx_VB.Net_2010.vbproj", "{0E2291D6-937C-47C6-992A-33035FBAC8CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+      Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+      Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+      {0E2291D6-937C-47C6-992A-33035FBAC8CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+      {0E2291D6-937C-47C6-992A-33035FBAC8CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E2291D6-937C-47C6-992A-33035FBAC8CC}.Debug|x64.ActiveCfg = Debug|x64
+		{0E2291D6-937C-47C6-992A-33035FBAC8CC}.Debug|x64.Build.0 = Debug|x64
+		{0E2291D6-937C-47C6-992A-33035FBAC8CC}.Debug|x86.ActiveCfg = Debug|x86
+		{0E2291D6-937C-47C6-992A-33035FBAC8CC}.Debug|x86.Build.0 = Debug|x86
+      {0E2291D6-937C-47C6-992A-33035FBAC8CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+      {0E2291D6-937C-47C6-992A-33035FBAC8CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E2291D6-937C-47C6-992A-33035FBAC8CC}.Release|x64.ActiveCfg = Release|x64
+		{0E2291D6-937C-47C6-992A-33035FBAC8CC}.Release|x64.Build.0 = Release|x64
+		{0E2291D6-937C-47C6-992A-33035FBAC8CC}.Release|x86.ActiveCfg = Release|x86
+		{0E2291D6-937C-47C6-992A-33035FBAC8CC}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

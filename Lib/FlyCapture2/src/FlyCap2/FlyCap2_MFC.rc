@@ -1,0 +1,938 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\FlyCap2_MFC.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\FlyCap2MFC.ico"
+IDR_BitmapTYPE          ICON                    "res\\FlyCap2_MFCDoc.ico"
+IDR_FlyCap2MFCTYPE      ICON                    "res\\FlyCap2MFCDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDB_BITMAP_ABOUT        BITMAP                  "res\\about.bmp"
+IDB_BITMAP_EXIT         BITMAP                  "res\\exit.bmp"
+IDB_BITMAP_HELP         BITMAP                  "res\\help.bmp"
+IDB_BITMAP_SAVEAS       BITMAP                  "res\\saveAs.bmp"
+IDB_BITMAP_CONTROL      BITMAP                  "res\\control.bmp"
+IDB_BITMAP_LOGO         BITMAP                  "res\\logo.bmp"
+IDB_BITMAP_EVENT_BAD    BITMAP                  "res\\bitmapEventBad.bmp"
+IDB_BITMAP_EVENT_OK     BITMAP                  "res\\bitmapEventOK.bmp"
+IDB_TOOLBAR_DISABLE     BITMAP                  "res\\Toolbar_cold.bmp"
+IDB_TOOLBAR_ENABLE      BITMAP                  "res\\Toolbar_hot.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR 32, 30
+BEGIN
+    BUTTON      ID_FILE_NEWCAMERA
+    SEPARATOR
+    BUTTON      ID_FILE_STARTIMAGETRANSFER
+    BUTTON      ID_FILE_PAUSEIMAGETRANSFER
+    BUTTON      ID_FILE_STOPIMAGETRANSFER
+    SEPARATOR
+    BUTTON      ID_FILE_GRAB_AVI
+    SEPARATOR
+    BUTTON      ID_FILE_SAVE_AS
+    BUTTON      ID_CAMERACONTROL_TOGGLECAMERACONTROL
+    BUTTON      ID_HISTGRAM_BTN
+    BUTTON      ID_VIEW_EVENTSTAT
+    SEPARATOR
+    BUTTON      ID_ZOOM_IN
+    BUTTON      ID_ZOOM_OUT
+    BUTTON      ID_BTN_GETORGSIZE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New Camera\tCtrl+N",         ID_FILE_NEWCAMERA
+        MENUITEM SEPARATOR
+        MENUITEM "&Start Image Transfer",       ID_FILE_STARTIMAGETRANSFER
+        MENUITEM "&Pause Image Transfer",       ID_FILE_PAUSEIMAGETRANSFER
+        MENUITEM "St&op Image Transfer",        ID_FILE_STOPIMAGETRANSFER
+        MENUITEM SEPARATOR
+        MENUITEM "Save &As...\tCtrl+S",         ID_FILE_SAVE_AS
+        MENUITEM "&Capture Video or Image Sequence\tF9", ID_FILE_GRAB_AVI
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit\tCtrl+Q",               ID_APP_EXIT
+    END
+    POPUP "&View"
+    BEGIN
+        POPUP "&Graphic Mode"
+        BEGIN
+            MENUITEM "GDI",                         ID_GRAPHICMODE_GDI
+            MENUITEM "OpenGL",                      ID_GRAPHICMODE_OPENGL
+            MENUITEM "Direct 2D (Windows 7 Only)",  ID_GRAPHICMODE_DIRECT2D
+        END
+        MENUITEM "Draw &Image",                 ID_VIEW_DRAWIMAGE
+        MENUITEM "&Draw Crosshair\tF7",         ID_VIEW_DRAWCROSSHAIR
+        MENUITEM "&Change Crosshair Color",     ID_VIEW_CHANGECROSSHAIRCOLOR
+        MENUITEM "Change Crosshair Di&mension", ID_VIEW_CHANGECROSSHAIRDIMENSION
+        MENUITEM SEPARATOR
+        MENUITEM "Show &Toolbar\tF8",           ID_VIEW_TOOLBAR
+        MENUITEM "Show Information &Panel\tF11", ID_VIEW_SHOWINFORMATIONPANEL
+        MENUITEM "Show Status &Bar",            ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "Stretch To &Fit",             ID_VIEW_STRETCHTOFIT
+        MENUITEM "Full &Screen\tF12",           ID_VIEW_FULLSCREEN
+    END
+    POPUP "&Settings"
+    BEGIN
+        POPUP "&Color Processing Algorithm"
+        BEGIN
+            MENUITEM "&None",                       ID_COLORPROCESSINGALGORITHM_NONE
+            MENUITEM "Ne&arest Neighbor(Fast)",     ID_COLORPROCESSINGALGORITHM_NEARESTNEIGHBOR, CHECKED
+            MENUITEM "&Edge Sensing",               ID_COLORPROCESSINGALGORITHM_EDGESENSING
+            MENUITEM "&HQ Linear",                  ID_COLORPROCESSINGALGORITHM_HQLINEAR
+            MENUITEM "&Directional Filter",         ID_COLORPROCESSINGALGORITHM_DIRECTIONALFILTER
+            MENUITEM "&Weighted Directional Filter", ID_COLORPROCESSINGALGORITHM_WEIGHTEDDIRECTIONALFILTER
+            MENUITEM "&Rigorous",                   ID_COLORPROCESSINGALGORITHM_RIGOROUS
+            MENUITEM "&IPP (Multithreaded)",        ID_COLORPROCESSINGALGORITHM_IPP
+        END
+        MENUITEM "&Toggle Camera Control Dialog", ID_CAMERACONTROL_TOGGLECAMERACONTROL
+        MENUITEM "T&oggle Camera PropertyGrid", ID_SETTINGS_TOGGLECAMERAPROPERTYGRID
+        MENUITEM "Setup XM&L Path...",          ID_SETTINGS_SETXMLPATH
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Help\tCtrl+H",               ID_LAUNCH_HELP
+        MENUITEM "&About",                      ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS
+BEGIN
+    "Q",            ID_APP_EXIT,            VIRTKEY, CONTROL, NOINVERT
+    VK_F9,          ID_FILE_GRAB_AVI,       VIRTKEY, NOINVERT
+    "N",            ID_FILE_NEWCAMERA,      VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE_AS,        VIRTKEY, CONTROL, NOINVERT
+    "H",            ID_LAUNCH_HELP,         VIRTKEY, CONTROL, NOINVERT
+    VK_F7,          ID_VIEW_DRAWCROSSHAIR,  VIRTKEY, NOINVERT
+    VK_F12,         ID_VIEW_FULLSCREEN,     VIRTKEY, NOINVERT
+    VK_F11,         ID_VIEW_SHOWINFORMATIONPANEL, VIRTKEY, NOINVERT
+    VK_F8,          ID_VIEW_TOOLBAR,        VIRTKEY, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 230, 130
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About FlyCapture2"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,109,14,20,20
+    CTEXT           "Copyright © 2017 FLIR Integrated Imaging Solutions, Inc.",IDC_STATIC,0,76,250,8
+    CTEXT           "All Rights Reserved.",IDC_STATIC,5,84,230,8
+    DEFPUSHBUTTON   "Close",IDOK,160,101,50,16,WS_GROUP
+    EDITTEXT        IDC_VERSION,7,38,221,12,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_BUILD_INFO,7,52,221,26,ES_CENTER | ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
+    PUSHBUTTON      "License",IDC_BUTTON_LICENSE,19,101,57,15
+END
+
+IDD_FLYCAP2_MFC_FORM DIALOGEX 0, 0, 398, 277
+STYLE DS_SETFONT | DS_SETFOREGROUND | WS_CHILD | WS_CLIPCHILDREN | WS_BORDER
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_INFOTREE,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_NOTOOLTIPS | TVS_NONEVENHEIGHT | WS_BORDER,7,7,103,263,WS_EX_STATICEDGE
+    CONTROL         "",IDC_IMAGEAREA,"Static",SS_BLACKFRAME | SS_CENTERIMAGE | SS_RIGHTJUST | SS_REALSIZEIMAGE,111,7,270,252
+    SCROLLBAR       IDC_VSCROLLBAR,381,7,10,252,SBS_VERT | NOT WS_VISIBLE
+    SCROLLBAR       IDC_HSCROLLBAR,111,259,269,11,NOT WS_VISIBLE
+END
+
+IDD_LICENSE DIALOGEX 0, 0, 306, 302
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "FlyCapture2 License"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,249,281,50,14
+    EDITTEXT        IDC_LICENSE_CONTENT,7,7,292,265,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+END
+
+IDD_DIALOG_HISTOGRAM DIALOGEX 0, 0, 374, 250
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "FlyCapture2 Histogram"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_STATIC_DRAWINGAREA,"Static",SS_BLACKFRAME | WS_BORDER,7,7,360,112
+    CONTROL         "",IDC_TABCTRL_HISTOGRAM,"SysTabControl32",TCS_MULTILINE,7,120,360,123
+END
+
+IDD_TABPAGE_HISTOGRAM DIALOGEX 0, 0, 359, 116
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Binning",IDC_STATIC,284,7,68,45,NOT WS_VISIBLE
+    CONTROL         "8 / 16 bit",IDC_8_16_BIT_RADIO,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,291,16,45,10
+    CONTROL         "10 bit",IDC_10_BIT_RADIO,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,291,27,34,10
+    CONTROL         "12 bit",IDC_12_BIT_RADIO,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,291,40,34,10
+    GROUPBOX        "Options",IDC_STATIC,284,54,68,51,WS_GROUP
+    CONTROL         "Average",IDC_AVERAGE_CHECK,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,292,93,43,10,WS_EX_RIGHT
+    EDITTEXT        IDC_PERCENT_EDIT,298,76,44,15,ES_CENTER | ES_AUTOHSCROLL | ES_WANTRETURN | ES_NUMBER | WS_GROUP
+    CONTROL         "",IDC_PERCENT_SPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS | WS_GROUP,331,76,11,15
+    LTEXT           "Max Percent:",IDC_STATIC,295,64,44,8
+    CONTROL         "",IDC_LIST_CHANNEL,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | WS_GROUP | WS_TABSTOP,7,7,269,98
+END
+
+IDD_TABPAGE_ROWCOLPLOT DIALOGEX 0, 0, 352, 109
+STYLE DS_SETFONT | WS_CHILD | WS_SYSMENU
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    LTEXT           "Plot Mode",IDC_STATIC,15,7,32,8
+    CONTROL         "Column",IDC_MODE_COL,"Button",BS_AUTORADIOBUTTON,15,22,38,10
+    CONTROL         "Row",IDC_MODE_ROW,"Button",BS_AUTORADIOBUTTON,15,41,38,10
+    LTEXT           "Display",IDC_STATIC,99,7,32,8
+    LTEXT           "Function",IDC_STATIC,185,7,32,8
+    CONTROL         "Grey",IDC_DISPLAY_GREY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,99,22,31,10
+    CONTROL         "Red",IDC_DISPLAY_RED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,99,39,29,10
+    CONTROL         "Green",IDC_DISPLAY_GREEN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,99,56,35,10
+    CONTROL         "Blue",IDC_DISPLAY_BLUE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,99,73,30,10
+    CONTROL         "Maximum",IDC_FUNCTION_MAX,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,185,24,45,10
+    CONTROL         "Mean",IDC_FUNCTION_MEAN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,185,43,34,10
+    CONTROL         "Minimum",IDC_FUNCTION_MIN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,185,62,43,10
+END
+
+IDD_DIALOG_EVENT DIALOGEX 0, 0, 322, 175
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Event Statistics"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,265,154,50,14
+    COMBOBOX        IDC_COMBO_TIMESLICE,17,148,143,151,CBS_DROPDOWNLIST | CBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Time slice:",IDC_STATIC,7,138,34,8
+    CONTROL         "",IDC_LIST_EVENT,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,7,308,129
+    CONTROL         "Turn on event collection.",IDC_TURN_ON,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,164,150,95,10
+END
+
+IDD_DIALOG_IMG_VID_RECORD DIALOGEX 0, 0, 317, 420
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Recording Settings"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_SAVE_FILE_PATH,46,18,260,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse",IDC_BUTTON_BROWSE,255,35,50,14
+    CONTROL         "Capture",IDC_RADIO_NUM_FRAMES,"Button",BS_AUTORADIOBUTTON | WS_GROUP,15,64,38,10
+    EDITTEXT        IDC_EDIT_NUM_FRAMES,54,62,55,14,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
+    CONTROL         "Capture 1 out of every",IDC_RADIO_NTH_FRAME,"Button",BS_AUTORADIOBUTTON,15,81,86,10
+    EDITTEXT        IDC_EDIT_NTH_FRAMES,101,78,55,14,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_NTH_TOTAL_FRAMES,225,78,54,14,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
+    CONTROL         "Capture for ",IDC_RADIO_NUM_SECONDS,"Button",BS_AUTORADIOBUTTON,15,97,50,10
+    EDITTEXT        IDC_EDIT_NUM_SECONDS,65,94,55,14,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
+    CONTROL         "Capture once out of every ",IDC_RADIO_NTH_SECONDS,
+                    "Button",BS_AUTORADIOBUTTON,15,114,98,10
+    EDITTEXT        IDC_EDIT_NTH_SECONDS,113,111,55,14,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_NTH_TOTAL_SECONDS,226,111,55,14,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
+    CONTROL         "Only save corrupt frames when capturing",IDC_CHK_CAPTURE_CORRUPT_FRAMES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,214,147,10
+    CONTROL         "",IDC_TAB_OUTPUT_TYPE,"SysTabControl32",0x0,9,226,297,120
+    PUSHBUTTON      "Hide",IDCANCEL,7,399,50,14
+    PUSHBUTTON      "Start Recording",IDC_BUTTON_START_STOP_VIDEO_RECORD,245,399,65,14
+    GROUPBOX        "Save Filename",IDC_STATIC,10,8,298,45
+    LTEXT           "Filename:",IDC_STATIC,13,21,32,8
+    GROUPBOX        "Saving Options",IDC_STATIC,9,53,299,91
+    RTEXT           "0",IDC_STATIC_FRAME_COUNTER,74,347,52,8
+    LTEXT           "frames*",IDC_STATIC,280,82,27,8
+    LTEXT           "ms from a run of",IDC_STATIC,170,115,54,8
+    LTEXT           "ms*",IDC_STATIC,282,115,14,8
+    LTEXT           "frames*",IDC_STATIC,112,65,27,8
+    LTEXT           "frames from a run of ",IDC_STATIC,157,82,67,8
+    LTEXT           "ms",IDC_STATIC,122,98,10,8
+    RTEXT           "0",IDC_STATIC_SAVE_COUNTER,74,383,52,8
+    LTEXT           "A timestamp, sequence number and file extension based on output type will be appended",IDC_STATIC,47,34,185,16
+    RTEXT           "0",IDC_STATIC_BUFFERED_COUNTER,74,371,52,8
+    LTEXT           "* Specify zero to capture until manually stopped",IDC_STATIC,17,131,155,8
+    LTEXT           "Available Physical Memory:",IDC_STATIC_AVAILABLE_MEMORY_TEXT,159,347,87,8
+    RTEXT           "0",IDC_STATIC_AVAILABLE_MEMORY,252,347,51,8
+    LTEXT           "Total Physical Memory:",IDC_STATIC_TOTAL_MEMORY_TEXT,172,360,74,8
+    RTEXT           "0",IDC_STATIC_TOTAL_MEMORY,252,360,51,8
+    LTEXT           "Usage:",IDC_STATIC,222,372,24,8
+    RTEXT           "0",IDC_STATIC_MEMORY_LOAD,252,372,51,8
+    LTEXT           "Good Frames:",IDC_STATIC,21,347,46,8
+    LTEXT           "Buffered Frames:",IDC_STATIC,10,371,57,8
+    LTEXT           "Saved Frames:",IDC_STATIC,18,383,49,8
+    GROUPBOX        "Recording Mode",IDC_STATIC,9,144,299,67
+    CONTROL         "Buffered:",IDC_RADIO_BUFFERED_MODE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,14,154,43,10
+    CONTROL         "Streaming:",IDC_RADIO_STREAMING_MODE,"Button",BS_AUTORADIOBUTTON,14,179,47,10
+    LTEXT           "Frames are buffered in physical memory while recording. Recording will stop if physical memory usage hits 95%",IDC_STATIC_BUFFERED_MODE_TEXT,70,154,229,17
+    LTEXT           "Frames are not buffered in system memory while recording. Dropped frames may occur depending on the speed of the PC and the current camera/recording settings.",IDC_STATIC,70,179,232,26
+    LTEXT           "Recording Stopped",IDC_STATIC_STATUS_OUTPUT,79,398,148,15,WS_BORDER
+    LTEXT           "Corrupt Frames:",IDC_STATIC,13,359,54,8
+    RTEXT           "0",IDC_STATIC_CORRUPT_FRAME_COUNTER,74,359,52,8
+END
+
+IDD_TABPAGE_VIDEO_RECORD DIALOGEX 0, 0, 248, 124
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_COMBO_VIDEO_RECORD_TYPE,90,10,75,86,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Video Recording Type:",IDC_STATIC,13,13,73,8
+    LTEXT           "Frame Rate:",IDC_STATIC_FRAME_RATE,14,29,41,8
+    EDITTEXT        IDC_EDIT_FRAME_RATE,59,26,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Use Camera Frame Rate",IDC_BTN_SET_FRAME_RATE,105,26,91,14
+    CTEXT           "Video will be color-processed using the current color-processing algorithm",IDC_STATIC_COLOR_PROCESS_MSG,13,94,234,18
+    EDITTEXT        IDC_EDIT_FILE_SIZE,59,44,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "AVI Split Size:",IDC_STATIC_AVI_SIZE,14,46,45,8
+    LTEXT           "MB (0 indicates no file split)",IDC_STATIC_AVI_SIZE2,106,47,88,8
+END
+
+IDD_TABPAGE_IMAGE_RECORD DIALOGEX 0, 0, 240, 105
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Image Format:",IDC_STATIC_IMAGE_FORMAT,16,9,48,8
+    COMBOBOX        IDC_COMBO_IMAGE_RECORD_TYPE,69,8,141,71,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Save the raw (bayer-tile) image regardless of the currently active color-processing algorithm.",IDC_CHK_SAVE_BAYER_IMAGE,
+                    "Button",BS_AUTOCHECKBOX | BS_CENTER | BS_MULTILINE | WS_TABSTOP,15,67,175,17
+END
+
+IDD_PANE_VIDEO_MJPEG DIALOGEX 0, 0, 193, 30
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "M-JPEG Options",IDC_GROUP_MJPEG,0,0,193,30
+    LTEXT           "JPEG Compression Quality (1-100): ",IDC_STATIC_MJPEG_COMPRESSION,9,12,115,8
+    EDITTEXT        IDC_EDIT_MJPEG_COMPRESSION,124,8,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "",IDC_SPIN_MJPEG_COMPRESSION,"msctls_updown32",UDS_SETBUDDYINT | UDS_ARROWKEYS,163,8,11,14
+END
+
+IDD_PANE_VIDEO_H264 DIALOGEX 0, 0, 193, 30
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "H.264 Options",IDC_GROUP_H264,0,0,193,30
+    LTEXT           "Bitrate:",IDC_STATIC_H264_BITRATE,9,12,25,8
+    EDITTEXT        IDC_EDIT_H264_BITRATE,35,10,55,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "",IDC_SPIN_H264_BITRATE,"msctls_updown32",UDS_SETBUDDYINT | UDS_ARROWKEYS | UDS_NOTHOUSANDS,90,10,10,14
+END
+
+IDD_PANE_IMAGE_PXM DIALOGEX 0, 0, 193, 41
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "PGM/PPM Options",IDC_GROUP_PGM_PPM_OPTIONS,0,0,193,41
+    CONTROL         "Save as binary file",IDC_CHECK_PXM_SAVE_AS_BINARY,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,19,75,10
+END
+
+IDD_PANE_IMAGE_BMP DIALOGEX 0, 0, 193, 41
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "BMP Options",IDC_GROUP_BMP_OPTIONS,0,0,193,41
+    CONTROL         "8-bit Indexed Color",IDC_CHECK_BMP_8BIT_INDEXED_COLOR,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,19,78,10
+END
+
+IDD_PANE_IMAGE_JPG2K DIALOGEX 0, 0, 193, 41
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "JPEG2000 Options",IDC_GRP_JPEG2K_OPTIONS,0,0,193,41
+    LTEXT           "Compression Quality (1-512):",IDC_STATIC_JPEG2K_COMPRESSION_LEVEL,10,15,95,8
+    EDITTEXT        IDC_EDIT_JPEG2K_COMPRESSION_LEVEL,105,12,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "",IDC_SPIN_JPEG2K_COMPRESSION_LEVEL,"msctls_updown32",UDS_SETBUDDYINT | UDS_ARROWKEYS,144,12,10,14
+END
+
+IDD_PANE_IMAGE_JPG DIALOGEX 0, 0, 193, 41
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "JPEG Options",IDC_GROUP_JPEG_OPTIONS,0,0,193,41
+    CONTROL         "Save Progressive",IDC_CHECK_JPEG_SAVE_PROGRESSIVE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,10,71,10
+    LTEXT           "Compression Quality (1-100):",IDC_STATIC_JPEG_COMPRESSION,8,22,95,8
+    EDITTEXT        IDC_EDIT_JPEG_COMPRESSION,108,19,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "",IDC_SPIN_JPEG_COMPRESSION,"msctls_updown32",UDS_SETBUDDYINT | UDS_ARROWKEYS,148,19,11,14
+END
+
+IDD_PANE_IMAGE_PNG DIALOGEX 0, 0, 193, 41
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "PNG Options",IDC_GROUP_PNG_OPTIONS,0,0,193,41
+    CONTROL         "Save as interleaved",IDC_CHECK_PNG_INTERLEAVED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,10,79,10
+    LTEXT           "Compression Level:",IDC_STATIC_PNG_COMPRESSION,5,26,63,8
+    COMBOBOX        IDC_COMBO_PNG_COMPRESSION_LEVEL,69,24,48,67,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_PANE_IMAGE_TIFF DIALOGEX 0, 0, 193, 41
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Tiff Options",IDC_GROUP_TIFF_OPTIONS,0,0,193,41
+    LTEXT           "Compression Method:",IDC_STATIC_TIFF_COMPRESSION,6,19,70,8
+    COMBOBOX        IDC_COMBO_TIFF_COMPRESSION_METHOD,80,16,104,77,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,12,3,2
+ PRODUCTVERSION 2,12,3,2
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "FLIR Integrated Imaging Solutions, Inc."
+            VALUE "FileDescription", "FlyCap2 image acquisition application"
+            VALUE "FileVersion", "2, 12, 3, 2"
+            VALUE "InternalName", "FlyCap2.exe"
+            VALUE "LegalCopyright", "© FLIR Integrated Imaging Solutions, Inc. All rights reserved."
+            VALUE "OriginalFilename", "FlyCap2.exe"
+            VALUE "ProductName", "FlyCap2"
+            VALUE "ProductVersion", "2, 12, 3, 2"
+            VALUE "AssemblyInformationalVersion", "2, 12, 3, 201801090091"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 107
+    END
+
+    IDD_FLYCAP2_MFC_FORM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 391
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 270
+    END
+
+    IDD_LICENSE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 299
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 295
+    END
+
+    IDD_DIALOG_HISTOGRAM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 367
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 243
+    END
+
+    IDD_TABPAGE_HISTOGRAM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 352
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 109
+    END
+
+    IDD_TABPAGE_ROWCOLPLOT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 345
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 102
+    END
+
+    IDD_DIALOG_EVENT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 315
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 168
+    END
+
+    IDD_DIALOG_IMG_VID_RECORD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 310
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 413
+    END
+
+    IDD_TABPAGE_VIDEO_RECORD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 241
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 117
+    END
+
+    IDD_TABPAGE_IMAGE_RECORD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 233
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 98
+    END
+
+    IDD_PANE_VIDEO_MJPEG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 186
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 23
+    END
+
+    IDD_PANE_VIDEO_H264, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 186
+        TOPMARGIN, 7
+    END
+
+    IDD_PANE_IMAGE_PXM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 186
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 34
+    END
+
+    IDD_PANE_IMAGE_BMP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 186
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 34
+    END
+
+    IDD_PANE_IMAGE_JPG2K, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 186
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 34
+    END
+
+    IDD_PANE_IMAGE_JPG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 186
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 34
+    END
+
+    IDD_PANE_IMAGE_PNG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 186
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 34
+    END
+
+    IDD_PANE_IMAGE_TIFF, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 186
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 34
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_TABPAGE_VIDEO_RECORD AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDP_OLE_INIT_FAILED     "OLE initialization failed.  Make sure that the OLE libraries are the correct version."
+    ID_INDICATOR_EVENTS     "Initializing..."
+    ID_INDICATOR_CURSORINFO "N/A"
+    ID_INDICATOR_IMAGEINFO  "N/A"
+END
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "FlyCapture2\n\nFlyCap2\nBitmap Files (*.Bmp)\n.Bmp\nFlyCap2MFC.Document\nFlyCap2_MFC.Document"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "FlyCapture2"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_NEW             "Connect to a new camera\nNew Camera"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save current image\nSave As"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application\nExit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "Start camera capture"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_STARTIMAGETRANSFER "Start camera capture\nStart camera capture"
+    ID_FILE_STOPIMAGETRANSFER "Stop camera capture\nStop camera capture"
+    ID_CAMERACONTROL_TOGGLECAMERACONTROLDIALOG 
+                            "Show/Hide camera control dialog"
+    ID_CAMERACONTROL_TOGGLECAMERACONTROL 
+                            "Show/Hide camera control dialog\nShow/Hide camera control dialog"
+    ID_VIEW_SHOWINFORMATIONPANEL "Show/Hide image information"
+    ID_VIEW_DRAWIMAGE       "Start / Stop draw image to screen"
+    ID_VIEW_DRAWCROSSHAIR   "Draw crosshair to screen"
+    ID_VIEW_CHANGECROSSHAIRCOLOR "Change crosshair color"
+END
+
+STRINGTABLE
+BEGIN
+    ID_ZOOM_OUT             "Zoom Out\nZoom Out"
+    ID_VIEW_STRECHTOFIT     "Stretch to fit image"
+    ID_VIEW_STRETCHTOFIT    "Stretch to fit image"
+    ID_LAUNCH_HELP          "See Help Docutment"
+    ID_FILE_NEWCAMERA       "Select a new camera\nSelect a new camera"
+END
+
+STRINGTABLE
+BEGIN
+    ID_HISTGRAM_BTN         "Open histogram dialog box\nShow/Hide histogram dialog box"
+    ID_VIEW_FULLSCREEN      "Enable Full Screen Mode"
+    ID_COLORPROCESSINGALGORITHM_NONE "Change color processing algorithm"
+    ID_COLORPROCESSINGALGORITHM_NEARESTNEIGHBOR 
+                            "Change color processing algorithm"
+    ID_COLORPROCESSINGALGORITHM_EDGESENSING 
+                            "Change color processing algorithm"
+    ID_COLORPROCESSINGALGORITHM_HQLINEAR "Change color processing algorithm"
+    ID_COLORPROCESSINGALGORITHM_DIRECTIONALFILTER 
+                            "Change color processing algorithm"
+    ID_COLORPROCESSINGALGORITHM_RIGOROUS "Change color processing algorithm"
+    ID_COLORPROCESSINGALGORITHM_IPP "Change color processing algorithm"
+    ID_VIEW_ENABLEOPENGL    "Enable OpenGL for drawing method"
+    ID_ZOOM_IN              "Zoom In\nZoom In"
+END
+
+STRINGTABLE
+BEGIN
+    ID_GRAPHICMODE_OPENGL   "Enable OpenGL for drawing method"
+    ID_VIEW_SHOWPROPERTYGRID "Display Property Grid"
+    ID_SETTINGS_SETXMLPATH  "Setup XML path for non-GigE cameras"
+    ID_FILE_PAUSEIMAGETRANSFER "Pause camera capture\nPause camera capture"
+    ID_COLORPROCESSINGALGORITHM_WEIGHTEDDIRECTIONALFILTER 
+                            "Change color processing algorithm"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_GRAB_AVI        "Capture video or image sequence\nCapture video or image sequence"
+    ID_VIEW_EVENTSTAT       "Show/Hide event statistics about this camera\nShow/Hide event statistics about this camera"
+    ID_BTN_GETORGSIZE       "Get original image size\nGet original image size"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Canada) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENC)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_CAN
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_XMLPATH_DIALOG DIALOGEX 0, 0, 280, 86
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Configure XML Path"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,160,62,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,214,62,50,14
+    EDITTEXT        IDC_EDIT1,14,30,203,14,ES_AUTOHSCROLL
+    LTEXT           "Path to XML file:",IDC_STATIC,16,21,53,8
+    PUSHBUTTON      "Browse",IDC_BUTTON1,227,30,38,14
+    CONTROL         "Enable Loading XML From Disk.",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,50,111,10
+END
+
+IDD_DIALOG_CROSSHAIR_DIMENSION DIALOGEX 0, 0, 161, 139
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Crosshair Dimensions"
+FONT 10, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    LTEXT           "Line Length",IDC_STATIC,15,68,40,8
+    LTEXT           "Line Thickness",IDC_STATIC,14,94,51,11
+    EDITTEXT        IDC_EDIT_LENGTH,79,65,51,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_THICKNESS,78,89,51,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,93,118,50,14
+    LTEXT           "%",IDC_STATIC,134,68,8,8
+    LTEXT           "px",IDC_STATIC,132,91,8,8
+    LTEXT           "X Offset",IDC_STATIC,17,22,31,8
+    LTEXT           "Y Offset",IDC_STATIC,17,42,32,8
+    EDITTEXT        IDC_XOffset,80,20,50,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_YOffset,80,43,51,14,ES_AUTOHSCROLL
+    LTEXT           "px",IDC_STATIC,132,21,8,8
+    LTEXT           "px",IDC_STATIC,132,45,8,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_XMLPATH_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 271
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
+    END
+
+    IDD_DIALOG_CROSSHAIR_DIMENSION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 154
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 132
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_CURSOR_GRAB         CURSOR                  "res\\hand.cur"
+#endif    // English (Canada) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\FlyCap2_MFC.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

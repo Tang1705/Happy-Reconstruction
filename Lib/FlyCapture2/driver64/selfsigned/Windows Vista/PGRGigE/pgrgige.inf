@@ -1,0 +1,79 @@
+;//=============================================================================
+;// Copyright © 2014 Point Grey Research, Inc. All Rights Reserved.
+;// 
+;// This software is the confidential and proprietary information of Point
+;// Grey Research, Inc. ("Confidential Information").  You shall not
+;// disclose such Confidential Information and shall use it only in
+;// accordance with the terms of the license agreement you entered into
+;// with Point Grey Research Inc.
+;// 
+;// PGR MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF THE
+;// SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+;// IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+;// PURPOSE, OR NON-INFRINGEMENT. PGR SHALL NOT BE LIABLE FOR ANY DAMAGES
+;// SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING
+;// THIS SOFTWARE OR ITS DERIVATIVES.
+;//=============================================================================
+
+[Version]
+Signature  = "$Windows NT$"
+Class      = NetService
+ClassGUID  = {4D36E974-E325-11CE-BFC1-08002BE10318}
+Provider   = %PointGrey%
+DriverVer=12/29/2017,2.7.3.111
+;InformationalVer = 2.7.3.201712290002
+CatalogFile = pgrgige.cat
+
+[Manufacturer]
+%PointGrey% = POINTGREY,NTamd64
+
+[ControlFlags]
+
+[POINTGREY]
+%PGRGIGE_Desc% = PGRGIGE.ndi, gl_PGRGIGE
+
+[POINTGREY.NTamd64]
+%PGRGIGE_Desc% = PGRGIGE.ndi, gl_PGRGIGE
+
+[PGRGIGE.ndi]
+AddReg = PGRGIGE.ndi.AddReg, PGRGIGE.AddReg
+Characteristics = 0x410 ;  NCF_FILTER | NCF_NO_SERVICE
+CopyFiles = PGRGIGE.Files.Sys
+CopyINF = pgrgigem.inf
+
+[PGRGIGE.ndi.Remove]
+DelFiles = PGRGIGE.Files.Sys
+
+[SourceDisksNames]
+1=%DiskDescription%,"",,
+
+[SourceDisksFiles]
+PGRGIGE.sys=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+PGRGIGE.Files.Sys = 12
+
+[PGRGIGE.Files.Sys]
+PGRGIGE.sys,,,2
+
+[PGRGIGE.ndi.AddReg]
+HKR, Ndi, HelpText, , %PGRGIGE_HELP%
+
+HKR, Ndi,            FilterClass,         , failover
+HKR, Ndi,            FilterDeviceInfFile, , PGRGIGEm.inf
+HKR, Ndi,            FilterDeviceInfId,   , gl_PGRGIGEmp
+HKR, Ndi,            Service,             , PGRGIGE
+HKR, Ndi\Interfaces, UpperRange,          , noupper
+HKR, Ndi\Interfaces, LowerRange,          , nolower
+HKR, Ndi\Interfaces, FilterMediaTypes,    , "ethernet, tokenring, fddi"
+
+[PGRGIGE.AddReg]
+; None
+
+[Strings]
+PointGrey = "PointGrey"
+DiskDescription = "Point Grey Image Filter Driver Disk"
+
+PGRGIGE_Desc = "Point Grey Image Filter Driver 12/29/2017, 2.7.3.111"
+PGRGIGE_HELP = "Point Grey Image Filter Driver"

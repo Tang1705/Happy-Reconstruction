@@ -1,0 +1,115 @@
+;=============================================================================
+; Copyright © 2006 Point Grey Research, Inc. All Rights Reserved.
+; 
+; This software is the confidential and proprietary information of Point
+; Grey Research, Inc. ("Confidential Information").  You shall not
+; disclose such Confidential Information and shall use it only in
+; accordance with the terms of the license agreement you entered into
+; with PGR.
+; 
+; PGR MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF THE
+; SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+; IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+; PURPOSE, OR NON-INFRINGEMENT. PGR SHALL NOT BE LIABLE FOR ANY DAMAGES
+; SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING
+; THIS SOFTWARE OR ITS DERIVATIVES.
+;=============================================================================
+
+;=============================================================================
+; PGRVIRT.INF -- PGR Virtual Device .inf for Windows 2000 and Windows XP 
+; Copyright 2006 Point Grey Research Inc.
+;=============================================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=PGRDevices
+ClassGUID={1354185D-3C13-4b72-BFF9-9EA802513D34}
+Provider=%PGR%
+CatalogFile=PGRVirt.cat
+DriverVer = 11/26/2012, 2.3.3.48
+
+[SourceDisksNames]
+1 = %InstallDisk%,,,""
+
+[SourceDisksFiles]
+PGRVirt.sys=1
+
+
+[DestinationDirs]
+defaultdestdir=11
+1394Core.CopyDriver=10,system32\drivers
+
+; =================== Class Sections ===========================
+[ClassInstall32]
+Addreg=PGRDeviceClassReg
+
+[ClassInstall]
+Addreg=PGRDeviceClassReg
+
+[PGRDeviceClassReg]
+HKR,,,,%PGRDeviceClassName%
+HKR,,Icon,,-21
+;HKR,,Security,,"D:P(A;;GA;;;SY)(A;;GA;;;BA)"  ; ACL allowing System and Admin
+
+[Manufacturer]
+%PGRMfg%=PGR,NTamd64
+
+[ControlFlags]
+; All PnP devices should be excluded from manual AddDevice Applet list
+ExcludeFromSelect=*
+
+; =================== Point Grey Research ========================
+
+[PGR]
+%V1394\1394_PGR_VIRTUAL_DEVICE.DeviceDesc%=1394VDEV,V1394\1394_PGR_VIRTUAL_DEVICE
+
+[PGR.NTamd64]
+%V1394\1394_PGR_VIRTUAL_DEVICE.DeviceDesc%=1394VDEV,V1394\1394_PGR_VIRTUAL_DEVICE
+
+;
+; 1394vdev
+;
+[1394VDEV]
+AddReg=1394VDEV.AddReg
+CopyFiles=1394CORE.CopyDriver,1394CORE.CopyDll
+
+[1394VDEV.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,PGRVirt.sys
+
+[1394VDEV.NT]
+CopyFiles=1394CORE.CopyDriver
+
+[1394VDEV.NT.Services]
+AddService=1394VDEV,2,1394VDEV_ServiceInstall
+
+[1394VDEV_ServiceInstall]
+DisplayName=%V1394\1394_PGR_VIRTUAL_DEVICE.DeviceDesc%
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\PGRVirt.sys
+
+
+;
+; core files
+;
+[DefaultInstall]
+CopyFiles=1394CORE.CopyDriver,1394CORE.CopyDll
+
+[1394CORE.CopyDriver]
+PGRVirt.sys
+
+;
+; Strings
+;
+[Strings]
+PGR="Point Grey Research"
+PGRMfg="Point Grey Research"
+InstallDisk="Installation Disk # 1"
+
+PGRDeviceClassName="Point Grey Research Devices"
+
+V1394\1394_PGR_VIRTUAL_DEVICE.DeviceDesc="PGR Virtual Device"
+
+

@@ -1,0 +1,13 @@
+C:\Users\tq\Desktop\相机投影\FlyCapture2\src\BusEventsEx_VB.Net\bin\Debug\BusEventsEx_VB.Net.exe.config
+C:\Users\tq\Desktop\相机投影\FlyCapture2\src\BusEventsEx_VB.Net\bin\Debug\BusEventsEx_VB.Net.exe
+C:\Users\tq\Desktop\相机投影\FlyCapture2\src\BusEventsEx_VB.Net\bin\Debug\BusEventsEx_VB.Net.pdb
+C:\Users\tq\Desktop\相机投影\FlyCapture2\src\BusEventsEx_VB.Net\bin\Debug\BusEventsEx_VB.Net.xml
+C:\Users\tq\Desktop\相机投影\FlyCapture2\src\BusEventsEx_VB.Net\bin\Debug\FlyCapture2Managedd_v140.dll
+C:\Users\tq\Desktop\相机投影\FlyCapture2\src\BusEventsEx_VB.Net\obj\Debug\BusEventsEx_VB.Net_vs2015.vbprojAssemblyReference.cache
+C:\Users\tq\Desktop\相机投影\FlyCapture2\src\BusEventsEx_VB.Net\obj\Debug\BusEventsEx_VB.Net.Resources.resources
+C:\Users\tq\Desktop\相机投影\FlyCapture2\src\BusEventsEx_VB.Net\obj\Debug\BusEventsEx_VB.Net_vs2015.vbproj.GenerateResource.cache
+C:\Users\tq\Desktop\相机投影\FlyCapture2\src\BusEventsEx_VB.Net\obj\Debug\BusEventsEx_VB.Net_vs2015.vbproj.CoreCompileInputs.cache
+C:\Users\tq\Desktop\相机投影\FlyCapture2\src\BusEventsEx_VB.Net\obj\Debug\BusEventsEx_VB.Net_vs2015.vbproj.CopyComplete
+C:\Users\tq\Desktop\相机投影\FlyCapture2\src\BusEventsEx_VB.Net\obj\Debug\BusEventsEx_VB.Net.exe
+C:\Users\tq\Desktop\相机投影\FlyCapture2\src\BusEventsEx_VB.Net\obj\Debug\BusEventsEx_VB.Net.xml
+C:\Users\tq\Desktop\相机投影\FlyCapture2\src\BusEventsEx_VB.Net\obj\Debug\BusEventsEx_VB.Net.pdb

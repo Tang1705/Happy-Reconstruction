@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MultiCastEx", "MultiCastEx_2010.vcxproj", "{07150DDD-5ED5-42E4-86C6-65B724F37B84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07150DDD-5ED5-42E4-86C6-65B724F37B84}.Debug|Win32.ActiveCfg = Debug|Win32
+		{07150DDD-5ED5-42E4-86C6-65B724F37B84}.Debug|Win32.Build.0 = Debug|Win32
+		{07150DDD-5ED5-42E4-86C6-65B724F37B84}.Debug|x64.ActiveCfg = Debug|x64
+		{07150DDD-5ED5-42E4-86C6-65B724F37B84}.Debug|x64.Build.0 = Debug|x64
+		{07150DDD-5ED5-42E4-86C6-65B724F37B84}.Release|Win32.ActiveCfg = Release|Win32
+		{07150DDD-5ED5-42E4-86C6-65B724F37B84}.Release|Win32.Build.0 = Release|Win32
+		{07150DDD-5ED5-42E4-86C6-65B724F37B84}.Release|x64.ActiveCfg = Release|x64
+		{07150DDD-5ED5-42E4-86C6-65B724F37B84}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

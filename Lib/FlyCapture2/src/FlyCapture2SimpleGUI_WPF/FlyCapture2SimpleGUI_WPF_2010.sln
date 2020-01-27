@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyCapture2SimpleGUI_WPF_2010", "FlyCapture2SimpleGUI_WPF_2010.csproj", "{07B8B18E-31A8-4B7F-8C26-D759616FA26F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07B8B18E-31A8-4B7F-8C26-D759616FA26F}.Debug|x64.ActiveCfg = Debug|x64
+		{07B8B18E-31A8-4B7F-8C26-D759616FA26F}.Debug|x64.Build.0 = Debug|x64
+		{07B8B18E-31A8-4B7F-8C26-D759616FA26F}.Debug|x86.ActiveCfg = Debug|x86
+		{07B8B18E-31A8-4B7F-8C26-D759616FA26F}.Debug|x86.Build.0 = Debug|x86
+		{07B8B18E-31A8-4B7F-8C26-D759616FA26F}.Release|x64.ActiveCfg = Release|x64
+		{07B8B18E-31A8-4B7F-8C26-D759616FA26F}.Release|x64.Build.0 = Release|x64
+		{07B8B18E-31A8-4B7F-8C26-D759616FA26F}.Release|x86.ActiveCfg = Release|x86
+		{07B8B18E-31A8-4B7F-8C26-D759616FA26F}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

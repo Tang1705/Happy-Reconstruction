@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <_PropertySheetDisplayName>gtkglextmm 1.2 Debug</_PropertySheetDisplayName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalOptions>/vd2 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(GTKMM_BASEPATH)\include\gtkglextmm-1.2\;$(GTKMM_BASEPATH)\include\gtkglext-1.2\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Opengl32.lib;glu32.lib;GtkGLextd-vc100.lib;GtkGLextmm_gdkd-vc100.lib;GtkGLextmm_gtkd-vc100.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(GTKMM_BASEPATH)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+</Project>

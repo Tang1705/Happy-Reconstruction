@@ -1,0 +1,174 @@
+;//=============================================================================
+;// Copyright © 2014 Point Grey Research, Inc. All Rights Reserved.
+;// 
+;// This software is the confidential and proprietary information of Point
+;// Grey Research, Inc. ("Confidential Information").  You shall not
+;// disclose such Confidential Information and shall use it only in
+;// accordance with the terms of the license agreement you entered into
+;// with Point Grey Research Inc.
+;// 
+;// PGR MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF THE
+;// SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+;// IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+;// PURPOSE, OR NON-INFRINGEMENT. PGR SHALL NOT BE LIABLE FOR ANY DAMAGES
+;// SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING
+;// THIS SOFTWARE OR ITS DERIVATIVES.
+;//=============================================================================
+
+
+;/*++
+;
+;Copyright (c) Microsoft Corporation.  All rights reserved.
+;
+;   THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+;   KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+;   IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
+;   PURPOSE.
+;
+;Module Name:
+;
+;    PGRXHCI.INF
+;
+;Abstract:
+;    INF file for the PGRXHCI driver.
+;
+;--*/
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=Sample
+ClassGuid={361A40FB-DC46-4ED9-BFF4-068E83D5C8AF}
+;ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+
+Provider=%MSFT%
+DriverVer=01/07/2016,2.7.3.79
+CatalogFile=PGRXHCI.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=SampleClassReg     
+
+[SampleClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-1
+;HKR,,DeviceCharacteristics,0x10001,0x100     ;Use same security checks on relative opens
+;HKR,,Security,,"D:P(A;;GA;;;SY)(A;;GA;;;BA)" ;Allow generic all access to system and built-in Admin. 
+
+
+; ================= Device Install section =====================
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%MSFT%=MSFT,NTamd64
+
+[SourceDisksFiles]
+PGRXHCI.sys=1
+
+[SourceDisksNames]
+1=%DISK_NAME%,
+
+
+; For XP and later
+[MSFT.NTamd64]
+; DisplayName           Section           DeviceId
+; -----------           -------           --------
+%PGRXHCI.DRVDESC%=      PGRXHCI_Inst,         PCI\VEN_1033&DEV_0194
+%PGRXHCI.DRVDESC%=      PGRXHCI_Inst,         PCI\VEN_1912&DEV_0014
+%PGRXHCI.DRVDESC%=      PGRXHCI_Inst,         PCI\VEN_1912&DEV_0015
+%PGRXHCI.DRVDESC2%=     PGRXHCI_Inst,         PCI\VEN_1B73&DEV_1009
+%PGRXHCI.DRVDESC2%=     PGRXHCI_Inst,         PCI\VEN_1B73&DEV_1100
+%PGRXHCI.DRVDESC3%=     PGRXHCI_Inst,         PCI\VEN_1022&DEV_7812
+%PGRXHCI.DRVDESC3%=     PGRXHCI_Inst,         PCI\VEN_1022&DEV_7814
+%PGRXHCI.DRVDESC5%=     PGRXHCI_Inst_MSI,     PCI\VEN_8086&DEV_1E31
+%PGRXHCI.DRVDESC6%=     PGRXHCI_Inst,         PCI\VEN_1106&DEV_3483
+
+[MSFT.NTamd64.NTamd64]
+; DisplayName           Section           DeviceId
+; -----------           -------           --------
+%PGRXHCI.DRVDESC%=      PGRXHCI_Inst,         PCI\VEN_1033&DEV_0194
+%PGRXHCI.DRVDESC%=      PGRXHCI_Inst,         PCI\VEN_1912&DEV_0014
+%PGRXHCI.DRVDESC%=      PGRXHCI_Inst,         PCI\VEN_1912&DEV_0015
+%PGRXHCI.DRVDESC2%=     PGRXHCI_Inst,         PCI\VEN_1B73&DEV_1009
+%PGRXHCI.DRVDESC2%=     PGRXHCI_Inst,         PCI\VEN_1B73&DEV_1100
+%PGRXHCI.DRVDESC3%=     PGRXHCI_Inst,         PCI\VEN_1022&DEV_7812
+%PGRXHCI.DRVDESC3%=     PGRXHCI_Inst,         PCI\VEN_1022&DEV_7814
+%PGRXHCI.DRVDESC5%=     PGRXHCI_Inst_MSI,     PCI\VEN_8086&DEV_1E31
+%PGRXHCI.DRVDESC6%=     PGRXHCI_Inst,         PCI\VEN_1106&DEV_3483
+
+[PGRXHCI_Inst.NT]
+CopyFiles=PGRXHCI.CopyFiles
+
+[PGRXHCI_Inst_MSI.NT]
+CopyFiles=PGRXHCI.CopyFiles
+
+[PGRXHCI.CopyFiles]
+PGRXHCI.sys
+
+[PGRXHCI_Inst_MSI.NT.HW]
+AddReg = PGRXHCI_Inst_MSI.AddReg.HW
+
+[PGRXHCI_Inst_MSI.AddReg.HW]
+HKR, Interrupt Management,,0x00000010
+HKR, Interrupt Management\MessageSignaledInterruptProperties,,0x00000010
+HKR, Interrupt Management\MessageSignaledInterruptProperties,MSISupported,0x00010001,1
+HKR, Interrupt Management\MessageSignaledInterruptProperties,MessageNumberLimit,0x00010001,8
+
+[PGRXHCI_Inst.NT.Services]
+AddService=PGRUSB,0x00000002,PGRXHCI_Service
+
+[PGRXHCI_Inst_MSI.NT.Services]
+AddService=PGRUSB,0x00000002,PGRXHCI_Service
+
+[PGRXHCI_Service]
+DisplayName    = %PGRXHCI.SVCDESC%                            
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\PGRXHCI.sys                            
+AddReg         = PGRXHCI_Parameters_AddReg
+
+[PGRXHCI_Parameters_AddReg]
+HKR, Parameters\Wdf, VerboseOn,       0x00010001, 1
+HKR, Parameters\Wdf, VerifierOn,      0x00010001, 1
+HKR, Parameters\Wdf, DbgBreakOnError, 0x00010001, 1
+
+
+;-------------- Coinstaller installation
+[DestinationDirs]
+CoInstaller_CopyFiles = 11
+
+[PGRXHCI_Inst.NT.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+WdfCoInstaller01009.dll
+
+[SourceDisksFiles]
+WdfCoInstaller01009.dll=1 ; make sure the number matches with SourceDisksNames
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[PGRXHCI_Inst.NT.Wdf]
+KmdfService = PGRUSB, PGRXHCI_wdfsect
+[PGRXHCI_wdfsect]
+KmdfLibraryVersion = 1.9
+
+[Strings]
+MSFT = "Point Grey Research"
+ClassName = "Point Grey Bus Host Controllers"
+PGRXHCI.SVCDESC = "PGR USB 3 Extensible Host Controller"
+PGRXHCI.DRVDESC = "Renesas USB 3 Extensible Host Controller"
+PGRXHCI.DRVDESC2= "Fresco USB 3 Extensible Host Controller"
+PGRXHCI.DRVDESC3= "AMD USB 3 Extensible Host Controller"
+PGRXHCI.DRVDESC5= "Intel USB 3 Extensible Host Controller"
+PGRXHCI.DRVDESC6= "VIA USB 3 Extensible Host Controller"
+
+DISK_NAME = "PGRXHCI Sample Install Disk"

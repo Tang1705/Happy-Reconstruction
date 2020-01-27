@@ -1,0 +1,22 @@
+# Model				EventName		EventPort	EventSelectorRegister	EventSelectorRegisterVal	EventNotificationRegister	EventNotificationRegisterValEnable	EventNotificationRegisterValDisable
+Blackfly BFLY-PGE-23S6C		EventAcquisitionStart	0x9C40		0x4504			40000				0x4508				1					0
+Blackfly BFLY-PGE-23S6C		EventAcquisitionStop	0x9C41		0x4504			40001				0x4508				1					0
+Blackfly BFLY-PGE-23S6C		EventExposureEnd	0x9C43		0x4504			40003				0x4508				1					0
+
+Blackfly BFLY-PGE-23S6M		EventAcquisitionStart	0x9C40		0x4504			40000				0x4508				1					0
+Blackfly BFLY-PGE-23S6M		EventAcquisitionStop	0x9C41		0x4504			40001				0x4508				1					0
+Blackfly BFLY-PGE-23S6M		EventExposureEnd	0x9C43		0x4504			40003				0x4508				1					0
+
+Blackfly BFLY-PGE-50H5C		EventExposureEnd	0x9C43		0x4504			40003				0x4508				1					0
+
+Blackfly BFLY-U3-23S6M		EventExposureEnd	0x9C43		0x4504			40003				0x4508				1					0
+
+Grasshopper3 GS3-U3-41C6C	EventExposureEnd	0x9C43		0x4504			40003				0x4508				1					0
+
+Grasshopper3 GS3-U3-51S5M	EventExposureEnd	0x9C43		0x4504			40003				0x4508				1					0
+
+Grasshopper3 GS3-U3-60S6M	EventExposureEnd	0x9C43		0x4504			40003				0x4508				1					0
+
+Grasshopper3 GS3-U3-28S4M	EventExposureEnd	0x9C43		0x4504			40003				0x4508				1					0
+
+Flea3 FL3-U3-32S2C		EventExposureEnd	0x9C43		0x4504			40003				0x4508				1					0
