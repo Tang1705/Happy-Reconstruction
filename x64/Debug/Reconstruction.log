@@ -1,2 +1,5 @@
-﻿    正在创建库 D:\BJTU\Reconstruction\x64\Debug\Reconstruction.lib 和对象 D:\BJTU\Reconstruction\x64\Debug\Reconstruction.exp
+﻿  uic UI\Reconstruction.ui
+  Reconstruction.cpp
+  main.cpp
+  moc_Reconstruction.cpp
   Reconstruction.vcxproj -> D:\BJTU\Reconstruction\x64\Debug\Reconstruction.exe

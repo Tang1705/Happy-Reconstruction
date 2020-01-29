@@ -22,9 +22,9 @@ QT_BEGIN_NAMESPACE
 class Ui_ReconstructionClass
 {
 public:
+    QWidget *centralWidget;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
-    QWidget *centralWidget;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *ReconstructionClass)
@@ -32,15 +32,16 @@ public:
         if (ReconstructionClass->objectName().isEmpty())
             ReconstructionClass->setObjectName(QString::fromUtf8("ReconstructionClass"));
         ReconstructionClass->resize(600, 400);
-        menuBar = new QMenuBar(ReconstructionClass);
-        menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        ReconstructionClass->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(ReconstructionClass);
-        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
-        ReconstructionClass->addToolBar(mainToolBar);
         centralWidget = new QWidget(ReconstructionClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         ReconstructionClass->setCentralWidget(centralWidget);
+        menuBar = new QMenuBar(ReconstructionClass);
+        menuBar->setObjectName(QString::fromUtf8("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 600, 26));
+        ReconstructionClass->setMenuBar(menuBar);
+        mainToolBar = new QToolBar(ReconstructionClass);
+        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
+        ReconstructionClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(ReconstructionClass);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         ReconstructionClass->setStatusBar(statusBar);
