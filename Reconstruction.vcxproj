@@ -88,6 +88,7 @@
     <QtUic Include="UI\Reconstruction.ui" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Classes\CameraArguments.cpp" />
     <ClCompile Include="Classes\main.cpp" />
     <ClCompile Include="Classes\Reconstruction.cpp" />
     <ClCompile Include="Lib\projector\LC4500API\API.cpp" />
@@ -102,6 +103,7 @@
     <QtRcc Include="Resources\Reconstruction.qrc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Classes\CameraArguments.h" />
     <ClInclude Include="Lib\projector\LC4500API\API.h" />
     <ClInclude Include="Lib\projector\LC4500API\Common.h" />
     <ClInclude Include="Lib\projector\LC4500API\hidapi.h" />
