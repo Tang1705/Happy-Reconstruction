@@ -1,10 +1,11 @@
-#include "Reconstruction.h"
 #include <QtWidgets/QApplication>
+#include "Loading.h"
+#include "Reconstruction.h"
 
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
-	Reconstruction w;
-	w.show();
+	Loading l;
+	l.show();
 	return a.exec();
 }
