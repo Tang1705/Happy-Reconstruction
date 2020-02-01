@@ -50,6 +50,11 @@
     <Filter Include="resource\font">
       <UniqueIdentifier>{ec183521-b5e0-408b-9e24-aa9910874ed3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+      <ParseFiles>true</ParseFiles>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="UI\Reconstruction.ui">
@@ -74,6 +79,9 @@
     </ClCompile>
     <ClCompile Include="Lib\projector\ProjectorLC4500.cpp">
       <Filter>lib\projector</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\CameraArguments.cpp">
+      <Filter>src\reconstruction</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="Lib\projector\ProjectorLC4500.h">
       <Filter>lib\projector</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\CameraArguments.h">
+      <Filter>src\reconstruction</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
