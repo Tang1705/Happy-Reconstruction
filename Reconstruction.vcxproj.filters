@@ -50,14 +50,15 @@
     <Filter Include="resource\font">
       <UniqueIdentifier>{ec183521-b5e0-408b-9e24-aa9910874ed3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-      <ParseFiles>true</ParseFiles>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="UI\Reconstruction.ui">
+      <Filter>ui</Filter>
+    </QtUic>
+    <QtUic Include="UI\DisplayPic.ui">
+      <Filter>ui</Filter>
+    </QtUic>
+    <QtUic Include="UI\Loading.ui">
       <Filter>ui</Filter>
     </QtUic>
   </ItemGroup>
@@ -83,10 +84,25 @@
     <ClCompile Include="Classes\CameraArguments.cpp">
       <Filter>src\reconstruction</Filter>
     </ClCompile>
+    <ClCompile Include="Classes\Loading.cpp">
+      <Filter>src\scene\loadingscene</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\DisplayPic.cpp">
+      <Filter>src\scene\resultscene</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\CoreAlgorithm.cpp">
+      <Filter>src\reconstruction</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Classes\Reconstruction.h">
       <Filter>src</Filter>
+    </QtMoc>
+    <QtMoc Include="Classes\Loading.h">
+      <Filter>src\scene\loadingscene</Filter>
+    </QtMoc>
+    <QtMoc Include="Classes\DisplayPic.h">
+      <Filter>src\scene\resultscene</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -114,6 +130,9 @@
       <Filter>lib\projector</Filter>
     </ClInclude>
     <ClInclude Include="Classes\CameraArguments.h">
+      <Filter>src\reconstruction</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\CoreAlgorithm.h">
       <Filter>src\reconstruction</Filter>
     </ClInclude>
   </ItemGroup>

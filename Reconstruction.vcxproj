@@ -85,10 +85,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <QtUic Include="UI\DisplayPic.ui" />
+    <QtUic Include="UI\Loading.ui" />
     <QtUic Include="UI\Reconstruction.ui" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Classes\CoreAlgorithm.cpp" />
     <ClCompile Include="Classes\CameraArguments.cpp" />
+    <ClCompile Include="Classes\DisplayPic.cpp" />
+    <ClCompile Include="Classes\Loading.cpp" />
     <ClCompile Include="Classes\main.cpp" />
     <ClCompile Include="Classes\Reconstruction.cpp" />
     <ClCompile Include="Lib\projector\LC4500API\API.cpp" />
@@ -103,7 +108,10 @@
     <QtRcc Include="Resources\Reconstruction.qrc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Classes\CoreAlgorithm.h" />
     <ClInclude Include="Classes\CameraArguments.h" />
+    <QtMoc Include="Classes\Loading.h" />
+    <QtMoc Include="Classes\DisplayPic.h" />
     <ClInclude Include="Lib\projector\LC4500API\API.h" />
     <ClInclude Include="Lib\projector\LC4500API\Common.h" />
     <ClInclude Include="Lib\projector\LC4500API\hidapi.h" />

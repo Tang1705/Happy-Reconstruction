@@ -108,7 +108,7 @@ public:
     {
         if (ReconstructionClass->objectName().isEmpty())
             ReconstructionClass->setObjectName(QString::fromUtf8("ReconstructionClass"));
-        ReconstructionClass->resize(1111, 604);
+        ReconstructionClass->resize(1111, 601);
         centralWidget = new QWidget(ReconstructionClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         line = new QFrame(centralWidget);
@@ -118,7 +118,7 @@ public:
         line->setFrameShadow(QFrame::Sunken);
         stackedWidget = new QStackedWidget(centralWidget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
-        stackedWidget->setGeometry(QRect(249, -1, 851, 551));
+        stackedWidget->setGeometry(QRect(249, -1, 851, 531));
         page = new QWidget();
         page->setObjectName(QString::fromUtf8("page"));
         label_2 = new QLabel(page);
@@ -467,7 +467,7 @@ public:
 
         retranslateUi(ReconstructionClass);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(ReconstructionClass);

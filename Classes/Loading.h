@@ -2,6 +2,7 @@
 
 #include <QWidget>
 #include "ui_Loading.h"
+#include "Reconstruction.h"
 #include <QMouseEvent>
 
 class Loading : public QWidget

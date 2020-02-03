@@ -1,5 +1,4 @@
 #include "Loading.h"
-#include "Classes/Reconstruction.h"
 
 Loading::Loading(QWidget *parent)
 	: QWidget(parent)
