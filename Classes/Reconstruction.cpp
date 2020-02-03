@@ -2,6 +2,7 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QColorDialog>
+#include "DisplayPic.h"
 
 Reconstruction::Reconstruction(QWidget *parent)
 	: QMainWindow(parent)
@@ -10,21 +11,6 @@ Reconstruction::Reconstruction(QWidget *parent)
 	ui.stackedWidget->setCurrentIndex(0);
 	/* 如果用on_XXX_clicked()定义槽，Qt的元对象QMetaObject会自动的寻找相关的信号并链接，不能再用connect()链接了，否则就会连接两次。
 	 connect(ui.pushButton, SIGNAL(clicked()), this, SLOT(on_pushButton_clicked()));
-	 connect(ui.pushButton_2, SIGNAL(clicked()), this, SLOT(on_pushButton_2_clicked()));
-	 connect(ui.pushButton_3, SIGNAL(clicked()), this, SLOT(on_pushButton_3_clicked()));
-	 connect(ui.pushButton_4, SIGNAL(clicked()), this, SLOT(on_pushButton_4_clicked()));
-	 connect(ui.pushButton_5, SIGNAL(clicked()), this, SLOT(on_pushButton_5_clicked()));
-	 connect(ui.pushButton_6, SIGNAL(clicked()), this, SLOT(on_pushButton_6_clicked()));
-	 connect(ui.pushButton_7, SIGNAL(clicked()), this, SLOT(on_pushButton_7_clicked()));
-	 connect(ui.pushButton_8, SIGNAL(clicked()), this, SLOT(on_pushButton_8_clicked()));
-	 connect(ui.pushButton_9, SIGNAL(clicked()), this, SLOT(on_pushButton_9_clicked()));
-	 connect(ui.pushButton_10, SIGNAL(clicked()), this, SLOT(on_pushButton_10_clicked()));
-	 connect(ui.pushButton_11, SIGNAL(clicked()), this, SLOT(on_pushButton_11_clicked()));
-	 connect(ui.pushButton_12, SIGNAL(clicked()), this, SLOT(on_pushButton_12_clicked()));
-	 connect(ui.pushButton_13, SIGNAL(clicked()), this, SLOT(on_pushButton_13_clicked()));
-	 connect(ui.pushButton_14, SIGNAL(clicked()), this, SLOT(on_pushButton_14_clicked()));
-	 connect(ui.pushButton_15, SIGNAL(clicked()), this, SLOT(on_pushButton_15_clicked()));
-	 connect(ui.pushButton_16, SIGNAL(clicked()), this, SLOT(on_pushButton_16_clicked()));
 	*/
 }
 
@@ -139,8 +125,25 @@ void Reconstruction::on_pushButton_4_clicked()
 void Reconstruction::on_pushButton_9_clicked()
 {
 	// todo 相机拍照
+	QString picUrl = "Resources/image/test.png";		// 存储拍摄照片	
 
-	// todo 然后出来一个界面 拍摄到的照片，然后下面三个按钮：确定 取消
+	DisplayPic *picDlg = new DisplayPic();
+	picDlg->setPicUrl(picUrl);
+	connect(picDlg, SIGNAL(getPicAction(QString)), this, SLOT(setPicAction(QString)));
+	picDlg->show();
+}
+
+void Reconstruction::setPicAction(QString action)
+{
+	if(action=="confirmed")
+	{
+		qDebug("confirmed");
+		// todo 存储图片路径
+	}else if(action=="canceled")
+	{
+		qDebug("canceled");
+		// 用户再拍一次 无需操作
+	}
 }
 
 // 保存照片

@@ -16,8 +16,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>150</y>
+     <x>360</x>
+     <y>200</y>
      <width>151</width>
      <height>41</height>
     </rect>
@@ -25,7 +25,7 @@
    <property name="font">
     <font>
      <family>Adobe Devanagari</family>
-     <pointsize>18</pointsize>
+     <pointsize>14</pointsize>
     </font>
    </property>
    <property name="text">
@@ -62,6 +62,25 @@
    </property>
    <property name="text">
     <string>按任意键进入</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>120</y>
+     <width>321</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Adobe Devanagari</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>3D RECONSTRUCTION</string>
    </property>
   </widget>
  </widget>
