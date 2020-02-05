@@ -2,6 +2,7 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QColorDialog>
+#include <QBuffer>
 #include "DisplayPic.h"
 
 Reconstruction::Reconstruction(QWidget *parent)
@@ -45,16 +46,23 @@ void Reconstruction::on_pushButton_5_clicked()
 		QMessageBox mesg;
 		mesg.warning(this, "WARNING", "Failed to open picture");
 		return;
+	}else
+	{
+		calPath = fileName;
 	}
-
-	// todo 存储文件或文件路径
 }
 
 // 相机拍摄
 void Reconstruction::on_pushButton_6_clicked()
 {
-	// todo 相机拍摄，存储照片集
-
+	if(calPath.isEmpty())
+	{
+		QMessageBox mesg;
+		mesg.warning(this, "WARNING", "Haven't uploaded calibration pictures!");
+	}else
+	{
+		// todo 相机拍摄，存储照片集
+	}
 	// 标定日志：显示拍摄照片集存储路径
 	ui.textBrowser_7->append("");
 }
@@ -82,7 +90,7 @@ void Reconstruction::on_pushButton_8_clicked()
 {
 	QFileDialog fileDialog;
 	QString fileName = fileDialog.getSaveFileName(this, "Open File", "", "Text File(*.txt)");	// todo 更改文件类型
-	if (fileName == "")
+	if (fileName.isEmpty())
 	{
 		return;
 	}
@@ -125,10 +133,9 @@ void Reconstruction::on_pushButton_4_clicked()
 void Reconstruction::on_pushButton_9_clicked()
 {
 	// todo 相机拍照
-	QString picUrl = "Resources/image/test.png";		// 存储拍摄照片	
-
+	picPath = "Resources/image/test.png";		// 该行仅做测试使用	
 	DisplayPic *picDlg = new DisplayPic();
-	picDlg->setPicUrl(picUrl);
+	picDlg->setPicPath(picPath);
 	connect(picDlg, SIGNAL(getPicAction(QString)), this, SLOT(setPicAction(QString)));
 	picDlg->show();
 }
@@ -138,11 +145,11 @@ void Reconstruction::setPicAction(QString action)
 	if(action=="confirmed")
 	{
 		qDebug("confirmed");
-		// todo 存储图片路径
+		confirmPic = true;
 	}else if(action=="canceled")
 	{
 		qDebug("canceled");
-		// 用户再拍一次 无需操作
+		confirmPic = false;
 	}
 }
 
@@ -150,6 +157,32 @@ void Reconstruction::setPicAction(QString action)
 void Reconstruction::on_pushButton_10_clicked()
 {
 	// todo 保存照片
+	if(confirmPic)
+	{
+		QString fileName = QFileDialog::getSaveFileName(this,
+		tr("save image"),
+		"",
+		tr("*.png;; *.jpg;; *.bmp;; All files(*.*)"));
+
+		if (!fileName.isNull())
+		{
+			QImage iim(picPath);//创建一个图片对象,存储源图片
+			QPainter painter(&iim);//设置绘画设备
+			QFile file(fileName);//创建一个文件对象，存储用户选择的文件
+			if (!file.open(QIODevice::ReadWrite)) {
+					return;
+			}
+			QByteArray ba;
+			QBuffer buffer(&ba);
+			buffer.open(QIODevice::WriteOnly);
+			iim.save(&buffer, "JPG");//把图片以流方式写入文件缓存流中
+			file.write(ba);//将流中的图片写入文件对象当中
+		}
+	}else
+	{
+		QMessageBox mesg;
+		mesg.warning(this, "WARNING", "Haven't taken picture!");
+	}
 }
 #pragma endregion 
 
@@ -193,13 +226,23 @@ void Reconstruction::on_pushButton_14_clicked()
 // 保存截图
 void Reconstruction::on_pushButton_15_clicked()
 {
-	// todo 保存截图
+	QString fileName = QFileDialog::getSaveFileName(this,
+		tr("save screen shot"),
+		"",
+		tr("*.png;; *.jpg;; *.bmp;; All files(*.*)"));
+
+	if (!fileName.isNull())
+	{
+		// 截图所选的控件暂时用 label_17 替代
+		QPixmap pix = QPixmap::grabWidget(ui.label_17);
+		pix.save(fileName);
+	}
 }
 
 // 颜色选取
 void Reconstruction::on_pushButton_16_clicked()
 {
-	QColor color = QColorDialog::getColor(Qt::black);
+	color = QColorDialog::getColor(Qt::black);
 	if (color.isValid()){
 		// qDebug("x:%f, %f, %f",color.redF(), color.greenF(), color.blueF());
 		// todo 颜色选取框已选择颜色color，接下来对color进行处理

@@ -11,7 +11,7 @@ DisplayPic::~DisplayPic()
 {
 }
 
-void DisplayPic::setPicUrl(QString pic)
+void DisplayPic::setPicPath(QString pic)
 {
 	picUrl = pic;
 	if(picUrl.isEmpty())

@@ -10,7 +10,7 @@ class DisplayPic : public QWidget
 public:
 	DisplayPic(QWidget *parent = Q_NULLPTR);
 	~DisplayPic();
-	void setPicUrl(QString pic);
+	void setPicPath(QString pic);
 
 private:
 	Ui::DisplayPic ui;

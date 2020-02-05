@@ -37,7 +37,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="label_2">
@@ -900,6 +900,19 @@
       </property>
       <property name="text">
        <string>保存截图</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>260</y>
+        <width>72</width>
+        <height>15</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
       </property>
      </widget>
     </widget>
