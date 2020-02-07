@@ -14,14 +14,19 @@ Loading::Loading(QWidget *parent)
 
 	ui.label_2->hide();
 	ui.progressBar->setValue(0);
+	QGraphicsOpacityEffect *opacityEffect = new QGraphicsOpacityEffect;
+	ui.progressBar->setGraphicsEffect(opacityEffect);
+	opacityEffect->setOpacity(0.9);
 
-	// ±³¾°gif
-	// QMovie *pic = new QMovie("Resources/image/loading.gif");
-	// ui.label_4->setMovie(pic);
-	// pic->start();
+	// ±³¾°
+	QPixmap *pixmap = new QPixmap("Resources/image/loading.png");
+	pixmap->scaled(ui.label_4->size(), Qt::KeepAspectRatio);
+	ui.label_4->setScaledContents(true);
+	ui.label_4->setPixmap(*pixmap);
 
 	// todo ¼ÓÔØ
 
+	ui.label->hide();
 	ui.progressBar->setValue(100);
 	ui.label_2->show();
 	ready2Enter = true;

@@ -4,7 +4,7 @@
 #include "ui_Loading.h"
 #include "Reconstruction.h"
 #include <QMouseEvent>
-#include <QMovie>
+#include <QGraphicsOpacityEffect>
 
 class Loading : public QWidget
 {

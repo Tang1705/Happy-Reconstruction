@@ -127,15 +127,15 @@ QLCDNumber {
 }
 QProgressBar {
 	text-align: center;
-	color: rgb(240, 240, 240);
+	color: #000000;
 	border-width: 1px; 
 	border-radius: 10px;
 	border-color: rgb(230, 230, 230);
 	border-style: solid;
-	background-color:rgb(207,207,207);
+	background-color: #ffffff;
 }
 QProgressBar::chunk {
-	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(49, 147, 250, 255), stop:1 rgba(34, 142, 255, 255));
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 #ffee99;, stop:1 #ffee99;);
 	border-radius: 10px;
 }
 QMenuBar {
