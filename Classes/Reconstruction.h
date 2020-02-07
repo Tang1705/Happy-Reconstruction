@@ -1,6 +1,13 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
+#include <QMessageBox>
+#include <QFileDialog>
+#include <QColorDialog>
+#include <QBuffer>
+#include <QTextStream>
+#include <QStyleFactory>
+#include "DisplayPic.h"
 #include "ui_Reconstruction.h"
 
 class Reconstruction : public QMainWindow

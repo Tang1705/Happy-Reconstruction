@@ -4,6 +4,7 @@
 #include "ui_Loading.h"
 #include "Reconstruction.h"
 #include <QMouseEvent>
+#include <QMovie>
 
 class Loading : public QWidget
 {

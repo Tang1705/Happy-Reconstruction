@@ -1,6 +1,8 @@
 #pragma once
 
 #include <QWidget>
+#include <QFileDialog>
+#include <QTextStream>
 #include "ui_DisplayPic.h"
 
 class DisplayPic : public QWidget

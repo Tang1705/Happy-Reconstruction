@@ -5,6 +5,14 @@ DisplayPic::DisplayPic(QWidget *parent)
 {
 	ui.setupUi(this);
 
+	// qss
+	QFile file("Resources/qss/lightblue.qss");
+	file.open(QFile::ReadOnly);
+	QTextStream filetext(&file);
+	QString stylesheet = filetext.readAll();
+	this->setStyleSheet(stylesheet);
+	file.close();
+
 }
 
 DisplayPic::~DisplayPic()

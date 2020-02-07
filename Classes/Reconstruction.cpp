@@ -1,18 +1,26 @@
 #include "Reconstruction.h"
-#include <QMessageBox>
-#include <QFileDialog>
-#include <QColorDialog>
-#include <QBuffer>
-#include "DisplayPic.h"
 
 Reconstruction::Reconstruction(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
 	ui.stackedWidget->setCurrentIndex(0);
+	this->setContentsMargins(0, 0, 0, 0);
+	this->setFixedSize(1110, 580);
+	ui.centralWidget->setGeometry(0, 40, 1110, 400);
+	ui.centralWidget->show();
+
 	/* 如果用on_XXX_clicked()定义槽，Qt的元对象QMetaObject会自动的寻找相关的信号并链接，不能再用connect()链接了，否则就会连接两次。
 	 connect(ui.pushButton, SIGNAL(clicked()), this, SLOT(on_pushButton_clicked()));
 	*/
+	// qss
+	QFile file("Resources/qss/lightindigo.qss");
+	file.open(QFile::ReadOnly);
+	QTextStream filetext(&file);
+	QString stylesheet = filetext.readAll();
+	this->setStyleSheet(stylesheet);
+	this->setStyle(QStyleFactory::create("Fusion"));
+	file.close();
 }
 
 #pragma region 界面菜单
