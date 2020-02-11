@@ -3,25 +3,41 @@
 Reconstruction::Reconstruction(QWidget *parent)
 	: QMainWindow(parent)
 {
-	ui.setupUi(this);
-	ui.stackedWidget->setCurrentIndex(0);
+	ui.setupUi(this);	
+	setStyle();
+}
+
+void Reconstruction::setStyle()
+{
 	this->setContentsMargins(0, 0, 0, 0);
 	this->setFixedSize(1110, 580);
 	ui.centralWidget->setGeometry(0, 40, 1110, 400);
 	ui.centralWidget->show();
 
-	/* 如果用on_XXX_clicked()定义槽，Qt的元对象QMetaObject会自动的寻找相关的信号并链接，不能再用connect()链接了，否则就会连接两次。
-	 connect(ui.pushButton, SIGNAL(clicked()), this, SLOT(on_pushButton_clicked()));
-	*/
+	QPalette palette1;
+	palette1.setColor(QPalette::Background, qRgba(44, 46, 70, 100));
+	ui.widget->setPalette(palette1);
+	QPalette palette2;
+	palette2.setColor(QPalette::Background, Qt::white);
+	ui.stackedWidget->setPalette(palette2);
+	ui.stackedWidget->setCurrentIndex(0);
+
+	QString buttonStyle = "QPushButton{background-color:white;color: black;}"
+		"QPushButton:hover{background-color:#cceeff; color: black;}"
+		"QPushButton:pressed{background-color:rgb(85, 170, 255);border - style: inset; }";
+	ui.pushButton->setStyleSheet(buttonStyle);
+	ui.pushButton_2->setStyleSheet(buttonStyle);
+	ui.pushButton_3->setStyleSheet(buttonStyle);
+
 	// qss
-	QFile file("Resources/qss/lightindigo.qss");
+	QFile file("Resources/qss/flat.qss");
 	file.open(QFile::ReadOnly);
 	QTextStream filetext(&file);
 	QString stylesheet = filetext.readAll();
 	this->setStyleSheet(stylesheet);
-	this->setStyle(QStyleFactory::create("Fusion"));
 	file.close();
 }
+
 
 #pragma region 界面菜单
 void Reconstruction::on_pushButton_clicked()

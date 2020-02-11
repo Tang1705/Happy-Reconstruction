@@ -57,10 +57,16 @@
     <property name="geometry">
      <rect>
       <x>249</x>
-      <y>-1</y>
+      <y>6</y>
       <width>851</width>
-      <height>531</height>
+      <height>541</height>
      </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="currentIndex">
      <number>0</number>
@@ -423,7 +429,7 @@
          <widget class="QLabel" name="label_22">
           <property name="font">
            <font>
-            <pointsize>9</pointsize>
+            <family>黑体</family>
            </font>
           </property>
           <property name="text">
@@ -991,7 +997,7 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame">
+   <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -1415,14 +1421,11 @@
       </disabled>
      </palette>
     </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(44, 46, 70);</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Plain</enum>
+     <string notr="true"/>
     </property>
     <widget class="QLabel" name="label">
      <property name="geometry">
@@ -1485,9 +1488,9 @@
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>10</x>
        <y>250</y>
-       <width>241</width>
+       <width>221</width>
        <height>241</height>
       </rect>
      </property>
@@ -1510,10 +1513,7 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);
-selection-color: rgb(170, 0, 0);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>相机标定</string>
@@ -1535,10 +1535,7 @@ selection-color: rgb(170, 0, 0);</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);
-selection-background-color: rgb(170, 0, 0);
-selection-color: rgb(170, 0, 0);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>图案投影</string>
@@ -1560,9 +1557,7 @@ selection-color: rgb(170, 0, 0);</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);
-selection-color: rgb(170, 0, 0);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>三维重建</string>

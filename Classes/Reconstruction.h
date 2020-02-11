@@ -23,6 +23,7 @@ private:
 	QString picPath = "Result/result.png";	// 图案投影：拍摄照片的存储路径
 	bool confirmPic = false;	// 图案投影：确定是否用所拍照片进行重建
 	QColor color = Qt::black;	// 三维重建：颜色
+	void setStyle();
 
 private slots:
 	void on_pushButton_clicked();
