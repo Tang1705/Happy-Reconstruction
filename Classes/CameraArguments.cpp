@@ -1,8 +1,13 @@
 #include "CameraArguments.h"
 
+CameraArguments* CameraArguments::instance = nullptr;
+
+/**
+ * \brief 
+ */
 CameraArguments::CameraArguments()
 {
-	r12 = cv::Mat::zeros(cv::Size(3, 3), CV_8UC1);
+	//r12 = cv::Mat::zeros(cv::Size(3, 3), CV_8UC1);
 }
 
 CameraArguments::CameraArguments(cv::Mat r, cv::Mat t, cv::Mat kc, cv::Mat kp)
@@ -19,9 +24,19 @@ CameraArguments::CameraArguments(cv::Mat r, cv::Mat t, cv::Mat kc, cv::Mat kp)
 	hp2 = kp2 * tmp;
 }
 
-CameraArguments::~CameraArguments()
+CameraArguments* CameraArguments::getInstance(cv::Mat r, cv::Mat t, cv::Mat kc, cv::Mat kp)
 {
+	if (instance == nullptr) instance = new CameraArguments(r, t, kc, kp);
+	return instance;
 }
+
+CameraArguments* CameraArguments::getInstance()
+{
+	if (instance) return instance;
+}
+
+CameraArguments::~CameraArguments()
+= default;
 
 cv::Mat CameraArguments::getR() const
 {

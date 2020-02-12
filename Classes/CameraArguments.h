@@ -11,10 +11,15 @@ private:
 	cv::Mat hc1;
 	cv::Mat hp2;
 
-public:
 	CameraArguments();
 	CameraArguments(cv::Mat r, cv::Mat t, cv::Mat kc, cv::Mat kp);
 	~CameraArguments();
+
+public:
+
+	static CameraArguments* getInstance(cv::Mat r, cv::Mat t, cv::Mat kc, cv::Mat kp);
+	static CameraArguments* getInstance();
+	static CameraArguments* instance ;
 	cv::Mat getR() const;
 	cv::Mat getT() const;
 	cv::Mat getKc() const;
