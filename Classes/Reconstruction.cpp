@@ -14,28 +14,56 @@ void Reconstruction::setStyle()
 	ui.centralWidget->setGeometry(0, 40, 1110, 400);
 	ui.centralWidget->show();
 
+	// qss
+	QFile file(":/qss/qss/flat.qss");
+	file.open(QFile::ReadOnly);
+	QTextStream filetext(&file);
+	QString stylesheet = filetext.readAll();
+	this->setStyleSheet(stylesheet);
+	file.close();
+
 	QPalette palette1;
 	palette1.setColor(QPalette::Background, qRgba(44, 46, 70, 100));
 	ui.widget->setPalette(palette1);
-	QPalette palette2;
-	palette2.setColor(QPalette::Background, Qt::white);
-	ui.stackedWidget->setPalette(palette2);
+	// QPa/*lette palette2;
+	// palette2.setColor(QPalette::Background, Qt::white);
+	// ui.stackedWidget->setPalette(palette2);
 	ui.stackedWidget->setCurrentIndex(0);
-
+	setPicStyle();
+	setButtonStyle();
+}
+void Reconstruction::setPicStyle()
+{
+	ui.label_11->setPixmap(QPixmap(":/icon/image/calibration/novideo.png"));
+	ui.label_21->setPixmap(QPixmap(":/icon/image/projection/novideo.jpg"));
+}
+void Reconstruction::setButtonStyle()
+{
 	QString buttonStyle = "QPushButton{background-color:white;color: black;}"
 		"QPushButton:hover{background-color:#cceeff; color: black;}"
 		"QPushButton:pressed{background-color:rgb(85, 170, 255);border - style: inset; }";
 	ui.pushButton->setStyleSheet(buttonStyle);
 	ui.pushButton_2->setStyleSheet(buttonStyle);
 	ui.pushButton_3->setStyleSheet(buttonStyle);
+	// 给Button添加图标
+	ui.pushButton->setIcon(QIcon(":/icon/image/common/camera.png"));
+	ui.pushButton_2->setIcon(QIcon(":/icon/image/common/projection.png"));
+	ui.pushButton_3->setIcon(QIcon(":/icon/image/common/3D.png"));
 
-	// qss
-	QFile file("Resources/qss/flat.qss");
-	file.open(QFile::ReadOnly);
-	QTextStream filetext(&file);
-	QString stylesheet = filetext.readAll();
-	this->setStyleSheet(stylesheet);
-	file.close();
+	// 相机标定界面
+	ui.pushButton_5->setIcon(QIcon(":/icon/image/calibration/pics.png"));
+	ui.pushButton_6->setIcon(QIcon(":/icon/image/calibration/camera.png"));
+	ui.pushButton_7->setIcon(QIcon(":/icon/image/calibration/cal.png"));
+	ui.pushButton_8->setIcon(QIcon(":/icon/image/calibration/save.png"));
+
+	// 图案投影界面
+	ui.pushButton_4->setIcon(QIcon(":/icon/image/projection/file.png"));
+
+	// 三维重建界面
+	ui.pushButton_13->setIcon(QIcon(":/icon/image/reconstruction/import.png"));
+	ui.pushButton_14->setIcon(QIcon(":/icon/image/reconstruction/export.png"));
+	ui.pushButton_15->setIcon(QIcon(":/icon/image/reconstruction/save2.png"));
+	ui.pushButton_16->setIcon(QIcon(":/icon/image/reconstruction/color.png"));
 }
 
 

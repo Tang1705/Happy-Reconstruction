@@ -24,6 +24,8 @@ private:
 	bool confirmPic = false;	// 图案投影：确定是否用所拍照片进行重建
 	QColor color = Qt::black;	// 三维重建：颜色
 	void setStyle();
+	void setPicStyle();
+	void setButtonStyle();
 
 private slots:
 	void on_pushButton_clicked();

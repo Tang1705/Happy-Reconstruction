@@ -1,8 +1,26 @@
 <RCC>
-    <qresource prefix="/Reconstruction">
-        <file>qss/darkblue.qss</file>
-        <file>qss/lightblue.qss</file>
-        <file>qss/lightindigo.qss</file>
+    <qresource prefix="/Reconstruction"/>
+    <qresource prefix="/icon">
+        <file>image/common/3D.png</file>
+        <file>image/common/camera.png</file>
+        <file>image/projection/file.png</file>
+        <file>image/calibration/cal.png</file>
+        <file>image/calibration/camera.png</file>
+        <file>image/calibration/pics.png</file>
+        <file>image/calibration/save.png</file>
+        <file>image/common/projection.png</file>
+        <file>image/reconstruction/color.png</file>
+        <file>image/reconstruction/export.png</file>
+        <file>image/reconstruction/import.png</file>
+        <file>image/reconstruction/save2.png</file>
+        <file>image/calibration/novideo.png</file>
+        <file>image/projection/novideo.jpg</file>
+    </qresource>
+    <qresource prefix="/qss">
+        <file>qss/flat.qss</file>
+        <file>qss/Devsion.qss</file>
         <file>qss/aqua.qss</file>
+        <file>qss/Hookmark.qss</file>
+        <file>qss/Geoo.qss</file>
     </qresource>
 </RCC>

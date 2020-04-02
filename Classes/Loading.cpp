@@ -5,7 +5,7 @@ Loading::Loading(QWidget *parent)
 {
 	// qss
 	ui.setupUi(this); 
-	QFile file("Resources/qss/aqua.qss");
+	QFile file(":/qss/qss/aqua.qss");
 	file.open(QFile::ReadOnly);
 	QTextStream filetext(&file);
 	QString stylesheet = filetext.readAll();

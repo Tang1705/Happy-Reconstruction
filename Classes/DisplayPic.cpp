@@ -6,7 +6,7 @@ DisplayPic::DisplayPic(QWidget *parent)
 	ui.setupUi(this);
 
 	// qss
-	QFile file("Resources/qss/lightblue.qss");
+	QFile file(":/qss/qss/aqua.qss");
 	file.open(QFile::ReadOnly);
 	QTextStream filetext(&file);
 	QString stylesheet = filetext.readAll();

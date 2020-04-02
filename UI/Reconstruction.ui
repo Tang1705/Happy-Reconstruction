@@ -502,10 +502,10 @@
       <widget class="QLabel" name="label_11">
        <property name="geometry">
         <rect>
-         <x>190</x>
-         <y>120</y>
-         <width>121</width>
-         <height>31</height>
+         <x>10</x>
+         <y>10</y>
+         <width>471</width>
+         <height>281</height>
         </rect>
        </property>
        <property name="font">
@@ -517,7 +517,22 @@
        <property name="text">
         <string>NO VIDEO</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
       </widget>
+      <widget class="QGraphicsView" name="graphicsView_3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>491</width>
+         <height>301</height>
+        </rect>
+       </property>
+      </widget>
+      <zorder>graphicsView_3</zorder>
+      <zorder>label_11</zorder>
      </widget>
      <widget class="QPushButton" name="pushButton_5">
       <property name="geometry">
@@ -692,10 +707,10 @@
       <widget class="QLabel" name="label_21">
        <property name="geometry">
         <rect>
-         <x>280</x>
-         <y>170</y>
-         <width>121</width>
-         <height>31</height>
+         <x>0</x>
+         <y>0</y>
+         <width>701</width>
+         <height>411</height>
         </rect>
        </property>
        <property name="font">
@@ -707,7 +722,22 @@
        <property name="text">
         <string>NO VIDEO</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
       </widget>
+      <widget class="QGraphicsView" name="graphicsView_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>701</width>
+         <height>411</height>
+        </rect>
+       </property>
+      </widget>
+      <zorder>graphicsView_2</zorder>
+      <zorder>label_21</zorder>
      </widget>
      <widget class="QPushButton" name="pushButton_9">
       <property name="geometry">
@@ -750,7 +780,7 @@
        <rect>
         <x>470</x>
         <y>480</y>
-        <width>81</width>
+        <width>111</width>
         <height>31</height>
        </rect>
       </property>
@@ -808,7 +838,7 @@
        <rect>
         <x>650</x>
         <y>60</y>
-        <width>191</width>
+        <width>201</width>
         <height>171</height>
        </rect>
       </property>
@@ -856,7 +886,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>50</y>
+         <y>40</y>
          <width>61</width>
          <height>16</height>
         </rect>
@@ -868,7 +898,7 @@
       <widget class="QPushButton" name="pushButton_11">
        <property name="geometry">
         <rect>
-         <x>70</x>
+         <x>80</x>
          <y>117</y>
          <width>51</width>
          <height>21</height>
@@ -881,7 +911,7 @@
       <widget class="QPushButton" name="pushButton_12">
        <property name="geometry">
         <rect>
-         <x>130</x>
+         <x>140</x>
          <y>117</y>
          <width>51</width>
          <height>21</height>
@@ -907,23 +937,23 @@
       <widget class="QPushButton" name="pushButton_16">
        <property name="geometry">
         <rect>
-         <x>100</x>
-         <y>47</y>
+         <x>90</x>
+         <y>30</y>
          <width>51</width>
-         <height>21</height>
+         <height>31</height>
         </rect>
        </property>
        <property name="text">
-        <string>COLOR</string>
+        <string/>
        </property>
       </widget>
      </widget>
      <widget class="QGraphicsView" name="graphicsView">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>10</x>
         <y>10</y>
-        <width>641</width>
+        <width>631</width>
         <height>521</height>
        </rect>
       </property>
@@ -931,9 +961,9 @@
      <widget class="QPushButton" name="pushButton_13">
       <property name="geometry">
        <rect>
-        <x>700</x>
+        <x>690</x>
         <y>310</y>
-        <width>93</width>
+        <width>131</width>
         <height>28</height>
        </rect>
       </property>
@@ -949,9 +979,9 @@
      <widget class="QPushButton" name="pushButton_14">
       <property name="geometry">
        <rect>
-        <x>700</x>
+        <x>690</x>
         <y>380</y>
-        <width>93</width>
+        <width>131</width>
         <height>28</height>
        </rect>
       </property>
@@ -967,9 +997,9 @@
      <widget class="QPushButton" name="pushButton_15">
       <property name="geometry">
        <rect>
-        <x>700</x>
+        <x>690</x>
         <y>450</y>
-        <width>93</width>
+        <width>131</width>
         <height>28</height>
        </rect>
       </property>
@@ -993,6 +1023,19 @@
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>260</y>
+        <width>161</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>此处用PCL展示渲染界面</string>
       </property>
      </widget>
     </widget>
