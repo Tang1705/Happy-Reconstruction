@@ -1,5 +1,7 @@
 <RCC>
-    <qresource prefix="/Reconstruction"/>
+    <qresource prefix="/Reconstruction">
+        <file>image/loading/loading.png</file>
+    </qresource>
     <qresource prefix="/icon">
         <file>image/common/3D.png</file>
         <file>image/common/camera.png</file>
@@ -15,6 +17,8 @@
         <file>image/reconstruction/save2.png</file>
         <file>image/calibration/novideo.png</file>
         <file>image/projection/novideo.jpg</file>
+        <file>image/loading/label.png</file>
+        <file>image/loading/press.png</file>
     </qresource>
     <qresource prefix="/qss">
         <file>qss/flat.qss</file>

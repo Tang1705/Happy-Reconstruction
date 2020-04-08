@@ -9,6 +9,13 @@
 #include <QStyleFactory>
 #include "DisplayPic.h"
 #include "ui_Reconstruction.h"
+#include <pcl/point_types.h>
+#include <pcl/io/pcd_io.h>
+#include <pcl/visualization/pcl_visualizer.h>
+#include <pcl/io/vtk_lib_io.h>
+#include <vtkRenderWindow.h>
+using namespace pcl;
+using namespace std;
 
 class Reconstruction : public QMainWindow
 {

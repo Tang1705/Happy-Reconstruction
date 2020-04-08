@@ -19,6 +19,7 @@ private:
 	bool ready2Enter = false;
 	int currentValue = 0;
 	void updateSlot();
+	void setStyle();
 
 protected:
 	void mousePressEvent(QMouseEvent *);

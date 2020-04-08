@@ -10,8 +10,8 @@ Reconstruction::Reconstruction(QWidget *parent)
 void Reconstruction::setStyle()
 {
 	this->setContentsMargins(0, 0, 0, 0);
-	this->setFixedSize(1110, 580);
-	ui.centralWidget->setGeometry(0, 40, 1110, 400);
+	// this->setFixedSize(1240, 680);
+	// ui.centralWidget->setGeometry(0, 40, 1240, 680);
 	ui.centralWidget->show();
 
 	// qss
@@ -25,9 +25,6 @@ void Reconstruction::setStyle()
 	QPalette palette1;
 	palette1.setColor(QPalette::Background, qRgba(44, 46, 70, 100));
 	ui.widget->setPalette(palette1);
-	// QPa/*lette palette2;
-	// palette2.setColor(QPalette::Background, Qt::white);
-	// ui.stackedWidget->setPalette(palette2);
 	ui.stackedWidget->setCurrentIndex(0);
 	setPicStyle();
 	setButtonStyle();
@@ -81,6 +78,7 @@ void Reconstruction::on_pushButton_2_clicked()
 void Reconstruction::on_pushButton_3_clicked()
 {
 	ui.stackedWidget->setCurrentIndex(2);
+	ui.label_9->setVisible(FALSE);
 }
 #pragma endregion 
 
@@ -133,8 +131,6 @@ void Reconstruction::on_pushButton_7_clicked()
 	ui.textBrowser_2->append("");
 	ui.textBrowser_3->append("");
 	ui.textBrowser_4->append("");
-	ui.textBrowser_5->append("");
-	ui.textBrowser_6->append("");
 }
 
 // 保存结果
@@ -257,7 +253,7 @@ void Reconstruction::on_pushButton_13_clicked()
 {
 	QString fileName = QFileDialog::getOpenFileName(
 		this, tr("open multiple image file"),
-		"./", tr("Image files(*.bmp *.jpg *.pbm *.pgm *.png *.ppm *.xbm *.xpm);;All files (*.*)"));		// todo 文件类型待确认
+		"./", tr("PCD files(*.pcd);;All files (*.*)"));		// todo 文件类型待确认
 
 	if (fileName.isEmpty())
 	{
@@ -265,6 +261,19 @@ void Reconstruction::on_pushButton_13_clicked()
 		mesg.warning(this, "WARNING", "Failed to open file");
 		return;
 	}
+
+	ui.label_9->setVisible(TRUE);
+	string pcd = fileName.toStdString();
+
+	PointCloud<PointXYZRGB>::Ptr cloud(new PointCloud<PointXYZRGB>);
+	io::loadPCDFile(pcd, *cloud);
+	boost::shared_ptr<visualization::PCLVisualizer> viewer(new visualization::PCLVisualizer("3D Viewer"));
+	viewer->setBackgroundColor(0, 0, 0);
+	viewer->addPointCloud(cloud, "cloud");
+	viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, 1, "cloud");
+	ui.qvtkWidget->SetRenderWindow(viewer->getRenderWindow());
+	ui.label_9->setVisible(FALSE);
+	ui.qvtkWidget->update();
 
 	// todo 存储文件或文件路径
 }
