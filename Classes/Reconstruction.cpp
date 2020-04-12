@@ -82,7 +82,7 @@ void Reconstruction::on_pushButton_3_clicked()
 }
 #pragma endregion 
 
-#pragma region 相机标定-按钮
+#pragma region 系统标定-按钮
 
 // 添加图像
 void Reconstruction::on_pushButton_5_clicked()
@@ -155,7 +155,7 @@ void Reconstruction::on_pushButton_8_clicked()
 }
 #pragma endregion 
 
-#pragma region 图案投影-按钮
+#pragma region 三维重建-按钮
 
 // 选择文件
 void Reconstruction::on_pushButton_4_clicked()
@@ -232,9 +232,16 @@ void Reconstruction::on_pushButton_10_clicked()
 		mesg.warning(this, "WARNING", "Haven't taken picture!");
 	}
 }
+
+// 开始重建
+void Reconstruction::on_pushButton_17_clicked()
+{
+	// todo 开始重建
+}
+
 #pragma endregion 
 
-#pragma region 三维重建-按钮
+#pragma region 点云渲染-按钮
 
 // 异常点选择
 void Reconstruction::on_pushButton_11_clicked()

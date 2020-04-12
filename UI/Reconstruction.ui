@@ -69,7 +69,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="label_2">
@@ -600,7 +600,7 @@
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>460</x>
+        <x>370</x>
         <y>20</y>
         <width>81</width>
         <height>16</height>
@@ -621,8 +621,8 @@
      <widget class="QGroupBox" name="groupBox_6">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>40</y>
+        <x>90</x>
+        <y>50</y>
         <width>640</width>
         <height>512</height>
        </rect>
@@ -668,8 +668,8 @@
      <widget class="QPushButton" name="pushButton_9">
       <property name="geometry">
        <rect>
-        <x>710</x>
-        <y>580</y>
+        <x>810</x>
+        <y>190</y>
         <width>93</width>
         <height>31</height>
        </rect>
@@ -686,8 +686,8 @@
      <widget class="QPushButton" name="pushButton_10">
       <property name="geometry">
        <rect>
-        <x>840</x>
-        <y>580</y>
+        <x>810</x>
+        <y>290</y>
         <width>93</width>
         <height>31</height>
        </rect>
@@ -704,7 +704,7 @@
      <widget class="QPushButton" name="pushButton_4">
       <property name="geometry">
        <rect>
-        <x>520</x>
+        <x>620</x>
         <y>580</y>
         <width>111</width>
         <height>31</height>
@@ -722,7 +722,7 @@
      <widget class="QLineEdit" name="lineEdit">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>240</x>
         <y>580</y>
         <width>331</width>
         <height>31</height>
@@ -732,7 +732,7 @@
      <widget class="QLabel" name="label_18">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>90</x>
         <y>580</y>
         <width>111</width>
         <height>30</height>
@@ -755,6 +755,24 @@
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_17">
+      <property name="geometry">
+       <rect>
+        <x>810</x>
+        <y>390</y>
+        <width>93</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+       </font>
+      </property>
+      <property name="text">
+       <string>开始重建</string>
       </property>
      </widget>
     </widget>
@@ -1494,7 +1512,7 @@
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>相机标定</string>
+         <string>系统标定</string>
         </property>
        </widget>
       </item>
@@ -1516,7 +1534,7 @@
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>图案投影</string>
+         <string>三维重建</string>
         </property>
        </widget>
       </item>
@@ -1538,7 +1556,7 @@
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>三维重建</string>
+         <string>点云渲染</string>
         </property>
        </widget>
       </item>
