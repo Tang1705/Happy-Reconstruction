@@ -14,6 +14,7 @@
 #include <pcl/visualization/pcl_visualizer.h>
 #include <pcl/io/vtk_lib_io.h>
 #include <vtkRenderWindow.h>
+#include <QProgressDialog>
 using namespace pcl;
 using namespace std;
 
@@ -28,6 +29,7 @@ private:
 	Ui::ReconstructionClass ui;
 	QString calPath;	// 相机标定：标定图像的存储路径
 	QString picPath = "Result/result.png";	// 图案投影：拍摄照片的存储路径
+	PointCloud<PointXYZRGB> cloud;
 	bool confirmPic = false;	// 图案投影：确定是否用所拍照片进行重建
 	QColor color = Qt::black;	// 三维重建：颜色
 	void setStyle();

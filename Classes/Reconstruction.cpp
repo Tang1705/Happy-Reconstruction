@@ -79,6 +79,18 @@ void Reconstruction::on_pushButton_3_clicked()
 {
 	ui.stackedWidget->setCurrentIndex(2);
 	ui.label_9->setVisible(FALSE);
+	boost::shared_ptr<visualization::PCLVisualizer> viewer(new visualization::PCLVisualizer("3D Viewer"));
+	viewer->setBackgroundColor(0, 0, 0);
+	viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, 1, "cloud");
+	if(cloud.size()!=0)
+	{
+		PointCloud<PointXYZRGB>::Ptr cloudPtr(new PointCloud<PointXYZRGB>);
+		cloudPtr = cloud.makeShared();
+		viewer->addPointCloud(cloudPtr, "cloud");
+		viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, 1, "cloud");
+	}
+	ui.qvtkWidget->SetRenderWindow(viewer->getRenderWindow());
+	ui.qvtkWidget->update();
 }
 #pragma endregion 
 
@@ -258,10 +270,12 @@ void Reconstruction::on_pushButton_12_clicked()
 // 导入点云
 void Reconstruction::on_pushButton_13_clicked()
 {
+	
 	QString fileName = QFileDialog::getOpenFileName(
 		this, tr("open multiple image file"),
 		"./", tr("PCD files(*.pcd);;All files (*.*)"));		// todo 文件类型待确认
-
+	ui.label_9->setVisible(TRUE);
+	
 	if (fileName.isEmpty())
 	{
 		QMessageBox mesg;
@@ -269,14 +283,13 @@ void Reconstruction::on_pushButton_13_clicked()
 		return;
 	}
 
-	ui.label_9->setVisible(TRUE);
 	string pcd = fileName.toStdString();
-
-	PointCloud<PointXYZRGB>::Ptr cloud(new PointCloud<PointXYZRGB>);
-	io::loadPCDFile(pcd, *cloud);
+	PointCloud<PointXYZRGB>::Ptr cloudPtr(new PointCloud<PointXYZRGB>);
+	io::loadPCDFile(pcd, *cloudPtr);
+	cloud = *cloudPtr;
 	boost::shared_ptr<visualization::PCLVisualizer> viewer(new visualization::PCLVisualizer("3D Viewer"));
 	viewer->setBackgroundColor(0, 0, 0);
-	viewer->addPointCloud(cloud, "cloud");
+	viewer->addPointCloud(cloudPtr, "cloud");
 	viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, 1, "cloud");
 	ui.qvtkWidget->SetRenderWindow(viewer->getRenderWindow());
 	ui.label_9->setVisible(FALSE);
