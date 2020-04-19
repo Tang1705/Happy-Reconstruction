@@ -19,6 +19,7 @@
         <file>image/projection/novideo.jpg</file>
         <file>image/loading/label.png</file>
         <file>image/loading/press.png</file>
+        <file>image/reconstruction/loading.png</file>
     </qresource>
     <qresource prefix="/qss">
         <file>qss/flat.qss</file>

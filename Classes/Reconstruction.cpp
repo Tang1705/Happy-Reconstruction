@@ -3,10 +3,14 @@
 Reconstruction::Reconstruction(QWidget *parent)
 	: QMainWindow(parent)
 {
-	ui.setupUi(this);	
+	ui.setupUi(this);
+	t = new MyThread;
+	connect(t, SIGNAL(finished()), this, SLOT(setCloud()));
+
 	setStyle();
 }
 
+#pragma region Style
 void Reconstruction::setStyle()
 {
 	this->setContentsMargins(0, 0, 0, 0);
@@ -23,14 +27,21 @@ void Reconstruction::setStyle()
 	file.close();
 
 	QPalette palette1;
-	palette1.setColor(QPalette::Background, qRgba(44, 46, 70, 100));
+	palette1.setColor(QPalette::Background, qRgba(62, 71, 128, 100));	//左侧
 	ui.widget->setPalette(palette1);
+
+	QPalette palette2;
+	palette2.setColor(QPalette::Background, qRgba(255, 255, 255, 100));	//白色
+	// palette2.setColor(QPalette::Background, qRgba(204, 213, 240, 100));	//背景
+	ui.stackedWidget->setPalette(palette2);
+
 	ui.stackedWidget->setCurrentIndex(0);
 	setPicStyle();
 	setButtonStyle();
 }
 void Reconstruction::setPicStyle()
 {
+	ui.label_9->setPixmap(QPixmap(":/icon/image/reconstruction/loading.png"));
 	ui.label_11->setPixmap(QPixmap(":/icon/image/calibration/novideo.png"));
 	ui.label_21->setPixmap(QPixmap(":/icon/image/projection/novideo.jpg"));
 }
@@ -62,7 +73,7 @@ void Reconstruction::setButtonStyle()
 	ui.pushButton_15->setIcon(QIcon(":/icon/image/reconstruction/save2.png"));
 	ui.pushButton_16->setIcon(QIcon(":/icon/image/reconstruction/color.png"));
 }
-
+#pragma endregion 
 
 #pragma region 界面菜单
 void Reconstruction::on_pushButton_clicked()
@@ -78,11 +89,31 @@ void Reconstruction::on_pushButton_2_clicked()
 void Reconstruction::on_pushButton_3_clicked()
 {
 	ui.stackedWidget->setCurrentIndex(2);
-	ui.label_9->setVisible(FALSE);
+	updateQVTK(cloud);
+	if(loadingStatus)
+	{
+		ui.label_9->setVisible(true);
+	}else
+	{
+		ui.label_9->setVisible(false);
+	}
+}
+#pragma endregion 
+
+#pragma region 多线程
+void Reconstruction::setCloud()
+{
+	ui.label_9->setVisible(false);
+	loadingStatus = false;
+	cloud = t->getCloud();
+	updateQVTK(cloud);
+}
+void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud)
+{
 	boost::shared_ptr<visualization::PCLVisualizer> viewer(new visualization::PCLVisualizer("3D Viewer"));
-	viewer->setBackgroundColor(0, 0, 0);
+	viewer->setBackgroundColor(0.458, 0.529, 0.844);
 	viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, 1, "cloud");
-	if(cloud.size()!=0)
+	if (cloud.size() != 0)
 	{
 		PointCloud<PointXYZRGB>::Ptr cloudPtr(new PointCloud<PointXYZRGB>);
 		cloudPtr = cloud.makeShared();
@@ -270,12 +301,17 @@ void Reconstruction::on_pushButton_12_clicked()
 // 导入点云
 void Reconstruction::on_pushButton_13_clicked()
 {
-	
+	if(loadingStatus)
+	{
+		QMessageBox mesg;
+		mesg.warning(this, "WARNING", "正在加载… ");
+		return;
+	}
+
 	QString fileName = QFileDialog::getOpenFileName(
-		this, tr("open multiple image file"),
-		"./", tr("PCD files(*.pcd);;All files (*.*)"));		// todo 文件类型待确认
-	ui.label_9->setVisible(TRUE);
-	
+	this, tr("open multiple image file"),
+	"./", tr("PCD files(*.pcd);;All files (*.*)"));		// todo 文件类型待确认
+
 	if (fileName.isEmpty())
 	{
 		QMessageBox mesg;
@@ -283,17 +319,11 @@ void Reconstruction::on_pushButton_13_clicked()
 		return;
 	}
 
-	string pcd = fileName.toStdString();
-	PointCloud<PointXYZRGB>::Ptr cloudPtr(new PointCloud<PointXYZRGB>);
-	io::loadPCDFile(pcd, *cloudPtr);
-	cloud = *cloudPtr;
-	boost::shared_ptr<visualization::PCLVisualizer> viewer(new visualization::PCLVisualizer("3D Viewer"));
-	viewer->setBackgroundColor(0, 0, 0);
-	viewer->addPointCloud(cloudPtr, "cloud");
-	viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, 1, "cloud");
-	ui.qvtkWidget->SetRenderWindow(viewer->getRenderWindow());
-	ui.label_9->setVisible(FALSE);
-	ui.qvtkWidget->update();
+	ui.label_9->setVisible(true);
+	QCoreApplication::processEvents();
+	t->setPcd(fileName);
+	t->start();
+	loadingStatus = true;
 
 	// todo 存储文件或文件路径
 }
@@ -315,7 +345,7 @@ void Reconstruction::on_pushButton_15_clicked()
 	if (!fileName.isNull())
 	{
 		// 截图所选的控件暂时用 label_17 替代
-		QPixmap pix = QPixmap::grabWidget(ui.label_17);
+		QPixmap pix = QPixmap::grabWidget(ui.qvtkWidget);
 		pix.save(fileName);
 	}
 }
