@@ -48,8 +48,8 @@ void Reconstruction::setPicStyle()
 void Reconstruction::setButtonStyle()
 {
 	QString buttonStyle = "QPushButton{background-color:white;color: black;}"
-		"QPushButton:hover{background-color:#cceeff; color: black;}"
-		"QPushButton:pressed{background-color:rgb(85, 170, 255);border - style: inset; }";
+		"QPushButton:hover{background-color:#e5ebfb; color: black;}"
+		"QPushButton:pressed{background-color:rgb(204,213,240);border - style: inset; }";
 	ui.pushButton->setStyleSheet(buttonStyle);
 	ui.pushButton_2->setStyleSheet(buttonStyle);
 	ui.pushButton_3->setStyleSheet(buttonStyle);
@@ -358,5 +358,12 @@ void Reconstruction::on_pushButton_16_clicked()
 		// qDebug("x:%f, %f, %f",color.redF(), color.greenF(), color.blueF());
 		// todo 颜色选取框已选择颜色color，接下来对color进行处理
 	}
+}
+
+// 帮助
+void Reconstruction::on_pushButton_18_clicked()
+{
+	Help* help = new Help();
+	help->show();
 }
 #pragma endregion
