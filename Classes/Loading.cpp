@@ -5,7 +5,7 @@ Loading::Loading(QWidget *parent)
 {
 	
 	setStyle();
-	
+	setWindowFlags(Qt::FramelessWindowHint);
 	ui.label_2->hide();
 	// ui.progressBar->setValue(0);
 	// QGraphicsOpacityEffect *opacityEffect = new QGraphicsOpacityEffect;

@@ -4,10 +4,10 @@ Help::Help(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
-	
-	// QTextCodec *codec = QTextCodec::codecForName("utf-8");	//不起作用
-	// QTextCodec::setCodecForLocale(codec);
-	ui.textBrowser->setText(QString::fromUtf8("help"));	// 暂时不能写显示中文
+	QPixmap *pixmap = new QPixmap(":/Reconstruction/image/reconstruction/help.png");
+	pixmap->scaled(ui.label->size(), Qt::KeepAspectRatio);
+	ui.label->setScaledContents(true);
+	ui.label->setPixmap(*pixmap);
 }
 
 Help::~Help()

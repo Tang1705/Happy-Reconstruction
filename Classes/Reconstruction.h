@@ -41,7 +41,7 @@ private:
 	void setStyle();
 	void setPicStyle();
 	void setButtonStyle();
-	void updateQVTK(PointCloud<PointXYZRGB> cloud);
+	void updateQVTK(PointCloud<PointXYZRGB> cloud, QColor color);
 
 private slots:
 	void on_pushButton_clicked();

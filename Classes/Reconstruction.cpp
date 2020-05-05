@@ -89,7 +89,7 @@ void Reconstruction::on_pushButton_2_clicked()
 void Reconstruction::on_pushButton_3_clicked()
 {
 	ui.stackedWidget->setCurrentIndex(2);
-	updateQVTK(cloud);
+	updateQVTK(cloud, color);
 	if(loadingStatus)
 	{
 		ui.label_9->setVisible(true);
@@ -106,9 +106,9 @@ void Reconstruction::setCloud()
 	ui.label_9->setVisible(false);
 	loadingStatus = false;
 	cloud = t->getCloud();
-	updateQVTK(cloud);
+	updateQVTK(cloud, color);
 }
-void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud)
+void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud, QColor color)
 {
 	boost::shared_ptr<visualization::PCLVisualizer> viewer(new visualization::PCLVisualizer("3D Viewer"));
 	viewer->setBackgroundColor(0.458, 0.529, 0.844);
@@ -117,7 +117,12 @@ void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud)
 	{
 		PointCloud<PointXYZRGB>::Ptr cloudPtr(new PointCloud<PointXYZRGB>);
 		cloudPtr = cloud.makeShared();
-		viewer->addPointCloud(cloudPtr, "cloud");
+
+		int x = int(color.redF() * 255);
+		int y = int(color.greenF() * 255);
+		int z = int(color.blueF() * 255);
+		visualization::PointCloudColorHandlerCustom<PointXYZRGB> cloud_color(cloudPtr, x, y, z);// 统一处理点云颜色
+		viewer->addPointCloud(cloudPtr, cloud_color, "cloud");
 		viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, 1, "cloud");
 	}
 	ui.qvtkWidget->SetRenderWindow(viewer->getRenderWindow());
@@ -353,10 +358,10 @@ void Reconstruction::on_pushButton_15_clicked()
 // 颜色选取
 void Reconstruction::on_pushButton_16_clicked()
 {
-	color = QColorDialog::getColor(Qt::black);
-	if (color.isValid()){
-		// qDebug("x:%f, %f, %f",color.redF(), color.greenF(), color.blueF());
-		// todo 颜色选取框已选择颜色color，接下来对color进行处理
+	QColor colortmp = QColorDialog::getColor(Qt::black);
+	if (colortmp.isValid()){
+		color = colortmp;
+		updateQVTK(cloud, color);
 	}
 }
 
