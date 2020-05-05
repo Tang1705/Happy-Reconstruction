@@ -3,6 +3,7 @@
 #include <qthread.h>
 #include <pcl/point_types.h>
 #include <pcl/io/vtk_lib_io.h>
+
 using namespace std;
 using namespace pcl;
 

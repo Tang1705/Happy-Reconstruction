@@ -17,8 +17,8 @@ CameraArguments::CameraArguments(cv::Mat r, cv::Mat t, cv::Mat kc, cv::Mat kp)
 	kc1 = kc;
 	kp2 = kp;
 	cv::Mat tmp;
-	hconcat(cv::Mat::eye(3, 3,CV_32FC1),
-	        cv::Mat::zeros(cv::Size(5, 5), CV_32FC1), tmp);
+	hconcat(cv::Mat::eye(3, 3, CV_32FC1),
+		cv::Mat::zeros(cv::Size(1, 3), CV_32FC1), tmp);
 	hc1 = kc1 * tmp;
 	hconcat(r12, t12.t(), tmp);
 	hp2 = kp2 * tmp;

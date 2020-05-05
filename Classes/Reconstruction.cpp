@@ -1,12 +1,15 @@
 #include "Reconstruction.h"
 
-Reconstruction::Reconstruction(QWidget *parent)
+Reconstruction::Reconstruction(QWidget* parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
+	calibData = new CalibrationData();
+	calibrator = new Calibrator();
+	dirModel = new TreeModel(this);
 	t = new MyThread;
 	connect(t, SIGNAL(finished()), this, SLOT(setCloud()));
-
+	device = Device::getInstance();
 	setStyle();
 }
 
@@ -27,11 +30,11 @@ void Reconstruction::setStyle()
 	file.close();
 
 	QPalette palette1;
-	palette1.setColor(QPalette::Background, qRgba(62, 71, 128, 100));	//左侧
+	palette1.setColor(QPalette::Background, qRgba(62, 71, 128, 100)); //左侧
 	ui.widget->setPalette(palette1);
 
 	QPalette palette2;
-	palette2.setColor(QPalette::Background, qRgba(255, 255, 255, 100));	//白色
+	palette2.setColor(QPalette::Background, qRgba(255, 255, 255, 100)); //白色
 	// palette2.setColor(QPalette::Background, qRgba(204, 213, 240, 100));	//背景
 	ui.stackedWidget->setPalette(palette2);
 
@@ -39,12 +42,32 @@ void Reconstruction::setStyle()
 	setPicStyle();
 	setButtonStyle();
 }
+
 void Reconstruction::setPicStyle()
 {
 	ui.label_9->setPixmap(QPixmap(":/icon/image/reconstruction/loading.png"));
-	ui.label_11->setPixmap(QPixmap(":/icon/image/calibration/novideo.png"));
+	if (device->getHasCamera())
+	{
+		auto w = ui.label_11->width();
+		auto h = ui.label_11->height();
+		Mat blackImg(h, w, CV_8UC1, cv::Scalar::all(0));
+		QImage qimage = cvtools::cvMat2qImage(blackImg);
+		QPixmap pixmap = QPixmap::fromImage(qimage);
+		ui.label_11->setPixmap(pixmap.scaled(w, h, Qt::KeepAspectRatio));
+		liveViewTimer = startTimer(100);
+	}
+	else
+	{
+		ui.label_11->setPixmap(QPixmap(":/icon/image/calibration/novideo.png"));
+		ui.pushButton_5->setEnabled(false);
+		ui.pushButton_6->setEnabled(false);
+		ui.pushButton_7->setEnabled(false);
+		ui.pushButton_8->setEnabled(false);
+	}
+
 	ui.label_21->setPixmap(QPixmap(":/icon/image/projection/novideo.jpg"));
 }
+
 void Reconstruction::setButtonStyle()
 {
 	QString buttonStyle = "QPushButton{background-color:white;color: black;}"
@@ -73,12 +96,17 @@ void Reconstruction::setButtonStyle()
 	ui.pushButton_15->setIcon(QIcon(":/icon/image/reconstruction/save2.png"));
 	ui.pushButton_16->setIcon(QIcon(":/icon/image/reconstruction/color.png"));
 }
-#pragma endregion 
+#pragma endregion
 
 #pragma region 界面菜单
 void Reconstruction::on_pushButton_clicked()
 {
 	ui.stackedWidget->setCurrentIndex(0);
+	// imgCount = 0;
+	// dirModel = new TreeModel(this);
+	// dirModel->clear();
+	// ui.treeView->setModel(dirModel);
+	// ui.stackedWidget->setCurrentIndex(0);
 }
 
 void Reconstruction::on_pushButton_2_clicked()
@@ -89,16 +117,17 @@ void Reconstruction::on_pushButton_2_clicked()
 void Reconstruction::on_pushButton_3_clicked()
 {
 	ui.stackedWidget->setCurrentIndex(2);
-	updateQVTK(cloud);
-	if(loadingStatus)
+	updateQVTK(cloud, color);
+	if (loadingStatus)
 	{
 		ui.label_9->setVisible(true);
-	}else
+	}
+	else
 	{
 		ui.label_9->setVisible(false);
 	}
 }
-#pragma endregion 
+#pragma endregion
 
 #pragma region 多线程
 void Reconstruction::setCloud()
@@ -106,9 +135,10 @@ void Reconstruction::setCloud()
 	ui.label_9->setVisible(false);
 	loadingStatus = false;
 	cloud = t->getCloud();
-	updateQVTK(cloud);
+	updateQVTK(cloud, color);
 }
-void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud)
+
+void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud, QColor color)
 {
 	boost::shared_ptr<visualization::PCLVisualizer> viewer(new visualization::PCLVisualizer("3D Viewer"));
 	viewer->setBackgroundColor(0.458, 0.529, 0.844);
@@ -117,13 +147,18 @@ void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud)
 	{
 		PointCloud<PointXYZRGB>::Ptr cloudPtr(new PointCloud<PointXYZRGB>);
 		cloudPtr = cloud.makeShared();
-		viewer->addPointCloud(cloudPtr, "cloud");
+
+		int x = int(color.redF() * 255);
+		int y = int(color.greenF() * 255);
+		int z = int(color.blueF() * 255);
+		visualization::PointCloudColorHandlerCustom<PointXYZRGB> cloud_color(cloudPtr, x, y, z);// 统一处理点云颜色
+		viewer->addPointCloud(cloudPtr, cloud_color, "cloud");
 		viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, 1, "cloud");
 	}
 	ui.qvtkWidget->SetRenderWindow(viewer->getRenderWindow());
 	ui.qvtkWidget->update();
 }
-#pragma endregion 
+#pragma endregion
 
 #pragma region 系统标定-按钮
 
@@ -132,14 +167,15 @@ void Reconstruction::on_pushButton_5_clicked()
 {
 	QString fileName = QFileDialog::getOpenFileName(
 		this, tr("open multiple image file"),
-		"./", tr("Image files(*.bmp *.jpg *.pbm *.pgm *.png *.ppm *.xbm *.xpm);;All files (*.*)"));		// todo 文件类型待确认
+		"./", tr("Image files(*.bmp *.jpg *.pbm *.pgm *.png *.ppm *.xbm *.xpm);;All files (*.*)")); // todo 文件类型待确认
 
 	if (fileName.isEmpty())
 	{
 		QMessageBox mesg;
 		mesg.warning(this, "WARNING", "Failed to open picture");
 		return;
-	}else
+	}
+	else
 	{
 		calPath = fileName;
 	}
@@ -148,26 +184,96 @@ void Reconstruction::on_pushButton_5_clicked()
 // 相机拍摄
 void Reconstruction::on_pushButton_6_clicked()
 {
-	if(calPath.isEmpty())
+	killTimer(liveViewTimer);
+	ui.pushButton_5->setEnabled(false);
+	ui.pushButton_6->setEnabled(false);
+	ui.pushButton_7->setEnabled(false);
+	ui.pushButton_8->setEnabled(false);
+
+	char path[100];
+	sprintf(path, "calib%.2d", imgCount);
+	fstools::mkDir(tr("./config/calib"), tr(path));
+
+	device->getProjector()->displayPattern(0);
+	//QTest::qSleep(500);
+	for (unsigned int i = 0; i < 44; i++)
 	{
-		QMessageBox mesg;
-		mesg.warning(this, "WARNING", "Haven't uploaded calibration pictures!");
-	}else
-	{
-		// todo 相机拍摄，存储照片集
+		// Project pattern
+		device->getProjector()->displayPattern(i);
+		//QTest::qSleep(200);
+		// Effectuate sleep (necessary with some camera implementations)
+		QApplication::processEvents();
+
+		// Aquire frame
+		auto frame = device->getCamera()->getFrame();
+		auto frameCV = cvtools::camFrame2Mat(frame);
+		cvtColor(frameCV, frameCV, cv::COLOR_BGR2GRAY);
+		//parameter
+		std::cout << cv::format("./config/calib/calib%.2d/%.2d.bmp", imgCount, i) << std::endl;
+		imwrite(cv::format("./config/calib/calib%.2d/%.2d.bmp", imgCount, i), frameCV);
+
+		auto qimage = cvtools::cvMat2qImage(frameCV);
+		auto w = ui.label_11->width();
+		auto h = ui.label_11->height();
+		auto pixmap = QPixmap::fromImage(qimage);
+		ui.label_11->setPixmap(pixmap.scaled(w, h, Qt::KeepAspectRatio));
 	}
+
+	imgCount++;
+	liveViewTimer = startTimer(100);
+	//parameter
+	setDirModel(tr("./config/calib"));
+	ui.treeView->setModel(dirModel);
+
+	ui.pushButton_5->setEnabled(true);
+	ui.pushButton_6->setEnabled(true);
+	ui.pushButton_7->setEnabled(true);
+	ui.pushButton_8->setEnabled(true);
+	// if (calPath.isEmpty())
+	// {
+	// 	QMessageBox mesg;
+	// 	mesg.warning(this, "WARNING", "Haven't uploaded calibration pictures!");
+	// }
+	// else
+	// {
+	// 	// todo 相机拍摄，存储照片集
+	// }
 	// 标定日志：显示拍摄照片集存储路径
-	ui.textBrowser_7->append("");
+	// ui.textBrowser_7->append("");
 }
 
 // 相机标定
 void Reconstruction::on_pushButton_7_clicked()
 {
-	int size = ui.spinBox->value();
-	int row = ui.spinBox_2->value();
-	int col = ui.spinBox_3->value();
-	// todo 相机标定
+	auto size = ui.spinBox->value();
+	auto row = ui.spinBox_2->value();
+	auto col = ui.spinBox_3->value();
 
+	calibrator->setCornerSize(size);
+	calibrator->setBoardRows(row);
+	calibrator->setBoardCols(col);
+	// todo 相机标定
+	killTimer(liveViewTimer);
+	calibrator->reset();
+
+	std::vector<Mat> imgList;
+	for (auto i = 0; i < dirModel->rowCount(); i++)
+	{
+		auto parent = dirModel->index(i, 0);
+		auto imgNum = dirModel->rowCount(parent);
+		for (auto j = 0; j < imgNum; j++)
+		{
+			imgList.push_back(getImage(i, j, GrayImageRole));
+		}
+		calibrator->addFrameSequence(imgList);
+		imgList.clear();
+	}
+	calibData = calibrator->calibrate();
+	std::cout << "calibration success!!!" << std::endl;
+	calibData->print();
+	ui.pushButton_6->setEnabled(true);
+
+	if (device->getCamera()->isConnecting()) liveViewTimer = startTimer(100);
 
 	// 相机参数栏：显示标定结果
 	ui.textBrowser->append("");
@@ -180,13 +286,13 @@ void Reconstruction::on_pushButton_7_clicked()
 void Reconstruction::on_pushButton_8_clicked()
 {
 	QFileDialog fileDialog;
-	QString fileName = fileDialog.getSaveFileName(this, "Open File", "", "Text File(*.txt)");	// todo 更改文件类型
+	QString fileName = fileDialog.getSaveFileName(this, "Open File", "", "Text File(*.txt)"); // todo 更改文件类型
 	if (fileName.isEmpty())
 	{
 		return;
 	}
 	QFile file(fileName);
-	if (!file.open(QIODevice::WriteOnly | QIODevice::Text))	// todo 更改文件类型
+	if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) // todo 更改文件类型
 	{
 		QMessageBox::warning(this, "error", "open file failure!");
 		return;
@@ -194,9 +300,170 @@ void Reconstruction::on_pushButton_8_clicked()
 	else
 	{
 		// todo 保存结果
+		QString selectedFilter;
+		QString fileName = QFileDialog::getSaveFileName(this, QString::fromLocal8Bit("保存标定文件"), QString(), "*.xml",
+		                                                &selectedFilter);
+		calibData->saveXML(fileName);
 	}
 }
-#pragma endregion 
+
+void Reconstruction::closeEvent(QCloseEvent*)
+{
+	killTimer(liveViewTimer);
+	delete calibData;
+	delete calibrator;
+	delete dirModel;
+}
+
+void Reconstruction::timerEvent(QTimerEvent* event)
+{
+	if (event->timerId() != liveViewTimer)
+	{
+		std::cerr << "Something fishy..." << std::endl << std::flush;
+		return;
+	}
+
+	auto frame = device->getCamera()->getFrame();
+
+	auto frameCV = cvtools::camFrame2Mat(frame);
+	cvtColor(frameCV, frameCV, cv::COLOR_BGR2GRAY);
+	if (frameCV.rows == 0 || frameCV.cols == 0)
+	{
+		return;
+	}
+
+	frameCV = frameCV.clone();
+	auto qimage = cvtools::cvMat2qImage(frameCV);
+
+	// correct size only if label has no borders/frame!
+	auto w = ui.label_11->width();
+	auto h = ui.label_11->height();
+
+	auto pixmap = QPixmap::fromImage(qimage);
+	ui.label_11->setPixmap(pixmap.scaled(w, h, Qt::KeepAspectRatio));
+}
+
+void Reconstruction::setDirModel(const QString& dirname)
+{
+	QDir root_dir(dirname);
+
+	//reset internal data
+	dirModel->clear();
+
+	auto dirlist = root_dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
+	foreach(const QString & item, dirlist)
+	{
+		QDir dir(root_dir.filePath(item));
+
+		QStringList filters;
+		filters << "*.jpg" << "*.bmp" << "*.png";
+
+		auto filelist = dir.entryList(filters, QDir::Files, QDir::Name);
+		auto path = dir.path();
+
+		//setup the model
+		auto filecount = filelist.count();
+
+		if (filecount < 1)
+		{
+			//no images  skip
+			continue;
+		}
+
+		unsigned row = dirModel->rowCount();
+		if (!dirModel->insertRow(row))
+		{
+			std::cout << "Failed model insert " << item.toStdString() << "(" << row << ")" << std::endl;
+			continue;
+		}
+
+		//        add the childrens
+		auto parent = dirModel->index(row, 0);
+		dirModel->setData(parent, item, Qt::DisplayRole);
+
+		for (auto i = 0; i < filecount; i++)
+		{
+			const auto& filename = filelist.at(i);
+			if (!dirModel->insertRow(i, parent))
+			{
+				std::cout << "Failed model insert " << filename.toStdString() << "(" << row << ")" << std::endl;
+				break;
+			}
+
+			auto index = dirModel->index(i, 0, parent);
+			dirModel->setData(index, QString("#%1 %2").arg(i, 2, 10, QLatin1Char('0')).arg(filename), Qt::DisplayRole);
+
+			//additional data
+			dirModel->setData(index, path + "/" + filename, ImageFilenameRole);
+		}
+	}
+
+	if (dirModel->rowCount() >= 3)
+	{
+		ui.pushButton_7->setEnabled(true);
+	}
+	else
+	{
+		ui.pushButton_7->setEnabled(false);
+	}
+}
+
+Mat Reconstruction::getImage(unsigned level, unsigned n, Role role)
+{
+	if (role != GrayImageRole && role != ColorImageRole)
+	{
+		//invalid args
+		return Mat();
+	}
+
+	//try to load
+	if (dirModel->rowCount() < static_cast<int>(level))
+	{
+		//out of bounds
+		return cv::Mat();
+	}
+	auto parent = dirModel->index(level, 0);
+	if (dirModel->rowCount(parent) < static_cast<int>(n))
+	{
+		//out of bounds
+		return Mat();
+	}
+
+	auto index = dirModel->index(n, 0, parent);
+	if (!index.isValid())
+	{
+		//invalid index
+		return Mat();
+	}
+
+	auto filename = dirModel->data(index, ImageFilenameRole).toString();
+	//    std::cout << "[" << (role==GrayImageRole ? "gray" : "color") << "] Filename: " << filename.toStdString() << std::endl;
+
+	//load image
+	auto rgb_image = imread(filename.toStdString());
+
+
+	if (rgb_image.rows > 0 && rgb_image.cols > 0)
+	{
+		//color
+		if (role == ColorImageRole)
+		{
+			return rgb_image;
+		}
+
+		//gray scale
+		if (role == GrayImageRole)
+		{
+			Mat gray_image;
+			cvtColor(rgb_image, gray_image, cv::COLOR_BGR2GRAY);
+			return gray_image;
+		}
+	}
+
+	return Mat();
+}
+
+#pragma endregion
 
 #pragma region 三维重建-按钮
 
@@ -206,7 +473,7 @@ void Reconstruction::on_pushButton_4_clicked()
 	// 选择投影图案
 	QString fileName = QFileDialog::getOpenFileName(
 		this, tr("open image file"),
-		"./", tr("Image files(*.bmp *.jpg *.pbm *.pgm *.png *.ppm *.xbm *.xpm);;All files (*.*)"));	
+		"./", tr("Image files(*.bmp *.jpg *.pbm *.pgm *.png *.ppm *.xbm *.xpm);;All files (*.*)"));
 
 	if (fileName.isEmpty())
 	{
@@ -224,8 +491,8 @@ void Reconstruction::on_pushButton_4_clicked()
 void Reconstruction::on_pushButton_9_clicked()
 {
 	// todo 相机拍照
-	picPath = "Resources/image/test.png";		// 该行仅做测试使用	
-	DisplayPic *picDlg = new DisplayPic();
+	picPath = "Resources/image/test.png"; // 该行仅做测试使用	
+	DisplayPic* picDlg = new DisplayPic();
 	picDlg->setPicPath(picPath);
 	connect(picDlg, SIGNAL(getPicAction(QString)), this, SLOT(setPicAction(QString)));
 	picDlg->show();
@@ -233,11 +500,12 @@ void Reconstruction::on_pushButton_9_clicked()
 
 void Reconstruction::setPicAction(QString action)
 {
-	if(action=="confirmed")
+	if (action == "confirmed")
 	{
 		qDebug("confirmed");
 		confirmPic = true;
-	}else if(action=="canceled")
+	}
+	else if (action == "canceled")
 	{
 		qDebug("canceled");
 		confirmPic = false;
@@ -248,28 +516,30 @@ void Reconstruction::setPicAction(QString action)
 void Reconstruction::on_pushButton_10_clicked()
 {
 	// todo 保存照片
-	if(confirmPic)
+	if (confirmPic)
 	{
 		QString fileName = QFileDialog::getSaveFileName(this,
-		tr("save image"),
-		"",
-		tr("*.png;; *.jpg;; *.bmp;; All files(*.*)"));
+		                                                tr("save image"),
+		                                                "",
+		                                                tr("*.png;; *.jpg;; *.bmp;; All files(*.*)"));
 
 		if (!fileName.isNull())
 		{
-			QImage iim(picPath);//创建一个图片对象,存储源图片
-			QPainter painter(&iim);//设置绘画设备
-			QFile file(fileName);//创建一个文件对象，存储用户选择的文件
-			if (!file.open(QIODevice::ReadWrite)) {
-					return;
+			QImage iim(picPath); //创建一个图片对象,存储源图片
+			QPainter painter(&iim); //设置绘画设备
+			QFile file(fileName); //创建一个文件对象，存储用户选择的文件
+			if (!file.open(QIODevice::ReadWrite))
+			{
+				return;
 			}
 			QByteArray ba;
 			QBuffer buffer(&ba);
 			buffer.open(QIODevice::WriteOnly);
-			iim.save(&buffer, "JPG");//把图片以流方式写入文件缓存流中
-			file.write(ba);//将流中的图片写入文件对象当中
+			iim.save(&buffer, "JPG"); //把图片以流方式写入文件缓存流中
+			file.write(ba); //将流中的图片写入文件对象当中
 		}
-	}else
+	}
+	else
 	{
 		QMessageBox mesg;
 		mesg.warning(this, "WARNING", "Haven't taken picture!");
@@ -280,9 +550,52 @@ void Reconstruction::on_pushButton_10_clicked()
 void Reconstruction::on_pushButton_17_clicked()
 {
 	// todo 开始重建
+	// auto cArg = CameraArguments::getInstance();
+	Mat r(3, 3, CV_32F);
+	double m0[3][3] = {
+		{9.7004457782050868e-001, 1.3447278830863673e-002, 2.4255450466457243e-001},
+		{-8.7082927494022376e-003, 9.9974988338843274e-001, -2.0599424802792338e-002},
+		{-2.4277084396282392e-001, 1.7870124701864658e-002, 9.6991905639837694e-001}
+	};
+	for (auto i = 0; i < r.rows; i++)
+		for (auto j = 0; j < r.cols; j++)
+			r.at<float>(i, j) = m0[i][j];
+
+	Mat t(1, 3, CV_32F);
+	double m1[1][3] = {
+		{-1.9511179496234658e+002, 1.2627509817628756e+001, -5.9345885017522171e+001}
+	};
+
+	for (auto i = 0; i < t.rows; i++)
+		for (auto j = 0; j < t.cols; j++)
+			t.at<float>(i, j) = m1[i][j];
+
+	Mat kc(3, 3, CV_32F);
+	double m2[3][3] = {
+		{2.1536653255083029e+003, 0., 6.1886776197116581e+002},
+		{0., 2.1484363899666910e+003, 5.0694898820460787e+002},
+		{0., 0., 1.}
+	};
+	for (auto i = 0; i < kc.rows; i++)
+		for (auto j = 0; j < kc.cols; j++)
+			kc.at<float>(i, j) = m2[i][j];
+
+	Mat kp(3, 3, CV_32F);
+	double m3[3][3] = {
+		{1.7235093158297350e+003, 0., 4.4128195628736904e+002},
+		{0., 3.4533404000869359e+003, 5.7316457428558715e+002},
+		{0., 0., 1.}
+	};
+	for (auto i = 0; i < kp.rows; i++)
+		for (auto j = 0; j < kp.cols; j++)
+			kp.at<float>(i, j) = m3[i][j];
+
+	auto cArg = CameraArguments::getInstance(r, t, kc, kp);
+	CoreAlgorithm testCase = CoreAlgorithm("./Data/image/reconstruction/tq.png", cArg);
+	testCase.run();
 }
 
-#pragma endregion 
+#pragma endregion
 
 #pragma region 点云渲染-按钮
 
@@ -301,7 +614,7 @@ void Reconstruction::on_pushButton_12_clicked()
 // 导入点云
 void Reconstruction::on_pushButton_13_clicked()
 {
-	if(loadingStatus)
+	if (loadingStatus)
 	{
 		QMessageBox mesg;
 		mesg.warning(this, "WARNING", "正在加载… ");
@@ -309,8 +622,8 @@ void Reconstruction::on_pushButton_13_clicked()
 	}
 
 	QString fileName = QFileDialog::getOpenFileName(
-	this, tr("open multiple image file"),
-	"./", tr("PCD files(*.pcd);;All files (*.*)"));		// todo 文件类型待确认
+		this, tr("open multiple image file"),
+		"./", tr("PCD files(*.pcd);;All files (*.*)")); // todo 文件类型待确认
 
 	if (fileName.isEmpty())
 	{
@@ -338,9 +651,9 @@ void Reconstruction::on_pushButton_14_clicked()
 void Reconstruction::on_pushButton_15_clicked()
 {
 	QString fileName = QFileDialog::getSaveFileName(this,
-		tr("save screen shot"),
-		"",
-		tr("*.png;; *.jpg;; *.bmp;; All files(*.*)"));
+	                                                tr("save screen shot"),
+	                                                "",
+	                                                tr("*.png;; *.jpg;; *.bmp;; All files(*.*)"));
 
 	if (!fileName.isNull())
 	{
@@ -353,12 +666,13 @@ void Reconstruction::on_pushButton_15_clicked()
 // 颜色选取
 void Reconstruction::on_pushButton_16_clicked()
 {
-	color = QColorDialog::getColor(Qt::black);
-	if (color.isValid()){
-		// qDebug("x:%f, %f, %f",color.redF(), color.greenF(), color.blueF());
-		// todo 颜色选取框已选择颜色color，接下来对color进行处理
+	QColor colortmp = QColorDialog::getColor(Qt::black);
+	if (colortmp.isValid()) {
+		color = colortmp;
+		updateQVTK(cloud, color);
 	}
 }
+
 
 // 帮助
 void Reconstruction::on_pushButton_18_clicked()

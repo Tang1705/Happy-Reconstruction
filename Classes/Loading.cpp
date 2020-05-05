@@ -5,7 +5,7 @@ Loading::Loading(QWidget *parent)
 {
 	
 	setStyle();
-	
+	setWindowFlags(Qt::FramelessWindowHint);
 	ui.label_2->hide();
 	// ui.progressBar->setValue(0);
 	// QGraphicsOpacityEffect *opacityEffect = new QGraphicsOpacityEffect;
@@ -14,7 +14,7 @@ Loading::Loading(QWidget *parent)
 
 	// todo ¼ÓÔØ
 	// ui.progressBar->setValue(100);
-
+	device = Device::getInstance();
 	ui.label->hide();
 	ui.label_2->show();
 	ready2Enter = true;

@@ -1,7 +1,24 @@
 #pragma once
+
 #include <opencv2/opencv.hpp>
+#include  <opencv2/highgui.hpp>
 #include <string>
 #include <vector>
+#include <iostream>
+#include <fstream>
+#include <cmath>
+#include <string>
+#include <unordered_map>
+#include <numeric>
+#include "cwt.h"
+#include "cwt_emxAPI.h"
+#include "cwt_terminate.h"
+#include "rt_nonfinite.h"
+#include <cstddef>
+#include <cstdlib>
+#include "rtwtypes.h"
+#include "omp.h"
+#include "cwt_types.h"
 #include "CameraArguments.h"
 
 using namespace std;
@@ -9,27 +26,31 @@ using namespace cv;
 
 typedef unsigned char byte;
 
-class CoreAlgorithm
-{
+# define PI acos(-1)
+
+class CoreAlgorithm {
 private:
-	Mat image, tmp;
-	vector<Mat> channel,hsv;
-	const int neighborhood = 5;
-	int minX = 0, maxX = 0, minY = 1280, maxY = 0;
-	CameraArguments* cArg;
+    Mat image, tmp, hsv, lab;
+    vector<Mat> rgbChannel, hsvChannel;
+    int minX = 0, maxX = 0, minY = 0, maxY = 0;
+    int rows, cols;
+    CameraArguments *cArg;
+    vector<Mat> coordinate;
+    vector<float> color;
 private:
-	CoreAlgorithm(std::string path);
-	~CoreAlgorithm();
-	Mat OSTU(Mat src);
-	vector<int> Debruijn(int k, int n);
-	vector<int> Hsv(int r,int g,int b);
-	Mat Reconstruction(Mat featurePoint, int num,Mat Hc1,Mat Hp2,Mat map);
-	template <class ForwardIterator>
-	size_t argmin(ForwardIterator first, ForwardIterator last);
-	template <class ForwardIterator>
-	size_t argmax(ForwardIterator first, ForwardIterator last);
-	template <typename Tp>
-	std::vector<Tp> convertMat2Vector(const cv::Mat& mat);
+    static Mat OtsuAlgThreshold(Mat &src);
+
+    static vector<int> DeBruijn(int k, int n);
+
+    void Reconstruction(vector<vector<float>> maximas, vector<vector<float>> minimas, vector<vector<float>> colorLabel,
+                        vector<vector<float>> phases,const Mat &Hc1, Mat Hp2, const double *map);
+
 public:
-	void run();
+    CoreAlgorithm(const std::string &path, CameraArguments *cArgs);
+
+    ~CoreAlgorithm();
+
+    void run();
+
+    void saveCoordinate();
 };

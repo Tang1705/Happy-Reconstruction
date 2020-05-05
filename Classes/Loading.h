@@ -5,6 +5,7 @@
 #include "Reconstruction.h"
 #include <QMouseEvent>
 #include <QGraphicsOpacityEffect>
+#include "Device.h"
 
 class Loading : public QWidget
 {
@@ -17,6 +18,7 @@ public:
 private:
 	Ui::Loading ui;
 	bool ready2Enter = false;
+	Device* device;
 	int currentValue = 0;
 	void updateSlot();
 	void setStyle();

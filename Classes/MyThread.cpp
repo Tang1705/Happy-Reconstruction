@@ -13,6 +13,8 @@ void MyThread::run()
 		io::loadPCDFile(pcd, *cloudPtr);
 		cloud = *cloudPtr;
 	}
+	
+
 }
 
 void MyThread::setPcd(QString str)
