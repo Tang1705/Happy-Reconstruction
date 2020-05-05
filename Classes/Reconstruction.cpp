@@ -118,7 +118,11 @@ void Reconstruction::on_pushButton_3_clicked()
 {
 	ui.stackedWidget->setCurrentIndex(2);
 	updateQVTK(cloud, color);
+<<<<<<< HEAD
 	if (loadingStatus)
+=======
+	if(loadingStatus)
+>>>>>>> 25cd1378d60d38a887eb0dbf1272b364c933624c
 	{
 		ui.label_9->setVisible(true);
 	}
@@ -137,7 +141,10 @@ void Reconstruction::setCloud()
 	cloud = t->getCloud();
 	updateQVTK(cloud, color);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 25cd1378d60d38a887eb0dbf1272b364c933624c
 void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud, QColor color)
 {
 	boost::shared_ptr<visualization::PCLVisualizer> viewer(new visualization::PCLVisualizer("3D Viewer"));
@@ -667,7 +674,11 @@ void Reconstruction::on_pushButton_15_clicked()
 void Reconstruction::on_pushButton_16_clicked()
 {
 	QColor colortmp = QColorDialog::getColor(Qt::black);
+<<<<<<< HEAD
 	if (colortmp.isValid()) {
+=======
+	if (colortmp.isValid()){
+>>>>>>> 25cd1378d60d38a887eb0dbf1272b364c933624c
 		color = colortmp;
 		updateQVTK(cloud, color);
 	}
