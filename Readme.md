@@ -12,7 +12,7 @@
 
 项目前期，对项目研究内容进行深入了解，根据研究内容查阅相关文献资料，了解了目前各项技术研究现状，能够明白经典方法的原理并能够将其实现。在学习并理解了研究内容及相关原理的基础上，对空间编码中的基于 De Bruijn 序列编码和基于伪随机矩阵编码两种方式的有关理论及其相关论文进行了学习，部分论文如下所示。
 
-<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/cxmvq7pyyl9w26qko42jujsl/01.gif" alt="03" width="30%" height="30%" />                <img src="http://static.zybuluo.com/TangWill/6q8x3x920nxdyluimu43gut1/03.png" alt="04" width="30%" height="30%" /> <img src="http://static.zybuluo.com/TangWill/z6giu9sqibq08fc1crweplxa/04.png" alt="05" width="30%" height="30%"  /></div>
+<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/epo24nprhgogp1g0s38hiwy7/02.png" alt="03" width="30%" height="30%" />                <img src="http://static.zybuluo.com/TangWill/6q8x3x920nxdyluimu43gut1/03.png" alt="04" width="30%" height="30%" /> <img src="http://static.zybuluo.com/TangWill/z6giu9sqibq08fc1crweplxa/04.png" alt="05" width="30%" height="30%"  /></div>
 
 项目中期，对前期所阅读的文献和经典算法的实现进行研究、归纳、整理。参照本项目的研究内容拟选出适用的相关算法与技术，提出实验思路，制定实验方案。
 
