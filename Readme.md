@@ -32,4 +32,5 @@ De Bruijn 序列由n种不同元素构成，任意长度为m的连续子序列�
 <div class="imgs" align="center" ><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/14.png" alt="15" /></div>
 
 ---
- 本项目的介绍也可以访问 http://tang5618.com/wordpress/?p=598
+
+ 本项目的介绍也可以访问  [这里](https://tang5618.com/wordpress/?p=598)
