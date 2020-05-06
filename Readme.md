@@ -2,7 +2,7 @@
 
 高铁列车运行速度快，轮轨表面相对光滑且无明显特征点，使得特征不易提取，点云重建精度较差，给三维重建带来了很大的困难。
 
-<div class="imgs" align="center" ><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/00.gif" alt="01" width="45%" height="45%" /> </div>
+<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/83s2b1jh93zumwaeavyhn0w2/00.gif" alt="01" width="45%" height="45%" hspace="10" />                <img src=" http://static.zybuluo.com/TangWill/cxmvq7pyyl9w26qko42jujsl/01.gif" alt="02" width="45%" height="45%"  hspace="10" /></div>
 
 针对高铁列车速度快的特点，可以通过采用非接触的测量方法 —— 计算机视觉。物体表面的点云三维重建在机器视觉领域已经成为一个很重要的研究方向。点云即物体表面特征点的集合，这些点包含了物体表面的三维坐标以及颜色等信息。点云的重建方法包括基于结构光的三维重建技术、光照模型、基于单目视觉或双目视觉的重建方法等。
 
