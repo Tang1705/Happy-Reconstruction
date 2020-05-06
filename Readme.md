@@ -2,7 +2,7 @@
 
 高铁列车运行速度快，轮轨表面相对光滑且无明显特征点，使得特征不易提取，点云重建精度较差，给三维重建带来了很大的困难。
 
-<div class="imgs" align="center" ><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/00.gif" alt="01" width="45%" height="45%"  hspace="10" />                <img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/01.gif" alt="02" width="45%" height="45%"  hspace="10" /></div>
+<div class="imgs" align="center" ><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/00.gif" alt="01" width="45%" height="45%" /> </div>
 
 针对高铁列车速度快的特点，可以通过采用非接触的测量方法 —— 计算机视觉。物体表面的点云三维重建在机器视觉领域已经成为一个很重要的研究方向。点云即物体表面特征点的集合，这些点包含了物体表面的三维坐标以及颜色等信息。点云的重建方法包括基于结构光的三维重建技术、光照模型、基于单目视觉或双目视觉的重建方法等。
 
@@ -16,19 +16,20 @@
 
 项目中期，对前期所阅读的文献和经典算法的实现进行研究、归纳、整理。参照本项目的研究内容拟选出适用的相关算法与技术，提出实验思路，制定实验方案。
 
-伪随机序列具有良好的窗口特性，即通过一个较小的窗口在编码图案上面移动时，每个窗口内的编码组合是唯一的，根据窗口的这个特性可以唯一地辨识编码图案上的特征点。复现论文的本原多项式采用 $h(x)=2𝑥^6+2𝑥^5+𝑥^4+3𝑥^3+2𝑥^2+2𝑥+1$，菱形作为结构光编码图案的基本元素，红、蓝、绿、黑四种颜色作为标记菱形代表的不同数值，窗口大小为$2\times 3$，同时以菱形角点作为特征点，可以有效提高特征点提取的精度。根据论文提出的结构光解码方法，可有效提取物体表面特征点，但由于角点数量较少，不能达到稠密点云的效果，未来可以通过改善相机分辨率，减小菱形面积，增加特征点等方式以提高特征点的密度。部分参考论文和实验结果如下。
+伪随机序列具有良好的窗口特性，即通过一个较小的窗口在编码图案上面移动时，每个窗口内的编码组合是唯一的，根据窗口的这个特性可以唯一地辨识编码图案上的特征点。复现论文的本原多项式采用 h(x)=2𝑥^6+2𝑥^5+𝑥^4+3𝑥^3+2𝑥^2+2𝑥+1，菱形作为结构光编码图案的基本元素，红、蓝、绿、黑四种颜色作为标记菱形代表的不同数值，窗口大小为$2\times 3$，同时以菱形角点作为特征点，可以有效提高特征点提取的精度。根据论文提出的结构光解码方法，可有效提取物体表面特征点，但由于角点数量较少，不能达到稠密点云的效果，未来可以通过改善相机分辨率，减小菱形面积，增加特征点等方式以提高特征点的密度。部分参考论文和实验结果如下。
 
 <div class="imgs" align="center" ><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/04.png" alt="06" width="22%" height="22%" />                <img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/05.png" alt="07" width="22%" height="22%" /> <img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/06.png" alt="08" width="22%" height="22%"  /><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/07.png" alt="09" width="22%" height="22%"  /></div>
 
-<div align="center">[embed]http://tang5618.com/data/video/00.mp4[/embed]</div>
-
-De Bruijn 序列由n种不同元素构成，任意长度为m的连续子序列只出现一次。复现的论文以 B(3,4) 序列进行编码，条纹作为结构光编码图案的基本元素，红、蓝、绿三种颜色作为标记条纹代表的不同数值，窗口大小为 $4\times 1$，以条纹中心点作为特征点。同时在 HSV 颜色空间模型中，以余弦函数对条纹的 V 通道进行编码。在结构光解码时，除了提取条纹中心点作为特征点，同时对拍摄到的图像的 V 通道进行加窗傅里叶变换分析，通过分析得到的相位进而增加特征点的密度。根据论文的基本思路，可在提高提取点云进度的同时增加点云的稠密度，实验效果较好。根据项目内容和有关研究的进展，在研究论文和实验的基础上，对复现论文的算法进行改进，提出适合项目场景的算法流程。部分论文如下。
+De Bruijn 序列由n种不同元素构成，任意长度为m的连续子序列只出现一次。复现的论文以 B(3,4) 序列进行编码，条纹作为结构光编码图案的基本元素，红、蓝、绿三种颜色作为标记条纹代表的不同数值，窗口大小为 4*1，以条纹中心点作为特征点。同时在 HSV 颜色空间模型中，以余弦函数对条纹的 V 通道进行编码。在结构光解码时，除了提取条纹中心点作为特征点，同时对拍摄到的图像的 V 通道进行加窗傅里叶变换分析，通过分析得到的相位进而增加特征点的密度。根据论文的基本思路，可在提高提取点云进度的同时增加点云的稠密度，实验效果较好。根据项目内容和有关研究的进展，在研究论文和实验的基础上，对复现论文的算法进行改进，提出适合项目场景的算法流程。部分论文如下。
 
 <div class="imgs" align="center" ><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/08.png" alt="10" width="22%" height="22%" />                <img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/09.png" alt="11" width="22%" height="22%" /> <img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/10.png" alt="12" width="22%" height="22%"  /><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/11.png" alt="13" width="22%" height="22%"  /></div>
 
 基于改进的算法对球体表面进行重建，得到约 17W 条点云数据，在 Meshlab 中对点云数据进行渲染，实验结果如下。
 <div class="imgs" align="center" ><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/13.png" alt="14" /></div>
 
-改用以 B(4,3) 序列进行编码，条纹作为结构光编码图案的基本元素，红、蓝、绿、白四种颜色作为标记条纹代表的不同数值，窗口大小为 $3\times 1$，以条纹中心点作为特征点。同样对球体表面进行重建，得到约 20W 条点云数据，在 Meshlab 中对点云数据进行渲染，实验结果如下。
+改用以 B(4,3) 序列进行编码，条纹作为结构光编码图案的基本元素，红、蓝、绿、白四种颜色作为标记条纹代表的不同数值，窗口大小为 3*1，以条纹中心点作为特征点。同样对球体表面进行重建，得到约 20W 条点云数据，在 Meshlab 中对点云数据进行渲染，实验结果如下。
 
 <div class="imgs" align="center" ><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/14.png" alt="15" /></div>
+
+---
+ 本项目的介绍也可以访问 http://tang5618.com/wordpress/?p=598
