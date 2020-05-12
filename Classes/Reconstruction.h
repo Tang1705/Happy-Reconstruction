@@ -25,6 +25,7 @@
 #include "Device.h"
 #include "CoreAlgorithm.h"
 #include "MyThread.h"
+#include "YourThread.h"
 #include "Help.h"
 #include <iostream>
 using namespace pcl;
@@ -50,15 +51,20 @@ private:
 	QString picPath = "Result/result.png";	// 三维重建：拍摄照片的存储路径
 	PointCloud<PointXYZRGB> cloud;
 	bool confirmPic = false;	// 三维重建：确定是否用所拍照片进行重建
-	QColor color = Qt::black;	// 点云渲染：颜色
+	QColor color = Qt::yellow;	// 点云渲染：颜色
 
+	// 标定相关变量
 	int liveViewTimer;
 	TreeModel* dirModel;
 	CalibrationData* calibData;
 	Calibrator* calibrator;
 	int imgCount;
 
-	// 多线程
+	// 重建多线程
+	YourThread *td;
+	bool reconstructStatus = false;		// 点云渲染
+	
+	// 点云多线程
 	MyThread* t;
 	bool loadingStatus = false;		// 点云渲染
 	void setStyle();

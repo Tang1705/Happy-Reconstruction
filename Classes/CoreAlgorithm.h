@@ -53,4 +53,6 @@ public:
     void run();
 
     void saveCoordinate();
+
+    vector<Mat> getCoordinates();
 };

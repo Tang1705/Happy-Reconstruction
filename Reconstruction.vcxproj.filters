@@ -17,12 +17,6 @@
     <Filter Include="lib">
       <UniqueIdentifier>{bfb1e724-306d-436f-9c4b-61bcfde16fb2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\projector">
-      <UniqueIdentifier>{0a72a89e-fc22-42c6-9293-1cf2d411e663}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\projector\LC4500API">
-      <UniqueIdentifier>{b0d62f9b-d43c-4971-9e7c-a0cc53e4140f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\scene">
       <UniqueIdentifier>{2ae873f3-9729-42ac-8918-28ee9ea3c253}</UniqueIdentifier>
     </Filter>
@@ -50,6 +44,21 @@
     <Filter Include="resource\font">
       <UniqueIdentifier>{ec183521-b5e0-408b-9e24-aa9910874ed3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\reconstruction\cwt">
+      <UniqueIdentifier>{67a013bf-9fd9-4fa2-a2a7-e8d6817bcc7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\reconstruction\tool">
+      <UniqueIdentifier>{defd3eaf-903c-49c5-a2d6-2edbeb2f02b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\reconstruction\calibrator">
+      <UniqueIdentifier>{3a7d9bd9-24e9-4558-9564-4ef98bd12ea3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\reconstruction\camera">
+      <UniqueIdentifier>{288ad6dd-dd7c-43f3-abd5-8998c2a01d04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\reconstruction\projector">
+      <UniqueIdentifier>{762af5a3-10df-4dc7-8ce8-ed2501d9eb12}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="UI\Reconstruction.ui">
@@ -61,6 +70,9 @@
     <QtUic Include="UI\Loading.ui">
       <Filter>ui</Filter>
     </QtUic>
+    <QtUic Include="UI\Help.ui">
+      <Filter>ui</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Classes\main.cpp">
@@ -68,18 +80,6 @@
     </ClCompile>
     <ClCompile Include="Classes\Reconstruction.cpp">
       <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="Lib\projector\LC4500API\API.cpp">
-      <Filter>lib\projector\LC4500API</Filter>
-    </ClCompile>
-    <ClCompile Include="Lib\projector\LC4500API\hid.Win.c">
-      <Filter>lib\projector\LC4500API</Filter>
-    </ClCompile>
-    <ClCompile Include="Lib\projector\LC4500API\usb.cpp">
-      <Filter>lib\projector\LC4500API</Filter>
-    </ClCompile>
-    <ClCompile Include="Lib\projector\ProjectorLC4500.cpp">
-      <Filter>lib\projector</Filter>
     </ClCompile>
     <ClCompile Include="Classes\CameraArguments.cpp">
       <Filter>src\reconstruction</Filter>
@@ -90,8 +90,113 @@
     <ClCompile Include="Classes\DisplayPic.cpp">
       <Filter>src\scene\resultscene</Filter>
     </ClCompile>
+    <ClCompile Include="Classes\cwt_emxAPI.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\cwt_emxutil.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\ifft.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\fft1.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\fft.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\bsxfun.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\gammaln.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\wavCFandSD.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\cwtfreqlimits.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\log2.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\cwtfilterbank.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\cwt.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\cwt_terminate.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\cwt_initialize.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\cwt_data.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\cwt_rtwutil.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\rtGetInf.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\rtGetNaN.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\rt_nonfinite.cpp">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\MyThread.cpp">
+      <Filter>src\scene\resultscene</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\CalibrationData.cpp">
+      <Filter>src\reconstruction\calibrator</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\cvtools.cpp">
+      <Filter>src\reconstruction\tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Camera.cpp">
+      <Filter>src\reconstruction\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\CameraPointGrey.cpp">
+      <Filter>src\reconstruction\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Calibrator.cpp">
+      <Filter>src\reconstruction\calibrator</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\structured_light.cpp">
+      <Filter>src\reconstruction\tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\ProjectorLC4500.cpp">
+      <Filter>src\reconstruction\projector</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\API.cpp">
+      <Filter>src\reconstruction\projector</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\usb.cpp">
+      <Filter>src\reconstruction\projector</Filter>
+    </ClCompile>
     <ClCompile Include="Classes\CoreAlgorithm.cpp">
       <Filter>src\reconstruction</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Help.cpp">
+      <Filter>src\scene\resultscene</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Device.cpp">
+      <Filter>src\reconstruction\tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\TreeModel.cpp">
+      <Filter>src\reconstruction\tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\fstools.cpp">
+      <Filter>src\reconstruction\tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\hid.Win.c">
+      <Filter>src\reconstruction\projector</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\YourThread.cpp">
+      <Filter>src\scene\mainscene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +209,9 @@
     <QtMoc Include="Classes\DisplayPic.h">
       <Filter>src\scene\resultscene</Filter>
     </QtMoc>
+    <QtMoc Include="Classes\Help.h">
+      <Filter>src\scene\resultscene</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Resources\Reconstruction.qrc">
@@ -111,29 +219,131 @@
     </QtRcc>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Lib\projector\LC4500API\API.h">
-      <Filter>lib\projector\LC4500API</Filter>
-    </ClInclude>
-    <ClInclude Include="Lib\projector\LC4500API\Common.h">
-      <Filter>lib\projector\LC4500API</Filter>
-    </ClInclude>
-    <ClInclude Include="Lib\projector\LC4500API\hidapi.h">
-      <Filter>lib\projector\LC4500API</Filter>
-    </ClInclude>
-    <ClInclude Include="Lib\projector\LC4500API\usb.h">
-      <Filter>lib\projector\LC4500API</Filter>
-    </ClInclude>
-    <ClInclude Include="Lib\projector\Projector.h">
-      <Filter>lib\projector</Filter>
-    </ClInclude>
-    <ClInclude Include="Lib\projector\ProjectorLC4500.h">
-      <Filter>lib\projector</Filter>
-    </ClInclude>
     <ClInclude Include="Classes\CameraArguments.h">
       <Filter>src\reconstruction</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\cwt_emxAPI.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\cwt_emxutil.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\ifft.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\fft1.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\fft.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\bsxfun.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\gammaln.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\wavCFandSD.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\cwtfreqlimits.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\log2.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\cwtfilterbank.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\cwt.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\cwt_terminate.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\cwt_initialize.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\cwt_data.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\cwt_types.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\cwt_rtwutil.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\rt_defines.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\rtGetInf.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\rtGetNaN.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\rt_nonfinite.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\rtwtypes.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\tmwtypes.h">
+      <Filter>src\reconstruction\cwt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\MyThread.h">
+      <Filter>src\scene\resultscene</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\CalibrationData.h">
+      <Filter>src\reconstruction\calibrator</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\cvtools.h">
+      <Filter>src\reconstruction\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Camera.h">
+      <Filter>src\reconstruction\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\CameraPointGrey.h">
+      <Filter>src\reconstruction\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Calibrator.h">
+      <Filter>src\reconstruction\calibrator</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\structured_light.h">
+      <Filter>src\reconstruction\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Projector.h">
+      <Filter>src\reconstruction\projector</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\ProjectorLC4500.h">
+      <Filter>src\reconstruction\projector</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\API.h">
+      <Filter>src\reconstruction\projector</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Common.h">
+      <Filter>src\reconstruction\projector</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\hidapi.h">
+      <Filter>src\reconstruction\projector</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\usb.h">
+      <Filter>src\reconstruction\projector</Filter>
+    </ClInclude>
     <ClInclude Include="Classes\CoreAlgorithm.h">
       <Filter>src\reconstruction</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Device.h">
+      <Filter>src\reconstruction\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\TreeModel.h">
+      <Filter>src\reconstruction\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\fstools.h">
+      <Filter>src\reconstruction\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\YourThread.h">
+      <Filter>src\scene\mainscene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

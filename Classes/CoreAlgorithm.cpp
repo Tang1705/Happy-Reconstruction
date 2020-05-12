@@ -510,3 +510,8 @@ void CoreAlgorithm::saveCoordinate()
 	}
 	destFile.close();
 }
+
+vector<Mat> CoreAlgorithm::getCoordinates()
+{
+	return coordinate;
+}
