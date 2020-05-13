@@ -65,6 +65,8 @@ void Reconstruction::setPicStyle()
 		ui.pushButton_6->setEnabled(false);
 		ui.pushButton_7->setEnabled(false);
 		ui.pushButton_8->setEnabled(false);
+		ui.pushButton_9->setEnabled(false);
+		ui.pushButton_10->setEnabled(false);
 	}
 
 	ui.label_21->setPixmap(QPixmap(":/icon/image/projection/novideo.jpg"));
@@ -209,12 +211,12 @@ void Reconstruction::on_pushButton_6_clicked()
 	fstools::mkDir(tr("./config/calib"), tr(path));
 
 	device->getProjector()->displayPattern(0);
-	//QTest::qSleep(500);
+	Sleep(500);
 	for (unsigned int i = 0; i < 44; i++)
 	{
 		// Project pattern
 		device->getProjector()->displayPattern(i);
-		//QTest::qSleep(200);
+		Sleep(200);
 		// Effectuate sleep (necessary with some camera implementations)
 		QApplication::processEvents();
 
@@ -505,11 +507,28 @@ void Reconstruction::on_pushButton_4_clicked()
 void Reconstruction::on_pushButton_9_clicked()
 {
 	// todo 相机拍照
-	picPath = "Resources/image/test.png"; // 该行仅做测试使用	
-	DisplayPic* picDlg = new DisplayPic();
-	picDlg->setPicPath(picPath);
-	connect(picDlg, SIGNAL(getPicAction(QString)), this, SLOT(setPicAction(QString)));
-	picDlg->show();
+	auto frame = device->getCamera()->getFrame();
+	auto frameCV = cvtools::camFrame2Mat(frame);
+	// cvtColor(frameCV, frameCV, cv::COLOR_BGR2GRAY);
+	if (frameCV.rows == 0 || frameCV.cols == 0)
+	{
+		return;
+	}
+
+	frameCV = frameCV.clone();
+	auto qimage = cvtools::cvMat2qImage(frameCV);
+
+	// correct size only if label has no borders/frame!
+	auto w = ui.label_21->width();
+	auto h = ui.label_21->height();
+
+	auto pixmap = QPixmap::fromImage(qimage);
+	ui.label_21->setPixmap(pixmap.scaled(w, h, Qt::KeepAspectRatio));
+	// picPath = "Resources/image/test.png"; // 该行仅做测试使用	
+	// DisplayPic* picDlg = new DisplayPic();
+	// picDlg->setPicPath(picPath);
+	// connect(picDlg, SIGNAL(getPicAction(QString)), this, SLOT(setPicAction(QString)));
+	// picDlg->show();
 }
 
 void Reconstruction::setPicAction(QString action)
@@ -539,18 +558,23 @@ void Reconstruction::on_pushButton_10_clicked()
 
 		if (!fileName.isNull())
 		{
-			QImage iim(picPath); //创建一个图片对象,存储源图片
-			QPainter painter(&iim); //设置绘画设备
-			QFile file(fileName); //创建一个文件对象，存储用户选择的文件
-			if (!file.open(QIODevice::ReadWrite))
-			{
-				return;
-			}
-			QByteArray ba;
-			QBuffer buffer(&ba);
-			buffer.open(QIODevice::WriteOnly);
-			iim.save(&buffer, "JPG"); //把图片以流方式写入文件缓存流中
-			file.write(ba); //将流中的图片写入文件对象当中
+			QScreen* screen = QGuiApplication::primaryScreen();
+
+			screen->grabWindow(ui.label_21->winId()).save(fileName);
+
+			
+			// QImage iim(picPath); //创建一个图片对象,存储源图片
+			// QPainter painter(&iim); //设置绘画设备
+			// QFile file(fileName); //创建一个文件对象，存储用户选择的文件
+			// if (!file.open(QIODevice::ReadWrite))
+			// {
+			// 	return;
+			// }
+			// QByteArray ba;
+			// QBuffer buffer(&ba);
+			// buffer.open(QIODevice::WriteOnly);
+			// iim.save(&buffer, "JPG"); //把图片以流方式写入文件缓存流中
+			// file.write(ba); //将流中的图片写入文件对象当中
 		}
 	}
 	else
@@ -558,6 +582,7 @@ void Reconstruction::on_pushButton_10_clicked()
 		QMessageBox mesg;
 		mesg.warning(this, "WARNING", "Haven't taken picture!");
 	}
+	
 }
 
 // 开始重建

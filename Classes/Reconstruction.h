@@ -7,6 +7,7 @@
 #include <QBuffer>
 #include <QTextStream>
 #include <QStyleFactory>
+#include <QScreen>
 #include <QtTest/QtTest>
 #include "DisplayPic.h"
 #include "ui_Reconstruction.h"
