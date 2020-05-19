@@ -131,6 +131,7 @@
     <ClCompile Include="Classes\log2.cpp" />
     <ClCompile Include="Classes\main.cpp" />
     <ClCompile Include="Classes\MyThread.cpp" />
+    <ClCompile Include="Classes\PointCloudData.cpp" />
     <ClCompile Include="Classes\ProjectorLC4500.cpp" />
     <ClCompile Include="Classes\Reconstruction.cpp" />
     <ClCompile Include="Classes\rtGetInf.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Classes\Camera.h" />
     <ClInclude Include="Classes\CameraPointGrey.h" />
     <ClInclude Include="Classes\CameraArguments.h" />
+    <ClInclude Include="Classes\PointCloudData.h" />
     <ClInclude Include="Classes\YourThread.h" />
     <QtMoc Include="Classes\Loading.h" />
     <QtMoc Include="Classes\DisplayPic.h" />

@@ -38,4 +38,5 @@ D:\BJTU\Reconstruction\Lib\FlyCapture2\include\Utilities.h(1,1): warning C4819: 
 D:\BJTU\Reconstruction\Lib\FlyCapture2\include\AVIRecorder.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\BJTU\Reconstruction\Lib\FlyCapture2\include\TopologyNode.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\BJTU\Reconstruction\Lib\FlyCapture2\include\ImageStatistics.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\BJTU\Reconstruction\Classes\Reconstruction.cpp(146,43): warning C4806: “==”: 不安全操作: 从类型“bool”提升到类型“int”的值不能等于给定的常量
   Reconstruction.vcxproj -> D:\BJTU\Reconstruction\x64\Debug\Reconstruction.exe

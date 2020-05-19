@@ -27,6 +27,7 @@
 #include "CoreAlgorithm.h"
 #include "MyThread.h"
 #include "YourThread.h"
+#include "PointCloudData.h"
 #include "Help.h"
 #include <iostream>
 using namespace pcl;

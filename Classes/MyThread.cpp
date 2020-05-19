@@ -13,6 +13,9 @@ void MyThread::run()
 		io::loadPCDFile(pcd, *cloudPtr);
 		cloud = *cloudPtr;
 	}
+
+	auto pclData = PointCloudData::getInstance(cloud);
+	pclData->setCloud(cloud);
 	
 
 }

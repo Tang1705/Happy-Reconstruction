@@ -59,6 +59,9 @@
     <Filter Include="src\reconstruction\projector">
       <UniqueIdentifier>{762af5a3-10df-4dc7-8ce8-ed2501d9eb12}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\reconstruction\pointcloud">
+      <UniqueIdentifier>{cdf9f84f-4a3a-4fc8-b596-038eb3990675}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="UI\Reconstruction.ui">
@@ -80,9 +83,6 @@
     </ClCompile>
     <ClCompile Include="Classes\Reconstruction.cpp">
       <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="Classes\CameraArguments.cpp">
-      <Filter>src\reconstruction</Filter>
     </ClCompile>
     <ClCompile Include="Classes\Loading.cpp">
       <Filter>src\scene\loadingscene</Filter>
@@ -198,6 +198,12 @@
     <ClCompile Include="Classes\YourThread.cpp">
       <Filter>src\scene\mainscene</Filter>
     </ClCompile>
+    <ClCompile Include="Classes\CameraArguments.cpp">
+      <Filter>src\reconstruction\calibrator</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\PointCloudData.cpp">
+      <Filter>src\reconstruction\pointcloud</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Classes\Reconstruction.h">
@@ -219,9 +225,6 @@
     </QtRcc>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Classes\CameraArguments.h">
-      <Filter>src\reconstruction</Filter>
-    </ClInclude>
     <ClInclude Include="Classes\cwt_emxAPI.h">
       <Filter>src\reconstruction\cwt</Filter>
     </ClInclude>
@@ -344,6 +347,12 @@
     </ClInclude>
     <ClInclude Include="Classes\YourThread.h">
       <Filter>src\scene\mainscene</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\CameraArguments.h">
+      <Filter>src\reconstruction\calibrator</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\PointCloudData.h">
+      <Filter>src\reconstruction\pointcloud</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

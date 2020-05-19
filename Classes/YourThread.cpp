@@ -63,4 +63,7 @@ void YourThread::run()
 		cloud->points[i].z = coordinates[index].at<float>(0, 2);
 		index++;
 	}
+	
+	auto pclData = PointCloudData::getInstance(*cloud);
+	pclData->setCloud(*cloud);
 }
