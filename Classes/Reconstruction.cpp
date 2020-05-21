@@ -115,6 +115,10 @@ void Reconstruction::on_pushButton_clicked()
 
 void Reconstruction::on_pushButton_2_clicked()
 {
+	if (device->getHasCamera())
+	{
+		liveViewTimer = startTimer(100);
+	}
 	ui.stackedWidget->setCurrentIndex(1);
 }
 
@@ -155,17 +159,17 @@ void pp_callback(const visualization::AreaPickingEvent& event, void* args)
 	std::stringstream ss;
 	std::string cloudName;
 	pclData->setNum();
-	ss <<num++;
+	ss << num++;
 	ss >> cloudName;
 	cloudName += "_cloudName";
 
 	pclData->getViewer()->addPointCloud(clicked_points_3d, red, cloudName);
-	pclData->getViewer()->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 10, cloudName);
+	pclData->getViewer()->
+	         setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 10, cloudName);
 	// pclData->getViewer()->updatePointCloud(clicked_points_3d,"cloudName");
 	pclData->setIndices(indices);
 	pclData->getUI().qvtkWidget->SetRenderWindow(pclData->getViewer()->getRenderWindow());
 	pclData->getUI().qvtkWidget->update();
-	
 }
 
 void Reconstruction::setCloud()
@@ -197,20 +201,21 @@ void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud, QColor color)
 		auto pclData = PointCloudData::getInstance();
 		pclData->setCloud(cloud);
 		pclData->getViewer()->getCameraParameters(camera);
-		cout<<cloud.size()<<"," << camera.pos[0] << "," << camera.pos[1] << "," << camera.pos[2] << "," << camera.view[0] <<
+		cout << cloud.size() << "," << camera.pos[0] << "," << camera.pos[1] << "," << camera.pos[2] << "," << camera.
+			view[0] <<
 			"," << camera.view[1] << "," << camera.view[2] << "\n";
 		viewer = pclData->getViewer();
 	}
 	else
 	{
 		boost::shared_ptr<visualization::PCLVisualizer> viewerArg(new visualization::PCLVisualizer("3D Viewer"));
-		viewer=viewerArg;
+		viewer = viewerArg;
 		viewer->setBackgroundColor(0.458, 0.529, 0.844);
 		auto pclData = PointCloudData::getInstance(cloud);
 		pclData->setViewer(viewer);
 		pclData->setUI(ui);
 	}
-	double size=1;
+	double size = 1;
 	viewer->getPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, size, "cloud");
 	viewer->removeAllPointClouds();
 	// viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, 1, "cloud");
@@ -410,9 +415,13 @@ void Reconstruction::timerEvent(QTimerEvent* event)
 	// correct size only if label has no borders/frame!
 	auto w = ui.label_11->width();
 	auto h = ui.label_11->height();
-
 	auto pixmap = QPixmap::fromImage(qimage);
 	ui.label_11->setPixmap(pixmap.scaled(w, h, Qt::KeepAspectRatio));
+
+	w = ui.label_21->width();
+	h = ui.label_21->height();
+	pixmap = QPixmap::fromImage(qimage);
+	ui.label_21->setPixmap(pixmap.scaled(w, h, Qt::KeepAspectRatio));
 }
 
 void Reconstruction::setDirModel(const QString& dirname)
@@ -556,6 +565,8 @@ void Reconstruction::on_pushButton_4_clicked()
 
 	ui.lineEdit->setText(fileName);
 
+	// 投影结构光图案
+	device->getProjector()->displayPattern(44);
 	// todo 接着进行投影操作
 }
 
@@ -563,6 +574,7 @@ void Reconstruction::on_pushButton_4_clicked()
 void Reconstruction::on_pushButton_9_clicked()
 {
 	// todo 相机拍照
+	killTimer(liveViewTimer);
 	auto frame = device->getCamera()->getFrame();
 	auto frameCV = cvtools::camFrame2Mat(frame);
 	// cvtColor(frameCV, frameCV, cv::COLOR_BGR2GRAY);
