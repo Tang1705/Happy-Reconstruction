@@ -174,7 +174,6 @@ void pp_callback(const visualization::AreaPickingEvent& event, void* args)
 
 void Reconstruction::setCloud()
 {
-	cout << cloud.width;
 	ui.label_9->setVisible(false);
 
 	if (loadingStatus)
@@ -201,7 +200,7 @@ void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud, QColor color)
 		auto pclData = PointCloudData::getInstance();
 		pclData->setCloud(cloud);
 		pclData->getViewer()->getCameraParameters(camera);
-		cout << cloud.size() << "," << camera.pos[0] << "," << camera.pos[1] << "," << camera.pos[2] << "," << camera.
+		cout << camera.pos[0] << "," << camera.pos[1] << "," << camera.pos[2] << "," << camera.
 			view[0] <<
 			"," << camera.view[1] << "," << camera.view[2] << "\n";
 		viewer = pclData->getViewer();
@@ -211,6 +210,11 @@ void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud, QColor color)
 		boost::shared_ptr<visualization::PCLVisualizer> viewerArg(new visualization::PCLVisualizer("3D Viewer"));
 		viewer = viewerArg;
 		viewer->setBackgroundColor(0.458, 0.529, 0.844);
+		viewer->initCameraParameters();
+		viewer->getCameraParameters(camera);
+		cout << camera.pos[0] << "," << camera.pos[1] << "," << camera.pos[2] << "," << camera.
+			view[0] <<"," << camera.view[1] << "," << camera.view[2] << "\n";
+		// viewer->setCameraPosition(50, -50, 1500,50,-50,1490,0, 1, 0, 0);
 		auto pclData = PointCloudData::getInstance(cloud);
 		pclData->setViewer(viewer);
 		pclData->setUI(ui);
@@ -223,9 +227,9 @@ void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud, QColor color)
 	{
 		PointCloud<PointXYZRGB>::Ptr cloudPtr(new PointCloud<PointXYZRGB>);
 		cloudPtr = cloud.makeShared();
-		int x = int(color.redF() * 255);
-		int y = int(color.greenF() * 255);
-		int z = int(color.blueF() * 255);
+		auto x = int(color.redF() * 255);
+		auto y = int(color.greenF() * 255);
+		auto z = int(color.blueF() * 255);
 		visualization::PointCloudColorHandlerCustom<PointXYZRGB> cloud_color(cloudPtr, x, y, z); // 统一处理点云颜色
 		viewer->addPointCloud(cloudPtr, cloud_color, "cloud");
 		viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, size, "cloud");
@@ -707,7 +711,7 @@ void Reconstruction::on_pushButton_13_clicked()
 
 	QString fileName = QFileDialog::getOpenFileName(
 		this, tr("open multiple image file"),
-		"./", tr("PCD files(*.pcd);;All files (*.*)")); // todo 文件类型待确认
+		"./", tr("PCD files(*.pcd);PLY files(*.ply);All files (*.*)")); // todo 文件类型待确认
 
 	if (fileName.isEmpty())
 	{
@@ -715,8 +719,12 @@ void Reconstruction::on_pushButton_13_clicked()
 		mesg.warning(this, "WARNING", "Failed to open file");
 		return;
 	}
+	
 	boost::shared_ptr<visualization::PCLVisualizer> viewer(new visualization::PCLVisualizer("3D Viewer"));
 	viewer->setBackgroundColor(0.458, 0.529, 0.844);
+	viewer->initCameraParameters();
+	// viewer->setCameraPosition(0, -10, -25, 0, 1, 0, 0, 1, 0, 0);
+	// viewer->setPosition(0, 0);
 	ui.qvtkWidget->SetRenderWindow(viewer->getRenderWindow());
 	auto pclData = PointCloudData::getInstance(cloud);
 	pclData->setViewer(viewer);
