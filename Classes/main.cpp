@@ -5,8 +5,8 @@
 
 int main(int argc, char *argv[])
 {
-	AllocConsole();//分配控制台
-	freopen("CONOUT$", "w+t", stdout);//向控制台输出
+	// AllocConsole();//分配控制台
+	// freopen("CONOUT$", "w+t", stdout);//向控制台输出
 	QApplication a(argc, argv);
 	Loading l;
 	l.show();

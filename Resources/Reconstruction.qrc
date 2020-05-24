@@ -21,6 +21,9 @@
         <file>image/loading/label.png</file>
         <file>image/loading/press.png</file>
         <file>image/reconstruction/loading.png</file>
+        <file>image/reconstruction/surface.png</file>
+        <file>image/reconstruction/help2.png</file>
+        <file>image/common/icon.png</file>
     </qresource>
     <qresource prefix="/qss">
         <file>qss/flat.qss</file>

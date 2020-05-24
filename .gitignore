@@ -362,4 +362,3 @@ FodyWeavers.xsd
 # 忽略指定文件夹
 .vs/
 Lib/
-x64/

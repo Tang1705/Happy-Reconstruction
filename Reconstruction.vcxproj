@@ -43,8 +43,8 @@
     <LibraryPath>D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\Boost\lib;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\FLANN\lib;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\Qhull\lib;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\VTK\lib;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\lib;C:\Program Files\OpenNI2\Lib;D:\BJTU\Reconstruction\Lib\FlyCapture2\lib64;D:\BJTU\Reconstruction\Lib\FlyCapture2\lib64\vs2015;D:\BJTU\Reconstruction\Lib\opencv\build\x64\vc15\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\Qhull\include;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\FLANN\include;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\Eigen\eigen3;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\Boost\include\boost-1_64;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\include\pcl-1.8;C:\Program Files\OpenNI2\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\Boost\lib;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\FLANN\lib;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\Qhull\lib;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\VTK\lib;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\lib;C:\Program Files\OpenNI2\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\BJTU\Reconstruction\Lib\opencv\build\include\opencv2;D:\BJTU\Reconstruction\Lib\opencv\build\include;D:\BJTU\Reconstruction\Lib\FlyCapture2\include;D:\BJTU\Reconstruction\Lib\FlyCapture2\include\C;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\VTK\include\vtk-8.0;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\Qhull\include;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\FLANN\include;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\Eigen\eigen3;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\Boost\include\boost-1_64;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\include\pcl-1.8;C:\Program Files\OpenNI2\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\VTK\lib;D:\BJTU\Reconstruction\Lib\opencv\build\x64\vc15\lib;D:\BJTU\Reconstruction\Lib\FlyCapture2\lib64\vs2015;D:\BJTU\Reconstruction\Lib\FlyCapture2\lib64;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\Boost\lib;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\FLANN\lib;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\3rdParty\Qhull\lib;D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\lib;C:\Program Files\OpenNI2\Lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
@@ -90,7 +90,7 @@
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalDependencies>pcl_common_release.lib;pcl_features_release.lib;pcl_filters_release.lib;pcl_io_ply_debug.lib;pcl_io_release.lib;pcl_kdtree_release.lib;pcl_keypoints_release.lib;pcl_ml_release.lib;pcl_octree_release.lib;pcl_outofcore_release.lib;pcl_people_release.lib;pcl_recognition_release.lib;pcl_registration_release.lib;pcl_sample_consensus_release.lib;pcl_search_release.lib;pcl_segmentation_release.lib;pcl_stereo_release.lib;pcl_surface_release.lib;pcl_tracking_release.lib;pcl_visualization_release.lib;vtkalglib-8.0.lib;vtkChartsCore-8.0.lib;vtkCommonColor-8.0.lib;vtkCommonComputationalGeometry-8.0.lib;vtkCommonCore-8.0.lib;vtkCommonDataModel-8.0.lib;vtkCommonExecutionModel-8.0.lib;vtkCommonMath-8.0.lib;vtkCommonMisc-8.0.lib;vtkCommonSystem-8.0.lib;vtkCommonTransforms-8.0.lib;vtkDICOMParser-8.0.lib;vtkDomainsChemistry-8.0.lib;vtkDomainsChemistryOpenGL2-8.0.lib;vtkexoIIc-8.0.lib;vtkexpat-8.0.lib;vtkFiltersAMR-8.0.lib;vtkFiltersCore-8.0.lib;vtkFiltersExtraction-8.0.lib;vtkFiltersFlowPaths-8.0.lib;vtkFiltersGeneral-8.0.lib;vtkFiltersGeneric-8.0.lib;vtkFiltersGeometry-8.0.lib;vtkFiltersHybrid-8.0.lib;vtkFiltersHyperTree-8.0.lib;vtkFiltersImaging-8.0.lib;vtkFiltersModeling-8.0.lib;vtkFiltersParallel-8.0.lib;vtkFiltersParallelImaging-8.0.lib;vtkFiltersPoints-8.0.lib;vtkFiltersProgrammable-8.0.lib;vtkFiltersSelection-8.0.lib;vtkFiltersSMP-8.0.lib;vtkFiltersSources-8.0.lib;vtkFiltersStatistics-8.0.lib;vtkFiltersTexture-8.0.lib;vtkFiltersTopology-8.0.lib;vtkFiltersVerdict-8.0.lib;vtkfreetype-8.0.lib;vtkGeovisCore-8.0.lib;vtkgl2ps-8.0.lib;vtkglew-8.0.lib;vtkGUISupportQt-8.0.lib;vtkGUISupportQtSQL-8.0.lib;vtkhdf5-8.0.lib;vtkhdf5_hl-8.0.lib;vtkImagingColor-8.0.lib;vtkImagingCore-8.0.lib;vtkImagingFourier-8.0.lib;vtkImagingGeneral-8.0.lib;vtkImagingHybrid-8.0.lib;vtkImagingMath-8.0.lib;vtkImagingMorphological-8.0.lib;vtkImagingSources-8.0.lib;vtkImagingStatistics-8.0.lib;vtkImagingStencil-8.0.lib;vtkInfovisCore-8.0.lib;vtkInfovisLayout-8.0.lib;vtkInteractionImage-8.0.lib;vtkInteractionStyle-8.0.lib;vtkInteractionWidgets-8.0.lib;vtkIOAMR-8.0.lib;vtkIOCore-8.0.lib;vtkIOEnSight-8.0.lib;vtkIOExodus-8.0.lib;vtkIOExport-8.0.lib;vtkIOExportOpenGL2-8.0.lib;vtkIOGeometry-8.0.lib;vtkIOImage-8.0.lib;vtkIOImport-8.0.lib;vtkIOInfovis-8.0.lib;vtkIOLegacy-8.0.lib;vtkIOLSDyna-8.0.lib;vtkIOMINC-8.0.lib;vtkIOMovie-8.0.lib;vtkIONetCDF-8.0.lib;vtkIOParallel-8.0.lib;vtkIOParallelXML-8.0.lib;vtkIOPLY-8.0.lib;vtkIOSQL-8.0.lib;vtkIOTecplotTable-8.0.lib;vtkIOVideo-8.0.lib;vtkIOXML-8.0.lib;vtkIOXMLParser-8.0.lib;vtkjpeg-8.0.lib;vtkjsoncpp-8.0.lib;vtklibharu-8.0.lib;vtklibxml2-8.0.lib;vtklz4-8.0.lib;vtkmetaio-8.0.lib;vtkNetCDF-8.0.lib;vtknetcdf_c++.lib;vtkoggtheora-8.0.lib;vtkParallelCore-8.0.lib;vtkpng-8.0.lib;vtkproj4-8.0.lib;vtkRenderingAnnotation-8.0.lib;vtkRenderingContext2D-8.0.lib;vtkRenderingContextOpenGL2-8.0.lib;vtkRenderingCore-8.0.lib;vtkRenderingFreeType-8.0.lib;vtkRenderingGL2PSOpenGL2-8.0.lib;vtkRenderingImage-8.0.lib;vtkRenderingLabel-8.0.lib;vtkRenderingLOD-8.0.lib;vtkRenderingOpenGL2-8.0.lib;vtkRenderingQt-8.0.lib;vtkRenderingVolume-8.0.lib;vtkRenderingVolumeOpenGL2-8.0.lib;vtksqlite-8.0.lib;vtksys-8.0.lib;vtktiff-8.0.lib;vtkverdict-8.0.lib;vtkViewsContext2D-8.0.lib;vtkViewsCore-8.0.lib;vtkViewsInfovis-8.0.lib;vtkViewsQt-8.0.lib;vtkzlib-8.0.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>setupapi.lib;opencv_world420.lib;FlyCapture2_v140.lib;FlyCapture2GUI_v140.lib;qtmain.lib;shell32.lib;Qt5Widgets.lib;Qt5Gui.lib;Qt5Core.lib;pcl_common_release.lib;pcl_features_release.lib;pcl_filters_release.lib;pcl_io_ply_release.lib;pcl_io_release.lib;pcl_kdtree_release.lib;pcl_keypoints_release.lib;pcl_ml_release.lib;pcl_octree_release.lib;pcl_outofcore_release.lib;pcl_people_release.lib;pcl_recognition_release.lib;pcl_registration_release.lib;pcl_sample_consensus_release.lib;pcl_search_release.lib;pcl_segmentation_release.lib;pcl_stereo_release.lib;pcl_surface_release.lib;pcl_tracking_release.lib;pcl_visualization_release.lib;flann.lib;flann_cpp.lib;flann_cpp_s.lib;flann_s.lib;qhull_d.lib;qhullcpp_d.lib;qhullstatic_d.lib;qhullstatic_r_d.lib;qhull_p_d.lib;qhull_r_d.lib;vtkGUISupportQt-8.0.lib;vtkRenderingOpenGL2-8.0.lib;vtkglew-8.0.lib;vtkInteractionImage-8.0.lib;vtkInteractionWidgets-8.0.lib;vtkFiltersHybrid-8.0.lib;vtkFiltersModeling-8.0.lib;vtkImagingGeneral-8.0.lib;vtkImagingHybrid-8.0.lib;vtkRenderingAnnotation-8.0.lib;vtkRenderingFreeType-8.0.lib;vtkfreetype-8.0.lib;vtkRenderingVolume-8.0.lib;vtkIOXML-8.0.lib;vtkIOXMLParser-8.0.lib;vtkexpat-8.0.lib;vtkInteractionStyle-8.0.lib;vtkFiltersExtraction-8.0.lib;vtkFiltersStatistics-8.0.lib;vtkImagingFourier-8.0.lib;vtkalglib-8.0.lib;vtkImagingSources-8.0.lib;vtkIOImage-8.0.lib;vtkDICOMParser-8.0.lib;vtkmetaio-8.0.lib;vtkpng-8.0.lib;vtktiff-8.0.lib;vtkjpeg-8.0.lib;vtkImagingColor-8.0.lib;vtkImagingCore-8.0.lib;vtkRenderingCore-8.0.lib;vtkFiltersSources-8.0.lib;vtkFiltersGeneral-8.0.lib;vtkCommonComputationalGeometry-8.0.lib;vtkCommonColor-8.0.lib;vtkFiltersGeometry-8.0.lib;vtkFiltersCore-8.0.lib;vtkIOCore-8.0.lib;vtkCommonExecutionModel-8.0.lib;vtkCommonDataModel-8.0.lib;vtkCommonTransforms-8.0.lib;vtkCommonMisc-8.0.lib;vtkCommonMath-8.0.lib;vtkCommonSystem-8.0.lib;vtkCommonCore-8.0.lib;vtksys-8.0.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -126,6 +126,7 @@
     <ClCompile Include="Classes\gammaln.cpp" />
     <ClCompile Include="Classes\Help.cpp" />
     <ClCompile Include="Classes\hid.Win.c" />
+    <ClCompile Include="Classes\HisThread.cpp" />
     <ClCompile Include="Classes\ifft.cpp" />
     <ClCompile Include="Classes\Loading.cpp" />
     <ClCompile Include="Classes\log2.cpp" />
@@ -157,8 +158,10 @@
     <ClInclude Include="Classes\Camera.h" />
     <ClInclude Include="Classes\CameraPointGrey.h" />
     <ClInclude Include="Classes\CameraArguments.h" />
+    <ClInclude Include="Classes\HisThread.h" />
     <ClInclude Include="Classes\PointCloudData.h" />
     <ClInclude Include="Classes\YourThread.h" />
+    <ClInclude Include="resource1.h" />
     <QtMoc Include="Classes\Loading.h" />
     <QtMoc Include="Classes\DisplayPic.h" />
     <ClInclude Include="Classes\Common.h" />
@@ -196,6 +199,13 @@
     <ClInclude Include="Classes\TreeModel.h" />
     <ClInclude Include="Classes\usb.h" />
     <ClInclude Include="Classes\wavCFandSD.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Reconstruction.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico" />
+    <Image Include="Resources\image\common\icon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

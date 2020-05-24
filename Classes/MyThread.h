@@ -13,7 +13,7 @@ class MyThread :
 {
 public:
 	MyThread();
-	~MyThread();
+	~MyThread(){};
 	void setPcd(QString str);
 	PointCloud<PointXYZRGB> getCloud();
 

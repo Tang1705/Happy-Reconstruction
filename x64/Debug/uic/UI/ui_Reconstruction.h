@@ -22,7 +22,6 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSlider>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
@@ -86,10 +85,9 @@ public:
     QPushButton *pushButton_9;
     QPushButton *pushButton_10;
     QPushButton *pushButton_17;
+    QPushButton *pushButton_19;
     QWidget *page_3;
     QGroupBox *groupBox_4;
-    QSlider *horizontalSlider;
-    QLabel *label_13;
     QLabel *label_12;
     QPushButton *pushButton_11;
     QPushButton *pushButton_12;
@@ -381,35 +379,40 @@ public:
         label_18->setAlignment(Qt::AlignCenter);
         groupBox_7 = new QGroupBox(page_2);
         groupBox_7->setObjectName(QString::fromUtf8("groupBox_7"));
-        groupBox_7->setGeometry(QRect(700, 50, 281, 311));
+        groupBox_7->setGeometry(QRect(700, 50, 281, 291));
         groupBox_7->setFont(font1);
         groupBox_7->setAlignment(Qt::AlignCenter);
         textBrowser_8 = new QTextBrowser(groupBox_7);
         textBrowser_8->setObjectName(QString::fromUtf8("textBrowser_8"));
-        textBrowser_8->setGeometry(QRect(10, 20, 261, 281));
+        textBrowser_8->setGeometry(QRect(10, 20, 261, 261));
         QFont font6;
         font6.setPointSize(9);
         textBrowser_8->setFont(font6);
         groupBox_8 = new QGroupBox(page_2);
         groupBox_8->setObjectName(QString::fromUtf8("groupBox_8"));
-        groupBox_8->setGeometry(QRect(710, 380, 261, 251));
+        groupBox_8->setGeometry(QRect(710, 350, 261, 281));
         groupBox_8->setFont(font1);
         groupBox_8->setAlignment(Qt::AlignCenter);
         pushButton_9 = new QPushButton(groupBox_8);
         pushButton_9->setObjectName(QString::fromUtf8("pushButton_9"));
-        pushButton_9->setGeometry(QRect(70, 20, 120, 51));
+        pushButton_9->setGeometry(QRect(70, 80, 120, 51));
         pushButton_9->setMinimumSize(QSize(120, 0));
         pushButton_9->setFont(font4);
         pushButton_10 = new QPushButton(groupBox_8);
         pushButton_10->setObjectName(QString::fromUtf8("pushButton_10"));
-        pushButton_10->setGeometry(QRect(70, 100, 120, 51));
+        pushButton_10->setGeometry(QRect(70, 150, 120, 51));
         pushButton_10->setMinimumSize(QSize(120, 0));
         pushButton_10->setFont(font4);
         pushButton_17 = new QPushButton(groupBox_8);
         pushButton_17->setObjectName(QString::fromUtf8("pushButton_17"));
-        pushButton_17->setGeometry(QRect(70, 180, 120, 51));
+        pushButton_17->setGeometry(QRect(70, 220, 120, 51));
         pushButton_17->setMinimumSize(QSize(120, 0));
         pushButton_17->setFont(font4);
+        pushButton_19 = new QPushButton(groupBox_8);
+        pushButton_19->setObjectName(QString::fromUtf8("pushButton_19"));
+        pushButton_19->setGeometry(QRect(70, 10, 120, 51));
+        pushButton_19->setMinimumSize(QSize(120, 0));
+        pushButton_19->setFont(font4);
         stackedWidget->addWidget(page_2);
         groupBox_8->raise();
         label_3->raise();
@@ -422,43 +425,36 @@ public:
         page_3->setObjectName(QString::fromUtf8("page_3"));
         groupBox_4 = new QGroupBox(page_3);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
-        groupBox_4->setGeometry(QRect(800, 70, 181, 191));
+        groupBox_4->setGeometry(QRect(785, 70, 201, 171));
         groupBox_4->setFont(font4);
         groupBox_4->setAlignment(Qt::AlignCenter);
         groupBox_4->setFlat(false);
-        horizontalSlider = new QSlider(groupBox_4);
-        horizontalSlider->setObjectName(QString::fromUtf8("horizontalSlider"));
-        horizontalSlider->setGeometry(QRect(90, 90, 81, 22));
-        horizontalSlider->setOrientation(Qt::Horizontal);
-        label_13 = new QLabel(groupBox_4);
-        label_13->setObjectName(QString::fromUtf8("label_13"));
-        label_13->setGeometry(QRect(10, 90, 61, 16));
         label_12 = new QLabel(groupBox_4);
         label_12->setObjectName(QString::fromUtf8("label_12"));
-        label_12->setGeometry(QRect(10, 50, 61, 16));
+        label_12->setGeometry(QRect(20, 50, 61, 16));
         pushButton_11 = new QPushButton(groupBox_4);
         pushButton_11->setObjectName(QString::fromUtf8("pushButton_11"));
-        pushButton_11->setGeometry(QRect(70, 130, 51, 21));
+        pushButton_11->setGeometry(QRect(70, 100, 51, 31));
         pushButton_12 = new QPushButton(groupBox_4);
         pushButton_12->setObjectName(QString::fromUtf8("pushButton_12"));
-        pushButton_12->setGeometry(QRect(130, 130, 51, 21));
+        pushButton_12->setGeometry(QRect(140, 100, 51, 31));
         label_14 = new QLabel(groupBox_4);
         label_14->setObjectName(QString::fromUtf8("label_14"));
-        label_14->setGeometry(QRect(10, 130, 51, 16));
+        label_14->setGeometry(QRect(10, 110, 51, 16));
         pushButton_16 = new QPushButton(groupBox_4);
         pushButton_16->setObjectName(QString::fromUtf8("pushButton_16"));
-        pushButton_16->setGeometry(QRect(90, 40, 51, 31));
+        pushButton_16->setGeometry(QRect(100, 40, 51, 31));
         pushButton_13 = new QPushButton(page_3);
         pushButton_13->setObjectName(QString::fromUtf8("pushButton_13"));
-        pushButton_13->setGeometry(QRect(820, 310, 141, 41));
+        pushButton_13->setGeometry(QRect(815, 290, 141, 41));
         pushButton_13->setFont(font4);
         pushButton_14 = new QPushButton(page_3);
         pushButton_14->setObjectName(QString::fromUtf8("pushButton_14"));
-        pushButton_14->setGeometry(QRect(820, 390, 141, 41));
+        pushButton_14->setGeometry(QRect(815, 380, 141, 41));
         pushButton_14->setFont(font4);
         pushButton_15 = new QPushButton(page_3);
         pushButton_15->setObjectName(QString::fromUtf8("pushButton_15"));
-        pushButton_15->setGeometry(QRect(820, 470, 141, 41));
+        pushButton_15->setGeometry(QRect(815, 470, 141, 41));
         pushButton_15->setFont(font4);
         qvtkWidget = new QVTKWidget(page_3);
         qvtkWidget->setObjectName(QString::fromUtf8("qvtkWidget"));
@@ -473,7 +469,7 @@ public:
         label_9->setStyleSheet(QString::fromUtf8(""));
         pushButton_18 = new QPushButton(page_3);
         pushButton_18->setObjectName(QString::fromUtf8("pushButton_18"));
-        pushButton_18->setGeometry(QRect(820, 550, 141, 41));
+        pushButton_18->setGeometry(QRect(815, 560, 141, 41));
         pushButton_18->setFont(font4);
         stackedWidget->addWidget(page_3);
         widget = new QWidget(centralWidget);
@@ -646,7 +642,7 @@ public:
         retranslateUi(ReconstructionClass);
         QObject::connect(spinBox, SIGNAL(valueChanged(int)), spinBox, SLOT(setValue(int)));
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(ReconstructionClass);
@@ -684,8 +680,8 @@ public:
         pushButton_9->setText(QApplication::translate("ReconstructionClass", "\347\233\270\346\234\272\346\213\215\347\205\247", nullptr));
         pushButton_10->setText(QApplication::translate("ReconstructionClass", "\344\277\235\345\255\230\347\205\247\347\211\207", nullptr));
         pushButton_17->setText(QApplication::translate("ReconstructionClass", "\345\274\200\345\247\213\351\207\215\345\273\272", nullptr));
+        pushButton_19->setText(QApplication::translate("ReconstructionClass", "\346\212\225\345\275\261\345\233\276\346\241\210", nullptr));
         groupBox_4->setTitle(QApplication::translate("ReconstructionClass", "\350\256\276\347\275\256", nullptr));
-        label_13->setText(QApplication::translate("ReconstructionClass", "\347\202\271\347\232\204\345\244\247\345\260\217", nullptr));
         label_12->setText(QApplication::translate("ReconstructionClass", "\351\242\234\350\211\262\351\200\211\346\213\251", nullptr));
         pushButton_11->setText(QApplication::translate("ReconstructionClass", "\351\200\211\346\213\251", nullptr));
         pushButton_12->setText(QApplication::translate("ReconstructionClass", "\345\211\224\351\231\244", nullptr));
@@ -693,9 +689,9 @@ public:
         pushButton_16->setText(QString());
         pushButton_13->setText(QApplication::translate("ReconstructionClass", "\345\257\274\345\205\245\347\202\271\344\272\221", nullptr));
         pushButton_14->setText(QApplication::translate("ReconstructionClass", "\345\257\274\345\207\272\347\273\223\346\236\234", nullptr));
-        pushButton_15->setText(QApplication::translate("ReconstructionClass", "\344\277\235\345\255\230\346\210\252\345\233\276", nullptr));
+        pushButton_15->setText(QApplication::translate("ReconstructionClass", "\346\233\262\351\235\242\351\207\215\345\273\272", nullptr));
         label_9->setText(QString());
-        pushButton_18->setText(QApplication::translate("ReconstructionClass", "\345\270\256\345\212\251", nullptr));
+        pushButton_18->setText(QApplication::translate("ReconstructionClass", "\344\275\277\347\224\250\345\270\256\345\212\251", nullptr));
         label->setText(QApplication::translate("ReconstructionClass", "3D RECONSTRUCTION", nullptr));
         label_4->setText(QApplication::translate("ReconstructionClass", "\345\212\237\350\203\275\351\200\211\346\213\251", nullptr));
         pushButton->setText(QApplication::translate("ReconstructionClass", "\347\263\273\347\273\237\346\240\207\345\256\232", nullptr));

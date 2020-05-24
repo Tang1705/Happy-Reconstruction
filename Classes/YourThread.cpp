@@ -48,7 +48,7 @@ void YourThread::run()
 			kp.at<float>(i, j) = m3[i][j];
 
 	auto cArg = CameraArguments::getInstance(r, t, kc, kp);
-	CoreAlgorithm testCase = CoreAlgorithm("./Data/image/reconstruction/tq.png", cArg);
+	CoreAlgorithm testCase = CoreAlgorithm(path, cArg);
 	testCase.run();
 	vector<Mat> coordinates=testCase.getCoordinates();
 	cloud->width = coordinates.size();
@@ -66,4 +66,9 @@ void YourThread::run()
 	
 	auto pclData = PointCloudData::getInstance(*cloud);
 	pclData->setCloud(*cloud);
+}
+
+void YourThread::setPath(string pathArg)
+{
+	path = pathArg;
 }

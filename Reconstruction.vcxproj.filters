@@ -62,6 +62,11 @@
     <Filter Include="src\reconstruction\pointcloud">
       <UniqueIdentifier>{cdf9f84f-4a3a-4fc8-b596-038eb3990675}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+      <ParseFiles>true</ParseFiles>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="UI\Reconstruction.ui">
@@ -147,9 +152,6 @@
     <ClCompile Include="Classes\rt_nonfinite.cpp">
       <Filter>src\reconstruction\cwt</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\MyThread.cpp">
-      <Filter>src\scene\resultscene</Filter>
-    </ClCompile>
     <ClCompile Include="Classes\CalibrationData.cpp">
       <Filter>src\reconstruction\calibrator</Filter>
     </ClCompile>
@@ -203,6 +205,12 @@
     </ClCompile>
     <ClCompile Include="Classes\PointCloudData.cpp">
       <Filter>src\reconstruction\pointcloud</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\MyThread.cpp">
+      <Filter>src\scene\resultscene</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\HisThread.cpp">
+      <Filter>src\scene\resultscene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -354,5 +362,18 @@
     <ClInclude Include="Classes\PointCloudData.h">
       <Filter>src\reconstruction\pointcloud</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\HisThread.h">
+      <Filter>src\scene\resultscene</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Reconstruction.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico" />
+    <Image Include="Resources\image\common\icon.ico" />
   </ItemGroup>
 </Project>

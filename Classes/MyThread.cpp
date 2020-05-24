@@ -10,7 +10,10 @@ void MyThread::run()
 	if(!pcd.empty())
 	{
 		PointCloud<PointXYZRGB>::Ptr cloudPtr(new PointCloud<PointXYZRGB>);
-		io::loadPCDFile(pcd, *cloudPtr);
+		if (QString::fromStdString(pcd).endsWith(".pcd", Qt::CaseInsensitive))
+			io::loadPCDFile(pcd, *cloudPtr);
+		else if (QString::fromStdString(pcd).endsWith(".ply", Qt::CaseInsensitive))
+			io::loadPLYFile(pcd, *cloudPtr);
 		cloud = *cloudPtr;
 	}
 
@@ -28,8 +31,4 @@ void MyThread::setPcd(QString str)
 PointCloud<PointXYZRGB> MyThread::getCloud()
 {
 	return cloud;
-}
-
-MyThread::~MyThread()
-{
 }

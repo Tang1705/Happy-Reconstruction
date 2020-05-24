@@ -13,8 +13,19 @@
 #include "ui_Reconstruction.h"
 #include <pcl/point_types.h>
 #include <pcl/io/pcd_io.h>
+#include <pcl/io/ply_io.h>
+#include <pcl/io/png_io.h>
 #include <pcl/visualization/pcl_visualizer.h>
 #include <pcl/io/vtk_lib_io.h>
+#include <vtkOutputwindow.h>
+#include <pcl\filters\statistical_outlier_removal.h>
+#include <pcl/filters/voxel_grid.h>
+#include <pcl/common/transforms.h>
+#include <vector>
+#include <pcl/io/obj_io.h>
+#include <pcl/PolygonMesh.h>
+#include <pcl/features/normal_3d.h>  
+#include <pcl/features/normal_3d_omp.h>
 #include <vtkRenderWindow.h>
 #include <QProgressDialog>
 #include "Camera.h"
@@ -24,16 +35,18 @@
 #include "Calibrator.h"
 #include "CalibrationData.h"
 #include "Device.h"
+#include "HisThread.h"
 #include "CoreAlgorithm.h"
-#include "MyThread.h"
-#include "YourThread.h"
-#include "PointCloudData.h"
 #include "Help.h"
 #include <iostream>
+
 using namespace pcl;
 using namespace std;
 
 enum Role { ImageFilenameRole = Qt::UserRole, GrayImageRole, ColorImageRole };
+
+class MyThread;
+class YourThread;
 
 class Reconstruction : public QMainWindow
 {
@@ -67,8 +80,11 @@ private:
 	bool reconstructStatus = false;		// 点云渲染
 	
 	// 点云多线程
-	MyThread* t;
+	MyThread *t;
+	HisThread* htd;
+	PolygonMesh mesh;
 	bool loadingStatus = false;		// 点云渲染
+	bool possionStatus = false;
 	void setStyle();
 	void setPicStyle();
 	void setButtonStyle();
@@ -93,6 +109,7 @@ private slots:
 	void on_pushButton_16_clicked();
 	void on_pushButton_17_clicked();
 	void on_pushButton_18_clicked();
+	void on_pushButton_19_clicked();
 	void setPicAction(QString action);
 	void setCloud();
 };

@@ -3,7 +3,6 @@
 #include <qthread.h>
 #include <pcl/point_types.h>
 #include <pcl/io/vtk_lib_io.h>
-#include "CoreAlgorithm.h"
 #include "PointCloudData.h"
 
 using namespace std;
@@ -14,10 +13,13 @@ class YourThread :
 {
 public:
 	YourThread(PointCloud<PointXYZRGB> *cloud);
-	~YourThread(){};
+	~YourThread(){}
+	void setPath(string pathArg);
+	
 
 private:
 	PointCloud<PointXYZRGB> *cloud;
+	string path;
 protected:
 	void run();
 };
