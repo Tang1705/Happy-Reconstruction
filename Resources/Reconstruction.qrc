@@ -24,6 +24,7 @@
         <file>image/reconstruction/surface.png</file>
         <file>image/reconstruction/help2.png</file>
         <file>image/common/icon.png</file>
+        <file>icon1.ico</file>
     </qresource>
     <qresource prefix="/qss">
         <file>qss/flat.qss</file>

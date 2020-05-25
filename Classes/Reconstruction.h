@@ -37,8 +37,17 @@
 #include "Device.h"
 #include "HisThread.h"
 #include "CoreAlgorithm.h"
+#include "QVTKWidget.h"
+#include "vtkRenderWindow.h"
 #include "Help.h"
 #include <iostream>
+#include<vtkAutoInit.h>
+
+VTK_MODULE_INIT(vtkRenderingOpenGL2)
+
+VTK_MODULE_INIT(vtkInteractionStyle);
+
+VTK_MODULE_INIT(vtkRenderingFreeType);
 
 using namespace pcl;
 using namespace std;
@@ -85,6 +94,7 @@ private:
 	PolygonMesh mesh;
 	bool loadingStatus = false;		// µ„‘∆‰÷»æ
 	bool possionStatus = false;
+	bool location = false; // indicate the first time to load point cloud to optimize location
 	void setStyle();
 	void setPicStyle();
 	void setButtonStyle();

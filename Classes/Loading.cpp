@@ -5,6 +5,7 @@ Loading::Loading(QWidget *parent)
 {
 	
 	setStyle();
+	this->setWindowIcon(QIcon(":/icon/image/common/icon.png"));
 	setWindowFlags(Qt::FramelessWindowHint);
 	ui.label_2->hide();
 	// ui.progressBar->setValue(0);

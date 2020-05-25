@@ -2,6 +2,44 @@
 #include "MyThread.h"
 #include "YourThread.h"
 
+// 点云框选回调函数
+void pp_callback(const visualization::AreaPickingEvent& event, void* args)
+{
+	auto pclData = PointCloudData::getInstance();
+	PointCloud<PointXYZRGB>::Ptr cloudPtr(new PointCloud<PointXYZRGB>);
+	cloudPtr = pclData->getCloud().makeShared();
+	auto num = pclData->getNum();
+	std::vector<int> indices;
+
+	if (event.getPointsIndices(indices) == -1)
+		return;
+	// cout << indices.size() << "\n";
+	PointCloud<PointXYZRGB>::Ptr clicked_points_3d(new PointCloud<PointXYZRGB>);
+	if (indices.size() > 0)
+	{
+		for (auto i = 0; i < indices.size(); ++i)
+		{
+			clicked_points_3d->points.push_back(cloudPtr->points.at(indices[i]));
+		}
+
+		visualization::PointCloudColorHandlerCustom<PointXYZRGB> red(clicked_points_3d, 255, 0, 0);
+		std::stringstream ss;
+		std::string cloudName;
+		pclData->setNum();
+		ss << num++;
+		ss >> cloudName;
+		cloudName += "_cloudName";
+
+		pclData->getViewer()->addPointCloud(clicked_points_3d, red, cloudName);
+		pclData->getViewer()->
+		         setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 10, cloudName);
+		// pclData->getViewer()->updatePointCloud(clicked_points_3d,"cloudName");
+		pclData->setIndices(indices);
+		pclData->getUI().qvtkWidget->SetRenderWindow(pclData->getViewer()->getRenderWindow());
+		pclData->getUI().qvtkWidget->update();
+	}
+}
+
 Reconstruction::Reconstruction(QWidget* parent)
 	: QMainWindow(parent)
 {
@@ -23,15 +61,6 @@ Reconstruction::Reconstruction(QWidget* parent)
 #pragma region Style
 void Reconstruction::setStyle()
 {
-	boost::shared_ptr<visualization::PCLVisualizer> viewer(new visualization::PCLVisualizer("3D Viewer"));
-	viewer->setBackgroundColor(0.458, 0.529, 0.844);
-	viewer->initCameraParameters();
-	auto pclData = PointCloudData::getInstance(cloud);
-	pclData->setViewer(viewer);
-	pclData->setUI(ui);
-	ui.qvtkWidget->SetRenderWindow(viewer->getRenderWindow());
-	ui.qvtkWidget->update();
-	
 	this->setContentsMargins(0, 0, 0, 0);
 	// this->setFixedSize(1240, 680);
 	// ui.centralWidget->setGeometry(0, 40, 1240, 680);
@@ -114,7 +143,7 @@ void Reconstruction::setButtonStyle()
 	ui.pushButton_14->setIcon(QIcon(":/icon/image/reconstruction/export.png"));
 	ui.pushButton_15->setIcon(QIcon(":/icon/image/reconstruction/surface.png"));
 	ui.pushButton_16->setIcon(QIcon(":/icon/image/reconstruction/color.png"));
-	ui.pushButton_18->setIcon(QIcon(":/icon/image/reconstruction/help2.png"));	
+	ui.pushButton_18->setIcon(QIcon(":/icon/image/reconstruction/help2.png"));
 }
 #pragma endregion
 
@@ -154,53 +183,18 @@ void Reconstruction::on_pushButton_3_clicked()
 #pragma endregion
 
 #pragma region 多线程
-// 点云框选回调函数
-void pp_callback(const visualization::AreaPickingEvent& event, void* args)
-{
-	auto pclData = PointCloudData::getInstance();
-	PointCloud<PointXYZRGB>::Ptr cloudPtr(new PointCloud<PointXYZRGB>);
-	cloudPtr = pclData->getCloud().makeShared();
-	auto num = pclData->getNum();
-	std::vector<int> indices;
-
-	if (event.getPointsIndices(indices) == -1)
-		return;
-	// cout << indices.size() << "\n";
-	PointCloud<PointXYZRGB>::Ptr clicked_points_3d(new PointCloud<PointXYZRGB>);
-	if(indices.size()>0){
-	for (auto i = 0; i < indices.size(); ++i)
-	{
-		clicked_points_3d->points.push_back(cloudPtr->points.at(indices[i]));
-	}
-	visualization::PointCloudColorHandlerCustom<PointXYZRGB> red(clicked_points_3d, 255, 0, 0);
-	std::stringstream ss;
-	std::string cloudName;
-	pclData->setNum();
-	ss << num++;
-	ss >> cloudName;
-	cloudName += "_cloudName";
-
-	pclData->getViewer()->addPointCloud(clicked_points_3d, red, cloudName);
-	pclData->getViewer()->
-		setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 10, cloudName);
-	// pclData->getViewer()->updatePointCloud(clicked_points_3d,"cloudName");
-	pclData->setIndices(indices);
-	pclData->getUI().qvtkWidget->SetRenderWindow(pclData->getViewer()->getRenderWindow());
-	pclData->getUI().qvtkWidget->update();
-	}
-}
-
 void Reconstruction::setCloud()
 {
 	ui.label_9->setVisible(false);
 
-	if(possionStatus)
+	if (possionStatus)
 	{
 		auto pclData = PointCloudData::getInstance(cloud);
 		pclData->getViewer()->removeAllPointClouds();
 		pclData->getViewer()->addPolygonMesh(mesh, "my");
 		possionStatus = false;
-	}else
+	}
+	else
 	{
 		if (loadingStatus)
 		{
@@ -226,22 +220,31 @@ void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud, QColor color)
 	{
 		auto pclData = PointCloudData::getInstance();
 		pclData->setCloud(cloud);
-		pclData->getViewer()->getCameraParameters(camera);
-		cout << camera.pos[0] << "," << camera.pos[1] << "," << camera.pos[2] << "," << camera.
-			view[0] <<
-			"," << camera.view[1] << "," << camera.view[2] << "\n";
-		viewer = pclData->getViewer();
+		// disable the window appear outside
+		viewer.reset(new visualization::PCLVisualizer("3D Viewer", false));
+		viewer->setBackgroundColor(0.458, 0.529, 0.844);
+		if (cloud.size() != 0)
+		{
+			pclData->getViewer()->getInteractorStyle()->getCameraParameters(camera);
+			if(location)
+			{
+				viewer->setCameraParameters(camera);
+			}else
+			{
+				location = true;
+			}
+		}
+		viewer->registerAreaPickingCallback(pp_callback, (void*)&cloud);
+
+		pclData->setViewer(viewer);
 	}
 	else
 	{
-		boost::shared_ptr<visualization::PCLVisualizer> viewerArg(new visualization::PCLVisualizer("3D Viewer"));
-		viewer = viewerArg;
+		viewer.reset(new visualization::PCLVisualizer("3D Viewer", false));
 		viewer->setBackgroundColor(0.458, 0.529, 0.844);
 		viewer->initCameraParameters();
-		viewer->getCameraParameters(camera);
-		cout << camera.pos[0] << "," << camera.pos[1] << "," << camera.pos[2] << "," << camera.
-			view[0] <<"," << camera.view[1] << "," << camera.view[2] << "\n";
-		// viewer->setCameraPosition(50, -50, 1500,50,-50,1490,0, 1, 0, 0);
+		viewer->registerAreaPickingCallback(pp_callback, (void*)&cloud);
+
 		auto pclData = PointCloudData::getInstance(cloud);
 		pclData->setViewer(viewer);
 		pclData->setUI(ui);
@@ -249,7 +252,6 @@ void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud, QColor color)
 	double size = 1;
 	viewer->getPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, size, "cloud");
 	viewer->removeAllPointClouds();
-	// viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, 1, "cloud");
 	if (cloud.size() != 0)
 	{
 		PointCloud<PointXYZRGB>::Ptr cloudPtr(new PointCloud<PointXYZRGB>);
@@ -260,10 +262,14 @@ void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud, QColor color)
 		visualization::PointCloudColorHandlerCustom<PointXYZRGB> cloud_color(cloudPtr, x, y, z); // 统一处理点云颜色
 		viewer->addPointCloud(cloudPtr, cloud_color, "cloud");
 		viewer->setPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, size, "cloud");
-		// viewer->setCameraPosition(camera.pos[0], camera.pos[1], camera.pos[2], camera.view[0], camera.view[1], camera.view[2],0,0,1);
-		viewer->registerAreaPickingCallback(pp_callback, (void*)&cloud);
 	}
+
 	ui.qvtkWidget->SetRenderWindow(viewer->getRenderWindow());
+
+	// add control
+	viewer->setupInteractor(ui.qvtkWidget->GetInteractor(), ui.qvtkWidget->GetRenderWindow());
+	viewer->getInteractorStyle()->setKeyboardModifier(visualization::INTERACTOR_KB_MOD_SHIFT);
+
 	ui.qvtkWidget->update();
 }
 #pragma endregion
@@ -283,10 +289,7 @@ void Reconstruction::on_pushButton_5_clicked()
 		mesg.warning(this, "WARNING", "Failed to open picture");
 		return;
 	}
-	else
-	{
-		calPath = fileName;
-	}
+	calPath = fileName;
 }
 
 // 相机拍摄
@@ -629,11 +632,6 @@ void Reconstruction::on_pushButton_9_clicked()
 
 	auto pixmap = QPixmap::fromImage(qimage);
 	ui.label_21->setPixmap(pixmap.scaled(w, h, Qt::KeepAspectRatio));
-	// picPath = "Resources/image/test.png"; // 该行仅做测试使用	
-	// DisplayPic* picDlg = new DisplayPic();
-	// picDlg->setPicPath(picPath);
-	// connect(picDlg, SIGNAL(getPicAction(QString)), this, SLOT(setPicAction(QString)));
-	// picDlg->show();
 }
 
 void Reconstruction::setPicAction(QString action)
@@ -653,7 +651,6 @@ void Reconstruction::setPicAction(QString action)
 // 保存照片
 void Reconstruction::on_pushButton_10_clicked()
 {
-	// todo 保存照片
 	if (confirmPic)
 	{
 		QString fileName = QFileDialog::getSaveFileName(this,
@@ -666,20 +663,6 @@ void Reconstruction::on_pushButton_10_clicked()
 			QScreen* screen = QGuiApplication::primaryScreen();
 
 			screen->grabWindow(ui.label_21->winId()).save(fileName);
-
-
-			// QImage iim(picPath); //创建一个图片对象,存储源图片
-			// QPainter painter(&iim); //设置绘画设备
-			// QFile file(fileName); //创建一个文件对象，存储用户选择的文件
-			// if (!file.open(QIODevice::ReadWrite))
-			// {
-			// 	return;
-			// }
-			// QByteArray ba;
-			// QBuffer buffer(&ba);
-			// buffer.open(QIODevice::WriteOnly);
-			// iim.save(&buffer, "JPG"); //把图片以流方式写入文件缓存流中
-			// file.write(ba); //将流中的图片写入文件对象当中
 		}
 	}
 	else
@@ -692,7 +675,8 @@ void Reconstruction::on_pushButton_10_clicked()
 // 开始重建
 void Reconstruction::on_pushButton_17_clicked()
 {
-	// todo 开始重建
+	cloud.clear();
+	location = false;
 	reconstructStatus = true;
 	on_pushButton_3_clicked();
 	ui.label_9->setVisible(true);
@@ -707,23 +691,18 @@ void Reconstruction::on_pushButton_17_clicked()
 // 异常点选择
 void Reconstruction::on_pushButton_11_clicked()
 {
-	QMessageBox::information(this, tr("QMessageBox::information()"), 
-		"Please press the 'X' in the keyboard to choose the outlier points!");
-	
+	QMessageBox::information(this, tr("QMessageBox::information()"),
+	                         "Please press the 'X' in the keyboard to choose the outlier points!");
 }
 
 // 异常点剔除
 void Reconstruction::on_pushButton_12_clicked()
 {
-	// todo 异常点剔除
 	auto pclData = PointCloudData::getInstance();
-	// cloud = pclData->getCloud();
 	auto indices = pclData->getIndices();
 	for (auto i = 0; i < indices.size(); ++i)
 	{
-		// cout << "i:" << i << " indices:" << indices[i] << " diff:" << indices[i]-i << "\n";
 		auto index = cloud.begin() + (indices[i] - i);
-		// cout << "size:" << cloudPtr->size() << ",index:" << indices[i] - i<<"\n" ;
 		if (indices[i] - i >= cloud.size())break;
 		cloud.erase(index);
 	}
@@ -731,7 +710,6 @@ void Reconstruction::on_pushButton_12_clicked()
 	pclData->setIndices(indices);
 	pclData->setCloud(cloud);
 	updateQVTK(cloud, color);
-	// pclData->getViewer()->updatePointCloud();
 }
 
 // 导入点云
@@ -755,14 +733,8 @@ void Reconstruction::on_pushButton_13_clicked()
 		return;
 	}
 	
-	boost::shared_ptr<visualization::PCLVisualizer> viewer(new visualization::PCLVisualizer("3D Viewer"));
-	viewer->setBackgroundColor(0.458, 0.529, 0.844);
-	viewer->initCameraParameters();
-	// viewer->setCameraPosition(0, -10, -25, 0, 1, 0, 0, 1, 0, 0);
-	// viewer->setPosition(0, 0);
-	ui.qvtkWidget->SetRenderWindow(viewer->getRenderWindow());
-	auto pclData = PointCloudData::getInstance(cloud);
-	pclData->setViewer(viewer);
+	cloud.clear();
+	location = false;
 	ui.label_9->setVisible(true);
 	QCoreApplication::processEvents();
 	t->setPcd(fileName);
@@ -773,17 +745,16 @@ void Reconstruction::on_pushButton_13_clicked()
 // 导出结果
 void Reconstruction::on_pushButton_14_clicked()
 {
-	QString	fileName=QFileDialog::getSaveFileName(this, tr("Save to file"),
-		"./", tr("PCD files(*.pcd);;PLY files(*.ply);;All files (*.*)"));
-	
+	QString fileName = QFileDialog::getSaveFileName(this, tr("Save to file"),
+	                                                "./", tr("PCD files(*.pcd);;PLY files(*.ply);;All files (*.*)"));
+
 	if (!fileName.isNull())
 	{
 		if (fileName.endsWith(".pcd", Qt::CaseInsensitive))
 			io::savePCDFileBinary(fileName.toStdString(), cloud);
 		else if (fileName.endsWith(".ply", Qt::CaseInsensitive))
-			io::savePLYFileBinary(fileName.toStdString(), cloud);	
+			io::savePLYFileBinary(fileName.toStdString(), cloud);
 	}
-
 }
 
 // 泊松曲面重建
