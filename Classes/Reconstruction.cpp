@@ -61,6 +61,12 @@ Reconstruction::Reconstruction(QWidget* parent)
 #pragma region Style
 void Reconstruction::setStyle()
 {
+	QAction* aboutAction = ui.menuBar->addAction(tr("About"), this, SLOT(about()));
+	aboutAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_A));
+
+	QAction* quitAction = ui.menuBar->addAction(tr("Exit"), this, SLOT(close()));
+	quitAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Q));
+	
 	this->setContentsMargins(0, 0, 0, 0);
 	// this->setFixedSize(1240, 680);
 	// ui.centralWidget->setGeometry(0, 40, 1240, 680);
@@ -216,6 +222,7 @@ void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud, QColor color)
 {
 	boost::shared_ptr<visualization::PCLVisualizer> viewer;
 	visualization::Camera camera;
+	double size = 1;
 	if (PointCloudData::getInstance() != nullptr)
 	{
 		auto pclData = PointCloudData::getInstance();
@@ -229,6 +236,7 @@ void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud, QColor color)
 			if(location)
 			{
 				viewer->setCameraParameters(camera);
+				pclData->getViewer()->getPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, size, "cloud");
 			}else
 			{
 				location = true;
@@ -249,8 +257,7 @@ void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud, QColor color)
 		pclData->setViewer(viewer);
 		pclData->setUI(ui);
 	}
-	double size = 1;
-	viewer->getPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, size, "cloud");
+	
 	viewer->removeAllPointClouds();
 	if (cloud.size() != 0)
 	{
@@ -785,3 +792,13 @@ void Reconstruction::on_pushButton_18_clicked()
 }
 
 #pragma endregion
+
+void Reconstruction::about()
+{
+	AboutDialog* aboutDialog;
+	aboutDialog = new AboutDialog(this);
+	aboutDialog->setWindowFlags(Qt::Window);
+	aboutDialog->setWindowModality(Qt::ApplicationModal);
+	aboutDialog->setWindowTitle(QString::fromLocal8Bit("¹ØÓÚ"));
+	aboutDialog->show();
+}

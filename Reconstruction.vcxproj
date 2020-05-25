@@ -94,12 +94,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <QtUic Include="UI\AboutDialog.ui" />
     <QtUic Include="UI\DisplayPic.ui" />
     <QtUic Include="UI\Help.ui" />
     <QtUic Include="UI\Loading.ui" />
     <QtUic Include="UI\Reconstruction.ui" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Classes\AboutDialog.cpp" />
     <ClCompile Include="Classes\API.cpp" />
     <ClCompile Include="Classes\bsxfun.cpp" />
     <ClCompile Include="Classes\CalibrationData.cpp" />
@@ -151,6 +153,7 @@
     <QtRcc Include="Resources\Reconstruction.qrc" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="Classes\AboutDialog.h" />
     <ClInclude Include="Classes\API.h" />
     <ClInclude Include="Classes\bsxfun.h" />
     <ClInclude Include="Classes\CalibrationData.h" />

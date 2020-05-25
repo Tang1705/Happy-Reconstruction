@@ -2,6 +2,7 @@
     <qresource prefix="/Reconstruction">
         <file>image/loading/loading.png</file>
         <file>image/reconstruction/help.png</file>
+        <file>image/common/logo.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>image/common/3D.png</file>

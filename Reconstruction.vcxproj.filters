@@ -81,6 +81,9 @@
     <QtUic Include="UI\Help.ui">
       <Filter>ui</Filter>
     </QtUic>
+    <QtUic Include="UI\AboutDialog.ui">
+      <Filter>ui</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Classes\main.cpp">
@@ -212,6 +215,9 @@
     <ClCompile Include="Classes\HisThread.cpp">
       <Filter>src\scene\resultscene</Filter>
     </ClCompile>
+    <ClCompile Include="Classes\AboutDialog.cpp">
+      <Filter>src\scene\common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Classes\Reconstruction.h">
@@ -225,6 +231,9 @@
     </QtMoc>
     <QtMoc Include="Classes\Help.h">
       <Filter>src\scene\resultscene</Filter>
+    </QtMoc>
+    <QtMoc Include="Classes\AboutDialog.h">
+      <Filter>src\scene\common</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

@@ -451,7 +451,7 @@
          <x>0</x>
          <y>0</y>
          <width>640</width>
-         <height>512</height>
+         <height>511</height>
         </rect>
        </property>
       </widget>
@@ -588,7 +588,7 @@
         <x>690</x>
         <y>200</y>
         <width>291</width>
-        <height>211</height>
+        <height>231</height>
        </rect>
       </property>
       <property name="font">
@@ -1709,6 +1709,7 @@
     </widget>
    </widget>
   </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
@@ -1718,32 +1719,7 @@
      <height>26</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menusettings">
-    <property name="font">
-     <font>
-      <family>黑体</family>
-      <pointsize>8</pointsize>
-     </font>
-    </property>
-    <property name="title">
-     <string>相机设置</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menuabout">
-    <property name="font">
-     <font>
-      <family>黑体</family>
-      <pointsize>8</pointsize>
-     </font>
-    </property>
-    <property name="title">
-     <string>关于</string>
-    </property>
-   </widget>
-   <addaction name="menusettings"/>
-   <addaction name="menuabout"/>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
   <action name="actioncamera">
    <property name="text">
     <string>camera</string>

@@ -40,6 +40,7 @@
 #include "QVTKWidget.h"
 #include "vtkRenderWindow.h"
 #include "Help.h"
+#include "AboutDialog.h"
 #include <iostream>
 #include<vtkAutoInit.h>
 
@@ -122,4 +123,5 @@ private slots:
 	void on_pushButton_19_clicked();
 	void setPicAction(QString action);
 	void setCloud();
+	void about();
 };
