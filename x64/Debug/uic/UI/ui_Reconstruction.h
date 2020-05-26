@@ -19,7 +19,6 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpinBox>
@@ -107,10 +106,8 @@ public:
     QPushButton *pushButton;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
-    QMenuBar *menuBar;
-    QMenu *menusettings;
-    QMenu *menuabout;
     QStatusBar *statusBar;
+    QMenuBar *menuBar;
 
     void setupUi(QMainWindow *ReconstructionClass)
     {
@@ -307,7 +304,7 @@ public:
         label_11->setAlignment(Qt::AlignCenter);
         graphicsView_3 = new QGraphicsView(groupBox_5);
         graphicsView_3->setObjectName(QString::fromUtf8("graphicsView_3"));
-        graphicsView_3->setGeometry(QRect(0, 0, 640, 512));
+        graphicsView_3->setGeometry(QRect(0, 0, 640, 511));
         graphicsView_3->raise();
         label_11->raise();
         pushButton_5 = new QPushButton(page);
@@ -336,7 +333,7 @@ public:
         pushButton_8->setFont(font3);
         groupBox_3 = new QGroupBox(page);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
-        groupBox_3->setGeometry(QRect(690, 200, 291, 211));
+        groupBox_3->setGeometry(QRect(690, 200, 291, 231));
         groupBox_3->setFont(font1);
         groupBox_3->setAlignment(Qt::AlignCenter);
         treeView = new QTreeView(groupBox_3);
@@ -619,25 +616,13 @@ public:
         verticalLayout->addWidget(pushButton_3);
 
         ReconstructionClass->setCentralWidget(centralWidget);
-        menuBar = new QMenuBar(ReconstructionClass);
-        menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1240, 26));
-        menusettings = new QMenu(menuBar);
-        menusettings->setObjectName(QString::fromUtf8("menusettings"));
-        QFont font10;
-        font10.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
-        font10.setPointSize(8);
-        menusettings->setFont(font10);
-        menuabout = new QMenu(menuBar);
-        menuabout->setObjectName(QString::fromUtf8("menuabout"));
-        menuabout->setFont(font10);
-        ReconstructionClass->setMenuBar(menuBar);
         statusBar = new QStatusBar(ReconstructionClass);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         ReconstructionClass->setStatusBar(statusBar);
-
-        menuBar->addAction(menusettings->menuAction());
-        menuBar->addAction(menuabout->menuAction());
+        menuBar = new QMenuBar(ReconstructionClass);
+        menuBar->setObjectName(QString::fromUtf8("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 1240, 26));
+        ReconstructionClass->setMenuBar(menuBar);
 
         retranslateUi(ReconstructionClass);
         QObject::connect(spinBox, SIGNAL(valueChanged(int)), spinBox, SLOT(setValue(int)));
@@ -697,8 +682,6 @@ public:
         pushButton->setText(QApplication::translate("ReconstructionClass", "\347\263\273\347\273\237\346\240\207\345\256\232", nullptr));
         pushButton_2->setText(QApplication::translate("ReconstructionClass", "\344\270\211\347\273\264\351\207\215\345\273\272", nullptr));
         pushButton_3->setText(QApplication::translate("ReconstructionClass", "\347\202\271\344\272\221\346\270\262\346\237\223", nullptr));
-        menusettings->setTitle(QApplication::translate("ReconstructionClass", "\347\233\270\346\234\272\350\256\276\347\275\256", nullptr));
-        menuabout->setTitle(QApplication::translate("ReconstructionClass", "\345\205\263\344\272\216", nullptr));
     } // retranslateUi
 
 };

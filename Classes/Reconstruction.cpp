@@ -606,6 +606,9 @@ void Reconstruction::on_pushButton_4_clicked()
 
 	ui.lineEdit->setText(fileName);
 	td->setPath(fileName.toStdString());
+	auto w = ui.label_21->width();
+	auto h = ui.label_21->height();
+	ui.label_21->setPixmap(QPixmap(fileName).scaled(w, h, Qt::KeepAspectRatio));
 	// 投影结构光图案
 	// device->getProjector()->displayPattern(44);
 	// todo 接着进行投影操作
@@ -698,7 +701,7 @@ void Reconstruction::on_pushButton_17_clicked()
 // 异常点选择
 void Reconstruction::on_pushButton_11_clicked()
 {
-	QMessageBox::information(this, tr("QMessageBox::information()"),
+	QMessageBox::information(this, tr("Tip"),
 	                         "Please press the 'X' in the keyboard to choose the outlier points!");
 }
 

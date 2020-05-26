@@ -746,7 +746,7 @@
        </font>
       </property>
       <property name="text">
-       <string>载入投影图案</string>
+       <string>载入投影图像</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>

@@ -3,6 +3,7 @@
 #include <QWidget>
 #include "ui_Help.h"
 #include <QTextCodec>
+#include <QIcon>
 
 class Help : public QWidget
 {
