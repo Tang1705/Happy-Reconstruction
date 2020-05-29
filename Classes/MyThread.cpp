@@ -25,7 +25,9 @@ void MyThread::run()
 
 void MyThread::setPcd(QString str)
 {
-	pcd = str.toStdString();
+	QTextCodec* code = QTextCodec::codecForName("GB2312");//解决中文路径问题
+	pcd = code->fromUnicode(str).data();
+	// pcd = str.toStdString();
 }
 
 PointCloud<PointXYZRGB> MyThread::getCloud()

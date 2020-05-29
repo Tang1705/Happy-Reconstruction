@@ -9,6 +9,7 @@
 #include <QStyleFactory>
 #include <QScreen>
 #include <QtTest/QtTest>
+#include <QTextCodec>
 #include "DisplayPic.h"
 #include "ui_Reconstruction.h"
 #include <pcl/point_types.h>

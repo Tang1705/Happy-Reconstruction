@@ -143,6 +143,10 @@ void Reconstruction::setButtonStyle()
 
 	// 图案投影界面
 	ui.pushButton_4->setIcon(QIcon(":/icon/image/projection/file.png"));
+	ui.pushButton_19->setIcon(QIcon(":/icon/image/projection/projector.png"));
+	ui.pushButton_9->setIcon(QIcon(":/icon/image/projection/image.png"));
+	ui.pushButton_10->setIcon(QIcon(":/icon/image/projection/save.png"));
+	ui.pushButton_17->setIcon(QIcon(":/icon/image/projection/three_d.png"));
 
 	// 三维重建界面
 	ui.pushButton_13->setIcon(QIcon(":/icon/image/reconstruction/import.png"));
@@ -604,8 +608,10 @@ void Reconstruction::on_pushButton_4_clicked()
 		return;
 	}
 
+	QTextCodec* code = QTextCodec::codecForName("GB2312");//解决中文路径问题
+	auto name = code->fromUnicode(fileName).data();
 	ui.lineEdit->setText(fileName);
-	td->setPath(fileName.toStdString());
+	td->setPath(name);
 	auto w = ui.label_21->width();
 	auto h = ui.label_21->height();
 	ui.label_21->setPixmap(QPixmap(fileName).scaled(w, h, Qt::KeepAspectRatio));
@@ -671,7 +677,6 @@ void Reconstruction::on_pushButton_10_clicked()
 		if (!fileName.isNull())
 		{
 			QScreen* screen = QGuiApplication::primaryScreen();
-
 			screen->grabWindow(ui.label_21->winId()).save(fileName);
 		}
 	}
@@ -760,10 +765,12 @@ void Reconstruction::on_pushButton_14_clicked()
 
 	if (!fileName.isNull())
 	{
-		if (fileName.endsWith(".pcd", Qt::CaseInsensitive))
-			io::savePCDFileBinary(fileName.toStdString(), cloud);
-		else if (fileName.endsWith(".ply", Qt::CaseInsensitive))
-			io::savePLYFileBinary(fileName.toStdString(), cloud);
+		QTextCodec* code = QTextCodec::codecForName("GB2312");//解决中文路径问题
+		auto name = code->fromUnicode(fileName).data();
+		if (QString::fromStdString(name).endsWith(".pcd", Qt::CaseInsensitive))
+			io::savePCDFileBinary(name, cloud);
+		else if (QString::fromStdString(name).endsWith(".ply", Qt::CaseInsensitive))
+			io::savePLYFileBinary(name, cloud);
 	}
 }
 

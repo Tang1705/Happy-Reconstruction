@@ -659,7 +659,7 @@ public:
         groupBox_6->setTitle(QString());
         label_21->setText(QApplication::translate("ReconstructionClass", "NO VIDEO", nullptr));
         pushButton_4->setText(QApplication::translate("ReconstructionClass", "\351\200\211\346\213\251\346\226\207\344\273\266", nullptr));
-        label_18->setText(QApplication::translate("ReconstructionClass", "\350\275\275\345\205\245\346\212\225\345\275\261\345\233\276\346\241\210", nullptr));
+        label_18->setText(QApplication::translate("ReconstructionClass", "\350\275\275\345\205\245\346\212\225\345\275\261\345\233\276\345\203\217", nullptr));
         groupBox_7->setTitle(QApplication::translate("ReconstructionClass", "\351\207\215\345\273\272\346\227\245\345\277\227", nullptr));
         groupBox_8->setTitle(QString());
         pushButton_9->setText(QApplication::translate("ReconstructionClass", "\347\233\270\346\234\272\346\213\215\347\205\247", nullptr));
