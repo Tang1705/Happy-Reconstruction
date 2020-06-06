@@ -1,15 +1,1 @@
-﻿  MyThread.cpp
-  Unknown compiler version - please run the configure tests and report the results
-D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\include\pcl-1.8\pcl\point_traits.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\include\pcl-1.8\pcl\visualization\interactor_style.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\BJTU\Reconstruction\Lib\PCL\PCL 1.8.1\include\pcl-1.8\pcl\visualization\pcl_visualizer.h(1585,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\BJTU\Reconstruction\Lib\FlyCapture2\include\FlyCapture2.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\BJTU\Reconstruction\Lib\FlyCapture2\include\Error.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\BJTU\Reconstruction\Lib\FlyCapture2\include\CameraBase.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\BJTU\Reconstruction\Lib\FlyCapture2\include\GigECamera.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\BJTU\Reconstruction\Lib\FlyCapture2\include\Image.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\BJTU\Reconstruction\Lib\FlyCapture2\include\Utilities.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\BJTU\Reconstruction\Lib\FlyCapture2\include\AVIRecorder.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\BJTU\Reconstruction\Lib\FlyCapture2\include\TopologyNode.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\BJTU\Reconstruction\Lib\FlyCapture2\include\ImageStatistics.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  Reconstruction.vcxproj -> D:\BJTU\Reconstruction\x64\Debug\Reconstruction.exe
+﻿  Reconstruction.cpp

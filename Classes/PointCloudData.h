@@ -18,6 +18,8 @@ private:
 	std::vector<int> indices;
 	Ui::ReconstructionClass ui;
 	int num;// 用于框选删除点云的名称
+	QColor color = Qt::yellow;
+	float xAxis, zAxis;
 	
 public:
 	static PointCloudData* getInstance();
@@ -33,4 +35,9 @@ public:
 	void setUI(Ui::ReconstructionClass uiArg);
 	int getNum();
 	void setNum();
+	QColor getColor();
+	void setColor(QColor colorArg);
+	float getXAxis();
+	float getZAxis();
+	void setAxises(float xArg,float zArg);
 };

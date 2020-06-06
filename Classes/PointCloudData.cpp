@@ -68,3 +68,29 @@ void PointCloudData::setNum()
 	num++;
 }
 
+QColor PointCloudData::getColor()
+{
+	return color;
+}
+
+void PointCloudData::setColor(QColor colorArg)
+{
+	color = colorArg;
+}
+
+float PointCloudData::getXAxis()
+{
+	return xAxis;
+}
+
+float PointCloudData::getZAxis()
+{
+	return zAxis;
+}
+
+void PointCloudData::setAxises(float xArg,float zArg)
+{
+	xAxis = xArg;
+	zAxis = zArg;
+}
+

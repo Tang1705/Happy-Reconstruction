@@ -40,6 +40,71 @@ void pp_callback(const visualization::AreaPickingEvent& event, void* args)
 	}
 }
 
+// Returns the rotation matrix around a vector  placed at a point , rotate by angle t
+Eigen::Matrix4f rot_mat(const Eigen::Vector3f& point, const Eigen::Vector3f& vector, const float t)
+{
+	float u = vector(0);
+	float v = vector(1);
+	float w = vector(2);
+	float a = point(0);
+	float b = point(1);
+	float c = point(2);
+
+	Eigen::Matrix4f matrix;
+	matrix << u * u + (v * v + w * w) * cos(t), u * v * (1 - cos(t)) - w * sin(t), u * w * (1 - cos(t)) + v * sin(t), (a
+			* (v * v + w * w) - u * (b * v + c * w)) * (1 - cos(t)) + (b * w - c * v) * sin(t),
+		u * v * (1 - cos(t)) + w * sin(t), v * v + (u * u + w * w) * cos(t), v * w * (1 - cos(t)) - u * sin(t), (b * (u
+			* u + w * w) - v * (a * u + c * w)) * (1 - cos(t)) + (c * u - a * w) * sin(t),
+		u * w * (1 - cos(t)) - v * sin(t), v * w * (1 - cos(t)) + u * sin(t), w * w + (u * u + v * v) * cos(t), (c * (u
+			* u + v * v) - w * (a * u + b * v)) * (1 - cos(t)) + (a * v - b * u) * sin(t),
+		0, 0, 0, 1;
+	return matrix;
+}
+
+void keyboardEventOccurred(const visualization::KeyboardEvent& event, void* nothing)
+{
+	PointCloud<PointXYZRGB>::Ptr transformed_cloud(new PointCloud<PointXYZRGB>());
+
+	auto pclData = PointCloudData::getInstance();
+	PointCloud<PointXYZRGB>::Ptr cloudPtr(new PointCloud<PointXYZRGB>);
+	cloudPtr = pclData->getCloud().makeShared();
+
+	Eigen::Vector3f point(pclData->getXAxis(), 0, pclData->getZAxis());
+	Eigen::Vector3f vector(0, 1, 0);
+	Eigen::Matrix4f transform = Eigen::Matrix4f::Identity();
+	if ((event.getKeySym() == "Right" || event.getKeySym() == "Left") && event.keyDown())
+	{
+		if (event.getKeySym() == "Right")
+		{
+			float theta = -M_PI / 36; // 弧度角
+			// Z 轴上旋转 theta 弧度
+			transform = rot_mat(point, vector, theta);
+		}
+		else if (event.getKeySym() == "Left")
+		{
+			float theta = M_PI / 36; // 弧度角
+			//  Z 轴上旋转 theta 弧度
+			transform = rot_mat(point, vector, theta);
+		}
+
+		transformPointCloud(*cloudPtr, *transformed_cloud, transform);
+
+		pclData->getViewer()->removeAllPointClouds();
+		auto color = pclData->getColor();
+		auto x = int(color.redF() * 255);
+		auto y = int(color.greenF() * 255);
+		auto z = int(color.blueF() * 255);
+		double size = 1;
+		visualization::PointCloudColorHandlerCustom<PointXYZRGB> cloud_color(transformed_cloud, x, y, z); // 统一处理点云颜色
+		pclData->getViewer()->addPointCloud(transformed_cloud, cloud_color, "cloud");
+		pclData->getViewer()->
+		         setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, size, "cloud");
+		pclData->getUI().qvtkWidget->SetRenderWindow(pclData->getViewer()->getRenderWindow());
+		pclData->getUI().qvtkWidget->update();
+		pclData->setCloud(*transformed_cloud);
+	}
+}
+
 Reconstruction::Reconstruction(QWidget* parent)
 	: QMainWindow(parent)
 {
@@ -66,7 +131,7 @@ void Reconstruction::setStyle()
 
 	QAction* quitAction = ui.menuBar->addAction(tr("Exit"), this, SLOT(close()));
 	quitAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Q));
-	
+
 	this->setContentsMargins(0, 0, 0, 0);
 	// this->setFixedSize(1240, 680);
 	// ui.centralWidget->setGeometry(0, 40, 1240, 680);
@@ -209,12 +274,20 @@ void Reconstruction::setCloud()
 		if (loadingStatus)
 		{
 			cloud = t->getCloud();
+			auto pclData = PointCloudData::getInstance(cloud);
+			PointXYZRGB minPt, maxPt;
+			getMinMax3D(cloud, minPt, maxPt);
+			pclData->setAxises((minPt.x + maxPt.x) / 2, (minPt.z + maxPt.z) / 2);
 			loadingStatus = false;
 		}
 
 		if (reconstructStatus)
 		{
 			reconstructStatus = false;
+			auto pclData = PointCloudData::getInstance(cloud);
+			PointXYZRGB minPt, maxPt;
+			getMinMax3D(cloud, minPt, maxPt);
+			pclData->setAxises((minPt.x + maxPt.x) / 2, (minPt.z + maxPt.z) / 2);
 		}
 		cout << cloud[0].r;
 
@@ -237,16 +310,19 @@ void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud, QColor color)
 		if (cloud.size() != 0)
 		{
 			pclData->getViewer()->getInteractorStyle()->getCameraParameters(camera);
-			if(location)
+			if (location)
 			{
 				viewer->setCameraParameters(camera);
-				pclData->getViewer()->getPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, size, "cloud");
-			}else
+				pclData->getViewer()->getPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, size,
+				                                                       "cloud");
+			}
+			else
 			{
 				location = true;
 			}
 		}
 		viewer->registerAreaPickingCallback(pp_callback, (void*)&cloud);
+		viewer->registerKeyboardCallback(&keyboardEventOccurred, (void*)NULL);
 
 		pclData->setViewer(viewer);
 	}
@@ -256,12 +332,13 @@ void Reconstruction::updateQVTK(PointCloud<PointXYZRGB> cloud, QColor color)
 		viewer->setBackgroundColor(0.458, 0.529, 0.844);
 		viewer->initCameraParameters();
 		viewer->registerAreaPickingCallback(pp_callback, (void*)&cloud);
+		viewer->registerKeyboardCallback(&keyboardEventOccurred, (void*)NULL);
 
 		auto pclData = PointCloudData::getInstance(cloud);
 		pclData->setViewer(viewer);
 		pclData->setUI(ui);
 	}
-	
+
 	viewer->removeAllPointClouds();
 	if (cloud.size() != 0)
 	{
@@ -608,7 +685,7 @@ void Reconstruction::on_pushButton_4_clicked()
 		return;
 	}
 
-	QTextCodec* code = QTextCodec::codecForName("GB2312");//解决中文路径问题
+	QTextCodec* code = QTextCodec::codecForName("GB2312"); //解决中文路径问题
 	auto name = code->fromUnicode(fileName).data();
 	ui.lineEdit->setText(fileName);
 	td->setPath(name);
@@ -715,6 +792,7 @@ void Reconstruction::on_pushButton_12_clicked()
 {
 	auto pclData = PointCloudData::getInstance();
 	auto indices = pclData->getIndices();
+	cloud = pclData->getCloud();
 	for (auto i = 0; i < indices.size(); ++i)
 	{
 		auto index = cloud.begin() + (indices[i] - i);
@@ -747,7 +825,7 @@ void Reconstruction::on_pushButton_13_clicked()
 		mesg.warning(this, "WARNING", "Failed to open file");
 		return;
 	}
-	
+
 	cloud.clear();
 	location = false;
 	ui.label_9->setVisible(true);
@@ -765,7 +843,7 @@ void Reconstruction::on_pushButton_14_clicked()
 
 	if (!fileName.isNull())
 	{
-		QTextCodec* code = QTextCodec::codecForName("GB2312");//解决中文路径问题
+		QTextCodec* code = QTextCodec::codecForName("GB2312"); //解决中文路径问题
 		auto name = code->fromUnicode(fileName).data();
 		if (QString::fromStdString(name).endsWith(".pcd", Qt::CaseInsensitive))
 			io::savePCDFileBinary(name, cloud);
@@ -791,6 +869,8 @@ void Reconstruction::on_pushButton_16_clicked()
 	{
 		color = colortmp;
 		updateQVTK(cloud, color);
+		auto pclData = PointCloudData::getInstance();
+		pclData->setColor(color);
 	}
 }
 
