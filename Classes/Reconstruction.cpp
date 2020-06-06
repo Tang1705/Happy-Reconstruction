@@ -2,6 +2,7 @@
 #include "MyThread.h"
 #include "YourThread.h"
 
+# pragma region 点云回调
 // 点云框选回调函数
 void pp_callback(const visualization::AreaPickingEvent& event, void* args)
 {
@@ -89,12 +90,14 @@ void keyboardEventOccurred(const visualization::KeyboardEvent& event, void* noth
 
 		transformPointCloud(*cloudPtr, *transformed_cloud, transform);
 
-		pclData->getViewer()->removeAllPointClouds();
 		auto color = pclData->getColor();
 		auto x = int(color.redF() * 255);
 		auto y = int(color.greenF() * 255);
 		auto z = int(color.blueF() * 255);
 		double size = 1;
+		pclData->getViewer()->getPointCloudRenderingProperties(visualization::PCL_VISUALIZER_POINT_SIZE, size,
+			"cloud");
+		pclData->getViewer()->removeAllPointClouds();
 		visualization::PointCloudColorHandlerCustom<PointXYZRGB> cloud_color(transformed_cloud, x, y, z); // 统一处理点云颜色
 		pclData->getViewer()->addPointCloud(transformed_cloud, cloud_color, "cloud");
 		pclData->getViewer()->
@@ -104,6 +107,8 @@ void keyboardEventOccurred(const visualization::KeyboardEvent& event, void* noth
 		pclData->setCloud(*transformed_cloud);
 	}
 }
+
+# pragma endregion
 
 Reconstruction::Reconstruction(QWidget* parent)
 	: QMainWindow(parent)
@@ -688,6 +693,7 @@ void Reconstruction::on_pushButton_4_clicked()
 	QTextCodec* code = QTextCodec::codecForName("GB2312"); //解决中文路径问题
 	auto name = code->fromUnicode(fileName).data();
 	ui.lineEdit->setText(fileName);
+	
 	td->setPath(name);
 	auto w = ui.label_21->width();
 	auto h = ui.label_21->height();
@@ -767,6 +773,14 @@ void Reconstruction::on_pushButton_10_clicked()
 // 开始重建
 void Reconstruction::on_pushButton_17_clicked()
 {
+	auto isNull = ui.lineEdit->text();
+	if (isNull.isEmpty())
+	{
+		QMessageBox mesg;
+		mesg.warning(this, "WARNING", "Please select a picture!");
+		return;
+	}
+	
 	cloud.clear();
 	location = false;
 	reconstructStatus = true;

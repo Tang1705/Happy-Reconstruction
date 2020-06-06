@@ -66,6 +66,7 @@ void YourThread::run()
 	
 	auto pclData = PointCloudData::getInstance(*cloud);
 	pclData->setCloud(*cloud);
+	// cout << "over" << "\n";
 }
 
 void YourThread::setPath(string pathArg)
