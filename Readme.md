@@ -43,7 +43,8 @@ De Bruijn 序列由n种不同元素构成，任意长度为m的连续子序列�
 
 http://tang5618.com/data/video/02.mp4
 
-最后，对项目的技术和成果进行一个简单的总结 <a href="http://tang5618.com/data/pdf/wordpress/tq.pdf" target="_blank" class="far fa-file-pdf" aria-hidden="true" style="text-indent: -0.1em;" rel="noopener noreferrer"></a>
+最后，对项目的技术和成果进行一个简单的 <a href="http://tang5618.com/data/pdf/wordpress/tq.pdf">总结</a>。
+
 ---
 
  本项目的介绍也可以访问  [这里](https://tang5618.com/wordpress/?p=598)
