@@ -43,6 +43,15 @@ De Bruijn 序列由n种不同元素构成，任意长度为m的连续子序列�
 
 软件展示如下：
 
+- 系统标定界
+<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/ml0iegb11jyr7t5iw1kp30ei/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2-%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84%E5%85%89%E7%9A%84%E9%AB%98%E9%93%81%E8%BD%AE%E8%BD%A8%E5%A7%BF%E6%80%81%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA-%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94%E7%B3%BB%E7%BB%9F%E6%A0%87%E5%AE%9A%E7%95%8C%E9%9D%A2.jpg" alt="16" /></div>
+
+- 三维重建界面
+<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/dv9moa86dspfb2njt79o8cuj/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2-%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84%E5%85%89%E7%9A%84%E9%AB%98%E9%93%81%E8%BD%AE%E8%BD%A8%E5%A7%BF%E6%80%81%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA-%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%95%8C%E9%9D%A2.jpg" alt="17" /></div>
+
+- 点云渲染界面
+<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/ufqbnx21rnzkvfhmsyi2rosr/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2-%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84%E5%85%89%E7%9A%84%E9%AB%98%E9%93%81%E8%BD%AE%E8%BD%A8%E5%A7%BF%E6%80%81%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA-%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94%E7%82%B9%E4%BA%91%E6%B8%B2%E6%9F%93%E7%95%8C%E9%9D%A2.jpg" alt="18" /></div>
+
 http://tang5618.com/data/video/02.mp4
 
 最后，对项目的技术和成果进行一个简单的 <a href="http://tang5618.com/data/pdf/wordpress/tq.pdf">总结</a>。
