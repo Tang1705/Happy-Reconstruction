@@ -20,8 +20,6 @@
 
 <div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/z6giu9sqibq08fc1crweplxa/04.png" alt="06" width="22%" height="22%" />                <img src="http://static.zybuluo.com/TangWill/9jljaktk7e3qso61by60pohf/05.png" alt="07" width="22%" height="22%" /> <img src="http://static.zybuluo.com/TangWill/1wqxgxn4iwdicq1v9rs04e1x/06.png" alt="08" width="22%" height="22%"  /><img src="http://static.zybuluo.com/TangWill/s3gah640whmsbfxoxzg2pqib/07.png" alt="09" width="22%" height="22%"  /></div>
 
-http://tang5618.com/data/video/00.mp4
-
 De Bruijn 序列由n种不同元素构成，任意长度为m的连续子序列只出现一次。复现的论文以 B(3,4) 序列进行编码，条纹作为结构光编码图案的基本元素，红、蓝、绿三种颜色作为标记条纹代表的不同数值，窗口大小为 4*1，以条纹中心点作为特征点。同时在 HSV 颜色空间模型中，以余弦函数对条纹的 V 通道进行编码。在结构光解码时，除了提取条纹中心点作为特征点，同时对拍摄到的图像的 V 通道进行加窗傅里叶变换分析，通过分析得到的相位进而增加特征点的密度。根据论文的基本思路，可在提高提取点云进度的同时增加点云的稠密度，实验效果较好。根据项目内容和有关研究的进展，在研究论文和实验的基础上，对复现论文的算法进行改进，提出适合项目场景的算法流程。部分论文如下。
 
 <div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/i9bvx3xay0c8v4040hjzulcv/08.png" alt="10" width="22%" height="22%" />                <img src="http://static.zybuluo.com/TangWill/wspx83923ujobnjysj4y2l3h/09.png" alt="11" width="22%" height="22%" /> <img src="http://static.zybuluo.com/TangWill/pflvpf9yzwkfw8csn0at2trl/10.png" alt="12" width="22%" height="22%"  /><img src="http://static.zybuluo.com/TangWill/v0cdilgqhy1k4oqaw2dhdpgh/11.png" alt="13" width="22%" height="22%"  /></div>
@@ -51,13 +49,6 @@ De Bruijn 序列由n种不同元素构成，任意长度为m的连续子序列�
 
 - 点云渲染界面
 <div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/ufqbnx21rnzkvfhmsyi2rosr/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2-%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84%E5%85%89%E7%9A%84%E9%AB%98%E9%93%81%E8%BD%AE%E8%BD%A8%E5%A7%BF%E6%80%81%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA-%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94%E7%82%B9%E4%BA%91%E6%B8%B2%E6%9F%93%E7%95%8C%E9%9D%A2.jpg" alt="18" /></div>
-
-<div style="width: 900px;height: 500px;margin: 15px auto;">
-    <video src="http://tang5618.com/data/video/02.mp4" type="video/mp4" controls="true" controlslist="nodownload" width="900x"
-           height="500px">
-        抱歉，你的浏览器不支持video标签。。
-    </video>
-</div>
 
 
 最后，对项目的技术和成果进行一个简单的 <a href="http://tang5618.com/data/pdf/wordpress/tq.pdf">总结</a>。
