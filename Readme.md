@@ -20,6 +20,8 @@
 
 <div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/z6giu9sqibq08fc1crweplxa/04.png" alt="06" width="22%" height="22%" />                <img src="http://static.zybuluo.com/TangWill/9jljaktk7e3qso61by60pohf/05.png" alt="07" width="22%" height="22%" /> <img src="http://static.zybuluo.com/TangWill/1wqxgxn4iwdicq1v9rs04e1x/06.png" alt="08" width="22%" height="22%"  /><img src="http://static.zybuluo.com/TangWill/s3gah640whmsbfxoxzg2pqib/07.png" alt="09" width="22%" height="22%"  /></div>
 
+http://tang5618.com/data/video/00.mp4
+
 De Bruijn 序列由n种不同元素构成，任意长度为m的连续子序列只出现一次。复现的论文以 B(3,4) 序列进行编码，条纹作为结构光编码图案的基本元素，红、蓝、绿三种颜色作为标记条纹代表的不同数值，窗口大小为 4*1，以条纹中心点作为特征点。同时在 HSV 颜色空间模型中，以余弦函数对条纹的 V 通道进行编码。在结构光解码时，除了提取条纹中心点作为特征点，同时对拍摄到的图像的 V 通道进行加窗傅里叶变换分析，通过分析得到的相位进而增加特征点的密度。根据论文的基本思路，可在提高提取点云进度的同时增加点云的稠密度，实验效果较好。根据项目内容和有关研究的进展，在研究论文和实验的基础上，对复现论文的算法进行改进，提出适合项目场景的算法流程。部分论文如下。
 
 <div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/i9bvx3xay0c8v4040hjzulcv/08.png" alt="10" width="22%" height="22%" />                <img src="http://static.zybuluo.com/TangWill/wspx83923ujobnjysj4y2l3h/09.png" alt="11" width="22%" height="22%" /> <img src="http://static.zybuluo.com/TangWill/pflvpf9yzwkfw8csn0at2trl/10.png" alt="12" width="22%" height="22%"  /><img src="http://static.zybuluo.com/TangWill/v0cdilgqhy1k4oqaw2dhdpgh/11.png" alt="13" width="22%" height="22%"  /></div>
@@ -31,6 +33,17 @@ De Bruijn 序列由n种不同元素构成，任意长度为m的连续子序列�
 
 <div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/8z4qxmk5467d6r7rpr1brpkg/14.png" alt="15" /></div>
 
+项目于2019年4月立项，研究至今，基本遵循研究计划，对部分现有的基于空间编码结构光的三维重建方法进行了研究、实现和调优，根据现有算法和项目应用场景提出了自己的解决方案，并完成了软件的封装，预期可用于静态和运动物体的三维重建。
+
+- 亚像素级条纹中心的提取：设计了编码图案及适用的条纹中心提取算法，可精确到亚像素级别
+- 小波变换增加点云稠密度：用基于广义 Morse 小波的小波变换获取条纹相位，增加点云稠密度
+- 构建三维重建全流程平台：将上述算法与点云可视化封装成软件，预期可用于轮轨姿态三维重建
+
+软件展示如下：
+
+http://tang5618.com/data/video/02.mp4
+
+最后，对项目的技术和成果进行一个简单的总结 <a href="http://tang5618.com/data/pdf/wordpress/tq.pdf" target="_blank" class="far fa-file-pdf" aria-hidden="true" style="text-indent: -0.1em;" rel="noopener noreferrer"></a>
 ---
 
  本项目的介绍也可以访问  [这里](https://tang5618.com/wordpress/?p=598)
