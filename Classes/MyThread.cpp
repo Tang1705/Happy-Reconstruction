@@ -15,6 +15,7 @@ void MyThread::run()
 		else if (QString::fromStdString(pcd).endsWith(".ply", Qt::CaseInsensitive))
 			io::loadPLYFile(pcd, *cloudPtr);
 		cloud = *cloudPtr;
+		cout << "hhhhhhhhhhhhhh," << cloud.size() << "\n";
 	}
 
 	auto pclData = PointCloudData::getInstance(cloud);
