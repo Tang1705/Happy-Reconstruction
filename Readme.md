@@ -73,7 +73,7 @@
 
 在 Youtube 上观看视频
 
-<p><a href="https://youtu.be/UfuwyE6MP0Q" rel="nofollow"><div class="imgs" align="center" ><img src="https://camo.githubusercontent.com/7cadd5af6abe3a2920de2a52a3c83132c9822519/687474703a2f2f7374617469632e7a7962756c756f2e636f6d2f54616e6757696c6c2f31316b316f7a757038367874773976726d6a71666762706e2f6d7034302e6a7067" alt="ScreenShot" data-canonical-src="http://static.zybuluo.com/TangWill/11k1ozup86xtw9vrmjqfgbpn/mp40.jpg" style="max-width:60%;"></div></a></p>
+<p><a href="https://youtu.be/UfuwyE6MP0Q" rel="nofollow"><div class="imgs" align="center" ><img src="https://camo.githubusercontent.com/7cadd5af6abe3a2920de2a52a3c83132c9822519/687474703a2f2f7374617469632e7a7962756c756f2e636f6d2f54616e6757696c6c2f31316b316f7a757038367874773976726d6a71666762706e2f6d7034302e6a7067" alt="ScreenShot" data-canonical-src="http://static.zybuluo.com/TangWill/11k1ozup86xtw9vrmjqfgbpn/mp40.jpg"  width="45%" height="45%"/></div></a></p>
 
 [![ScreenShot](http://static.zybuluo.com/TangWill/11k1ozup86xtw9vrmjqfgbpn/mp40.jpg)](https://youtu.be/UfuwyE6MP0Q)
 
