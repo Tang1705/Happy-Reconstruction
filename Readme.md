@@ -73,7 +73,7 @@
 
 在 Youtube 上观看视频
 
-[![ScreenShot](http://static.zybuluo.com/TangWill/l4g3lerf0sedj1w6xnc1f1mt/mp40.jpg)](https://youtu.be/UfuwyE6MP0Q)
+[![ScreenShot](http://static.zybuluo.com/TangWill/11k1ozup86xtw9vrmjqfgbpn/mp40.jpg)](https://youtu.be/UfuwyE6MP0Q)
 
 De Bruijn 序列由n种不同元素构成，任意长度为m的连续子序列只出现一次。复现的论文以 B(3,4) 序列进行编码，条纹作为结构光编码图案的基本元素，红、蓝、绿三种颜色作为标记条纹代表的不同数值，窗口大小为 <a href="https://www.codecogs.com/eqnedit.php?latex=4&space;\times&space;1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?4&space;\times&space;1" title="4 \times 1" /></a>，以条纹中心点作为特征点。同时在 HSV 颜色空间模型中，以余弦函数对条纹的 V 通道进行编码。在结构光解码时，除了提取条纹中心点作为特征点，同时对拍摄到的图像的 V 通道进行加窗傅里叶变换分析，通过分析得到的相位进而增加特征点的密度。根据论文的基本思路，可在提高提取点云进度的同时增加点云的稠密度，实验效果较好。根据项目内容和有关研究的进展，在研究论文和实验的基础上，对复现论文的算法进行改进，提出适合项目场景的算法流程。部分论文如下。
 
