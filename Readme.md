@@ -12,7 +12,7 @@
 
 <div align="center">
   <a href="http://scit.bjtu.edu.cn/cms/item/4605.html">
-    <img alt="Donate" src="https://img.shields.io/badge/Donate-BJTU-072063.svg" />
+    <img alt="Donate" src="https://img.shields.io/badge/Organization-BJTU-072063.svg" />
   </a>
   <a href="https://tang5618.com/wordpress/?p=598">
     <img alt="Webpage" src="https://img.shields.io/badge/Link-Webpage-c00000.svg?style=shield" />
@@ -30,9 +30,6 @@
     <img alt="Software-Design-Patter" src="https://img.shields.io/badge/Design%20Pattern-PDF-548235.svg" />
   </a>
 </div>
-
-<br />
-
 <p style="text-indent:2em">高铁轮轨姿态反映了车轮与钢轨之间复杂的动态相互作用和约束关系，掌握他们之间真实接触姿态是保障高速铁路安全运营的重要基础。如何能够精确获得高铁轮轨姿态一直是国内铁路科研的热门研究领域。但单单从二维图像上获取轮轨接触姿态是不精确、不可靠的，而将轮轨表面的特征点提取出来，重建出一个三维模型能更加真实、准确地获得轮轨接触姿态。
 
 由于高铁列车运行速度快，轮轨表面相对光滑且无明显特征点，给基于特征点提取的三维重建带来了极大挑战。
@@ -74,9 +71,7 @@
 
 <div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/z6giu9sqibq08fc1crweplxa/04.png" alt="06" width="22%" height="22%" />                <img src="http://static.zybuluo.com/TangWill/9jljaktk7e3qso61by60pohf/05.png" alt="07" width="22%" height="22%" /> <img src="http://static.zybuluo.com/TangWill/1wqxgxn4iwdicq1v9rs04e1x/06.png" alt="08" width="22%" height="22%"  /><img src="http://static.zybuluo.com/TangWill/s3gah640whmsbfxoxzg2pqib/07.png" alt="09" width="22%" height="22%"  /></div>
 
-在 Youtube 上观看视频
-
-<p><a href="https://youtu.be/UfuwyE6MP0Q" rel="nofollow"><div class="imgs" align="center" ><img src="https://camo.githubusercontent.com/7cadd5af6abe3a2920de2a52a3c83132c9822519/687474703a2f2f7374617469632e7a7962756c756f2e636f6d2f54616e6757696c6c2f31316b316f7a757038367874773976726d6a71666762706e2f6d7034302e6a7067" alt="ScreenShot" data-canonical-src="http://static.zybuluo.com/TangWill/11k1ozup86xtw9vrmjqfgbpn/mp40.jpg"  width="75%" height="75%"/></div></a></p>
+<p><a href="https://youtu.be/UfuwyE6MP0Q" rel="nofollow"><div class="imgs" align="center" ><img src="https://camo.githubusercontent.com/d6988f63060973271694ac180a5b09ff4c6410cc/687474703a2f2f7374617469632e7a7962756c756f2e636f6d2f54616e6757696c6c2f6f707035796e707263666f713570777567786363637674312f6d7034302e6a7067" alt="ScreenShot" data-canonical-src="http://static.zybuluo.com/TangWill/opp5ynprcfoq5pwugxcccvt1/mp40.jpg"  width="75%" height="75%"/></div></a></p>
 
 De Bruijn 序列由n种不同元素构成，任意长度为m的连续子序列只出现一次。复现的论文以 B(3,4) 序列进行编码，条纹作为结构光编码图案的基本元素，红、蓝、绿三种颜色作为标记条纹代表的不同数值，窗口大小为 <a href="https://www.codecogs.com/eqnedit.php?latex=4&space;\times&space;1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?4&space;\times&space;1" title="4 \times 1" /></a>，以条纹中心点作为特征点。同时在 HSV 颜色空间模型中，以余弦函数对条纹的 V 通道进行编码。在结构光解码时，除了提取条纹中心点作为特征点，同时对拍摄到的图像的 V 通道进行加窗傅里叶变换分析，通过分析得到的相位进而增加特征点的密度。根据论文的基本思路，可在提高提取点云进度的同时增加点云的稠密度，实验效果较好。根据项目内容和有关研究的进展，在研究论文和实验的基础上，对复现论文的算法进行改进，提出适合项目场景的算法流程。部分论文如下。
 
@@ -108,6 +103,5 @@ De Bruijn 序列由n种不同元素构成，任意长度为m的连续子序列�
 - 点云渲染界面
 <div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/ufqbnx21rnzkvfhmsyi2rosr/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2-%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84%E5%85%89%E7%9A%84%E9%AB%98%E9%93%81%E8%BD%AE%E8%BD%A8%E5%A7%BF%E6%80%81%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA-%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94%E7%82%B9%E4%BA%91%E6%B8%B2%E6%9F%93%E7%95%8C%E9%9D%A2.jpg" alt="18"  width="75%" height="75%" /></div>
 
-在 Youtube 上观看视频
+<p><a href="https://youtu.be/DM47pxDPks8" rel="nofollow"><div class="imgs" align="center" ><img src="https://camo.githubusercontent.com/21d5ee3679cc70eef161d9345e389816d1ffffbe/687474703a2f2f7374617469632e7a7962756c756f2e636f6d2f54616e6757696c6c2f6a6c3938626573756465656f396c75736879746d6f63616b2f6d7034312e6a7067" alt="ScreenShot" data-canonical-src="http://static.zybuluo.com/TangWill/jl98besudeeo9lushytmocak/mp41.jpg"  width="75%" height="75%"/></div></a></p>
 
-<p><a href="https://youtu.be/DM47pxDPks8" rel="nofollow"><div class="imgs" align="center" ><img src="https://camo.githubusercontent.com/2a21f791386f70ce04012c36215e67b28642da8a/687474703a2f2f7374617469632e7a7962756c756f2e636f6d2f54616e6757696c6c2f6d356f6668326d7361397a376233756a697462613275756a2f6d7034312e6a7067" alt="ScreenShot" data-canonical-src="http://static.zybuluo.com/TangWill/m5ofh2msa9z7b3ujitba2uuj/mp41.jpg"  width="75%" height="75%"/></div></a></p>

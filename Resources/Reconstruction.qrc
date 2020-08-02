@@ -24,12 +24,12 @@
         <file>image/reconstruction/loading.png</file>
         <file>image/reconstruction/surface.png</file>
         <file>image/reconstruction/help2.png</file>
-        <file>image/common/icon.png</file>
-        <file>icon1.ico</file>
         <file>image/projection/image.png</file>
         <file>image/projection/projector.png</file>
         <file>image/projection/save.png</file>
         <file>image/projection/three_d.png</file>
+        <file>icon1.ico</file>
+        <file>image/common/icon.png</file>
     </qresource>
     <qresource prefix="/qss">
         <file>qss/flat.qss</file>

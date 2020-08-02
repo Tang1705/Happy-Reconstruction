@@ -30,7 +30,7 @@
 <QMake_QMAKE_VERSION_>3.1</QMake_QMAKE_VERSION_>
 <QMake_QT_VERSION_>5.12.3</QMake_QT_VERSION_>
 <Qt_INCLUDEPATH_
-      >$(Qt_INCLUDEPATH_);x64\Debug\moc\Classes;x64\Debug\uic\UI</Qt_INCLUDEPATH_>
+      >$(Qt_INCLUDEPATH_);x64\Debug\moc;x64\Debug\uic</Qt_INCLUDEPATH_>
     <QtBkup_QtInstall
       >5.12.3</QtBkup_QtInstall>
     <QtBkup_QtModules
