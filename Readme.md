@@ -73,18 +73,18 @@
 
 在 Youtube 上观看视频
 
-<p><a href="https://youtu.be/UfuwyE6MP0Q" rel="nofollow"><div class="imgs" align="center" ><img src="https://camo.githubusercontent.com/7cadd5af6abe3a2920de2a52a3c83132c9822519/687474703a2f2f7374617469632e7a7962756c756f2e636f6d2f54616e6757696c6c2f31316b316f7a757038367874773976726d6a71666762706e2f6d7034302e6a7067" alt="ScreenShot" data-canonical-src="http://static.zybuluo.com/TangWill/11k1ozup86xtw9vrmjqfgbpn/mp40.jpg"  width="55%" height="55%"/></div></a></p>
+<p><a href="https://youtu.be/UfuwyE6MP0Q" rel="nofollow"><div class="imgs" align="center" ><img src="https://camo.githubusercontent.com/7cadd5af6abe3a2920de2a52a3c83132c9822519/687474703a2f2f7374617469632e7a7962756c756f2e636f6d2f54616e6757696c6c2f31316b316f7a757038367874773976726d6a71666762706e2f6d7034302e6a7067" alt="ScreenShot" data-canonical-src="http://static.zybuluo.com/TangWill/11k1ozup86xtw9vrmjqfgbpn/mp40.jpg"  width="75%" height="75%"/></div></a></p>
 
 De Bruijn 序列由n种不同元素构成，任意长度为m的连续子序列只出现一次。复现的论文以 B(3,4) 序列进行编码，条纹作为结构光编码图案的基本元素，红、蓝、绿三种颜色作为标记条纹代表的不同数值，窗口大小为 <a href="https://www.codecogs.com/eqnedit.php?latex=4&space;\times&space;1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?4&space;\times&space;1" title="4 \times 1" /></a>，以条纹中心点作为特征点。同时在 HSV 颜色空间模型中，以余弦函数对条纹的 V 通道进行编码。在结构光解码时，除了提取条纹中心点作为特征点，同时对拍摄到的图像的 V 通道进行加窗傅里叶变换分析，通过分析得到的相位进而增加特征点的密度。根据论文的基本思路，可在提高提取点云进度的同时增加点云的稠密度，实验效果较好。根据项目内容和有关研究的进展，在研究论文和实验的基础上，对复现论文的算法进行改进，提出适合项目场景的算法流程。部分论文如下。
 
 <div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/i9bvx3xay0c8v4040hjzulcv/08.png" alt="10" width="22%" height="22%" />                <img src="http://static.zybuluo.com/TangWill/wspx83923ujobnjysj4y2l3h/09.png" alt="11" width="22%" height="22%" /> <img src="http://static.zybuluo.com/TangWill/pflvpf9yzwkfw8csn0at2trl/10.png" alt="12" width="22%" height="22%"  /><img src="http://static.zybuluo.com/TangWill/v0cdilgqhy1k4oqaw2dhdpgh/11.png" alt="13" width="22%" height="22%"  /></div>
 
 基于改进的算法对球体表面进行重建，得到约 17W 条点云数据，在 Meshlab 中对点云数据进行渲染，实验结果如下。
-<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/etw2k42uqvbb63zyvbry0ki6/13.png" alt="14" /></div>
+<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/etw2k42uqvbb63zyvbry0ki6/13.png" alt="14"  width="75%" height="75%" /></div>
 
 改用以 B(4,3) 序列进行编码，条纹作为结构光编码图案的基本元素，红、蓝、绿、白四种颜色作为标记条纹代表的不同数值，窗口大小为 3*1，以条纹中心点作为特征点。同样对球体表面进行重建，得到约 20W 条点云数据，在 Meshlab 中对点云数据进行渲染，实验结果如下。
 
-<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/8z4qxmk5467d6r7rpr1brpkg/14.png" alt="15" /></div>
+<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/8z4qxmk5467d6r7rpr1brpkg/14.png" alt="15" width="75%" height="75%" /></div>
 
 项目于2019年4月立项，研究至今，基本遵循研究计划，对部分现有的基于空间编码结构光的三维重建方法进行了研究、实现和调优，根据现有算法和项目应用场景提出了自己的解决方案，并完成了软件的封装，预期可用于静态和运动物体的三维重建。
 
@@ -97,14 +97,14 @@ De Bruijn 序列由n种不同元素构成，任意长度为m的连续子序列�
 软件展示如下：
 
 - 系统标定界
-<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/ml0iegb11jyr7t5iw1kp30ei/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2-%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84%E5%85%89%E7%9A%84%E9%AB%98%E9%93%81%E8%BD%AE%E8%BD%A8%E5%A7%BF%E6%80%81%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA-%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94%E7%B3%BB%E7%BB%9F%E6%A0%87%E5%AE%9A%E7%95%8C%E9%9D%A2.jpg" alt="16" /></div>
+<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/ml0iegb11jyr7t5iw1kp30ei/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2-%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84%E5%85%89%E7%9A%84%E9%AB%98%E9%93%81%E8%BD%AE%E8%BD%A8%E5%A7%BF%E6%80%81%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA-%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94%E7%B3%BB%E7%BB%9F%E6%A0%87%E5%AE%9A%E7%95%8C%E9%9D%A2.jpg" alt="16"  width="75%" height="75%" /></div>
 
 - 三维重建界面
-<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/dv9moa86dspfb2njt79o8cuj/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2-%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84%E5%85%89%E7%9A%84%E9%AB%98%E9%93%81%E8%BD%AE%E8%BD%A8%E5%A7%BF%E6%80%81%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA-%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%95%8C%E9%9D%A2.jpg" alt="17" /></div>
+<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/dv9moa86dspfb2njt79o8cuj/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2-%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84%E5%85%89%E7%9A%84%E9%AB%98%E9%93%81%E8%BD%AE%E8%BD%A8%E5%A7%BF%E6%80%81%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA-%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%95%8C%E9%9D%A2.jpg" alt="17"  width="75%" height="75%" /></div>
 
 - 点云渲染界面
-<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/ufqbnx21rnzkvfhmsyi2rosr/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2-%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84%E5%85%89%E7%9A%84%E9%AB%98%E9%93%81%E8%BD%AE%E8%BD%A8%E5%A7%BF%E6%80%81%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA-%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94%E7%82%B9%E4%BA%91%E6%B8%B2%E6%9F%93%E7%95%8C%E9%9D%A2.jpg" alt="18" /></div>
+<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/ufqbnx21rnzkvfhmsyi2rosr/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2-%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84%E5%85%89%E7%9A%84%E9%AB%98%E9%93%81%E8%BD%AE%E8%BD%A8%E5%A7%BF%E6%80%81%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA-%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94%E7%82%B9%E4%BA%91%E6%B8%B2%E6%9F%93%E7%95%8C%E9%9D%A2.jpg" alt="18"  width="75%" height="75%" /></div>
 
 在 Youtube 上观看视频
 
-<p><a href="https://youtu.be/DM47pxDPks8" rel="nofollow"><div class="imgs" align="center" ><img src="https://camo.githubusercontent.com/2a21f791386f70ce04012c36215e67b28642da8a/687474703a2f2f7374617469632e7a7962756c756f2e636f6d2f54616e6757696c6c2f6d356f6668326d7361397a376233756a697462613275756a2f6d7034312e6a7067" alt="ScreenShot" data-canonical-src="http://static.zybuluo.com/TangWill/m5ofh2msa9z7b3ujitba2uuj/mp41.jpg"  width="55%" height="55%"/></div></a></p>
+<p><a href="https://youtu.be/DM47pxDPks8" rel="nofollow"><div class="imgs" align="center" ><img src="https://camo.githubusercontent.com/2a21f791386f70ce04012c36215e67b28642da8a/687474703a2f2f7374617469632e7a7962756c756f2e636f6d2f54616e6757696c6c2f6d356f6668326d7361397a376233756a697462613275756a2f6d7034312e6a7067" alt="ScreenShot" data-canonical-src="http://static.zybuluo.com/TangWill/m5ofh2msa9z7b3ujitba2uuj/mp41.jpg"  width="75%" height="75%"/></div></a></p>
