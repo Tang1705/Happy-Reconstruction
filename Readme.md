@@ -4,11 +4,11 @@
   </a>
   <br />
   基于编码结构光的高铁轮轨姿态三维重建
-  <br />
-  3D Reconstruction of high-speed rail-wheel
-    <br />
-  based on coded structured light
 </h1>
+
+<p align="center">
+  3D Reconstruction of high-speed rail-wheel based on coded structured light
+</p>
 
 高铁轮轨姿态反映了车轮与钢轨之间复杂的动态相互作用和约束关系，掌握他们之间真实接触姿态是保障高速铁路安全运营的重要基础。如何能够精确获得高铁轮轨姿态一直是国内铁路科研的热门研究领域。而单单从二维图像上获取轮轨接触姿态是不精确、不可靠的，需要将轮轨表面的特征点提取出来，重建出一个三维模型才能更加真实正确地获得轮轨接触姿态。
 
