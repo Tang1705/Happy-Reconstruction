@@ -11,20 +11,23 @@
 </p>
 
 <div align="center">
-  <a href="https://www.paypal.me/posquit0">
-    <img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-blue.svg" />
+  <a href="http://scit.bjtu.edu.cn/cms/item/4605.html">
+    <img alt="Donate" src="https://img.shields.io/badge/Donate-BJTU-072063.svg" />
   </a>
-  <a href="https://circleci.com/gh/posquit0/Awesome-CV">
-    <img alt="CircleCI" src="https://circleci.com/gh/posquit0/Awesome-CV.svg?style=shield" />
+  <a href="https://tang5618.com/wordpress/?p=598">
+    <img alt="Webpage" src="https://img.shields.io/badge/Link-Webpage-c00000.svg?style=shield" />
   </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf">
-    <img alt="Example Resume" src="https://img.shields.io/badge/resume-pdf-green.svg" />
+  <a href="http://tang5618.com/data/pdf/wordpress/tq.pdf">
+    <img alt="Poster" src="https://img.shields.io/badge/Poster-PDF-B50052.svg" />
   </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv.pdf">
-    <img alt="Example CV" src="https://img.shields.io/badge/cv-pdf-green.svg" />
+    <a href="https://github.com/Tang1705/Reconstruction/raw/master/Exe/Reconstructionn.exe">
+    <img alt="Software" src="https://img.shields.io/badge/Release-EXE-2f528f.svg" />
   </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf">
-    <img alt="Example Coverletter" src="https://img.shields.io/badge/coverletter-pdf-green.svg" />
+  <a href="https://github.com/Tang1705/Reconstruction/raw/master/Doc/%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf">
+    <img alt="User-Guide" src="https://img.shields.io/badge/Guide-PDF-548235.svg" />
+  </a>
+  <a href="https://github.com/Tang1705/Reconstruction/raw/master/Doc/%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%86%E6%9E%90.pdf">
+    <img alt="Software-Design-Patter" src="https://img.shields.io/badge/Design%20Pattern-PDF-548235.svg" />
   </a>
 </div>
 
