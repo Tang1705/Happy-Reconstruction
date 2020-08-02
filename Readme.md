@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://github.com/Tang1705/Reconstruction" title="3D Reconstruction of high-speed rail-wheel based on coded structured light">
-    <img alt="Reconstruction" src="http://static.zybuluo.com/TangWill/0irai6tqmv5k650pw7c2r1q9/icon.png" width="52px" height="52px" />
+    <img alt="Reconstruction" src="http://static.zybuluo.com/TangWill/jhiwlfucn275608lfkr5yw86/icon.png" width="200px" height="200px" />
   </a>
   <br />
   基于编码结构光的高铁轮轨姿态三维重建
