@@ -10,6 +10,26 @@
   3D Reconstruction of high-speed rail-wheel based on coded structured light
 </p>
 
+<div align="center">
+  <a href="https://www.paypal.me/posquit0">
+    <img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-blue.svg" />
+  </a>
+  <a href="https://circleci.com/gh/posquit0/Awesome-CV">
+    <img alt="CircleCI" src="https://circleci.com/gh/posquit0/Awesome-CV.svg?style=shield" />
+  </a>
+  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf">
+    <img alt="Example Resume" src="https://img.shields.io/badge/resume-pdf-green.svg" />
+  </a>
+  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv.pdf">
+    <img alt="Example CV" src="https://img.shields.io/badge/cv-pdf-green.svg" />
+  </a>
+  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf">
+    <img alt="Example Coverletter" src="https://img.shields.io/badge/coverletter-pdf-green.svg" />
+  </a>
+</div>
+
+<br />
+
 高铁轮轨姿态反映了车轮与钢轨之间复杂的动态相互作用和约束关系，掌握他们之间真实接触姿态是保障高速铁路安全运营的重要基础。如何能够精确获得高铁轮轨姿态一直是国内铁路科研的热门研究领域。而单单从二维图像上获取轮轨接触姿态是不精确、不可靠的，需要将轮轨表面的特征点提取出来，重建出一个三维模型才能更加真实正确地获得轮轨接触姿态。
 
 高铁列车运行速度快，轮轨表面相对光滑且无明显特征点，使得特征不易提取，点云重建精度较差，给三维重建带来了很大的困难。
