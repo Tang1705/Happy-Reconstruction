@@ -342,7 +342,7 @@ headheight=15pt
 		\end{tabular}
 		\\
 		\vspace{80pt}
-		{\songti\zihao{4}\textbf{北京交通大学}计算机学院\\\vspace{14pt}2020年6月}
+		{\songti\zihao{4}\textbf{北京交通大学}计算机与信息技术学院\\\vspace{14pt}2020年6月}
 	\end{center}
 }
 
