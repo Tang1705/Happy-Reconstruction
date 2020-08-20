@@ -12,22 +12,25 @@
 
 <div align="center">
   <a href="http://scit.bjtu.edu.cn/cms/item/4605.html">
-    <img alt="Donate" src="https://img.shields.io/badge/Organization-BJTU-072063.svg" />
+    <img alt="Organization" src="https://img.shields.io/badge/Organization-BJTU-072063.svg?style=shield&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAaCAYAAABCfffNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQ4SURBVEhLfZZ3qI5RGMC/j+vae3Otskn2JmSma0SZJUkR4h+biBuyytZNyChKlJ0tIbtsMq+V7L1dv9/nfa/vWk/9Ot973nOe5zzrvF808h9JT0/PztAIWkBR+ArZ4BtkhadwEE5Eo9EvjH+VfxrBQG+G5nAGDkBFOIqyj4y+L8LgATTeFLbDNt6nM/5f2FwSZkMPyAdRyAqDIEewJgF6Qr3gOQcMhHmQ37l4yRKMMWFBJYbRsA5ywoe4k92F8j9/RpzLBW980DtYxU/3aUgvMyTDCC9KMwyBuXABSkIt5l3TGsxFF543MI6HNCjqe9Cz9jznAQ85h+fcjDHJyAmT0xg2caLzwbNG3sEY0EOV3oeXYEjKgp5dguVQHc6w/yV76/K7O78nM/70hMk2DB/AkyU5h3iANWCFTYKJcAzygcbnwzgoBItBY6/Yr87HoLHGjJFYUhmXgp44qZIdsAJ2g7HuAu1AhaXAAngPHs78DIVW0BdqQQfQaFsYqlVdOwePwHI8DWPhOmjoO6jA8DwDRS9rQzIh+cS4BB7ASCgIR2AfqKOiRuyFgyxW2RbwtMVgIXOfAyW+awIWh3IHzN1wI8EaG3Em1IcbcIg5c2fvdNSICt1kKRrLBHjB7zQUtIWWPNvpO8EwGV4rx1Cam+6sSWb0MG+hLHs9lHIbYp4kMOkCC8BnO/2sz8gUSAGbrjA0A2Ou9/3BMBta93SEk5CMnljVolcPoyr9/WrxFMZXGQbHwRPaYIkBVpz7vLd6wjKwrC1z5+N1ftFITAIvfPkaDIknMe56Y3Ma0lMBJ8CyPsAabwILwjDbsOYiXmKeJGLAhM6AMqCLlSGU4qCiBXAVroDGvQzD2JtX+6wCuD8JnfXDsGnkc/DChdVgL7QMFyANwJD1Asu2DthPPSAUbwLFdrAF7H5zZ8990shNyAu3wEaztnW5DobsfivH/hGrJaQ57y135SHYnOoz+R5Ew+UgzcnDYPKMs+EysbvAO8tkXwa/JTWhahyWthWn2IBW2FowIq5X7Pw98deKpTgK9MKrxITr4QTwQ2UI9MbfHu4iPAnmvAj1ZBZYkaZgNbh3RBaS56dUpQNgM3jj6q5GrKhU8N5S/MaIV7pJN5TewJb8VLBXbNj90A9Woj8juZawSg2TFbKLl68DL01wZ1CpXtj9htSSdW4PuK8b1Ah+e2k2RMc8xl9Ng0JP55U9lpePefbLZ4dbtnpriIy1YbOETaw3hUa7gt/5reD6wZCCnheMmTpTQybQL+Mi8F4yvrpvxajsHpgzPSqGksOBt67zD4eHsQCm8y68sTMbUQKP/IQ+h/VgjvRIcb3euMbSnw6GrAD0Ab1PxUCmrv/DiIIh5/0g2YBWkXG3F/TKq0MvzUkJ8MNUBTai/BDjH/JXI6EExrwFOoHfcxWH/168JWxgD3ANA+EV85tEIj8AtaCkdv/9vSUAAAAASUVORK5CYII=" />
   </a>
   <a href="https://tang5618.com/wordpress/?p=598">
-    <img alt="Webpage" src="https://img.shields.io/badge/Link-Webpage-c00000.svg?style=shield" />
+    <img alt="Webpage" src="https://img.shields.io/badge/Link-Webpage-c00000.svg?style=shield&logo=wordpress" />
   </a>
+ <!--<a href="https://github.com/Tang1705/Reconstruction">
+    <img alt="Github" src="https://img.shields.io/badge/Github-%20%20%20%20%20%20Repository-%2324292e.svg?style=shield&logo=Github" />
+  </a>-->
   <a href="http://tang5618.com/data/pdf/wordpress/tq.pdf">
-    <img alt="Poster" src="https://img.shields.io/badge/Poster-PDF-B50052.svg" />
+    <img alt="Poster" src="https://img.shields.io/badge/Poster-PDF-B50052.svg?style=shield&logo=adobe-indesign&logoColor=ffffff" />
   </a>
     <a href="https://github.com/Tang1705/Reconstruction/raw/master/Exe/Reconstructionn.exe">
-    <img alt="Software" src="https://img.shields.io/badge/Release-EXE-2f528f.svg" />
+    <img alt="Software" src="https://img.shields.io/badge/Release-EXE-2f528f.svg?style=shield&logo=windows" />
   </a>
   <a href="https://github.com/Tang1705/Reconstruction/raw/master/Doc/%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf">
-    <img alt="User-Guide" src="https://img.shields.io/badge/Guide-PDF-548235.svg" />
+    <img alt="User-Guide" src="https://img.shields.io/badge/User%20Manual-PDF-548235.svg?style=shield&logo=adobe-acrobat-reader" />
   </a>
   <a href="https://github.com/Tang1705/Reconstruction/raw/master/Doc/%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%86%E6%9E%90.pdf">
-    <img alt="Software-Design-Patter" src="https://img.shields.io/badge/Design%20Pattern-PDF-548235.svg" />
+    <img alt="Software-Design-Patter" src="https://img.shields.io/badge/Design%20Pattern-PDF-548235.svg?style=shield&logo=latex" />
   </a>
 </div>
 <p style="text-indent:2em">高铁轮轨姿态反映了车轮与钢轨之间复杂的动态相互作用和约束关系，掌握他们之间真实接触姿态是保障高速铁路安全运营的重要基础。如何能够精确获得高铁轮轨姿态一直是国内铁路科研的热门研究领域。但单单从二维图像上获取轮轨接触姿态是不精确、不可靠的，而将轮轨表面的特征点提取出来，重建出一个三维模型能更加真实、准确地获得轮轨接触姿态。
@@ -94,7 +97,7 @@ De Bruijn 序列由n种不同元素构成，任意长度为m的连续子序列�
 
 软件展示如下：
 
-- 系统标定界
+- 系统标定界面
 <div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/ml0iegb11jyr7t5iw1kp30ei/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2-%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84%E5%85%89%E7%9A%84%E9%AB%98%E9%93%81%E8%BD%AE%E8%BD%A8%E5%A7%BF%E6%80%81%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA-%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94%E7%B3%BB%E7%BB%9F%E6%A0%87%E5%AE%9A%E7%95%8C%E9%9D%A2.jpg" alt="16"  width="75%" height="75%" /></div>
 
 - 三维重建界面
