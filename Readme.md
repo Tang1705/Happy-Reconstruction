@@ -9,7 +9,6 @@
 <p align="center">
   3D Reconstruction of high-speed rail-wheel based on coded structured light
 </p>
-
 <div align="center">
   <a href="http://scit.bjtu.edu.cn/cms/item/4605.html">
     <img alt="Organization" src="https://img.shields.io/badge/Organization-BJTU-072063.svg?style=shield&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAaCAYAAABCfffNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQ4SURBVEhLfZZ3qI5RGMC/j+vae3Otskn2JmSma0SZJUkR4h+biBuyytZNyChKlJ0tIbtsMq+V7L1dv9/nfa/vWk/9Ot973nOe5zzrvF808h9JT0/PztAIWkBR+ArZ4BtkhadwEE5Eo9EvjH+VfxrBQG+G5nAGDkBFOIqyj4y+L8LgATTeFLbDNt6nM/5f2FwSZkMPyAdRyAqDIEewJgF6Qr3gOQcMhHmQ37l4yRKMMWFBJYbRsA5ywoe4k92F8j9/RpzLBW980DtYxU/3aUgvMyTDCC9KMwyBuXABSkIt5l3TGsxFF543MI6HNCjqe9Cz9jznAQ85h+fcjDHJyAmT0xg2caLzwbNG3sEY0EOV3oeXYEjKgp5dguVQHc6w/yV76/K7O78nM/70hMk2DB/AkyU5h3iANWCFTYKJcAzygcbnwzgoBItBY6/Yr87HoLHGjJFYUhmXgp44qZIdsAJ2g7HuAu1AhaXAAngPHs78DIVW0BdqQQfQaFsYqlVdOwePwHI8DWPhOmjoO6jA8DwDRS9rQzIh+cS4BB7ASCgIR2AfqKOiRuyFgyxW2RbwtMVgIXOfAyW+awIWh3IHzN1wI8EaG3Em1IcbcIg5c2fvdNSICt1kKRrLBHjB7zQUtIWWPNvpO8EwGV4rx1Cam+6sSWb0MG+hLHs9lHIbYp4kMOkCC8BnO/2sz8gUSAGbrjA0A2Ou9/3BMBta93SEk5CMnljVolcPoyr9/WrxFMZXGQbHwRPaYIkBVpz7vLd6wjKwrC1z5+N1ftFITAIvfPkaDIknMe56Y3Ma0lMBJ8CyPsAabwILwjDbsOYiXmKeJGLAhM6AMqCLlSGU4qCiBXAVroDGvQzD2JtX+6wCuD8JnfXDsGnkc/DChdVgL7QMFyANwJD1Asu2DthPPSAUbwLFdrAF7H5zZ8990shNyAu3wEaztnW5DobsfivH/hGrJaQ57y135SHYnOoz+R5Ew+UgzcnDYPKMs+EysbvAO8tkXwa/JTWhahyWthWn2IBW2FowIq5X7Pw98deKpTgK9MKrxITr4QTwQ2UI9MbfHu4iPAnmvAj1ZBZYkaZgNbh3RBaS56dUpQNgM3jj6q5GrKhU8N5S/MaIV7pJN5TewJb8VLBXbNj90A9Woj8juZawSg2TFbKLl68DL01wZ1CpXtj9htSSdW4PuK8b1Ah+e2k2RMc8xl9Ng0JP55U9lpePefbLZ4dbtnpriIy1YbOETaw3hUa7gt/5reD6wZCCnheMmTpTQybQL+Mi8F4yvrpvxajsHpgzPSqGksOBt67zD4eHsQCm8y68sTMbUQKP/IQ+h/VgjvRIcb3euMbSnw6GrAD0Ab1PxUCmrv/DiIIh5/0g2YBWkXG3F/TKq0MvzUkJ8MNUBTai/BDjH/JXI6EExrwFOoHfcxWH/168JWxgD3ANA+EV85tEIj8AtaCkdv/9vSUAAAAASUVORK5CYII=" />
@@ -32,8 +31,15 @@
   <a href="https://github.com/Tang1705/Reconstruction/raw/master/Doc/%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%86%E6%9E%90.pdf">
     <img alt="Software-Design-Patter" src="https://img.shields.io/badge/Design%20Pattern-PDF-548235.svg?style=shield&logo=latex" />
   </a>
+          <br />
+  <p align="center">
+    <a href="./Readme.md">中文版本</a>
+    ·
+    <a href="./Readme-en.md">English Version</a>
+  </p>
 </div>
 <p style="text-indent:2em">高铁轮轨姿态反映了车轮与钢轨之间复杂的动态相互作用和约束关系，掌握他们之间真实接触姿态是保障高速铁路安全运营的重要基础。如何能够精确获得高铁轮轨姿态一直是国内铁路科研的热门研究领域。但单单从二维图像上获取轮轨接触姿态是不精确、不可靠的，而将轮轨表面的特征点提取出来，重建出一个三维模型能更加真实、准确地获得轮轨接触姿态。
+
 
 由于高铁列车运行速度快，轮轨表面相对光滑且无明显特征点，给基于特征点提取的三维重建带来了极大挑战。
 
@@ -54,11 +60,11 @@
 
 编码结构光法三维重建技术主要由系统标定、结构光编码、图像获取、结构光解码和三维坐标计算等5个关键技术组成。
 
-- 系统标定：结构光系统标定包括摄像机和投影仪的标定，从而获取摄像机和投影仪的内外参数；
+- 系统标定：系统由摄像机、投影仪和计算机组成，标定的目标是计算摄像机和投影仪内参矩阵、镜头畸变系数和两者之间相对位置的外参矩阵；
 - 结构光编码：通过编码的方式使图像每一点的“身份”可以被识别；
-- 图像获取：利用摄像机获取已投影的目标物体图像‘
-- 结构光解码：通过一定的解码方案将摄像机采集的投射在目标物体上的结构光图案的二维畸变图像解码，与编码图案匹配；
-- 三维坐标计算：结合标定好的系统参数，由光学三角测距原理获获得物体的三维信息。
+- 图像获取：投影仪向物体投射编码结构光图案，图案会随物体表面形状的调制而发生畸变，摄像机拍摄被物体调制过的结构光图像，变形的图像反映了物体表面形状的三维信息；
+- 结构光解码：对捕获的结构光图像进行解码，解码的方法取决于编码的方法，目的是建立相机平面和投影平面特征点之间的对应关系；
+- 三维坐标计算：利用解码算法得出的特征点对应关系和系统标定结果，基于三角测量原理求出特征点的三维信息。
 
 结构光的编码方式主要有时间编码和空间编码两种。时间编码虽具有较好的重建精度，但由于需要向物体表面投射多张图片，所以对于运动物体来说时间编码的结构光重建不是一个好的选择.空间编码虽然重建精度相对没有时间编码好，但由于只需投射一张图片，所以常常用于动态物体的物体重建。
 
