@@ -31,12 +31,19 @@
   <a href="https://github.com/Tang1705/Reconstruction/raw/master/Doc/%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%86%E6%9E%90.pdf">
     <img alt="Software-Design-Patter" src="https://img.shields.io/badge/Design%20Pattern-PDF-548235.svg?style=shield&logo=latex" />
   </a>
-          <br />
-  <p align="center">
+  <br/>
+  <br />
+    <a href="https://a.paddle.com/v2/click/16413/119403?link=1227">
+      <img src="https://img.shields.io/badge/Readme-%E4%B8%AD%E6%96%87%E7%89%88%E6%9C%AC%20%E2%86%92-gray.svg?colorA=655BE1&colorB=4F44D6&style=for-the-badge"/>
+    </a>
+    <a href="https://a.paddle.com/v2/click/16413/119403?link=2345">
+      <img src="https://img.shields.io/badge/Readme-English%20Version%20%E2%86%92-gray.svg?colorA=61c265&colorB=4CAF50&style=for-the-badge"/>
+    </a>
+ <!-- <p align="center">
     <a href="./Readme.md">中文版本</a>
     ·
     <a href="./Readme-en.md">English Version</a>
-  </p>
+  </p>-->
 </div>
 <p style="text-indent:2em">高铁轮轨姿态反映了车轮与钢轨之间复杂的动态相互作用和约束关系，掌握他们之间真实接触姿态是保障高速铁路安全运营的重要基础。如何能够精确获得高铁轮轨姿态一直是国内铁路科研的热门研究领域。但单单从二维图像上获取轮轨接触姿态是不精确、不可靠的，而将轮轨表面的特征点提取出来，重建出一个三维模型能更加真实、准确地获得轮轨接触姿态。
 
