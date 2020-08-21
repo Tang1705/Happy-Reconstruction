@@ -33,10 +33,10 @@
   </a>
   <br/>
   <br />
-    <a href="https://a.paddle.com/v2/click/16413/119403?link=1227">
+    <a href="./Readme.md">
       <img src="https://img.shields.io/badge/Readme-%E4%B8%AD%E6%96%87%E7%89%88%E6%9C%AC%20%E2%86%92-gray.svg?colorA=655BE1&colorB=4F44D6&style=for-the-badge"/>
     </a>
-    <a href="https://a.paddle.com/v2/click/16413/119403?link=2345">
+    <a href="./Readme-en.md">
       <img src="https://img.shields.io/badge/Readme-English%20Version%20%E2%86%92-gray.svg?colorA=61c265&colorB=4CAF50&style=for-the-badge"/>
     </a>
     <br/>
