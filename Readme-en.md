@@ -32,11 +32,20 @@
     <img alt="Software-Design-Patter" src="https://img.shields.io/badge/Design%20Pattern-PDF-548235.svg?style=shield&logo=latex" />
   </a>
       <br />
-  <p align="center">
+   <br />
+    <a href="./Readme.md">
+      <img src="https://img.shields.io/badge/Readme-%E4%B8%AD%E6%96%87%E7%89%88%E6%9C%AC%20%E2%86%92-gray.svg?colorA=655BE1&colorB=4F44D6&style=for-the-badge"/>
+    </a>
+    <a href="./Readme-en.md">
+      <img src="https://img.shields.io/badge/Readme-English%20Version%20%E2%86%92-gray.svg?colorA=61c265&colorB=4CAF50&style=for-the-badge"/>
+    </a>
+    <br/>
+    <br/>
+ <!-- <p align="center">
     <a href="./Readme.md">中文版本</a>
     ·
     <a href="./Readme-en.md">English Version</a>
-  </p>
+  </p>-->
 </div>
 
 
