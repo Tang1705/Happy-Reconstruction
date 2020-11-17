@@ -5,12 +5,11 @@
   <br />
   基于编码结构光的高铁轮轨姿态三维重建
 </h1>
-
 <p align="center">
   3D Reconstruction of high-speed rail-wheel based on coded structured light
 </p>
 <div align="center">
-  <a href="http://scit.bjtu.edu.cn/cms/item/4605.html">
+  <a href="http://gjcxcy.bjtu.edu.cn/NewLXItemListForStudentDetail.aspx?ItemNo=594113&year=2020&type=student&IsLXItem=1">
     <img alt="Organization" src="https://img.shields.io/badge/Organization-BJTU-072063.svg?style=shield&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAaCAYAAABCfffNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQ4SURBVEhLfZZ3qI5RGMC/j+vae3Otskn2JmSma0SZJUkR4h+biBuyytZNyChKlJ0tIbtsMq+V7L1dv9/nfa/vWk/9Ot973nOe5zzrvF808h9JT0/PztAIWkBR+ArZ4BtkhadwEE5Eo9EvjH+VfxrBQG+G5nAGDkBFOIqyj4y+L8LgATTeFLbDNt6nM/5f2FwSZkMPyAdRyAqDIEewJgF6Qr3gOQcMhHmQ37l4yRKMMWFBJYbRsA5ywoe4k92F8j9/RpzLBW980DtYxU/3aUgvMyTDCC9KMwyBuXABSkIt5l3TGsxFF543MI6HNCjqe9Cz9jznAQ85h+fcjDHJyAmT0xg2caLzwbNG3sEY0EOV3oeXYEjKgp5dguVQHc6w/yV76/K7O78nM/70hMk2DB/AkyU5h3iANWCFTYKJcAzygcbnwzgoBItBY6/Yr87HoLHGjJFYUhmXgp44qZIdsAJ2g7HuAu1AhaXAAngPHs78DIVW0BdqQQfQaFsYqlVdOwePwHI8DWPhOmjoO6jA8DwDRS9rQzIh+cS4BB7ASCgIR2AfqKOiRuyFgyxW2RbwtMVgIXOfAyW+awIWh3IHzN1wI8EaG3Em1IcbcIg5c2fvdNSICt1kKRrLBHjB7zQUtIWWPNvpO8EwGV4rx1Cam+6sSWb0MG+hLHs9lHIbYp4kMOkCC8BnO/2sz8gUSAGbrjA0A2Ou9/3BMBta93SEk5CMnljVolcPoyr9/WrxFMZXGQbHwRPaYIkBVpz7vLd6wjKwrC1z5+N1ftFITAIvfPkaDIknMe56Y3Ma0lMBJ8CyPsAabwILwjDbsOYiXmKeJGLAhM6AMqCLlSGU4qCiBXAVroDGvQzD2JtX+6wCuD8JnfXDsGnkc/DChdVgL7QMFyANwJD1Asu2DthPPSAUbwLFdrAF7H5zZ8990shNyAu3wEaztnW5DobsfivH/hGrJaQ57y135SHYnOoz+R5Ew+UgzcnDYPKMs+EysbvAO8tkXwa/JTWhahyWthWn2IBW2FowIq5X7Pw98deKpTgK9MKrxITr4QTwQ2UI9MbfHu4iPAnmvAj1ZBZYkaZgNbh3RBaS56dUpQNgM3jj6q5GrKhU8N5S/MaIV7pJN5TewJb8VLBXbNj90A9Woj8juZawSg2TFbKLl68DL01wZ1CpXtj9htSSdW4PuK8b1Ah+e2k2RMc8xl9Ng0JP55U9lpePefbLZ4dbtnpriIy1YbOETaw3hUa7gt/5reD6wZCCnheMmTpTQybQL+Mi8F4yvrpvxajsHpgzPSqGksOBt67zD4eHsQCm8y68sTMbUQKP/IQ+h/VgjvRIcb3euMbSnw6GrAD0Ab1PxUCmrv/DiIIh5/0g2YBWkXG3F/TKq0MvzUkJ8MNUBTai/BDjH/JXI6EExrwFOoHfcxWH/168JWxgD3ANA+EV85tEIj8AtaCkdv/9vSUAAAAASUVORK5CYII=" />
   </a>
   <a href="https://tang5618.com/wordpress/?p=598">
@@ -47,6 +46,7 @@
     <a href="./Readme-en.md">English Version</a>
   </p>-->
 </div>
+
 
 高铁轮轨姿态反映了车轮与钢轨之间复杂的动态相互作用和约束关系，掌握他们之间真实接触姿态是保障高速铁路安全运营的重要基础。如何能够精确获得高铁轮轨姿态一直是国内铁路科研的热门研究领域。但单单从二维图像上获取轮轨接触姿态是不精确、不可靠的，而将轮轨表面的特征点提取出来，重建出一个三维模型能更加真实、准确地获得轮轨接触姿态。
 
