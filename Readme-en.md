@@ -60,9 +60,7 @@ Due to the fast running speed of high-speed trains, the wheel-rail surface is re
 </p>
 3D reconstruction technology is an important branch of computer vision technology and a popular research direction combining computer vision and computer image graphics. According to whether it is in contact with the measured object during measurement, it can be divided into contact measurement and non-contact measurement.
 
-<div class="imgs" align="center" ><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/18.png
-" alt="16" width="50%" height="50%"/></div>
-
+<div class="imgs" align="center" ><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/18.png" alt="16" width="50%" height="50%"/></div>
 
 Although the contact measurement method has high measurement accuracy, the measurement efficiency is low, the speed is slow, and improper operation can easily damage the surface of the object to be measured, and because the probe has a certain surface area, it is difficult to measure objects with complex surfaces and does not have universality and versatility. Non-contact three-dimensional measurement methods can be divided into two categories: active measurement and passive measurement. The former is to project a designed pattern onto the surface of the target object. The pattern is distorted due to the height fluctuation of the object, and the target object is obtained by matching the distorted pattern. The latter is to illuminate the target object with ambient light and then detect the characteristic points of the target object to obtain its data. The non-contact measurement method has become the research trend of three-dimensional profile measurement due to its advantages of no damage, high measurement speed, and simplicity.
 
