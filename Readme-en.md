@@ -46,10 +46,10 @@
     <a href="./Readme-en.md">English Version</a>
   </p>-->
 </div>
+## Basic Overview
 
+The wheel-rail attitude of high-speed rail reflects the complex dynamic interaction and restraint relationship between wheels and rails. Mastering the true contact attitude between them is an important foundation for ensuring the safe of high-speed railways. How to accurately obtain the wheel-track attitude of high-speed railways has always been a hot research field in domestic railway scientific research. However, it is imprecise and unreliable to obtain the wheel-rail contact attitude from 2D image. Extracting the feature points of the wheel-rail surface and reconstructing a 3D model can obtain the wheel-rail contact attitude more realistically and accurately.
 
-
-<p style="text-indent:2em">The wheel-rail attitude of high-speed rail reflects the complex dynamic interaction and restraint relationship between wheels and rails. Mastering the true contact attitude between them is an important foundation for ensuring the safe of high-speed railways. How to accurately obtain the wheel-track attitude of high-speed railways has always been a hot research field in domestic railway scientific research. However, it is imprecise and unreliable to obtain the wheel-rail contact attitude from 2D image. Extracting the feature points of the wheel-rail surface and reconstructing a 3D model can obtain the wheel-rail contact attitude more realistically and accurately.
 
 Due to the fast running speed of high-speed trains, the wheel-rail surface is relatively smooth and there are no obvious feature points, which brings great challenges to the 3D reconstruction based on feature point extraction.
 
@@ -59,7 +59,9 @@ Due to the fast running speed of high-speed trains, the wheel-rail surface is re
 </p>
 3D reconstruction technology is an important branch of computer vision technology and a popular research direction combining computer vision and computer image graphics. According to whether it is in contact with the measured object during measurement, it can be divided into contact measurement and non-contact measurement.
 
-<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/grk3i5q3qih3saamnw7ezcuc/15.png" alt="16" width="70%" height="70%"/></div>
+<div class="imgs" align="center" ><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/18.png
+" alt="16" width="50%" height="50%"/></div>
+
 
 Although the contact measurement method has high measurement accuracy, the measurement efficiency is low, the speed is slow, and improper operation can easily damage the surface of the object to be measured, and because the probe has a certain surface area, it is difficult to measure objects with complex surfaces and does not have universality and versatility. Non-contact three-dimensional measurement methods can be divided into two categories: active measurement and passive measurement. The former is to project a designed pattern onto the surface of the target object. The pattern is distorted due to the height fluctuation of the object, and the target object is obtained by matching the distorted pattern. The latter is to illuminate the target object with ambient light and then detect the characteristic points of the target object to obtain its data. The non-contact measurement method has become the research trend of three-dimensional profile measurement due to its advantages of no damage, high measurement speed, and simplicity.
 
@@ -123,3 +125,6 @@ The software is shown as follows
 
 <p><a href="https://youtu.be/DM47pxDPks8" rel="nofollow"><div class="imgs" align="center" ><img src="https://camo.githubusercontent.com/21d5ee3679cc70eef161d9345e389816d1ffffbe/687474703a2f2f7374617469632e7a7962756c756f2e636f6d2f54616e6757696c6c2f6a6c3938626573756465656f396c75736879746d6f63616b2f6d7034312e6a7067" alt="ScreenShot" data-canonical-src="http://static.zybuluo.com/TangWill/jl98besudeeo9lushytmocak/mp41.jpg"  width="75%" height="75%"/></div></a></p>
 
+## 📜 License
+
+This software is made available under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0).

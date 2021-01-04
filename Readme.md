@@ -47,6 +47,7 @@
   </p>-->
 </div>
 
+## [👁️‍🗨️](https://emojipedia.org/eye-in-speech-bubble/) 基本概述
 
 高铁轮轨姿态反映了车轮与钢轨之间复杂的动态相互作用和约束关系，掌握他们之间真实接触姿态是保障高速铁路安全运营的重要基础。如何能够精确获得高铁轮轨姿态一直是国内铁路科研的热门研究领域。但单单从二维图像上获取轮轨接触姿态是不精确、不可靠的，而将轮轨表面的特征点提取出来，重建出一个三维模型能更加真实、准确地获得轮轨接触姿态。
 
@@ -59,7 +60,7 @@
 
 三维重建技术是计算机视觉技术的一个重要分支，是计算机视觉和计算机图像图形学相结合的一个热门研究方向。根据测量时是否与被测物体接触，可分为接触式测量和非接触式测量。
 
-<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/whr8ntyjbkbmlpt1vo2vjypn/15.png" alt="16" width="70%" height="70%"/></div>
+<div class="imgs" align="center"><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/17.png" alt="17" width="50%" height="50%"/></div>
 
 接触式测量方法虽然测量精度高，但测量效率低，速度慢，操作不当很容易损坏被测物体表面，而且由于探头有一定表面积，对表面复杂的物体难以测量，不具备普遍性和通用性。非接触式三维测量方式又可以分为两大类：主动式测量和被动式测量。前者是向目标物体表面投射设计好的图案，该图案由于物体的高度起伏引起一定的畸变，通过匹配畸变的图案获得目标物体的。后者是通过周围环境光对目标物体进行照射，然后检测目标物体的特征点以得到其数据。非接触式测量方式以其无损坏、测量速度高、简单等优点已成为三维轮廓测量的研究趋势。
 
@@ -69,48 +70,42 @@
 
 编码结构光法三维重建技术主要由系统标定、结构光编码、图像获取、结构光解码和三维坐标计算等5个关键技术组成。
 
+<div class="imgs" align="center" ><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/19.png" alt="19" width="80%" height="80%"/></div>
+
 - 系统标定：系统由摄像机、投影仪和计算机组成，标定的目标是计算摄像机和投影仪内参矩阵、镜头畸变系数和两者之间相对位置的外参矩阵；
 - 结构光编码：通过编码的方式使图像每一点的“身份”可以被识别；
 - 图像获取：投影仪向物体投射编码结构光图案，图案会随物体表面形状的调制而发生畸变，摄像机拍摄被物体调制过的结构光图像，变形的图像反映了物体表面形状的三维信息；
 - 结构光解码：对捕获的结构光图像进行解码，解码的方法取决于编码的方法，目的是建立相机平面和投影平面特征点之间的对应关系；
-- 三维坐标计算：利用解码算法得出的特征点对应关系和系统标定结果，基于三角测量原理求出特征点的三维信息。
+- 三维坐标计算：利用解码算法得出的特征点对应关系和系统标定结果，基于三角测量原理求出特征点的三维信息。结构光的编码方式主要有时间编码和空间编码两种。时间编码虽具有较好的重建精度，但由于需要向物体表面投射多张图片，所以对于运动物体来说时间编码的结构光重建不是一个好的选择。空间编码相较于时间编码重建精度较低，但由于只需投射一张图片，所以常常用于动态物体的物体重建。
 
-结构光的编码方式主要有时间编码和空间编码两种。时间编码虽具有较好的重建精度，但由于需要向物体表面投射多张图片，所以对于运动物体来说时间编码的结构光重建不是一个好的选择.空间编码虽然重建精度相对没有时间编码好，但由于只需投射一张图片，所以常常用于动态物体的物体重建。
+综上所述，针对项目中轮轨表面光滑，特征点不易提取的难点，可以通过向物体表面投射编码图案，人为地增加物体表面的特征点。由于空间编码只需单次投影，适合对高速运动的高铁轮轨进行重建。因此，本项目主要研究通过空间编码结构光方法获得相对更高精度和高密度的三维点云（点云，即物体表面特征点的集合，这些点包含了物体表面的三维坐标及颜色等信息）。
 
-综上所述，针对项目中轮轨表面光滑，特征点不易提取的难点，可以通过向物体表面投射编码图案，人为地增加物体表面的特征点。而空间编码只需单次投影，适合动态物体的重建，故本项目主要研究通过空间编码的方式获得相对更高精度和高密度的三维点云（点云，即物体表面特征点的集合，这些点包含了物体表面的三维坐标及颜色等信息）。
+## [📷](https://emojipedia.org/camera/) 技术路线
 
-项目前期，对项目研究内容进行深入了解，根据研究内容查阅相关文献资料，了解了目前各项技术研究现状，能够明白经典方法的原理并能够将其实现。在学习并理解了研究内容及相关原理的基础上，对空间编码中的基于 De Bruijn 序列编码和基于伪随机矩阵编码两种方式的有关理论及其相关论文进行了学习，部分论文如下所示。
+<table><tr><td width="500px"><div class="img" align="center"><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/12.bmp" alt="12" height="100%" width="100%"></div></td><td>项目主要创新点如下：
+    <ul><li><b>亚像素级条纹中心的提取</b>：设计实现了编码结构光图案以及适用于该图案的条纹中心点提取算法，将条纹中心点精确到亚像素级别</li>
+        <li><b>通过小波变换增加点云稠密度</b>：提出了加窗傅里叶变化对条纹相位分析的改进方法，采用用基于广义 Morse 小波的小波变换进行分析，获得非中心点的相位信息，增加点云稠密度</li>
+        <li><b>构建三维重建全流程平台</b>：将上述算法与点云可视化封装成结构光三维重建软件，完成了铁轨及多个几何体的三维重建，预期可用于轮轨姿态重建和可视化</li></ul></td></tr></table>
 
-<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/epo24nprhgogp1g0s38hiwy7/02.png" alt="03" width="30%" height="30%" />                <img src="http://static.zybuluo.com/TangWill/6q8x3x920nxdyluimu43gut1/03.png" alt="04" width="30%" height="30%" /> <img src="http://static.zybuluo.com/TangWill/z6giu9sqibq08fc1crweplxa/04.png" alt="05" width="30%" height="30%"  /></div>
+<table> <tr> <td>编码图案</td><td width="600px">在 HSV 颜色空间下对编码图案进行设计，图案由彩色正弦条纹图案组成
+<ul>
+<li> H 通道以 𝐵(3,4) 序列进行编码，条纹作为编码图案的基本元素，不同的数值分别对应红、蓝、绿三种颜色</li>
+<li> S 通道设定为1</li>
+<li>V 通道按照给定的余弦函数计算每一个像素点的值</li>
+</ul>
+    <p>编码图案共64条条纹，条纹宽度14 𝑝𝑖𝑥𝑒𝑙，以条纹中心点作为投影图案的特征点</p>
+♣ 𝐷𝑒 𝐵𝑟𝑢𝑖𝑗𝑛 序列由 𝑛 种不同元素构成，任意长度为 𝑚 的连续子序列只出现一次
+    </td><td><div align="center"><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/21.png" alt="21" width="100%" height="100%"/></div></td></tr><tr><td>德布鲁因分析</td><td>在对灰度图像进行预处理后，为获得条纹中心点的位置，采用局部最大值算法从类似“高斯”形状的条纹灰度图像中提取图像每一行的局部最大值（以亚像素精度检测），局部最大值点即为条纹的中心点。在 𝐿𝑎𝑏 颜色空间下，对条纹中心点的颜色进行分类，在 4×1 的窗口中，即可获得条纹中心点在投影图案的对应位置。
+</td><td><div align="center"><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/22.png" alt="22" width="100%" height="100%"/></div></td></tr><tr><td>小波变换分析</td><td>V 通道的变化满足给定的余弦函数，包含了条纹非中心点的相位信息。但图案经过物体的调制，原本平稳的信号发生了改变。小波变换方法作为一个非平稳信号处理方法，被引入到许多信号处理领域，包括从条纹图中提取相位。综合对比了一维和二维的窗口傅里叶变换、小波变换等方法，出于对重建精度和速度的考虑，选择一维小波变换的方法。广义 Morse  小波具有灵活的时频局部特性及严格解析性，且测量物体 3D 轮廓效果优于目前流行的用复 Morlet 小波作为母小波。</td><td><div align="center"><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/23.png" alt="23" width="100%" height="100%"/></div></td></tr></table> 
 
-项目中期，对前期所阅读的文献和经典算法的实现进行研究、归纳、整理。参照本项目的研究内容拟选出适用的相关算法与技术，提出实验思路，制定实验方案。
 
-伪随机序列具有良好的窗口特性，即通过一个较小的窗口在编码图案上面移动时，每个窗口内的编码组合是唯一的，根据窗口的这个特性可以唯一地辨识编码图案上的特征点。复现论文的本原多项式采用 <a href="https://www.codecogs.com/eqnedit.php?latex=h(x)=2x^6&plus;2x^5&plus;x^4&plus;3x^3&plus;2x^2&plus;2x&plus;1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?h(x)=2x^6&plus;2x^5&plus;x^4&plus;3x^3&plus;2x^2&plus;2x&plus;1" title="h(x)=2x^6+2x^5+x^4+3x^3+2x^2+2x+1" /></a>，菱形作为结构光编码图案的基本元素，红、蓝、绿、黑四种颜色作为标记菱形代表的不同数值，窗口大小为<a href="https://www.codecogs.com/eqnedit.php?latex=2&space;\times&space;3" target="_blank"><img src="https://latex.codecogs.com/gif.latex?2&space;\times&space;3" title="2 \times 3" /></a>，同时以菱形角点作为特征点，可以有效提高特征点提取的精度。根据论文提出的结构光解码方法，可有效提取物体表面特征点，但由于角点数量较少，不能达到稠密点云的效果，未来可以通过改善相机分辨率，减小菱形面积，增加特征点等方式以提高特征点的密度。部分参考论文和实验结果如下。
+## [📽️](https://emojipedia.org/film-projector/) 评价指标
 
-<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/z6giu9sqibq08fc1crweplxa/04.png" alt="06" width="22%" height="22%" />                <img src="http://static.zybuluo.com/TangWill/9jljaktk7e3qso61by60pohf/05.png" alt="07" width="22%" height="22%" /> <img src="http://static.zybuluo.com/TangWill/1wqxgxn4iwdicq1v9rs04e1x/06.png" alt="08" width="22%" height="22%"  /><img src="http://static.zybuluo.com/TangWill/s3gah640whmsbfxoxzg2pqib/07.png" alt="09" width="22%" height="22%"  /></div>
+<table> <tr align="center"> <td><div align="center"><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/24.gif" alt="24" width="100%" height="100%"/></div></td><td>
+   <div align="center"><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/25.gif" alt="25" width="100%" height="100%"/></div> </td><td> <div align="center"><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/26.gif" alt="26" width="100%" height="100%"/></div> </td></tr><tr align="center"><td>半径95mm的球体<br>表面点云17W+<br>半径误差0.678mm<br>运算时间10-15s</td><td>多物体三维重建</td><td>铁轨表面三维重建</td></tr></table> 
+## [💻](https://emojipedia.org/laptop/) 软件展示
 
-<p><a href="https://youtu.be/UfuwyE6MP0Q" rel="nofollow"><div class="imgs" align="center" ><img src="https://camo.githubusercontent.com/d6988f63060973271694ac180a5b09ff4c6410cc/687474703a2f2f7374617469632e7a7962756c756f2e636f6d2f54616e6757696c6c2f6f707035796e707263666f713570777567786363637674312f6d7034302e6a7067" alt="ScreenShot" data-canonical-src="http://static.zybuluo.com/TangWill/opp5ynprcfoq5pwugxcccvt1/mp40.jpg"  width="75%" height="75%"/></div></a></p>
-
-De Bruijn 序列由n种不同元素构成，任意长度为m的连续子序列只出现一次。复现的论文以 B(3,4) 序列进行编码，条纹作为结构光编码图案的基本元素，红、蓝、绿三种颜色作为标记条纹代表的不同数值，窗口大小为 <a href="https://www.codecogs.com/eqnedit.php?latex=4&space;\times&space;1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?4&space;\times&space;1" title="4 \times 1" /></a>，以条纹中心点作为特征点。同时在 HSV 颜色空间模型中，以余弦函数对条纹的 V 通道进行编码。在结构光解码时，除了提取条纹中心点作为特征点，同时对拍摄到的图像的 V 通道进行加窗傅里叶变换分析，通过分析得到的相位进而增加特征点的密度。根据论文的基本思路，可在提高提取点云进度的同时增加点云的稠密度，实验效果较好。根据项目内容和有关研究的进展，在研究论文和实验的基础上，对复现论文的算法进行改进，提出适合项目场景的算法流程。部分论文如下。
-
-<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/i9bvx3xay0c8v4040hjzulcv/08.png" alt="10" width="22%" height="22%" />                <img src="http://static.zybuluo.com/TangWill/wspx83923ujobnjysj4y2l3h/09.png" alt="11" width="22%" height="22%" /> <img src="http://static.zybuluo.com/TangWill/pflvpf9yzwkfw8csn0at2trl/10.png" alt="12" width="22%" height="22%"  /><img src="http://static.zybuluo.com/TangWill/v0cdilgqhy1k4oqaw2dhdpgh/11.png" alt="13" width="22%" height="22%"  /></div>
-
-基于改进的算法对球体表面进行重建，得到约 17W 条点云数据，在 Meshlab 中对点云数据进行渲染，实验结果如下。
-<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/etw2k42uqvbb63zyvbry0ki6/13.png" alt="14"  width="75%" height="75%" /></div>
-
-改用以 B(4,3) 序列进行编码，条纹作为结构光编码图案的基本元素，红、蓝、绿、白四种颜色作为标记条纹代表的不同数值，窗口大小为 <a href="https://www.codecogs.com/eqnedit.php?latex=3\times&space;1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?3\times&space;1" title="3\times 1" /></a>，以条纹中心点作为特征点。同样对球体表面进行重建，得到约 20W 条点云数据，在 Meshlab 中对点云数据进行渲染，实验结果如下。
-
-<div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/8z4qxmk5467d6r7rpr1brpkg/14.png" alt="15" width="75%" height="75%" /></div>
-
-项目于2019年4月立项，研究至今，基本遵循研究计划，对部分现有的基于空间编码结构光的三维重建方法进行了研究、实现和调优，根据现有算法和项目应用场景提出了自己的解决方案，并完成了软件的封装，预期可用于静态和运动物体的三维重建。
-
-项目主要创新点如下：
-
-- **亚像素级条纹中心的提取**：设计实现了编码结构光图案以及适用于该图案的条纹中心点提取算法，将条纹中心点精确到亚像素级别
-- **通过小波变换增加点云稠密度**：提出了加窗傅里叶变化对条纹相位分析的改进方法，采用用基于广义 Morse 小波的小波变换进行分析，获得非中心点的相位信息，增加点云稠密度
-- **构建三维重建全流程平台**：将上述算法与点云可视化封装成结构光三维重建软件，完成了铁轨及多个几何体的三维重建，预期可用于轮轨姿态重建和可视化
-
-软件展示如下：
+<a style="color:black" href="./Exe/Reconstructionn.exe">软件</a>集三维重建整个流程为一体，主要实现系统（相机与投影仪）标定、三维重建和点云渲染三个功能。软件以 C++ 作为开发语言并基于  QT  框架进行界面开发，依赖于 OpenCV 和 PCL (Point Cloud Library) 进行图像和点云数据处理。在开发上采用了单例模式、责任链模式等设计模式。 <img src="https://img.shields.io/badge/Demo- -%23FF0000?colorA=%23FF0000&colorB=%23FF0000&style=for-the-badge&logo=YouTube"/>
 
 - 系统标定界面
 <div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/ml0iegb11jyr7t5iw1kp30ei/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2-%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84%E5%85%89%E7%9A%84%E9%AB%98%E9%93%81%E8%BD%AE%E8%BD%A8%E5%A7%BF%E6%80%81%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA-%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94%E7%B3%BB%E7%BB%9F%E6%A0%87%E5%AE%9A%E7%95%8C%E9%9D%A2.jpg" alt="16"  width="75%" height="75%" /></div>
@@ -121,5 +116,15 @@ De Bruijn 序列由n种不同元素构成，任意长度为m的连续子序列�
 - 点云渲染界面
 <div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/ufqbnx21rnzkvfhmsyi2rosr/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2-%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84%E5%85%89%E7%9A%84%E9%AB%98%E9%93%81%E8%BD%AE%E8%BD%A8%E5%A7%BF%E6%80%81%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA-%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94%E7%82%B9%E4%BA%91%E6%B8%B2%E6%9F%93%E7%95%8C%E9%9D%A2.jpg" alt="18"  width="75%" height="75%" /></div>
 
-<p><a href="https://youtu.be/DM47pxDPks8" rel="nofollow"><div class="imgs" align="center" ><img src="https://camo.githubusercontent.com/21d5ee3679cc70eef161d9345e389816d1ffffbe/687474703a2f2f7374617469632e7a7962756c756f2e636f6d2f54616e6757696c6c2f6a6c3938626573756465656f396c75736879746d6f63616b2f6d7034312e6a7067" alt="ScreenShot" data-canonical-src="http://static.zybuluo.com/TangWill/jl98besudeeo9lushytmocak/mp41.jpg"  width="75%" height="75%"/></div></a></p>
+## [🔧](https://emojipedia.org/wrench/) 开发配置
+
+<table><tr align="center" style="background-color:#D9E2F3"><td width="50%">硬件环境</td><td>版本</td></tr><tr align="center"><td>Point Grey Camera</td><td>——</td></tr><tr align="center"><td>LightCrafter4500</td><td>——</td></tr></table>
+
+<table><tr align="center" style="background-color:#D9E2F3"><td width="50%">软件环境</td><td>版本</td></tr><tr align="center"><td>Windows</td><td>Windows 10</td></tr><tr align="center"><td>Visual Studio</td><td>2017</td></tr><tr align="center"><td>QT</td><td>5.12.3</td></tr><tr align="center"><td>OpenCV</td><td>4.2.03</td></tr><tr align="center"><td>FlyCapture2</td><td>2.12.3.2</td></tr><tr align="center"><td>PCL</td><td>1.8.1</td></tr><tr align="center"><td>VTK</td><td>8.0</td></tr></table>
+
+<div><text style="color:red">说明</text>：需配置电脑的环境变量、Visual Studio 中项目的属性（VC++ 目录-包含目录、VC++ -库目录和链接器-输入-附加依赖性）</div>
+
+## 📜 开源许可
+
+This software is made available under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0).
 
