@@ -103,6 +103,7 @@
 
 <table> <tr align="center"> <td><div align="center"><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/24.gif" alt="24" width="100%" height="100%"/></div></td><td>
    <div align="center"><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/25.gif" alt="25" width="100%" height="100%"/></div> </td><td> <div align="center"><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/26.gif" alt="26" width="100%" height="100%"/></div> </td></tr><tr align="center"><td>半径95mm的球体<br>表面点云17W+<br>半径误差0.678mm<br>运算时间10-15s</td><td>多物体三维重建</td><td>铁轨表面三维重建</td></tr></table> 
+   
 ## [💻](https://emojipedia.org/laptop/) 软件展示
 
 <a style="color:black" href="./Exe/Reconstructionn.exe">软件</a>集三维重建整个流程为一体，主要实现系统（相机与投影仪）标定、三维重建和点云渲染三个功能。软件以 C++ 作为开发语言并基于  QT  框架进行界面开发，依赖于 OpenCV 和 PCL (Point Cloud Library) 进行图像和点云数据处理。在开发上采用了单例模式、责任链模式等设计模式。 <img src="https://img.shields.io/badge/Demo- -%23FF0000?colorA=%23FF0000&colorB=%23FF0000&style=for-the-badge&logo=YouTube"/>
@@ -118,9 +119,9 @@
 
 ## [🔧](https://emojipedia.org/wrench/) 开发配置
 
-<table><tr align="center" style="background-color:#D9E2F3"><td width="50%">硬件环境</td><td>版本</td></tr><tr align="center"><td>Point Grey Camera</td><td>——</td></tr><tr align="center"><td>LightCrafter4500</td><td>——</td></tr></table>
+<table><tr align="center" style="background-color:#D9E2F3"><td width="500px">硬件环境</td><td  width="500px">版本</td></tr><tr align="center"><td>Point Grey Camera</td><td>——</td></tr><tr align="center"><td>LightCrafter4500</td><td>——</td></tr></table>
 
-<table><tr align="center" style="background-color:#D9E2F3"><td width="50%">软件环境</td><td>版本</td></tr><tr align="center"><td>Windows</td><td>Windows 10</td></tr><tr align="center"><td>Visual Studio</td><td>2017</td></tr><tr align="center"><td>QT</td><td>5.12.3</td></tr><tr align="center"><td>OpenCV</td><td>4.2.03</td></tr><tr align="center"><td>FlyCapture2</td><td>2.12.3.2</td></tr><tr align="center"><td>PCL</td><td>1.8.1</td></tr><tr align="center"><td>VTK</td><td>8.0</td></tr></table>
+<table><tr align="center" style="background-color:#D9E2F3"><td  width="500px">软件环境</td><td  width="500px">版本</td></tr><tr align="center"><td>Windows</td><td>Windows 10</td></tr><tr align="center"><td>Visual Studio</td><td>2017</td></tr><tr align="center"><td>QT</td><td>5.12.3</td></tr><tr align="center"><td>OpenCV</td><td>4.2.03</td></tr><tr align="center"><td>FlyCapture2</td><td>2.12.3.2</td></tr><tr align="center"><td>PCL</td><td>1.8.1</td></tr><tr align="center"><td>VTK</td><td>8.0</td></tr></table>
 
 <div><text style="color:red">说明</text>：需配置电脑的环境变量、Visual Studio 中项目的属性（VC++ 目录-包含目录、VC++ -库目录和链接器-输入-附加依赖性）</div>
 
