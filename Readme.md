@@ -109,7 +109,7 @@
 
 ## [💻](https://emojipedia.org/laptop/) 软件展示
 
-<a style="color:black" href="./Exe/Reconstructionn.exe">软件</a>集三维重建整个流程为一体，主要实现系统（相机与投影仪）标定、三维重建和点云渲染三个功能。软件以 C++ 作为开发语言并基于  QT  框架进行界面开发，依赖于 OpenCV 和 PCL (Point Cloud Library) 进行图像和点云数据处理。在开发上采用了单例模式、责任链模式等设计模式。 <img src="https://img.shields.io/badge/Demo- -%23FF0000?colorA=%23FF0000&colorB=%23FF0000&style=for-the-badge&logo=YouTube"/>
+<a style="color:black" href="./Exe/Reconstructionn.exe">软件</a>集三维重建整个流程为一体，主要实现系统（相机与投影仪）标定、三维重建和点云渲染三个功能。软件以 C++ 作为开发语言并基于  QT  框架进行界面开发，依赖于 OpenCV 和 PCL (Point Cloud Library) 进行图像和点云数据处理。在开发上采用了单例模式、责任链模式等设计模式。 <a href="https://youtu.be/DM47pxDPks8"><img src="https://img.shields.io/badge/Demo- -%23FF0000?colorA=%23FF0000&colorB=%23FF0000&style=for-the-badge&logo=YouTube"/></a>
 
 - 系统标定界面
 <div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/ml0iegb11jyr7t5iw1kp30ei/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2-%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84%E5%85%89%E7%9A%84%E9%AB%98%E9%93%81%E8%BD%AE%E8%BD%A8%E5%A7%BF%E6%80%81%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA-%E7%BB%93%E6%9E%84%E5%85%89%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94%E7%B3%BB%E7%BB%9F%E6%A0%87%E5%AE%9A%E7%95%8C%E9%9D%A2.jpg" alt="16"  width="75%" height="75%" /></div>
