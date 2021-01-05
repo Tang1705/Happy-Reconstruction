@@ -46,6 +46,7 @@
     <a href="./Readme-en.md">English Version</a>
   </p>-->
 </div>
+
 ## [👁️‍🗨️](https://emojipedia.org/eye-in-speech-bubble/) Overview
 
 The wheel-rail attitude of high-speed rail reflects the complex dynamic interaction and restraint relationship between wheels and rails. Mastering the true contact attitude between them is an important foundation for ensuring the safe of high-speed railways. How to accurately obtain the wheel-track attitude of high-speed railways has always been a hot research field in domestic railway scientific research. However, it is imprecise and unreliable to obtain the wheel-rail contact attitude from 2D image. Extracting the feature points of the wheel-rail surface and reconstructing a 3D model can obtain the wheel-rail contact attitude more realistically and accurately.
@@ -61,7 +62,6 @@ Due to the fast running speed of high-speed trains, the wheel-rail surface is re
 
 <div class="imgs" align="center" ><img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/18.png" alt="16" width="50%" height="50%"/></div>
 Although the contact measurement method has high measurement accuracy, the measurement efficiency is low, the speed is slow, and improper operation can easily damage the surface of the object to be measured, and because the probe has a certain surface area, it is difficult to measure objects with complex surfaces and does not have universality and versatility. Non-contact three-dimensional measurement methods can be divided into two categories: active measurement and passive measurement. The former is to project a designed pattern onto the surface of the target object. The pattern is distorted due to the height fluctuation of the object, and the target object is obtained by matching the distorted pattern. The latter is to illuminate the target object with ambient light and then detect the characteristic points of the target object to obtain its data. The non-contact measurement method has become the research trend of three-dimensional profile measurement due to its advantages of no damage, high measurement speed, and simplicity.
-
 The coded structured light method used in the project uses a certain pattern of coded structured light patterns projected by the projector to encode the target object, uses the camera to obtain the object image, and uses the computer to decode the resulting image, using the image points in the camera and the projector The point correspondence in Calculates the space coordinates of the surface points of the object, obtains the three-dimensional information of the object, and restores the three-dimensional shape of the object. The structured light system is shown in the following figure.
 
 <div class="imgs" align="center" ><img src="http://static.zybuluo.com/TangWill/oumn2p1o6o4xlyk6o1apnbam/16.png" alt="17" width="80%" height="80%"/></div>
