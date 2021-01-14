@@ -54,9 +54,10 @@
 由于高铁列车运行速度快，轮轨表面相对光滑且无明显特征点，给基于特征点提取的三维重建带来了极大挑战。
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Tang1705/image_set/master/%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84%E5%85%89%E7%9A%84%E9%AB%98%E9%93%81%E8%BD%AE%E8%BD%A8%E5%A7%BF%E6%80%81%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/00.gif" alt="01" width="45%" height="45%"   hspace="10" /> <img src="https://github.com/Tang1705/image_set/raw/master/%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84%E5%85%89%E7%9A%84%E9%AB%98%E9%93%81%E8%BD%AE%E8%BD%A8%E5%A7%BF%E6%80%81%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/01.gif" alt="02" width="45%" height="45%"  />
+    <img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/00.gif" alt="01" width="45%" height="45%"   hspace="10" /> <img src="https://5618.oss-cn-beijing.aliyuncs.com/wordpress/image/00/01.gif" alt="02" width="45%" height="45%"  />
     <br>
 </p>
+
 
 三维重建技术是计算机视觉技术的一个重要分支，是计算机视觉和计算机图像图形学相结合的一个热门研究方向。根据测量时是否与被测物体接触，可分为接触式测量和非接触式测量。
 
