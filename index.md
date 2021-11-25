@@ -48,7 +48,7 @@
 </div>
 
 
-
+ <br/>
 ## [👁️‍🗨️](https://emojipedia.org/eye-in-speech-bubble/) 基本概述
 
 高铁轮轨姿态反映了车轮与钢轨之间复杂的动态相互作用和约束关系，掌握他们之间真实接触姿态是保障高速铁路安全运营的重要基础。如何能够精确获得高铁轮轨姿态一直是国内铁路科研的热门研究领域。但单单从二维图像上获取轮轨接触姿态是不精确、不可靠的，而将轮轨表面的特征点提取出来，重建出一个三维模型能更加真实、准确地获得轮轨接触姿态。
@@ -85,6 +85,7 @@
 
 综上所述，针对项目中轮轨表面光滑，特征点不易提取的难点，可以通过向物体表面投射编码图案，人为地增加物体表面的特征点。由于空间编码只需单次投影，适合对高速运动的高铁轮轨进行重建。因此，本项目主要研究通过空间编码结构光方法获得相对更高精度和高密度的三维点云（点云，即物体表面特征点的集合，这些点包含了物体表面的三维坐标及颜色等信息）。
 
+<br/>
 ## [📷](https://emojipedia.org/camera/) 技术路线
 
 <table><tr><td width="500px"><div class="img" align="center"><img src="./06.png" alt="12" height="100%" width="100%"></div></td><td>项目主要创新点如下：
@@ -104,14 +105,14 @@
 </td><td><div align="center"><img src="./08.png" alt="22" width="100%" height="100%"/></div></td></tr><tr><td>小波变换分析</td><td>V 通道的变化满足给定的余弦函数，包含了条纹非中心点的相位信息。但图案经过物体的调制，原本平稳的信号发生了改变。小波变换方法作为一个非平稳信号处理方法，被引入到许多信号处理领域，包括从条纹图中提取相位。综合对比了一维和二维的窗口傅里叶变换、小波变换等方法，出于对重建精度和速度的考虑，选择一维小波变换的方法。广义 Morse  小波具有灵活的时频局部特性及严格解析性，且测量物体 3D 轮廓效果优于目前流行的用复 Morlet 小波作为母小波。</td><td><div align="center"><img src="./09.png" alt="23" width="100%" height="100%"/></div></td></tr></table> 
 
 
-
+<br/>
 ## [📽️](https://emojipedia.org/film-projector/) 评价指标
 
 <table> <tr align="center"> <td><div align="center"><img src="./10.gif" alt="24" width="100%" height="100%"/></div></td><td>
    <div align="center"><img src="./11.gif" alt="25" width="100%" height="100%"/></div> </td><td> <div align="center"><img src="./12.gif" alt="26" width="100%" height="100%"/></div> </td></tr><tr align="center"><td>半径95mm的球体<br>表面点云17W+<br>半径误差0.678mm<br>运算时间10-15s</td><td>多物体三维重建</td><td>铁轨表面三维重建</td></tr></table> 
 
 
-
+<br/>
 ## [💻](https://emojipedia.org/laptop/) 软件展示
 
 <a style="color:black" href="./Reconstructionn.exe">软件</a>集三维重建整个流程为一体，主要实现系统（相机与投影仪）标定、三维重建和点云渲染三个功能。软件以 C++ 作为开发语言并基于  QT  框架进行界面开发，依赖于 OpenCV 和 PCL (Point Cloud Library) 进行图像和点云数据处理。在开发上采用了单例模式、责任链模式等设计模式。 <a href="https://youtu.be/DM47pxDPks8"><img src="https://img.shields.io/badge/Demo- -%23FF0000?colorA=%23FF0000&colorB=%23FF0000&style=for-the-badge&logo=YouTube"/></a>
@@ -125,6 +126,7 @@
 - 点云渲染界面
 <div class="imgs" align="center" ><img src="./15.jpg" alt="18"  width="75%" height="75%" /></div>
 
+<br/>
 ## [🔧](https://emojipedia.org/wrench/) 开发配置
 
 <table><tr align="center" style="background-color:#D9E2F3"><td width="500px">硬件环境</td><td  width="500px">版本</td></tr><tr align="center"><td>Point Grey Camera</td><td>——</td></tr><tr align="center"><td>LightCrafter4500</td><td>——</td></tr></table>
@@ -132,6 +134,7 @@
 
 <div><text style="color:red">说明</text>：需配置电脑的环境变量、Visual Studio 中项目的属性（VC++ 目录-包含目录、VC++ -库目录和链接器-输入-附加依赖性）</div>
 
+<br/>
 ## 📜 开源许可
 
 代码在 [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) 下可用
