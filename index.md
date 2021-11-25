@@ -56,7 +56,7 @@
 由于高铁列车运行速度快，轮轨表面相对光滑且无明显特征点，给基于特征点提取的三维重建带来了极大挑战。
 
 <p align="center">
-    <img src="./img/cn/01.gif" alt="01" width="45%" height="45%"   hspace="10" /> <img src="./img/cn/02.gif" alt="02" width="45%" height="45%"  />
+    <img src="https://github.com/Tang1705/Reconstruction/blob/master/img/cn/01.gif" alt="01" width="45%" height="45%"   hspace="10" /> <img src="./img/cn/02.gif" alt="02" width="45%" height="45%"  />
     <br>
 </p>
 
