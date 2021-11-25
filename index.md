@@ -1,4 +1,4 @@
-<h1 align="center">
+<h1 style="font-size:85%" align="center">
   <a href="https://github.com/Tang1705/Reconstruction" title="3D Reconstruction of high-speed rail-wheel based on coded structured light">
     <img alt="Reconstruction" src="http://static.zybuluo.com/TangWill/jhiwlfucn275608lfkr5yw86/icon.png" width="200px" height="200px" />
   </a>
@@ -47,7 +47,6 @@
   </p>-->
 </div>
 
-
  <br/>
  
 ## [👁️‍🗨️](https://emojipedia.org/eye-in-speech-bubble/) 基本概述
@@ -85,8 +84,6 @@
 结构光的编码方式主要有时间编码和空间编码两种。时间编码虽具有较好的重建精度，但由于需要向物体表面投射多张图片，所以对于运动物体来说时间编码的结构光重建不是一个好的选择。空间编码相较于时间编码重建精度较低，但由于只需投射一张图片，所以常常用于动态物体的物体重建。
 
 综上所述，针对项目中轮轨表面光滑，特征点不易提取的难点，可以通过向物体表面投射编码图案，人为地增加物体表面的特征点。由于空间编码只需单次投影，适合对高速运动的高铁轮轨进行重建。因此，本项目主要研究通过空间编码结构光方法获得相对更高精度和高密度的三维点云（点云，即物体表面特征点的集合，这些点包含了物体表面的三维坐标及颜色等信息）。
-
-
 <br/>
 
 ## [📷](https://emojipedia.org/camera/) 技术路线
@@ -106,16 +103,12 @@
 ♣ 𝐷𝑒 𝐵𝑟𝑢𝑖𝑗𝑛 序列由 𝑛 种不同元素构成，任意长度为 𝑚 的连续子序列只出现一次
     </td><td><div align="center"><img src="./07.png" alt="21" width="100%" height="100%"/></div></td></tr><tr><td>德布鲁因分析</td><td>在对灰度图像进行预处理后，为获得条纹中心点的位置，采用局部最大值算法从类似“高斯”形状的条纹灰度图像中提取图像每一行的局部最大值（以亚像素精度检测），局部最大值点即为条纹的中心点。在 𝐿𝑎𝑏 颜色空间下，对条纹中心点的颜色进行分类，在 4×1 的窗口中，即可获得条纹中心点在投影图案的对应位置。
 </td><td><div align="center"><img src="./08.png" alt="22" width="100%" height="100%"/></div></td></tr><tr><td>小波变换分析</td><td>V 通道的变化满足给定的余弦函数，包含了条纹非中心点的相位信息。但图案经过物体的调制，原本平稳的信号发生了改变。小波变换方法作为一个非平稳信号处理方法，被引入到许多信号处理领域，包括从条纹图中提取相位。综合对比了一维和二维的窗口傅里叶变换、小波变换等方法，出于对重建精度和速度的考虑，选择一维小波变换的方法。广义 Morse  小波具有灵活的时频局部特性及严格解析性，且测量物体 3D 轮廓效果优于目前流行的用复 Morlet 小波作为母小波。</td><td><div align="center"><img src="./09.png" alt="23" width="100%" height="100%"/></div></td></tr></table> 
-
-
 <br/>
 
 ## [📽️](https://emojipedia.org/film-projector/) 评价指标
 
 <table> <tr align="center"> <td><div align="center"><img src="./10.gif" alt="24" width="100%" height="100%"/></div></td><td>
    <div align="center"><img src="./11.gif" alt="25" width="100%" height="100%"/></div> </td><td> <div align="center"><img src="./12.gif" alt="26" width="100%" height="100%"/></div> </td></tr><tr align="center"><td>半径95mm的球体<br>表面点云17W+<br>半径误差0.678mm<br>运算时间10-15s</td><td>多物体三维重建</td><td>铁轨表面三维重建</td></tr></table> 
-
-
 <br/>
 
 ## [💻](https://emojipedia.org/laptop/) 软件展示
@@ -130,8 +123,6 @@
 
 - 点云渲染界面
 <div class="imgs" align="center" ><img src="./15.jpg" alt="18"  width="75%" height="75%" /></div>
-
-
 <br/>
 
 ## [🔧](https://emojipedia.org/wrench/) 开发配置
@@ -140,8 +131,6 @@
 <table><tr align="center" style="background-color:#D9E2F3"><td  width="500px">软件环境</td><td  width="500px">版本</td></tr><tr align="center"><td>Windows</td><td>Windows 10</td></tr><tr align="center"><td>Visual Studio</td><td>2017</td></tr><tr align="center"><td>QT</td><td>5.12.3</td></tr><tr align="center"><td>OpenCV</td><td>4.2.03</td></tr><tr align="center"><td>FlyCapture2</td><td>2.12.3.2</td></tr><tr align="center"><td>PCL</td><td>1.8.1</td></tr><tr align="center"><td>VTK</td><td>8.0</td></tr></table>
 
 <div><text style="color:red">说明</text>：需配置电脑的环境变量、Visual Studio 中项目的属性（VC++ 目录-包含目录、VC++ -库目录和链接器-输入-附加依赖性）</div>
-
-
 <br/>
 
 ## 📜 开源许可
