@@ -18,7 +18,7 @@
  <!--<a href="https://github.com/Tang1705/Reconstruction">
     <img alt="Github" src="https://img.shields.io/badge/Github-%20%20%20%20%20%20Repository-%2324292e.svg?style=shield&logo=Github" />
   </a>-->
-  <a href="http://tang5618.com/data/pdf/wordpress/tq.pdf">
+  <a href="./poster.pdf">
     <img alt="Poster" src="https://img.shields.io/badge/Poster-PDF-B50052.svg?style=shield&logo=adobe-indesign&logoColor=ffffff" />
   </a>
     <a href="https://github.com/Tang1705/Reconstruction/raw/master/Exe/Reconstructionn.exe">
@@ -113,7 +113,7 @@
 
 ## [💻](https://emojipedia.org/laptop/) 软件展示
 
-<a style="color:black" href="./Reconstructionn.exe">软件</a>集三维重建整个流程为一体，主要实现系统（相机与投影仪）标定、三维重建和点云渲染三个功能。软件以 C++ 作为开发语言并基于  QT  框架进行界面开发，依赖于 OpenCV 和 PCL (Point Cloud Library) 进行图像和点云数据处理。在开发上采用了单例模式、责任链模式等设计模式。 <a href="https://youtu.be/DM47pxDPks8"><img src="https://img.shields.io/badge/Demo- -%23FF0000?colorA=%23FF0000&colorB=%23FF0000&style=for-the-badge&logo=YouTube"/></a>
+<a style="color:blue" href="https://github.com/Tang1705/Reconstruction/raw/master/Exe/Reconstructionn.exe">软件</a>集三维重建整个流程为一体，主要实现系统（相机与投影仪）标定、三维重建和点云渲染三个功能。软件以 C++ 作为开发语言并基于  QT  框架进行界面开发，依赖于 OpenCV 和 PCL (Point Cloud Library) 进行图像和点云数据处理。在开发上采用了单例模式、责任链模式等设计模式。 <a href="https://youtu.be/DM47pxDPks8"><img src="https://img.shields.io/badge/Demo- -%23FF0000?colorA=%23FF0000&colorB=%23FF0000&style=for-the-badge&logo=YouTube"/></a>
 
 - 系统标定界面
 <div class="imgs" align="center" ><img src="./13.jpg" alt="16"  width="75%" height="75%" /></div>
