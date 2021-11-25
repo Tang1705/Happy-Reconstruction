@@ -88,12 +88,12 @@
 
 ## [📷](https://emojipedia.org/camera/) 技术路线
 
-<table><tr><td><div class="img" align="center"><img src="./06.png" alt="12" height="100%" width="100%"></div></td><td>项目主要创新点如下：
+<table><tr><td width=250px><div class="img" align="center"><img src="./06.png" alt="12" height="100%" width="100%"></div></td><td>项目主要创新点如下：
     <ul><li><b>亚像素级条纹中心的提取</b>：设计实现了编码结构光图案以及适用于该图案的条纹中心点提取算法，将条纹中心点精确到亚像素级别</li>
         <li><b>通过小波变换增加点云稠密度</b>：提出了加窗傅里叶变化对条纹相位分析的改进方法，采用用基于广义 Morse 小波的小波变换进行分析，获得非中心点的相位信息，增加点云稠密度</li>
         <li><b>构建三维重建全流程平台</b>：将上述算法与点云可视化封装成结构光三维重建软件，完成了铁轨及多个几何体的三维重建，预期可用于轮轨姿态重建和可视化</li></ul></td></tr></table>
 
-<table> <tr> <td>编码图案</td><td width=600px>在 HSV 颜色空间下对编码图案进行设计，图案由彩色正弦条纹图案组成
+<table> <tr> <td>编码图案</td><td width=250px>在 HSV 颜色空间下对编码图案进行设计，图案由彩色正弦条纹图案组成
 <ul>
 <li> H 通道以 𝐵(3,4) 序列进行编码，条纹作为编码图案的基本元素，不同的数值分别对应红、蓝、绿三种颜色</li>
 <li> S 通道设定为1</li>
