@@ -1,4 +1,4 @@
-<h1 style="font-size:85%" align="center">
+<h1 style="font-size:27px" align="center">
   <a href="https://github.com/Tang1705/Reconstruction" title="3D Reconstruction of high-speed rail-wheel based on coded structured light">
     <img alt="Reconstruction" src="http://static.zybuluo.com/TangWill/jhiwlfucn275608lfkr5yw86/icon.png" width="200px" height="200px" />
   </a>
