@@ -1,12 +1,12 @@
 <h1 align="center">
-  <a href="https://github.com/Tang1705/Reconstruction" title="3D Reconstruction of high-speed rail-wheel based on coded structured light">
+  <a href="https://github.com/Tang1705/Happy-Reconstruction" title="3D Reconstruction of High-Speed Rail-Wheel Based on Coded Structured Light">
     <img alt="Reconstruction" src="http://static.zybuluo.com/TangWill/jhiwlfucn275608lfkr5yw86/icon.png" width="200px" height="200px" />
   </a>
   <br />
   基于编码结构光的高铁轮轨姿态三维重建
 </h1>
 <p align="center">
-  3D Reconstruction of high-speed rail-wheel based on coded structured light
+  3D Reconstruction of High-Speed Rail-Wheel Based on Coded Structured Light
 </p>
 <div align="center">
   <a href="http://gjcxcy.bjtu.edu.cn/NewLXItemListForStudentDetail.aspx?ItemNo=594113&year=2020&type=student&IsLXItem=1">
@@ -18,7 +18,7 @@
  <!--<a href="https://github.com/Tang1705/Reconstruction">
     <img alt="Github" src="https://img.shields.io/badge/Github-%20%20%20%20%20%20Repository-%2324292e.svg?style=shield&logo=Github" />
   </a>-->
-  <a href="http://tang5618.com/data/pdf/wordpress/tq.pdf">
+  <a href="https://github.com/Tang1705/Happy-Reconstruction/raw/master/Doc/poster.pdf">
     <img alt="Poster" src="https://img.shields.io/badge/Poster-PDF-B50052.svg?style=shield&logo=adobe-indesign&logoColor=ffffff" />
   </a>
     <a href="https://github.com/Tang1705/Reconstruction/raw/master/Exe/Reconstructionn.exe">
