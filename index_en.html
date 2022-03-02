@@ -1,0 +1,449 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Tang's Projects</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no">
+<!--    <link rel="icon" href="../../bit_favicon.ico">-->
+    <link rel="stylesheet" href="./resources/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="./resources/css/noscript.css"/>
+    </noscript>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?217de636c0fae7938873b3189db7a42f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body class="is-preload">
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <span class="logo"><img src="resources/images/icon.png" width="160rem" alt="happy-reconstruction"/></span>
+        <h1>基于编码结构光的高铁轮轨姿态三维重建</h1>
+        <p>3D Reconstruction of High-Speed Rail-Wheel Based on Coded Structured Light<br/>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+        <ul>
+            <li><a href="#intro">Overview</a></li>
+            <li><a href="#method">Algorithm</a></li>
+            <li><a href="#metric">Performance</a></li>
+            <li><a href="#demo">Demo</a></li>
+            <li><a href="#config">Configuration</a></li>
+            <li><a href="#lisence">License</a></li>
+            <li><a href="./index.html">中文</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+
+        <!-- Introduction -->
+        <section id="intro" class="main special">
+            <div class="spotlight">
+                <div class="content">
+                    <header class="major">
+                        <h2>👁️‍🗨️ Overview</h2>
+                    </header>
+                    <p align="justify">
+                        The wheel-rail attitude of high-speed rail reflects the complex dynamic interaction and
+                        restraint relationship between wheels and rails. Mastering the true contact attitude between
+                        them is an important foundation for ensuring the safe of high-speed railways. How to accurately
+                        obtain the wheel-track attitude of high-speed railways has always been a hot research field in
+                        domestic railway scientific research. However, it is imprecise and unreliable to obtain the
+                        wheel-rail contact attitude from 2D image. Extracting the feature points of the wheel-rail
+                        surface and reconstructing a 3D model can obtain the wheel-rail contact attitude more
+                        realistically and accurately.
+                    </p>
+                    <p align="left">
+                        Due to the fast running speed of high-speed trains, the wheel-rail surface is relatively smooth
+                        and there are no obvious feature points, which brings great challenges to the 3D reconstruction
+                        based on feature point extraction. </p>
+                    <p align="center">
+                        <img src="./resources/images/01.gif" alt="01" width="45%" height="45%"
+                             style="max-width: 100%;margin-right: 5rem"><img src="./resources/images/02.gif" alt="02"
+                                                                             width="45%" height="45%"
+                                                                             style="max-width: 100%;"></a>
+                        <br>
+                    </p>
+
+                    <p align="justify">
+                        3D reconstruction technology is an important branch of computer vision technology and a popular
+                        research direction combining computer vision and computer image graphics. According to whether
+                        it is in contact with the measured object during measurement, it can be divided into contact
+                        measurement and non-contact measurement.
+                    <div align="center"><img src="./resources/images/03_en.png" alt="03" width="50%" height="50%"
+                                             style="max-width: 100%;"></div>
+
+                    <p align="justify">
+                        Although the contact measurement method has high measurement accuracy, the measurement
+                        efficiency is low, the speed is slow, and improper operation can easily damage the surface of
+                        the object to be measured, and because the probe has a certain surface area, it is difficult to
+                        measure objects with complex surfaces and does not have universality and versatility.
+                        Non-contact three-dimensional measurement methods can be divided into two categories: active
+                        measurement and passive measurement. The former is to project a designed pattern onto the
+                        surface of the target object. The pattern is distorted due to the height fluctuation of the
+                        object, and the target object is obtained by matching the distorted pattern. The latter is to
+                        illuminate the target object with ambient light and then detect the characteristic points of the
+                        target object to obtain its data. The non-contact measurement method has become the research
+                        trend of three-dimensional profile measurement due to its advantages of no damage, high
+                        measurement speed, and simplicity.
+                    <p align="justify">
+                        The coded structured light method used in the project uses a certain pattern of coded structured
+                        light patterns projected by the projector to encode the target object, uses the camera to obtain
+                        the object image, and uses the computer to decode the resulting image, using the image points in
+                        the camera and the projector The point correspondence in Calculates the space coordinates of the
+                        surface points of the object, obtains the three-dimensional information of the object, and
+                        restores the three-dimensional shape of the object. The structured light system is shown in the
+                        following figure.
+
+                    <div align="center" style="margin-bottom: 2rem"><img src="./resources/images/04_en.png" alt="04"
+                                                                         width="80%" height="80%"
+                                                                         style="max-width: 100%;"></div>
+
+                    <p align="justify">The 3D reconstruction technology of coded structured light method is mainly composed of five key
+                        technologies: system calibration, structured light coding, image acquisition, structured light
+                        decoding and three-dimensional coordinate calculation.
+                    </p>
+
+                    <div align="center"><img src="./resources/images/05_en.png" alt="05" width="80%" height="80%"
+                                             style="max-width: 100%;"></div>
+
+                    <ul style="text-align:justify;" dir="auto">
+                        <li>System Calibration: The system consists of a camera, a projector and a computer. The goal of
+                            calibration is to calculate the internal parameter matrix and the lens distortion
+                            coefficient of the camera and the projector and the external parameter matrix of the
+                            relative position between the two.
+                        </li>
+                        <li>Structured Light Coding: The "identity" of each point of the pattern can be identified
+                            through coding.
+                        </li>
+                        <li>Image Capture: The projector projects the coded structured light pattern on the surface of
+                            the target, and the pattern will be distorted with the modulation of the surface shape of
+                            the object. What is captured by the camera is the structured light image modulated by the
+                            object. The modulated image reflects the three-dimensional information of the surface shape
+                            of the object.
+                        </li>
+                        <li>Structured Light Decoding: Decode the captured structured light image, the decoding method
+                            depends on the encoding method. The purpose is to establish the correspondence between the
+                            feature points of the camera plane and the projection plane.
+                        </li>
+                        <li>3D Coordinate Calculation: Using the corresponding relationship between the feature points
+                            and the calibration results, the 3D information of the feature points are obtained based on
+                            the principle of triangulation.
+                        </li>
+                    </ul>
+
+                    <p align="justify">
+                        The coded structured light mainly include Time-multiplexing and Space Codification. Although
+                        Time-multiplexing has good reconstruction accuracy, it is not a good choice for moving objects
+                        because of the need to project multiple pictures on the surface of the object. Compared with
+                        Time-multiplexing, Space Codification has a lower reconstruction accuracy, but because only one
+                        picture is projected, it is often used for object reconstruction of dynamic objects.
+                    <p align="justify">
+                        In summary, given the difficulty in the project that the surface of the wheel and rail is smooth
+                        and the feature points are not easy to extract, the feature points on the surface of the object
+                        can be artificially increased by projecting the coding pattern on the surface of the object. The
+                        Space Codification only needs a single projection, which is suitable for the reconstruction of
+                        dynamic objects. Therefore, this project mainly studies the method of Space Codification to
+                        obtain a relatively finer and high-density three-dimensional point cloud (point cloud, a
+                        collection of feature points on the surface of the object. These points Contains information
+                        such as the three-dimensional coordinates and color of the surface of the object).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="method" class="main special">
+            <header class="major">
+                <h2>📷 Algorithm</h2>
+            </header>
+            <table>
+                <tbody>
+                <tr>
+                    <td width="600rem">
+                        <div align="center"><img src="./resources/images/06.png" alt="06" height="100%" width="100%"
+                                                 style="max-width: 100%;"></div>
+                    </td>
+                    <td align="left">The main innovations of the project are as follows:
+                        <ul style="text-align: justify">
+                            <li><b>Stripe center extraction with sub-pixel precision</b>: Designed and implemented the
+                                coded structured light pattern and the stripe center point extraction algorithm suitable
+                                for the pattern, and the stripe center point is accurate to the sub-pixel level.
+                            </li>
+                            <li><b>Increase point cloud density through wavelet transform</b>: An improved method of
+                                windowed Fourier transform for fringe phase analysis is proposed. The wavelet transform
+                                based on generalized Morse wavelet is used for analysis to obtain the phase information
+                                of non-central points. Increase point cloud density.
+                            </li>
+                            <li><b>Construction of the whole-process 3D reconstruction platform</b>: The above
+                                algorithm and point cloud visualization are packaged into structured light 3D
+                                reconstruction software, which completes the 3D reconstruction of rails and multiple
+                                geometric bodies, which is expected to be used for wheel-rail posture reconstruction and
+                                visualization
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table>
+                <tbody>
+                <tr>
+                    <td>Pattern Creation</td>
+                    <td align="justify">The pattern is designed in HSV color space. And the pattern consists on a colored
+                        sinusoidal fringe pattern
+                        <ul dir="auto">
+                            <li> The H channel is coded in the 𝐵(3,4) sequence. The stripes are the basic elements of
+                                the coding pattern. Different values correspond to the three colors of red, blue, and
+                                green.
+                            </li>
+                            <li> The S channel is set to 1 for all pixels.</li>
+                            <li> The V channel is calculated by the sinusodial signal.</li>
+                        </ul>
+                        <p dir="auto">There are 64 stripes in the coding pattern, and the stripe width is 14 𝑝𝑖𝑥𝑒𝑙,
+                            with the center point of the stripe as the feature point of the projection pattern</p>
+                        <g-emoji class="g-emoji" alias="clubs"
+                                 fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2663.png">♣
+                        </g-emoji>
+                        The 𝐷𝑒 𝐵𝑟𝑢𝑖𝑗𝑛 sequence is composed of 𝑛 different elements, and any consecutive
+                        subsequence whose length is 𝑚 only appears once.
+                    </td>
+                    <td>
+                        <div align="center" dir="auto"><img
+                                src="./resources/images/07.png" alt="07" width="100%"
+                                height="100%" style="max-width: 100%;"></div>
+                    </td>
+                </tr>
+                <tr align="justify">
+                    <td>DeBruijn Analysis</td>
+                    <td>After preprocessing the gray image, in order to extract the center point of the stripes, a local
+                        maximum algorithm is applied to searching local maxima (detected with sub-pixel precision) of
+                        each row of the image from the strips which is present a gaussian-like shape, The local maximum
+                        point is the center point of the fringe. In the 𝐿𝑎𝑏 color space, classify the colors of the
+                        center point of the stripe. In a 4×1 window, you can get the corresponding position of the
+                        center point of the stripe in the projection pattern.
+                    </td>
+                    <td width="400rem">
+                        <div align="center" dir="auto"><img
+                                src="./resources/images/08.png" alt="08" width="100%"
+                                height="100%" style="max-width: 100%;"></div>
+                    </td>
+                </tr>
+                <tr align="justify">
+                    <td>Wavelet Transform Analysis</td>
+                    <td>The change of the V channel satisfies the given cosine function and contains the phase
+                        information of the non-center point of the fringe. But after the pattern is modulated by the
+                        object, the originally stable signal changes. As a non-stationary signal processing method, the
+                        wavelet transform method has been introduced into many signal processing fields, including phase
+                        extraction from fringe patterns. Comprehensive comparison of one-dimensional and two-dimensional
+                        window Fourier transform, wavelet transform and other methods, for the consideration of
+                        reconstruction accuracy and speed, the one-dimensional wavelet transform method is selected. The
+                        generalized Morse wavelet has flexible time-frequency local characteristics and strict analysis,
+                        and the effect of measuring the 3D contour of the object is better than the popular complex
+                        Morlet wavelet as the mother wavelet.
+                    </td>
+                    <td>
+                        <div align="center" dir="auto"><img
+                                src="./resources/images/09.png" alt="09" width="100%"
+                                height="100%" style="max-width: 100%;"></div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </section>
+        <section id="metric" class="main special">
+            <header class="major">
+                <h2>📽️ Performance</h2>
+            </header>
+            <table>
+                <tbody>
+                <tr align="center">
+                    <td>
+                        <div align="center" dir="auto"><img
+                                src="./resources/images/10.gif" alt="10" width="100%"
+                                height="100%" style="max-width: 100%;"></div>
+                    </td>
+                    <td>
+                        <div align="center" dir="auto"><img
+                                src="./resources/images/11.gif" alt="11" width="100%"
+                                height="100%" style="max-width: 100%;"></div>
+                    </td>
+                    <td>
+                        <div align="center" dir="auto"><img
+                                src="./resources/images/12.gif" alt="12" width="100%"
+                                height="100%" style="max-width: 100%;"></a></div>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td>Sphere with a radius of 95 mm<br>Point cloud data 17W+<br>Radius error 0.678 mm<br>Calculation
+                        time 10-15s(CPU)
+                    </td>
+                    <td>Multi-object 3D reconstruction</td>
+                    <td>3D reconstruction of rail surface</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- First Section -->
+        <section id="demo" class="main special">
+            <header class="major">
+                <h2>💻 Demo</h2>
+            </header>
+            <p align="justify"><a href="./resources/demo/Reconstructionn.exe" style="color: #5f4d93">The software</a>ntegrates
+                the whole process of 3D reconstruction, and implements the three functions of system calibration, 3D
+                reconstruction and point cloud rendering. The software uses C++ as the development language and the
+                interface development is based on the QT framework, which relies on OpenCV and PCL (Point Cloud Library)
+                for image and point cloud data processing. It adopts some design patterns such as singleton pattern and
+                chain of responsibility pattern, etc.<a
+                        href="https://youtu.be/DM47pxDPks8" rel="nofollow"><img
+                        src="https://camo.githubusercontent.com/67593a55f3d492c11ce0353092816febaaaf63452e787d29d52bcc493f3b2d3b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f44656d6f2d202d2532334646303030303f636f6c6f72413d25323346463030303026636f6c6f72423d253233464630303030267374796c653d666f722d7468652d6261646765266c6f676f3d596f7554756265"
+                        data-canonical-src="https://img.shields.io/badge/Demo--%23FF0000?colorA=%23FF0000&amp;colorB=%23FF0000&amp;style=for-the-badge&amp;logo=YouTube"
+                        style="max-width: 100%;"></a></p>
+
+            <ul dir="auto" style="text-align: left">
+                <li>UI of System Calibration</li>
+            </ul>
+            <div align="center" dir="auto"><img
+                    src="./resources/images/13.jpg" alt="13" width="75%" height="75%"
+                    style="max-width: 100%;"></div>
+            <ul dir="auto" style="text-align: left">
+                <li>UI of 3D reconstruction</li>
+            </ul>
+            <div align="center" dir="auto"><img
+                    src="./resources/images/14.jpg" alt="14" width="75%" height="75%"
+                    style="max-width: 100%;"></div>
+            <ul dir="auto" style="text-align: left">
+                <li>UI of point cloud rendering</li>
+            </ul>
+            <div align="center" dir="auto"><img
+                    src="./resources/images/15.jpg" alt="15" width="75%" height="75%"
+                    style="max-width: 100%;"></div>
+        </section>
+
+        <!-- Second Section -->
+        <section id="config" class="main special">
+            <header class="major">
+                <h2>🔧 Configuration</h2>
+            </header>
+
+            <table>
+                <tbody>
+                <tr align="center">
+                    <td width="500px">Hardware</td>
+                    <td width="500px">Version</td>
+                </tr>
+                <tr align="center">
+                    <td>Point Grey Camera</td>
+                    <td>——</td>
+                </tr>
+                <tr align="center">
+                    <td>LightCrafter4500</td>
+                    <td>——</td>
+                </tr>
+                </tbody>
+            </table>
+            <table>
+                <tbody>
+                <tr align="center">
+                    <td width="500px">Software</td>
+                    <td width="500px">Version</td>
+                </tr>
+                <tr align="center">
+                    <td>Windows</td>
+                    <td>Windows 10</td>
+                </tr>
+                <tr align="center">
+                    <td>Visual Studio</td>
+                    <td>2017</td>
+                </tr>
+                <tr align="center">
+                    <td>QT</td>
+                    <td>5.12.3</td>
+                </tr>
+                <tr align="center">
+                    <td>OpenCV</td>
+                    <td>4.2.03</td>
+                </tr>
+                <tr align="center">
+                    <td>FlyCapture2</td>
+                    <td>2.12.3.2</td>
+                </tr>
+                <tr align="center">
+                    <td>PCL</td>
+                    <td>1.8.1</td>
+                </tr>
+                <tr align="center">
+                    <td>VTK</td>
+                    <td>8.0</td>
+                </tr>
+                </tbody>
+            </table>
+            <div align="justify" dir="auto" style="margin-bottom: 2rem">Note: Need to configure the environment
+                variables of the computer and the properties of the project in Visual Studio (VC++ directory-include
+                directory, VC++-library directory and linker-input-additional dependencies).
+            </div>
+
+            <ul class="statistics">
+                <li class="style1">
+                    <a href="https://tang5618.com/posts/viewer/web/viewer.html?file=https://tang5618.com/projects/happy-reconstruction/resources/doc/基于编码结构光的高铁轮轨姿态三维重建.pdf"><span class="icon solid fa-file-powerpoint"></span></a>
+                    <strong>Slide</strong>
+                </li>
+                <li class="style2">
+                    <a href="https://tang5618.com/posts/viewer/web/viewer.html?file=https://tang5618.com/projects/happy-reconstruction/resources/doc/poster.pdf"><span class="icon fa-file-pdf"></span></a>
+                    <strong>Poster</strong>
+                </li>
+                <li class="style3">
+                    <a href="https://tang5618.com/posts/viewer/web/viewer.html?file=https://tang5618.com/projects/happy-reconstruction/resources/doc/结构光三维重建软件用户手册.pdf"><span class="icon solid fa-file-word"></span></a>
+                    <strong>User Manual</strong>
+                </li>
+                <li class="style4">
+                    <a href="https://tang5618.com/posts/viewer/web/viewer.html?file=https://tang5618.com/projects/happy-reconstruction/resources/doc/结构光三维重建软件设计模式分析.pdf"><span class="icon solid fa-file-word"></span></a>
+                    <strong>Design Pattern</strong>
+                </li>
+
+            </ul>
+        </section>
+        <section id="lisence" class="main special">
+            <header class="major">
+                <h2>📜 License</h2>
+            </header>
+
+            <p dir="auto">The code is made available under the <a href="https://www.apache.org/licenses/LICENSE-2.0" rel="nofollow">Apache 2.0
+                License</a>.
+            </p>
+
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="./resources/js/jquery.min.js"></script>
+<script src="./resources/js/jquery.scrollex.min.js"></script>
+<script src="./resources/js/jquery.scrolly.min.js"></script>
+<script src="./resources/js/browser.min.js"></script>
+<script src="./resources/js/breakpoints.min.js"></script>
+<script src="./resources/js/util.js"></script>
+<script src="./resources/js/main.js"></script>
+
+</body>
+</html>

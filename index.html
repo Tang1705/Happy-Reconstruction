@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Tang's Projects</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no">
+<!--    <link rel="icon" href="../../bit_favicon.ico">-->
+    <link rel="stylesheet" href="./resources/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="./resources/css/noscript.css"/>
+    </noscript>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?217de636c0fae7938873b3189db7a42f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body class="is-preload">
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <span class="logo"><img src="resources/images/icon.png" width="160rem"
+                                alt="happy-reconstruction"/></span>
+        <h1>基于编码结构光的高铁轮轨姿态三维重建</h1>
+        <p>3D Reconstruction of High-Speed Rail-Wheel Based on Coded Structured Light<br/>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+        <ul>
+            <li><a href="#intro">项目概述</a></li>
+            <li><a href="#method">技术路线</a></li>
+            <li><a href="#metric">评价指标</a></li>
+            <li><a href="#demo">软件展示</a></li>
+            <li><a href="#config">开发配置</a></li>
+            <li><a href="#lisence">开源许可</a></li>
+            <li><a href="./index_en.html">English</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+
+        <!-- Introduction -->
+        <section id="intro" class="main special">
+            <div class="spotlight">
+                <div class="content">
+                    <header class="major">
+                        <h2>👁️‍🗨️ 基本概述</h2>
+                    </header>
+                    <p align="justify">
+                        高铁轮轨姿态反映了车轮与钢轨之间复杂的动态相互作用和约束关系，掌握他们之间真实接触姿态是保障高速铁路安全运营的重要基础。如何能够精确获得高铁轮轨姿态一直是国内铁路科研的热门研究领域。但单单从二维图像上获取轮轨接触姿态是不精确、不可靠的，而将轮轨表面的特征点提取出来，重建出一个三维模型能更加真实、准确地获得轮轨接触姿态。
+                    </p>
+                    <p align="left">
+                        由于高铁列车运行速度快，轮轨表面相对光滑且无明显特征点，给基于特征点提取的三维重建带来了极大挑战。
+                    </p>
+                    <p align="center">
+                        <img src="./resources/images/01.gif" alt="01" width="45%" height="45%"
+                             style="max-width: 100%;margin-right: 5rem"><img src="./resources/images/02.gif" alt="02"
+                                                                             width="45%" height="45%"
+                                                                             style="max-width: 100%;"></a>
+                        <br>
+                    </p>
+
+                    <p align="justify">
+                        三维重建技术是计算机视觉技术的一个重要分支，是计算机视觉和计算机图像图形学相结合的一个热门研究方向。根据测量时是否与被测物体接触，可分为接触式测量和非接触式测量。</p>
+
+                    <div align="center"><img src="./resources/images/03.png" alt="03" width="50%" height="50%"
+                                             style="max-width: 100%;"></div>
+
+                    <p align="justify">
+                        接触式测量方法虽然测量精度高，但测量效率低，速度慢，操作不当很容易损坏被测物体表面，而且由于探头有一定表面积，对表面复杂的物体难以测量，不具备普遍性和通用性。非接触式三维测量方式又可以分为两大类：主动式测量和被动式测量。前者是向目标物体表面投射设计好的图案，该图案由于物体的高度起伏引起一定的畸变，通过匹配畸变的图案获得目标物体的。后者是通过周围环境光对目标物体进行照射，然后检测目标物体的特征点以得到其数据。非接触式测量方式以其无损坏、测量速度高、简单等优点已成为三维轮廓测量的研究趋势。</p>
+
+                    <p align="justify">
+                        项目采用的编码结构光法利用投影仪投射出的一定模式的编码结构光图案对目标物体进行编码，利用摄像机获取物体图像，通过计算机对所得图像进行解码处理，利用摄像机中的图像点和投影仪中的点对应关系计算物体表面点的空间坐标，获得物体的三维信息，从而还原物体三维形状，结构光系统如下图所示。</p>
+
+                    <div align="center" style="margin-bottom: 2rem"><img src="./resources/images/04.png" alt="04"
+                                                                         width="80%" height="80%"
+                                                                         style="max-width: 100%;"></div>
+
+                    <p>编码结构光法三维重建技术主要由系统标定、结构光编码、图像获取、结构光解码和三维坐标计算等5个关键技术组成。</p>
+
+                    <div align="center"><img src="./resources/images/05.png" alt="05" width="80%" height="80%"
+                                             style="max-width: 100%;"></div>
+
+                    <ul style="text-align:justify;" dir="auto">
+                        <li>系统标定：系统由摄像机、投影仪和计算机组成，标定的目标是计算摄像机和投影仪内参矩阵、镜头畸变系数和两者之间相对位置的外参矩阵；</li>
+                        <li>结构光编码：通过编码的方式使图像每一点的“身份”可以被识别；</li>
+                        <li>图像获取：投影仪向物体投射编码结构光图案，图案会随物体表面形状的调制而发生畸变，摄像机拍摄被物体调制过的结构光图像，变形的图像反映了物体表面形状的三维信息；</li>
+                        <li>结构光解码：对捕获的结构光图像进行解码，解码的方法取决于编码的方法，目的是建立相机平面和投影平面特征点之间的对应关系；</li>
+                        <li>三维坐标计算：利用解码算法得出的特征点对应关系和系统标定结果，基于三角测量原理求出特征点的三维信息。</li>
+                    </ul>
+
+                    <p align="justify">
+                        结构光的编码方式主要有时间编码和空间编码两种。时间编码虽具有较好的重建精度，但由于需要向物体表面投射多张图片，所以对于运动物体来说时间编码的结构光重建不是一个好的选择。空间编码相较于时间编码重建精度较低，但由于只需投射一张图片，所以常常用于动态物体的物体重建。</p>
+
+                    <p align="justify">
+                        综上所述，针对项目中轮轨表面光滑，特征点不易提取的难点，可以通过向物体表面投射编码图案，人为地增加物体表面的特征点。由于空间编码只需单次投影，适合对高速运动的高铁轮轨进行重建。因此，本项目主要研究通过空间编码结构光方法获得相对更高精度和高密度的三维点云（点云，即物体表面特征点的集合，这些点包含了物体表面的三维坐标及颜色等信息）。</p>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="method" class="main special">
+            <header class="major">
+                <h2>📷 技术路线</h2>
+            </header>
+            <table>
+                <tbody>
+                <tr>
+                    <td width="600rem">
+                        <div align="center"><img src="./resources/images/06.png" alt="06" height="100%" width="100%"
+                                                 style="max-width: 100%;"></div>
+                    </td>
+                    <td align="left">项目主要创新点如下：
+                        <ul>
+                            <li><b>亚像素级条纹中心的提取</b>：设计实现了编码结构光图案以及适用于该图案的条纹中心点提取算法，将条纹中心点精确到亚像素级别</li>
+                            <li><b>通过小波变换增加点云稠密度</b>：提出了加窗傅里叶变化对条纹相位分析的改进方法，采用用基于广义 Morse
+                                小波的小波变换进行分析，获得非中心点的相位信息，增加点云稠密度
+                            </li>
+                            <li><b>构建三维重建全流程平台</b>：将上述算法与点云可视化封装成结构光三维重建软件，完成了铁轨及多个几何体的三维重建，预期可用于轮轨姿态重建和可视化</li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table>
+                <tbody>
+                <tr>
+                    <td>编码图案</td>
+                    <td align="left">在 HSV 颜色空间下对编码图案进行设计，图案由彩色正弦条纹图案组成
+                        <ul dir="auto">
+                            <li> H 通道以 𝐵(3,4) 序列进行编码，条纹作为编码图案的基本元素，不同的数值分别对应红、蓝、绿三种颜色</li>
+                            <li> S 通道设定为1</li>
+                            <li> V 通道按照给定的余弦函数计算每一个像素点的值</li>
+                        </ul>
+                        <p dir="auto">编码图案共64条条纹，条纹宽度14 𝑝𝑖𝑥𝑒𝑙，以条纹中心点作为投影图案的特征点</p>
+                        <g-emoji class="g-emoji" alias="clubs"
+                                 fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2663.png">♣
+                        </g-emoji>
+                        𝐷𝑒 𝐵𝑟𝑢𝑖𝑗𝑛 序列由 𝑛 种不同元素构成，任意长度为 𝑚 的连续子序列只出现一次
+                    </td>
+                    <td>
+                        <div align="center" dir="auto"><img
+                                src="./resources/images/07.png" alt="07" width="100%"
+                                height="100%" style="max-width: 100%;"></div>
+                    </td>
+                </tr>
+                <tr align="justify">
+                    <td>德布鲁因分析</td>
+                    <td>在对灰度图像进行预处理后，为获得条纹中心点的位置，采用局部最大值算法从类似“高斯”形状的条纹灰度图像中提取图像每一行的局部最大值（以亚像素精度检测），局部最大值点即为条纹的中心点。在
+                        𝐿𝑎𝑏 颜色空间下，对条纹中心点的颜色进行分类，在 4×1 的窗口中，即可获得条纹中心点在投影图案的对应位置。
+                    </td>
+                    <td width="400rem">
+                        <div align="center" dir="auto"><img
+                                src="./resources/images/08.png" alt="08" width="100%"
+                                height="100%" style="max-width: 100%;"></div>
+                    </td>
+                </tr>
+                <tr align="justify">
+                    <td>小波变换分析</td>
+                    <td>V
+                        通道的变化满足给定的余弦函数，包含了条纹非中心点的相位信息。但图案经过物体的调制，原本平稳的信号发生了改变。小波变换方法作为一个非平稳信号处理方法，被引入到许多信号处理领域，包括从条纹图中提取相位。综合对比了一维和二维的窗口傅里叶变换、小波变换等方法，出于对重建精度和速度的考虑，选择一维小波变换的方法。广义
+                        Morse 小波具有灵活的时频局部特性及严格解析性，且测量物体 3D 轮廓效果优于目前流行的用复 Morlet 小波作为母小波。
+                    </td>
+                    <td>
+                        <div align="center" dir="auto"><img
+                                src="./resources/images/09.png" alt="09" width="100%"
+                                height="100%" style="max-width: 100%;"></div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </section>
+        <section id="metric" class="main special">
+            <header class="major">
+                <h2>📽️ 评价指标</h2>
+            </header>
+            <table>
+                <tbody>
+                <tr align="center">
+                    <td>
+                        <div align="center" dir="auto"><img
+                                src="./resources/images/10.gif" alt="10" width="100%"
+                                height="100%" style="max-width: 100%;"></div>
+                    </td>
+                    <td>
+                        <div align="center" dir="auto"><img
+                                src="./resources/images/11.gif" alt="11" width="100%"
+                                height="100%" style="max-width: 100%;"></div>
+                    </td>
+                    <td>
+                        <div align="center" dir="auto"><img
+                                src="./resources/images/12.gif" alt="12" width="100%"
+                                height="100%" style="max-width: 100%;"></a></div>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td>半径95mm的球体<br>表面点云17W+<br>半径误差0.678mm<br>运算时间10-15s(CPU)</td>
+                    <td>多物体三维重建</td>
+                    <td>铁轨表面三维重建</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+        <!-- First Section -->
+        <section id="demo" class="main special">
+            <header class="major">
+                <h2>💻 软件展示</h2>
+            </header>
+            <p align="justify"><a href="./resources/demo/Reconstructionn.exe" style="color: #5f4d93">软件</a>集三维重建整个流程为一体，主要实现系统（相机与投影仪）标定、三维重建和点云渲染三个功能。软件以
+                C++ 作为开发语言并基于 QT 框架进行界面开发，依赖于 OpenCV 和 PCL (Point Cloud Library) 进行图像和点云数据处理。在开发上采用了单例模式、责任链模式等设计模式。 <a
+                        href="https://youtu.be/DM47pxDPks8" rel="nofollow"><img
+                        src="https://camo.githubusercontent.com/67593a55f3d492c11ce0353092816febaaaf63452e787d29d52bcc493f3b2d3b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f44656d6f2d202d2532334646303030303f636f6c6f72413d25323346463030303026636f6c6f72423d253233464630303030267374796c653d666f722d7468652d6261646765266c6f676f3d596f7554756265"
+                        data-canonical-src="https://img.shields.io/badge/Demo- -%23FF0000?colorA=%23FF0000&amp;colorB=%23FF0000&amp;style=for-the-badge&amp;logo=YouTube"
+                        style="max-width: 100%;"></a></p>
+
+            <ul dir="auto" style="text-align: left">
+                <li>系统标定界面</li>
+            </ul>
+            <div align="center" dir="auto"><img
+                    src="./resources/images/13.jpg" alt="13" width="75%" height="75%"
+                    style="max-width: 100%;"></div>
+            <ul dir="auto" style="text-align: left">
+                <li>三维重建界面</li>
+            </ul>
+            <div align="center" dir="auto"><img
+                    src="./resources/images/14.jpg" alt="14" width="75%" height="75%"
+                    style="max-width: 100%;"></div>
+            <ul dir="auto" style="text-align: left">
+                <li>点云渲染界面</li>
+            </ul>
+            <div align="center" dir="auto"><img
+                    src="./resources/images/15.jpg" alt="15" width="75%" height="75%"
+                    style="max-width: 100%;"></div>
+        </section>
+
+        <!-- Second Section -->
+        <section id="config" class="main special">
+            <header class="major">
+                <h2>🔧 开发配置</h2>
+            </header>
+
+            <table>
+                <tbody>
+                <tr align="center">
+                    <td width="500px">硬件环境</td>
+                    <td width="500px">版本</td>
+                </tr>
+                <tr align="center">
+                    <td>Point Grey Camera</td>
+                    <td>——</td>
+                </tr>
+                <tr align="center">
+                    <td>LightCrafter4500</td>
+                    <td>——</td>
+                </tr>
+                </tbody>
+            </table>
+            <table>
+                <tbody>
+                <tr align="center">
+                    <td width="500px">软件环境</td>
+                    <td width="500px">版本</td>
+                </tr>
+                <tr align="center">
+                    <td>Windows</td>
+                    <td>Windows 10</td>
+                </tr>
+                <tr align="center">
+                    <td>Visual Studio</td>
+                    <td>2017</td>
+                </tr>
+                <tr align="center">
+                    <td>QT</td>
+                    <td>5.12.3</td>
+                </tr>
+                <tr align="center">
+                    <td>OpenCV</td>
+                    <td>4.2.03</td>
+                </tr>
+                <tr align="center">
+                    <td>FlyCapture2</td>
+                    <td>2.12.3.2</td>
+                </tr>
+                <tr align="center">
+                    <td>PCL</td>
+                    <td>1.8.1</td>
+                </tr>
+                <tr align="center">
+                    <td>VTK</td>
+                    <td>8.0</td>
+                </tr>
+                </tbody>
+            </table>
+            <div align="justify" dir="auto" style="margin-bottom: 2rem">说明：需配置电脑的环境变量、Visual Studio 中项目的属性（VC++
+                目录-包含目录、VC++ -库目录和链接器-输入-附加依赖性）
+            </div>
+
+            <ul class="statistics">
+                <li class="style1">
+                    <a href="https://tang5618.com/posts/viewer/web/viewer.html?file=https://tang5618.com/projects/happy-reconstruction/resources/doc/基于编码结构光的高铁轮轨姿态三维重建.pdf"><span class="icon solid fa-file-powerpoint"></span></a>
+                    <strong>演示文稿</strong>
+                </li>
+                <li class="style2">
+                    <a href="https://tang5618.com/posts/viewer/web/viewer.html?file=https://tang5618.com/projects/happy-reconstruction/resources/doc/poster.pdf"><span class="icon fa-file-pdf"></span></a>
+                    <strong>宣传手册</strong>
+                </li>
+                <li class="style3">
+                    <a href="https://tang5618.com/posts/viewer/web/viewer.html?file=https://tang5618.com/projects/happy-reconstruction/resources/doc/结构光三维重建软件用户手册.pdf"><span class="icon solid fa-file-word"></span></a>
+                    <strong>用户手册</strong>
+                </li>
+                <li class="style4">
+                    <a href="https://tang5618.com/posts/viewer/web/viewer.html?file=https://tang5618.com/projects/happy-reconstruction/resources/doc/结构光三维重建软件设计模式分析.pdf"><span class="icon solid fa-file-word"></span></a>
+                    <strong>设计模式</strong>
+                </li>
+
+            </ul>
+        </section>
+        <section id="lisence" class="main special">
+            <header class="major">
+                <h2>📜 开源许可</h2>
+            </header>
+
+            <p dir="auto">代码在 <a href="https://www.apache.org/licenses/LICENSE-2.0" rel="nofollow">Apache 2.0
+                License</a> 下可用
+            </p>
+
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="./resources/js/jquery.min.js"></script>
+<script src="./resources/js/jquery.scrollex.min.js"></script>
+<script src="./resources/js/jquery.scrolly.min.js"></script>
+<script src="./resources/js/browser.min.js"></script>
+<script src="./resources/js/breakpoints.min.js"></script>
+<script src="./resources/js/util.js"></script>
+<script src="./resources/js/main.js"></script>
+
+</body>
+</html>
