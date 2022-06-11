@@ -136,3 +136,8 @@ In summary, given the difficulty in the project that the surface of the wheel an
 ## 📜 License
 
 The code is made available under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0).
+                            
+## 🔒 Copyright
+                            
+It is applied for a software copyright (Structured Light 3D Reconstruction Software V1.0, registration number: 2022SR0655971)
+                            
