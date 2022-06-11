@@ -136,3 +136,7 @@
 
 代码在 [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) 下可用
 
+## 🔒 软件著作
+
+登记软件著作权一项，登记号 2022SR0655971
+
